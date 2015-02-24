@@ -1,0 +1,536 @@
+"type","occupation","women_workers","women_earnings","men_workers","men_earnings","year"
+"Management, professional, and related","Chief executives",286,1811,764,2266,2013
+"Management, professional, and related","General and operations managers",250,1161,698,1444,2013
+"Management, professional, and related","Legislators",4,,6,,2013
+"Management, professional, and related","Advertising and promotions managers",35,,18,,2013
+"Management, professional, and related","Marketing and sales managers",353,1124,476,1658,2013
+"Management, professional, and related","Public relations and fundraising managers",29,,21,,2013
+"Management, professional, and related","Administrative services managers",38,,71,1232,2013
+"Management, professional, and related","Computer and information systems managers",163,1549,407,1769,2013
+"Management, professional, and related","Financial managers",613,1064,514,1518,2013
+"Management, professional, and related","Compensation and benefits managers",8,,3,,2013
+"Management, professional, and related","Human resources managers",152,1240,60,1536,2013
+"Management, professional, and related","Training and development managers",17,,16,,2013
+"Management, professional, and related","Industrial production managers",41,,215,1352,2013
+"Management, professional, and related","Purchasing managers",89,1290,92,1441,2013
+"Management, professional, and related","Transportation, storage, and distribution managers",58,920,194,1029,2013
+"Management, professional, and related","Farmers, ranchers, and other agricultural managers",19,,78,716,2013
+"Management, professional, and related","Construction managers",38,,376,1328,2013
+"Management, professional, and related","Education administrators",450,1130,248,1543,2013
+"Management, professional, and related","Architectural and engineering managers",13,,104,1898,2013
+"Management, professional, and related","Food service managers",335,620,381,801,2013
+"Management, professional, and related","Funeral service managers",3,,1,,2013
+"Management, professional, and related","Gaming managers",4,,12,,2013
+"Management, professional, and related","Lodging managers",53,858,45,,2013
+"Management, professional, and related","Medical and health services managers",375,1224,154,1412,2013
+"Management, professional, and related","Natural sciences managers",4,,8,,2013
+"Management, professional, and related","Postmasters and mail superintendents",17,,13,,2013
+"Management, professional, and related","Property, real estate, and community association managers",198,784,161,1068,2013
+"Management, professional, and related","Social and community service managers",185,1004,94,1150,2013
+"Management, professional, and related","Emergency management directors",3,,6,,2013
+"Management, professional, and related","Managers, all other",905,1105,1527,1399,2013
+"Management, professional, and related","Agents and business managers of artists, performers, and athletes",18,,20,,2013
+"Management, professional, and related","Buyers and purchasing agents, farm products",5,,11,,2013
+"Management, professional, and related","Wholesale and retail buyers, except farm products",88,930,71,871,2013
+"Management, professional, and related","Purchasing agents, except wholesale, retail, and farm products",151,912,112,1116,2013
+"Management, professional, and related","Claims adjusters, appraisers, examiners, and investigators",195,838,104,1144,2013
+"Management, professional, and related","Compliance officers",99,1081,83,1170,2013
+"Management, professional, and related","Cost estimators",13,,89,1071,2013
+"Management, professional, and related","Human resources workers",366,958,131,1139,2013
+"Management, professional, and related","Compensation, benefits, and job analysis specialists",59,1010,14,,2013
+"Management, professional, and related","Training and development specialists",62,979,47,,2013
+"Management, professional, and related","Logisticians",33,,58,1045,2013
+"Management, professional, and related","Management analysts",229,1319,318,1614,2013
+"Management, professional, and related","Meeting, convention, and event planners",80,901,15,,2013
+"Management, professional, and related","Fundraisers",58,1084,22,,2013
+"Management, professional, and related","Market research analysts and marketing specialists",110,967,80,1171,2013
+"Management, professional, and related","Business operations specialists, all other",110,899,69,1226,2013
+"Management, professional, and related","Accountants and auditors",945,1029,571,1268,2013
+"Management, professional, and related","Appraisers and assessors of real estate",27,,33,,2013
+"Management, professional, and related","Budget analysts",26,,31,,2013
+"Management, professional, and related","Credit analysts",19,,12,,2013
+"Management, professional, and related","Financial analysts",33,,56,1757,2013
+"Management, professional, and related","Personal financial advisors",72,1149,215,1565,2013
+"Management, professional, and related","Insurance underwriters",61,879,37,,2013
+"Management, professional, and related","Financial examiners",6,,4,,2013
+"Management, professional, and related","Credit counselors and loan officers",208,864,152,1162,2013
+"Management, professional, and related","Tax examiners and collectors, and revenue agents",43,,19,,2013
+"Management, professional, and related","Tax preparers",34,,22,,2013
+"Management, professional, and related","Financial specialists, all other",49,,38,,2013
+"Management, professional, and related","Computer and information research scientists",3,,12,,2013
+"Management, professional, and related","Computer systems analysts",158,1216,285,1455,2013
+"Management, professional, and related","Information security analysts",10,,43,,2013
+"Management, professional, and related","Computer programmers",106,1162,332,1428,2013
+"Management, professional, and related","Software developers, applications and systems software",209,1370,844,1737,2013
+"Management, professional, and related","Web developers",53,937,84,1157,2013
+"Management, professional, and related","Computer support specialists",134,901,340,1019,2013
+"Management, professional, and related","Database administrators",30,,65,1563,2013
+"Management, professional, and related","Network and computer systems administrators",37,,173,1252,2013
+"Management, professional, and related","Computer network architects",9,,122,1593,2013
+"Management, professional, and related","Computer occupations, all other",81,1176,277,1136,2013
+"Management, professional, and related","Actuaries",9,,17,,2013
+"Management, professional, and related","Mathematicians",0,,2,,2013
+"Management, professional, and related","Operations research analysts",63,1313,56,1569,2013
+"Management, professional, and related","Statisticians",23,,42,,2013
+"Management, professional, and related","Miscellaneous mathematical science occupations",1,,0,,2013
+"Management, professional, and related","Architects, except naval",30,,88,1347,2013
+"Management, professional, and related","Surveyors, cartographers, and photogrammetrists",9,,22,,2013
+"Management, professional, and related","Aerospace engineers",13,,124,1873,2013
+"Management, professional, and related","Agricultural engineers",0,,3,,2013
+"Management, professional, and related","Biomedical engineers",2,,9,,2013
+"Management, professional, and related","Chemical engineers",8,,48,,2013
+"Management, professional, and related","Civil engineers",36,,288,1417,2013
+"Management, professional, and related","Computer hardware engineers",10,,82,1544,2013
+"Management, professional, and related","Electrical and electronics engineers",21,,247,1514,2013
+"Management, professional, and related","Environmental engineers",6,,22,,2013
+"Management, professional, and related","Industrial engineers, including health and safety",30,,151,1417,2013
+"Management, professional, and related","Marine engineers and naval architects",0,,12,,2013
+"Management, professional, and related","Materials engineers",7,,36,,2013
+"Management, professional, and related","Mechanical engineers",24,,273,1554,2013
+"Management, professional, and related","Mining and geological engineers, including mining safety engineers",2,,13,,2013
+"Management, professional, and related","Nuclear engineers",0,,4,,2013
+"Management, professional, and related","Petroleum engineers",2,,33,,2013
+"Management, professional, and related","Engineers, all other",48,,322,1561,2013
+"Management, professional, and related","Drafters",20,,85,991,2013
+"Management, professional, and related","Engineering technicians, except drafters",59,934,302,1027,2013
+"Management, professional, and related","Surveying and mapping technicians",5,,43,,2013
+"Management, professional, and related","Agricultural and food scientists",12,,19,,2013
+"Management, professional, and related","Biological scientists",53,1104,54,1233,2013
+"Management, professional, and related","Conservation scientists and foresters",5,,23,,2013
+"Management, professional, and related","Medical scientists",73,1142,58,1430,2013
+"Management, professional, and related","Life scientists, all other",0,,1,,2013
+"Management, professional, and related","Astronomers and physicists",1,,13,,2013
+"Management, professional, and related","Atmospheric and space scientists",2,,9,,2013
+"Management, professional, and related","Chemists and materials scientists",42,,68,1380,2013
+"Management, professional, and related","Environmental scientists and geoscientists",18,,58,1392,2013
+"Management, professional, and related","Physical scientists, all other",44,,88,1597,2013
+"Management, professional, and related","Economists",14,,15,,2013
+"Management, professional, and related","Survey researchers",1,,0,,2013
+"Management, professional, and related","Psychologists",69,1178,27,,2013
+"Management, professional, and related","Sociologists",3,,2,,2013
+"Management, professional, and related","Urban and regional planners",7,,12,,2013
+"Management, professional, and related","Miscellaneous social scientists and related workers",18,,22,,2013
+"Management, professional, and related","Agricultural and food science technicians",12,,12,,2013
+"Management, professional, and related","Biological technicians",8,,9,,2013
+"Management, professional, and related","Chemical technicians",21,,41,,2013
+"Management, professional, and related","Geological and petroleum technicians",5,,18,,2013
+"Management, professional, and related","Nuclear technicians",1,,0,,2013
+"Management, professional, and related","Social science research assistants",1,,2,,2013
+"Management, professional, and related","Miscellaneous life, physical, and social science technicians",47,,59,911,2013
+"Management, professional, and related","Counselors",391,884,178,889,2013
+"Management, professional, and related","Social workers",507,818,129,978,2013
+"Management, professional, and related","Probation officers and correctional treatment specialists",43,,62,927,2013
+"Management, professional, and related","Social and human service assistants",68,641,34,,2013
+"Management, professional, and related","Miscellaneous community and social service specialists, including health educators and community health workers",64,740,19,,2013
+"Management, professional, and related","Clergy",47,,296,968,2013
+"Management, professional, and related","Directors, religious activities and education",21,,20,,2013
+"Management, professional, and related","Religious workers, all other",17,,17,,2013
+"Management, professional, and related","Lawyers",247,1566,463,1986,2013
+"Management, professional, and related","Judicial law clerks",6,,3,,2013
+"Management, professional, and related","Judges, magistrates, and other judicial workers",19,,30,,2013
+"Management, professional, and related","Paralegals and legal assistants",287,825,50,923,2013
+"Management, professional, and related","Miscellaneous legal support workers",148,787,51,1013,2013
+"Management, professional, and related","Postsecondary teachers",424,1100,469,1338,2013
+"Management, professional, and related","Preschool and kindergarten teachers",484,624,12,,2013
+"Management, professional, and related","Elementary and middle school teachers",2138,937,531,1025,2013
+"Management, professional, and related","Secondary school teachers",529,986,427,1093,2013
+"Management, professional, and related","Special education teachers",271,944,65,977,2013
+"Management, professional, and related","Other teachers and instructors",187,729,149,1055,2013
+"Management, professional, and related","Archivists, curators, and museum technicians",20,,13,,2013
+"Management, professional, and related","Librarians",121,905,28,,2013
+"Management, professional, and related","Library technicians",14,,4,,2013
+"Management, professional, and related","Teacher assistants",501,475,70,501,2013
+"Management, professional, and related","Other education, training, and library workers",91,992,39,,2013
+"Management, professional, and related","Artists and related workers",25,,38,,2013
+"Management, professional, and related","Designers",244,866,270,1095,2013
+"Management, professional, and related","Actors",10,,8,,2013
+"Management, professional, and related","Producers and directors",38,,66,1331,2013
+"Management, professional, and related","Athletes, coaches, umpires, and related workers",29,,86,934,2013
+"Management, professional, and related","Dancers and choreographers",1,,0,,2013
+"Management, professional, and related","Musicians, singers, and related workers",13,,33,,2013
+"Management, professional, and related","Entertainers and performers, sports and related workers, all other",7,,2,,2013
+"Management, professional, and related","Announcers",6,,13,,2013
+"Management, professional, and related","News analysts, reporters and correspondents",22,,46,,2013
+"Management, professional, and related","Public relations specialists",68,921,41,,2013
+"Management, professional, and related","Editors",59,988,53,1239,2013
+"Management, professional, and related","Technical writers",30,,27,,2013
+"Management, professional, and related","Writers and authors",40,,39,,2013
+"Management, professional, and related","Miscellaneous media and communication workers",24,,8,,2013
+"Management, professional, and related","Broadcast and sound engineering technicians and radio operators",7,,61,1029,2013
+"Management, professional, and related","Photographers",17,,31,,2013
+"Management, professional, and related","Television, video, and motion picture camera operators and editors",6,,38,,2013
+"Management, professional, and related","Media and communication equipment workers, all other",0,,1,,2013
+"Management, professional, and related","Chiropractors",1,,12,,2013
+"Management, professional, and related","Dentists",18,,37,,2013
+"Management, professional, and related","Dietitians and nutritionists",71,864,10,,2013
+"Management, professional, and related","Optometrists",2,,11,,2013
+"Management, professional, and related","Pharmacists",117,1802,98,2092,2013
+"Management, professional, and related","Physicians and surgeons",241,1497,426,2087,2013
+"Management, professional, and related","Physician assistants",67,1491,36,,2013
+"Management, professional, and related","Podiatrists",3,,1,,2013
+"Management, professional, and related","Audiologists",7,,3,,2013
+"Management, professional, and related","Occupational therapists",68,1240,11,,2013
+"Management, professional, and related","Physical therapists",87,1300,74,1457,2013
+"Management, professional, and related","Radiation therapists",8,,4,,2013
+"Management, professional, and related","Recreational therapists",8,,2,,2013
+"Management, professional, and related","Respiratory therapists",52,1059,44,,2013
+"Management, professional, and related","Speech-language pathologists",93,1191,5,,2013
+"Management, professional, and related","Exercise physiologists",3,,1,,2013
+"Management, professional, and related","Therapists, all other",77,870,19,,2013
+"Management, professional, and related","Veterinarians",23,,18,,2013
+"Management, professional, and related","Registered nurses",2023,1086,254,1236,2013
+"Management, professional, and related","Nurse anesthetists",14,,7,,2013
+"Management, professional, and related","Nurse midwives",3,,0,,2013
+"Management, professional, and related","Nurse practitioners",91,1539,11,,2013
+"Management, professional, and related","Health diagnosing and treating practitioners, all other",6,,1,,2013
+"Management, professional, and related","Clinical laboratory technologists and technicians",226,858,81,980,2013
+"Management, professional, and related","Dental hygienists",80,1011,2,,2013
+"Management, professional, and related","Diagnostic related technologists and technicians",195,909,92,959,2013
+"Management, professional, and related","Emergency medical technicians and paramedics",58,785,82,832,2013
+"Management, professional, and related","Health practitioner support technologists and technicians",337,613,78,664,2013
+"Management, professional, and related","Licensed practical and licensed vocational nurses",404,732,40,,2013
+"Management, professional, and related","Medical records and health information technicians",72,595,6,,2013
+"Management, professional, and related","Opticians, dispensing",25,,13,,2013
+"Management, professional, and related","Miscellaneous health technologists and technicians",73,782,41,,2013
+"Management, professional, and related","Other healthcare practitioners and technical occupations",31,,37,,2013
+"Service","Nursing, psychiatric, and home health aides",1207,450,186,499,2013
+"Service","Occupational therapy assistants and aides",11,,0,,2013
+"Service","Physical therapist assistants and aides",26,,13,,2013
+"Service","Massage therapists",32,,15,,2013
+"Service","Dental assistants",174,571,7,,2013
+"Service","Medical assistants",339,523,26,,2013
+"Service","Medical transcriptionists",33,,1,,2013
+"Service","Pharmacy aides",19,,3,,2013
+"Service","Veterinary assistants and laboratory animal caretakers",20,,3,,2013
+"Service","Phlebotomists",77,573,19,,2013
+"Service","Miscellaneous healthcare support occupations, including medical equipment preparers",81,440,31,,2013
+"Service","First-line supervisors of correctional officers",5,,28,,2013
+"Service","First-line supervisors of police and detectives",17,,97,1182,2013
+"Service","First-line supervisors of fire fighting and prevention workers",0,,60,1082,2013
+"Service","First-line supervisors of protective service workers, all other",25,,57,788,2013
+"Service","Firefighters",9,,285,1000,2013
+"Service","Fire inspectors",1,,17,,2013
+"Service","Bailiffs, correctional officers, and jailers",120,599,298,729,2013
+"Service","Detectives and criminal investigators",30,,128,1120,2013
+"Service","Fish and game wardens",1,,1,,2013
+"Service","Parking enforcement workers",2,,4,,2013
+"Service","Police and sheriff's patrol officers",89,881,593,1032,2013
+"Service","Transit and railroad police",0,,2,,2013
+"Service","Animal control workers",4,,6,,2013
+"Service","Private detectives and investigators",32,,40,,2013
+"Service","Security guards and gaming surveillance officers",125,500,517,549,2013
+"Service","Crossing guards",7,,7,,2013
+"Service","Transportation security screeners",10,,16,,2013
+"Service","Lifeguards and other recreational, and all other protective service workers",36,,16,,2013
+"Service","Chefs and head cooks",69,510,282,589,2013
+"Service","First-line supervisors of food preparation and serving workers",249,448,174,580,2013
+"Service","Cooks",418,382,791,411,2013
+"Service","Food preparation workers",191,380,206,392,2013
+"Service","Bartenders",109,483,98,594,2013
+"Service","Combined food preparation and serving workers, including fast food",107,370,68,413,2013
+"Service","Counter attendants, cafeteria, food concession, and coffee shop",43,,14,,2013
+"Service","Waiters and waitresses",558,400,325,449,2013
+"Service","Food servers, nonrestaurant",74,410,36,,2013
+"Service","Dining room and cafeteria attendants and bartender helpers",55,398,76,426,2013
+"Service","Dishwashers",21,,106,359,2013
+"Service","Hosts and hostesses, restaurant, lounge, and coffee shop",60,391,9,,2013
+"Service","Food preparation and serving related workers, all other",0,,1,,2013
+"Service","First-line supervisors of housekeeping and janitorial workers",78,511,108,801,2013
+"Service","First-line supervisors of landscaping, lawn service, and groundskeeping workers",5,,99,759,2013
+"Service","Janitors and building cleaners",421,418,1116,517,2013
+"Service","Maids and housekeeping cleaners",605,406,128,467,2013
+"Service","Pest control workers",2,,60,606,2013
+"Service","Grounds maintenance workers",31,,768,441,2013
+"Service","First-line supervisors of gaming workers",48,,49,,2013
+"Service","First-line supervisors of personal service workers",44,,28,,2013
+"Service","Animal trainers",5,,3,,2013
+"Service","Nonfarm animal caretakers",57,468,22,,2013
+"Service","Gaming services workers",39,,35,,2013
+"Service","Motion picture projectionists",2,,1,,2013
+"Service","Ushers, lobby attendants, and ticket takers",5,,4,,2013
+"Service","Miscellaneous entertainment attendants and related workers",37,,37,,2013
+"Service","Embalmers and funeral attendants",6,,5,,2013
+"Service","Morticians, undertakers, and funeral directors",7,,21,,2013
+"Service","Barbers",9,,51,369,2013
+"Service","Hairdressers, hairstylists, and cosmetologists",308,485,21,,2013
+"Service","Miscellaneous personal appearance workers",136,480,34,,2013
+"Service","Baggage porters, bellhops, and concierges",10,,60,495,2013
+"Service","Tour and travel guides",13,,8,,2013
+"Service","Childcare workers",410,418,31,,2013
+"Service","Personal care aides",539,445,119,470,2013
+"Service","Recreation and fitness workers",123,523,90,561,2013
+"Service","Residential advisors",18,,13,,2013
+"Service","Personal care and service workers, all other",13,,22,,2013
+"Sales and office","First-line supervisors of retail sales workers",981,612,1338,778,2013
+"Sales and office","First-line supervisors of non-retail sales workers",217,934,540,1004,2013
+"Sales and office","Cashiers",932,379,418,426,2013
+"Sales and office","Counter and rental clerks",24,,35,,2013
+"Sales and office","Parts salespersons",8,,75,665,2013
+"Sales and office","Retail salespersons",737,485,1092,719,2013
+"Sales and office","Advertising sales agents",96,868,110,1005,2013
+"Sales and office","Insurance sales agents",216,733,216,1029,2013
+"Sales and office","Securities, commodities, and financial services sales agents",75,863,145,1389,2013
+"Sales and office","Travel agents",32,,10,,2013
+"Sales and office","Sales representatives, services, all other",106,766,242,1013,2013
+"Sales and office","Sales representatives, wholesale and manufacturing",247,859,838,1131,2013
+"Sales and office","Models, demonstrators, and product promoters",13,,11,,2013
+"Sales and office","Real estate brokers and sales agents",209,756,148,928,2013
+"Sales and office","Sales engineers",4,,29,,2013
+"Sales and office","Telemarketers",32,,18,,2013
+"Sales and office","Door-to-door sales workers, news and street vendors, and related workers",11,,23,,2013
+"Sales and office","Sales and related workers, all other",65,724,85,1161,2013
+"Sales and office","First-line supervisors of office and administrative support workers",828,748,395,846,2013
+"Sales and office","Switchboard operators, including answering service",16,,6,,2013
+"Sales and office","Telephone operators",17,,3,,2013
+"Sales and office","Communications equipment operators, all other",2,,0,,2013
+"Sales and office","Bill and account collectors",111,586,45,,2013
+"Sales and office","Billing and posting clerks",380,629,42,,2013
+"Sales and office","Bookkeeping, accounting, and auditing clerks",702,670,102,751,2013
+"Sales and office","Gaming cage workers",6,,6,,2013
+"Sales and office","Payroll and timekeeping clerks",118,727,9,,2013
+"Sales and office","Procurement clerks",18,,12,,2013
+"Sales and office","Tellers",229,494,36,,2013
+"Sales and office","Financial clerks, all other",34,,20,,2013
+"Sales and office","Brokerage clerks",1,,1,,2013
+"Sales and office","Correspondence clerks",7,,4,,2013
+"Sales and office","Court, municipal, and license clerks",53,665,21,,2013
+"Sales and office","Credit authorizers, checkers, and clerks",30,,10,,2013
+"Sales and office","Customer service representatives",1068,616,547,639,2013
+"Sales and office","Eligibility interviewers, government programs",60,746,15,,2013
+"Sales and office","File clerks",140,604,42,,2013
+"Sales and office","Hotel, motel, and resort desk clerks",50,417,21,,2013
+"Sales and office","Interviewers, except eligibility and loan",89,605,21,,2013
+"Sales and office","Library assistants, clerical",42,,8,,2013
+"Sales and office","Loan interviewers and clerks",129,688,29,,2013
+"Sales and office","New accounts clerks",26,,3,,2013
+"Sales and office","Order clerks",42,,37,,2013
+"Sales and office","Human resources assistants, except payroll and timekeeping",103,873,26,,2013
+"Sales and office","Receptionists and information clerks",828,527,73,600,2013
+"Sales and office","Reservation and transportation ticket agents and travel clerks",54,620,46,,2013
+"Sales and office","Information and record clerks, all other",62,727,23,,2013
+"Sales and office","Cargo and freight agents",9,,17,,2013
+"Sales and office","Couriers and messengers",16,,112,616,2013
+"Sales and office","Dispatchers",140,617,107,747,2013
+"Sales and office","Meter readers, utilities",6,,19,,2013
+"Sales and office","Postal service clerks",45,,45,,2013
+"Sales and office","Postal service mail carriers",101,878,176,1012,2013
+"Sales and office","Postal service mail sorters, processors, and processing machine operators",35,,35,,2013
+"Sales and office","Production, planning, and expediting clerks",148,690,124,864,2013
+"Sales and office","Shipping, receiving, and traffic clerks",151,524,342,547,2013
+"Sales and office","Stock clerks and order fillers",321,484,596,503,2013
+"Sales and office","Weighers, measurers, checkers, and samplers, recordkeeping",37,,37,,2013
+"Sales and office","Secretaries and administrative assistants",2113,677,120,772,2013
+"Sales and office","Computer operators",39,,41,,2013
+"Sales and office","Data entry keyers",189,632,46,,2013
+"Sales and office","Word processors and typists",82,607,8,,2013
+"Sales and office","Desktop publishers",0,,0,,2013
+"Sales and office","Insurance claims and policy processing clerks",206,631,46,,2013
+"Sales and office","Mail clerks and mail machine operators, except postal service",22,,26,,2013
+"Sales and office","Office clerks, general",734,596,118,620,2013
+"Sales and office","Office machine operators, except computer",21,,14,,2013
+"Sales and office","Proofreaders and copy markers",3,,0,,2013
+"Sales and office","Statistical assistants",10,,8,,2013
+"Sales and office","Office and administrative support workers, all other",331,695,100,795,2013
+"Natural resources, construction, and maintenance","First-line supervisors of farming, fishing, and forestry workers",8,,25,,2013
+"Natural resources, construction, and maintenance","Agricultural inspectors",3,,8,,2013
+"Natural resources, construction, and maintenance","Animal breeders",0,,1,,2013
+"Natural resources, construction, and maintenance","Graders and sorters, agricultural products",57,389,34,,2013
+"Natural resources, construction, and maintenance","Miscellaneous agricultural workers",71,352,445,447,2013
+"Natural resources, construction, and maintenance","Fishers and related fishing workers",2,,15,,2013
+"Natural resources, construction, and maintenance","Hunters and trappers",0,,0,,2013
+"Natural resources, construction, and maintenance","Forest and conservation workers",1,,10,,2013
+"Natural resources, construction, and maintenance","Logging workers",1,,37,,2013
+"Natural resources, construction, and maintenance","First-line supervisors of construction trades and extraction workers",8,,501,996,2013
+"Natural resources, construction, and maintenance","Boilermakers",0,,14,,2013
+"Natural resources, construction, and maintenance","Brickmasons, blockmasons, and stonemasons",0,,106,766,2013
+"Natural resources, construction, and maintenance","Carpenters",10,,703,659,2013
+"Natural resources, construction, and maintenance","Carpet, floor, and tile installers and finishers",2,,78,579,2013
+"Natural resources, construction, and maintenance","Cement masons, concrete finishers, and terrazzo workers",0,,46,,2013
+"Natural resources, construction, and maintenance","Construction laborers",29,,1058,592,2013
+"Natural resources, construction, and maintenance","Paving, surfacing, and tamping equipment operators",1,,18,,2013
+"Natural resources, construction, and maintenance","Pile-driver operators",0,,1,,2013
+"Natural resources, construction, and maintenance","Operating engineers and other construction equipment operators",4,,317,804,2013
+"Natural resources, construction, and maintenance","Drywall installers, ceiling tile installers, and tapers",0,,81,522,2013
+"Natural resources, construction, and maintenance","Electricians",11,,630,952,2013
+"Natural resources, construction, and maintenance","Glaziers",0,,31,,2013
+"Natural resources, construction, and maintenance","Insulation workers",2,,42,,2013
+"Natural resources, construction, and maintenance","Painters, construction and maintenance",14,,318,579,2013
+"Natural resources, construction, and maintenance","Paperhangers",0,,0,,2013
+"Natural resources, construction, and maintenance","Pipelayers, plumbers, pipefitters, and steamfitters",4,,447,912,2013
+"Natural resources, construction, and maintenance","Plasterers and stucco masons",0,,24,,2013
+"Natural resources, construction, and maintenance","Reinforcing iron and rebar workers",0,,8,,2013
+"Natural resources, construction, and maintenance","Roofers",0,,133,566,2013
+"Natural resources, construction, and maintenance","Sheet metal workers",7,,93,797,2013
+"Natural resources, construction, and maintenance","Structural iron and steel workers",0,,38,,2013
+"Natural resources, construction, and maintenance","Solar photovoltaic installers",0,,5,,2013
+"Natural resources, construction, and maintenance","Helpers, construction trades",2,,44,,2013
+"Natural resources, construction, and maintenance","Construction and building inspectors",5,,67,920,2013
+"Natural resources, construction, and maintenance","Elevator installers and repairers",0,,25,,2013
+"Natural resources, construction, and maintenance","Fence erectors",0,,24,,2013
+"Natural resources, construction, and maintenance","Hazardous materials removal workers",8,,20,,2013
+"Natural resources, construction, and maintenance","Highway maintenance workers",0,,95,709,2013
+"Natural resources, construction, and maintenance","Rail-track laying and maintenance equipment operators",0,,16,,2013
+"Natural resources, construction, and maintenance","Septic tank servicers and sewer pipe cleaners",0,,7,,2013
+"Natural resources, construction, and maintenance","Miscellaneous construction and related workers",0,,21,,2013
+"Natural resources, construction, and maintenance","Derrick, rotary drill, and service unit operators, oil, gas, and mining",0,,38,,2013
+"Natural resources, construction, and maintenance","Earth drillers, except oil and gas",0,,26,,2013
+"Natural resources, construction, and maintenance","Explosives workers, ordnance handling experts, and blasters",0,,8,,2013
+"Natural resources, construction, and maintenance","Mining machine operators",2,,58,1084,2013
+"Natural resources, construction, and maintenance","Roof bolters, mining",0,,2,,2013
+"Natural resources, construction, and maintenance","Roustabouts, oil and gas",0,,12,,2013
+"Natural resources, construction, and maintenance","Helpers--extraction workers",0,,3,,2013
+"Natural resources, construction, and maintenance","Other extraction workers",3,,83,909,2013
+"Natural resources, construction, and maintenance","First-line supervisors of mechanics, installers, and repairers",29,,229,990,2013
+"Natural resources, construction, and maintenance","Computer, automated teller, and office machine repairers",29,,211,894,2013
+"Natural resources, construction, and maintenance","Radio and telecommunications equipment installers and repairers",13,,108,1021,2013
+"Natural resources, construction, and maintenance","Avionics technicians",4,,6,,2013
+"Natural resources, construction, and maintenance","Electric motor, power tool, and related repairers",1,,23,,2013
+"Natural resources, construction, and maintenance","Electrical and electronics installers and repairers, transportation equipment",0,,6,,2013
+"Natural resources, construction, and maintenance","Electrical and electronics repairers, industrial and utility",1,,12,,2013
+"Natural resources, construction, and maintenance","Electronic equipment installers and repairers, motor vehicles",2,,22,,2013
+"Natural resources, construction, and maintenance","Electronic home entertainment equipment installers and repairers",1,,41,,2013
+"Natural resources, construction, and maintenance","Security and fire alarm systems installers",2,,58,780,2013
+"Natural resources, construction, and maintenance","Aircraft mechanics and service technicians",3,,152,974,2013
+"Natural resources, construction, and maintenance","Automotive body and related repairers",1,,123,688,2013
+"Natural resources, construction, and maintenance","Automotive glass installers and repairers",0,,20,,2013
+"Natural resources, construction, and maintenance","Automotive service technicians and mechanics",13,,659,714,2013
+"Natural resources, construction, and maintenance","Bus and truck mechanics and diesel engine specialists",0,,301,795,2013
+"Natural resources, construction, and maintenance","Heavy vehicle and mobile equipment service technicians and mechanics",1,,195,868,2013
+"Natural resources, construction, and maintenance","Small engine mechanics",1,,31,,2013
+"Natural resources, construction, and maintenance","Miscellaneous vehicle and mobile equipment mechanics, installers, and repairers",2,,72,480,2013
+"Natural resources, construction, and maintenance","Control and valve installers and repairers",2,,22,,2013
+"Natural resources, construction, and maintenance","Heating, air conditioning, and refrigeration mechanics and installers",3,,313,791,2013
+"Natural resources, construction, and maintenance","Home appliance repairers",0,,38,,2013
+"Natural resources, construction, and maintenance","Industrial and refractory machinery mechanics",20,,414,899,2013
+"Natural resources, construction, and maintenance","Maintenance and repair workers, general",18,,386,807,2013
+"Natural resources, construction, and maintenance","Maintenance workers, machinery",3,,30,,2013
+"Natural resources, construction, and maintenance","Millwrights",1,,61,1025,2013
+"Natural resources, construction, and maintenance","Electrical power-line installers and repairers",1,,112,929,2013
+"Natural resources, construction, and maintenance","Telecommunications line installers and repairers",6,,172,929,2013
+"Natural resources, construction, and maintenance","Precision instrument and equipment repairers",7,,51,956,2013
+"Natural resources, construction, and maintenance","Wind turbine service technicians",2,,1,,2013
+"Natural resources, construction, and maintenance","Coin, vending, and amusement machine servicers and repairers",4,,28,,2013
+"Natural resources, construction, and maintenance","Commercial divers",0,,1,,2013
+"Natural resources, construction, and maintenance","Locksmiths and safe repairers",0,,16,,2013
+"Natural resources, construction, and maintenance","Manufactured building and mobile home installers",0,,10,,2013
+"Natural resources, construction, and maintenance","Riggers",0,,13,,2013
+"Natural resources, construction, and maintenance","Signal and track switch repairers",0,,5,,2013
+"Natural resources, construction, and maintenance","Helpers--installation, maintenance, and repair workers",3,,15,,2013
+"Natural resources, construction, and maintenance","Other installation, maintenance, and repair workers",6,,129,674,2013
+"Production, transportation, and material moving","First-line supervisors of production and operating workers",125,682,550,952,2013
+"Production, transportation, and material moving","Aircraft structure, surfaces, rigging, and systems assemblers",3,,13,,2013
+"Production, transportation, and material moving","Electrical, electronics, and electromechanical assemblers",61,490,64,522,2013
+"Production, transportation, and material moving","Engine and other machine assemblers",2,,17,,2013
+"Production, transportation, and material moving","Structural metal fabricators and fitters",0,,21,,2013
+"Production, transportation, and material moving","Miscellaneous assemblers and fabricators",335,493,566,610,2013
+"Production, transportation, and material moving","Bakers",61,524,56,488,2013
+"Production, transportation, and material moving","Butchers and other meat, poultry, and fish processing workers",73,476,211,525,2013
+"Production, transportation, and material moving","Food and tobacco roasting, baking, and drying machine operators and tenders",2,,4,,2013
+"Production, transportation, and material moving","Food batchmakers",33,,33,,2013
+"Production, transportation, and material moving","Food cooking machine operators and tenders",3,,3,,2013
+"Production, transportation, and material moving","Food processing workers, all other",35,,78,635,2013
+"Production, transportation, and material moving","Computer control programmers and operators",2,,66,859,2013
+"Production, transportation, and material moving","Extruding and drawing machine setters, operators, and tenders, metal and plastic",2,,14,,2013
+"Production, transportation, and material moving","Forging machine setters, operators, and tenders, metal and plastic",0,,9,,2013
+"Production, transportation, and material moving","Rolling machine setters, operators, and tenders, metal and plastic",0,,3,,2013
+"Production, transportation, and material moving","Cutting, punching, and press machine setters, operators, and tenders, metal and plastic",10,,60,532,2013
+"Production, transportation, and material moving","Drilling and boring machine tool setters, operators, and tenders, metal and plastic",0,,1,,2013
+"Production, transportation, and material moving","Grinding, lapping, polishing, and buffing machine tool setters, operators, and tenders, metal and plastic",6,,44,,2013
+"Production, transportation, and material moving","Lathe and turning machine tool setters, operators, and tenders, metal and plastic",3,,8,,2013
+"Production, transportation, and material moving","Milling and planing machine setters, operators, and tenders, metal and plastic",0,,5,,2013
+"Production, transportation, and material moving","Machinists",21,,367,795,2013
+"Production, transportation, and material moving","Metal furnace operators, tenders, pourers, and casters",0,,23,,2013
+"Production, transportation, and material moving","Model makers and patternmakers, metal and plastic",1,,2,,2013
+"Production, transportation, and material moving","Molders and molding machine setters, operators, and tenders, metal and plastic",13,,38,,2013
+"Production, transportation, and material moving","Multiple machine tool setters, operators, and tenders, metal and plastic",1,,3,,2013
+"Production, transportation, and material moving","Tool and die makers",1,,55,911,2013
+"Production, transportation, and material moving","Welding, soldering, and brazing workers",25,,499,730,2013
+"Production, transportation, and material moving","Heat treating equipment setters, operators, and tenders, metal and plastic",1,,8,,2013
+"Production, transportation, and material moving","Layout workers, metal and plastic",0,,3,,2013
+"Production, transportation, and material moving","Plating and coating machine setters, operators, and tenders, metal and plastic",1,,15,,2013
+"Production, transportation, and material moving","Tool grinders, filers, and sharpeners",0,,4,,2013
+"Production, transportation, and material moving","Metal workers and plastic workers, all other",66,557,257,606,2013
+"Production, transportation, and material moving","Prepress technicians and workers",9,,17,,2013
+"Production, transportation, and material moving","Printing press operators",30,,145,703,2013
+"Production, transportation, and material moving","Print binding and finishing workers",13,,8,,2013
+"Production, transportation, and material moving","Laundry and dry-cleaning workers",71,360,50,425,2013
+"Production, transportation, and material moving","Pressers, textile, garment, and related materials",17,,18,,2013
+"Production, transportation, and material moving","Sewing machine operators",91,405,29,,2013
+"Production, transportation, and material moving","Shoe and leather workers and repairers",1,,4,,2013
+"Production, transportation, and material moving","Shoe machine operators and tenders",1,,1,,2013
+"Production, transportation, and material moving","Tailors, dressmakers, and sewers",28,,13,,2013
+"Production, transportation, and material moving","Textile bleaching and dyeing machine operators and tenders",1,,1,,2013
+"Production, transportation, and material moving","Textile cutting machine setters, operators, and tenders",1,,5,,2013
+"Production, transportation, and material moving","Textile knitting and weaving machine setters, operators, and tenders",3,,0,,2013
+"Production, transportation, and material moving","Textile winding, twisting, and drawing out machine setters, operators, and tenders",5,,7,,2013
+"Production, transportation, and material moving","Extruding and forming machine setters, operators, and tenders, synthetic and glass fibers",0,,1,,2013
+"Production, transportation, and material moving","Fabric and apparel patternmakers",1,,0,,2013
+"Production, transportation, and material moving","Upholsterers",2,,17,,2013
+"Production, transportation, and material moving","Textile, apparel, and furnishings workers, all other",3,,8,,2013
+"Production, transportation, and material moving","Cabinetmakers and bench carpenters",0,,27,,2013
+"Production, transportation, and material moving","Furniture finishers",1,,4,,2013
+"Production, transportation, and material moving","Model makers and patternmakers, wood",0,,0,,2013
+"Production, transportation, and material moving","Sawing machine setters, operators, and tenders, wood",2,,23,,2013
+"Production, transportation, and material moving","Woodworking machine setters, operators, and tenders, except sawing",4,,14,,2013
+"Production, transportation, and material moving","Woodworkers, all other",1,,8,,2013
+"Production, transportation, and material moving","Power plant operators, distributors, and dispatchers",6,,35,,2013
+"Production, transportation, and material moving","Stationary engineers and boiler operators",5,,84,922,2013
+"Production, transportation, and material moving","Water and wastewater treatment plant and system operators",4,,64,829,2013
+"Production, transportation, and material moving","Miscellaneous plant and system operators",2,,40,,2013
+"Production, transportation, and material moving","Chemical processing machine setters, operators, and tenders",5,,41,,2013
+"Production, transportation, and material moving","Crushing, grinding, polishing, mixing, and blending workers",11,,77,807,2013
+"Production, transportation, and material moving","Cutting workers",10,,30,,2013
+"Production, transportation, and material moving","Extruding, forming, pressing, and compacting machine setters, operators, and tenders",5,,26,,2013
+"Production, transportation, and material moving","Furnace, kiln, oven, drier, and kettle operators and tenders",0,,10,,2013
+"Production, transportation, and material moving","Inspectors, testers, sorters, samplers, and weighers",211,583,439,835,2013
+"Production, transportation, and material moving","Jewelers and precious stone and metal workers",6,,17,,2013
+"Production, transportation, and material moving","Medical, dental, and ophthalmic laboratory technicians",33,,34,,2013
+"Production, transportation, and material moving","Packaging and filling machine operators and tenders",159,429,137,537,2013
+"Production, transportation, and material moving","Painting workers",17,,108,673,2013
+"Production, transportation, and material moving","Photographic process workers and processing machine operators",11,,15,,2013
+"Production, transportation, and material moving","Semiconductor processors",1,,1,,2013
+"Production, transportation, and material moving","Adhesive bonding machine operators and tenders",5,,5,,2013
+"Production, transportation, and material moving","Cleaning, washing, and metal pickling equipment operators and tenders",1,,2,,2013
+"Production, transportation, and material moving","Cooling and freezing equipment operators and tenders",0,,1,,2013
+"Production, transportation, and material moving","Etchers and engravers",0,,2,,2013
+"Production, transportation, and material moving","Molders, shapers, and casters, except metal and plastic",3,,28,,2013
+"Production, transportation, and material moving","Paper goods machine setters, operators, and tenders",3,,18,,2013
+"Production, transportation, and material moving","Tire builders",7,,16,,2013
+"Production, transportation, and material moving","Helpers--production workers",9,,20,,2013
+"Production, transportation, and material moving","Production workers, all other",236,501,630,619,2013
+"Production, transportation, and material moving","Supervisors of transportation and material moving workers",38,,126,930,2013
+"Production, transportation, and material moving","Aircraft pilots and flight engineers",7,,93,1859,2013
+"Production, transportation, and material moving","Air traffic controllers and airfield operations specialists",5,,37,,2013
+"Production, transportation, and material moving","Flight attendants",54,749,16,,2013
+"Production, transportation, and material moving","Ambulance drivers and attendants, except emergency medical technicians",3,,9,,2013
+"Production, transportation, and material moving","Bus drivers",147,556,192,597,2013
+"Production, transportation, and material moving","Driver/sales workers and truck drivers",106,583,2482,738,2013
+"Production, transportation, and material moving","Taxi drivers and chauffeurs",30,,172,540,2013
+"Production, transportation, and material moving","Motor vehicle operators, all other",3,,37,,2013
+"Production, transportation, and material moving","Locomotive engineers and operators",2,,48,,2013
+"Production, transportation, and material moving","Railroad brake, signal, and switch operators",0,,11,,2013
+"Production, transportation, and material moving","Railroad conductors and yardmasters",3,,43,,2013
+"Production, transportation, and material moving","Subway, streetcar, and other rail transportation workers",0,,5,,2013
+"Production, transportation, and material moving","Sailors and marine oilers",1,,28,,2013
+"Production, transportation, and material moving","Ship and boat captains and operators",0,,32,,2013
+"Production, transportation, and material moving","Ship engineers",0,,7,,2013
+"Production, transportation, and material moving","Bridge and lock tenders",0,,5,,2013
+"Production, transportation, and material moving","Parking lot attendants",7,,43,,2013
+"Production, transportation, and material moving","Automotive and watercraft service attendants",12,,67,403,2013
+"Production, transportation, and material moving","Transportation inspectors",6,,35,,2013
+"Production, transportation, and material moving","Transportation attendants, except flight attendants",16,,14,,2013
+"Production, transportation, and material moving","Other transportation workers",1,,15,,2013
+"Production, transportation, and material moving","Conveyor operators and tenders",1,,3,,2013
+"Production, transportation, and material moving","Crane and tower operators",1,,69,871,2013
+"Production, transportation, and material moving","Dredge, excavating, and loading machine operators",0,,28,,2013
+"Production, transportation, and material moving","Hoist and winch operators",0,,7,,2013
+"Production, transportation, and material moving","Industrial truck and tractor operators",32,,510,559,2013
+"Production, transportation, and material moving","Cleaners of vehicles and equipment",28,,206,434,2013
+"Production, transportation, and material moving","Laborers and freight, stock, and material movers, hand",221,421,1056,524,2013
+"Production, transportation, and material moving","Machine feeders and offbearers",4,,15,,2013
+"Production, transportation, and material moving","Packers and packagers, hand",182,416,149,434,2013
+"Production, transportation, and material moving","Pumping station operators",0,,24,,2013
+"Production, transportation, and material moving","Refuse and recyclable material collectors",1,,74,555,2013
+"Production, transportation, and material moving","Mine shuttle car operators",0,,3,,2013
+"Production, transportation, and material moving","Tank car, truck, and ship loaders",0,,6,,2013
+"Production, transportation, and material moving","Material moving workers, all other",5,,41,,2013

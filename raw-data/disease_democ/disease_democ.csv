@@ -1,0 +1,169 @@
+"country","income_group","democ_score","infect_rate"
+"Bahrain","High income: non-OECD",45.6,23
+"Bahamas, The","High income: non-OECD",48.4,24
+"Qatar","High income: non-OECD",50.4,24
+"Latvia","High income: non-OECD",52.8,25
+"Barbados","High income: non-OECD",46,26
+"Singapore","High income: non-OECD",64,26
+"Cyprus","High income: non-OECD",65.8,26
+"Malta","High income: non-OECD",70.6,26
+"Croatia","High income: non-OECD",57.6,27
+"United Arab Emirates","High income: non-OECD",40.6,28
+"Trinidad and Tobago","High income: non-OECD",46.6,28
+"Kuwait","High income: non-OECD",49.6,28
+"Taiwan","High income: non-OECD",77.6,29
+"Oman","High income: non-OECD",33,35
+"Equatorial Guinea","High income: non-OECD",28.4,36
+"Saudi Arabia","High income: non-OECD",40,37
+"New Zealand","High income: OECD",72.6,23
+"Germany","High income: OECD",77.8,24
+"Luxembourg","High income: OECD",81.2,24
+"Netherlands","High income: OECD",82,24
+"Norway","High income: OECD",84.6,24
+"Switzerland","High income: OECD",86.6,24
+"Estonia","High income: OECD",54,25
+"Ireland","High income: OECD",71.6,25
+"Sweden","High income: OECD",81.4,25
+"Denmark","High income: OECD",83.4,25
+"Finland","High income: OECD",84.2,25
+"Iceland","High income: OECD",85.4,25
+"United Kingdom","High income: OECD",69.6,26
+"Italy","High income: OECD",77.8,26
+"Austria","High income: OECD",80.2,26
+"Canada","High income: OECD",81.8,26
+"Czech Republic","High income: OECD",54.8,27
+"Slovak Republic","High income: OECD",57.6,27
+"Poland","High income: OECD",59.2,27
+"Slovenia","High income: OECD",70,27
+"Australia","High income: OECD",79.8,27
+"Belgium","High income: OECD",84.2,27
+"Hungary","High income: OECD",54.6,28
+"Israel","High income: OECD",66.8,28
+"Japan","High income: OECD",78.6,28
+"Portugal","High income: OECD",61.6,29
+"France","High income: OECD",79.2,29
+"United States","High income: OECD",80.2,29
+"Greece","High income: OECD",72.2,30
+"Spain","High income: OECD",70.2,31
+"Korea, Rep.","High income: OECD",77,32
+"Tajikistan","Low income",31,27
+"Kyrgyz Republic","Low income",33,27
+"Comoros","Low income",25,28
+"Korea, Dem. Rep.","Low income",26,30
+"Solomon Islands","Low income",33,30
+"Nepal","Low income",31.4,31
+"Afghanistan","Low income",19.8,33
+"Bangladesh","Low income",24.8,33
+"Lao PDR","Low income",22.4,34
+"Haiti","Low income",23.6,34
+"Madagascar","Low income",26.6,36
+"Sierra Leone","Low income",18.4,37
+"Myanmar","Low income",31.2,37
+"Burundi","Low income",25,38
+"Zimbabwe","Low income",30,38
+"Liberia","Low income",18,39
+"Mozambique","Low income",19.2,39
+"Cambodia","Low income",25.8,39
+"Mauritania","Low income",23.2,40
+"Malawi","Low income",24.2,40
+"Benin","Low income",24.4,40
+"Tanzania","Low income",29.4,40
+"Ghana","Low income",29.6,40
+"Zambia","Low income",27.2,41
+"Togo","Low income",28.4,41
+"Somalia","Low income",16.2,42
+"Guinea-Bissau","Low income",20.2,42
+"Gambia, The","Low income",22,42
+"Niger","Low income",15.8,43
+"Rwanda","Low income",28,43
+"Kenya","Low income",33,43
+"Ethiopia","Low income",20.8,45
+"Central African Republic","Low income",22,45
+"Guinea","Low income",23.8,45
+"Congo, Dem. Rep.","Low income",25.8,45
+"Uganda","Low income",27.2,45
+"Burkina Faso","Low income",16.4,46
+"Mali","Low income",20.8,46
+"Eritrea","Low income",23.4,46
+"Chad","Low income",21.8,48
+"Moldova","Lower middle income",36.4,26
+"Ukraine","Lower middle income",40.6,26
+"Bhutan","Lower middle income",24.8,28
+"Maldives","Lower middle income",33.2,28
+"Mongolia","Lower middle income",35.8,28
+"Armenia","Lower middle income",44,28
+"Georgia","Lower middle income",52.6,28
+"Uzbekistan","Lower middle income",28.4,29
+"Turkmenistan","Lower middle income",32.8,29
+"Lesotho","Lower middle income",30.4,30
+"El Salvador","Lower middle income",37.2,30
+"Syrian Arab Republic","Lower middle income",38.6,31
+"Papua New Guinea","Lower middle income",30.8,32
+"Cape Verde","Lower middle income",31.2,32
+"Belize","Lower middle income",39,32
+"Sri Lanka","Lower middle income",45.4,32
+"Jordan","Lower middle income",46.2,32
+"Swaziland","Lower middle income",29.8,34
+"Philippines","Lower middle income",48.8,34
+"Iraq","Lower middle income",23.6,35
+"Pakistan","Lower middle income",27,35
+"Honduras","Lower middle income",29.4,35
+"Paraguay","Lower middle income",32.4,35
+"Tunisia","Lower middle income",43.2,35
+"Nicaragua","Lower middle income",29.6,36
+"Yemen, Rep.","Lower middle income",26.6,37
+"China","Lower middle income",30.2,37
+"Morocco","Lower middle income",31.8,37
+"Indonesia","Lower middle income",40.2,37
+"Guyana","Lower middle income",41.8,37
+"Djibouti","Lower middle income",25.4,38
+"Guatemala","Lower middle income",29.8,38
+"Bolivia","Lower middle income",39,38
+"Ecuador","Lower middle income",40.6,38
+"Vietnam","Lower middle income",28.4,39
+"Egypt, Arab Rep.","Lower middle income",35,39
+"India","Lower middle income",37.2,39
+"Congo, Rep.","Lower middle income",32.4,41
+"Thailand","Lower middle income",54.4,41
+"Angola","Lower middle income",22.2,43
+"Cameroon","Lower middle income",30.4,44
+"Sudan","Lower middle income",23.4,45
+"Côte d'Ivoire","Lower middle income",24.8,45
+"Senegal","Lower middle income",23.6,47
+"Nigeria","Lower middle income",26,47
+"Albania","Upper middle income",41.6,24
+"Jamaica","Upper middle income",38.4,25
+"Lithuania","Upper middle income",53,25
+"Uruguay","Upper middle income",54.2,25
+"Kazakhstan","Upper middle income",38.4,26
+"Belarus","Upper middle income",40,26
+"Cuba","Upper middle income",32.4,27
+"Bosnia and Herzegovina","Upper middle income",46.2,27
+"Romania","Upper middle income",47,27
+"Macedonia, FYR","Upper middle income",50.4,27
+"Russian Federation","Upper middle income",41.4,28
+"Fiji","Upper middle income",41.8,28
+"Chile","Upper middle income",49.2,29
+"Lebanon","Upper middle income",51.6,29
+"Azerbaijan","Upper middle income",41.2,30
+"Bulgaria","Upper middle income",57.6,30
+"Mauritius","Upper middle income",43.2,31
+"Libya","Upper middle income",35.4,32
+"Iran, Islamic Rep.","Upper middle income",37.4,33
+"Dominican Republic","Upper middle income",40.6,34
+"Algeria","Upper middle income",35.8,36
+"South Africa","Upper middle income",36,36
+"Botswana","Upper middle income",36.4,36
+"Malaysia","Upper middle income",41.8,36
+"Namibia","Upper middle income",31.2,37
+"Mexico","Upper middle income",45.4,37
+"Argentina","Upper middle income",50.8,37
+"Peru","Upper middle income",37.4,38
+"Costa Rica","Upper middle income",51,38
+"Suriname","Upper middle income",42,39
+"Turkey","Upper middle income",54.8,39
+"Panama","Upper middle income",46,40
+"Gabon","Upper middle income",34.6,41
+"Venezuela, RB","Upper middle income",41.6,42
+"Colombia","Upper middle income",44.8,43
+"Brazil","Upper middle income",37.2,45

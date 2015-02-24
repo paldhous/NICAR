@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<title>CartoDB storms</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel='stylesheet' href='http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css' />
+	<script src='http://libs.cartocdn.com/cartodb.js/v3/cartodb.js'></script>   
+	
+	<style>
+		html, body {width:100%; height:100%; padding: 0; margin: 0;}
+		#map { width: 100%; height:100%; background: black;}
+		#control {position: absolute; top: 5px; right:10px; color:#ccc; font-family:arial; font-size:small;}
+	</style>
+
+</head>
+
+<body>
+
+	<div id='map'></div>
+	
+	<div id='control'>
+		<p>Show storm tracks:    
+			<select>
+				<option value='all'>1990-2013</option>
+				<option value='y2005'>2005 only</option>
+			</select> 
+		 </p>
+     </div>
+
+	<script>
+
+		var map = new L.Map('map', { 
+			  center: [40,-50],
+			  zoom: 3,
+			  zoomControl: false,
+              scrollWheelZoom: false
+		});
+		
+		L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',{
+		  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+		}).addTo(map);
+		
+				var layerUrl = 'http://aldhouskdmc.cartodb.com/api/v2/viz/3d2e2e48-93a4-11e4-88e2-0e018d66dc29/viz.json';
+
+		var sublayers = [];
+
+		cartodb.createLayer(map, layerUrl)
+			.addTo(map)
+			.on('done', function(layer) {
+			// change the query for the first layer
+			var subLayerOptions = {
+			  sql: 'SELECT * FROM storms_tracks',
+			}
+
+		var sublayer = layer.getSubLayer(0);
+
+		sublayer.set(subLayerOptions);
+
+		sublayers.push(sublayer);
+		}).on('error', function() {
+		//log the error
+		});
+
+		var LayerActions = {
+			all: function(){
+				sublayers[0].setSQL('SELECT * FROM storms_tracks');
+				return true;
+			},
+			y2005: function(){
+				sublayers[0].setSQL('SELECT * FROM storms_tracks WHERE year = 2005');
+				return true;
+			}
+		}
+		
+		$('select').change(function() {
+        $('select').removeClass('selected');
+        $(this).addClass('selected');
+        LayerActions[$(this).attr('value')]();
+        });
+
+		cartodb.createLayer(map, 'http://aldhouskdmc.cartodb.com/api/v2/viz/1c2a6644-9390-11e4-ab08-0e4fddd5de28/viz.json')
+			.addTo(map);
+
+	</script>
+
+</body>
+</html>

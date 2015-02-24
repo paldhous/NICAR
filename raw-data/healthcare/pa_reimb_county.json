@@ -1,0 +1,288 @@
+[
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column County ID using expression value.toString()",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "County ID",
+    "expression": "value.toString()",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column county_code at index 1 based on column County ID using expression grel:substring(value, 1, 4)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "county_code",
+    "columnInsertIndex": 1,
+    "baseColumnName": "County ID",
+    "expression": "grel:substring(value, 1, 4)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-split",
+    "description": "Split column County name by separator",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "County name",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "-",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column County name 1 to state",
+    "oldColumnName": "County name 1",
+    "newColumnName": "state"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column County name 2",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "County name 2",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Miami"
+        ],
+        "to": "Miami-Dade County"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column County name 2",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "County name 2",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Valdez"
+        ],
+        "to": "Valdez-Cordova Census Area"
+      }
+    ]
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column County name 2",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "County name 2",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "Matanuska"
+        ],
+        "to": "Matanuska-Susitna Borough"
+      }
+    ]
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column County name 3",
+    "columnName": "County name 3"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column state_code at index 3 based on column state using expression grel:value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "state_code",
+    "columnInsertIndex": 3,
+    "baseColumnName": "state",
+    "expression": "grel:value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/mass-edit",
+    "description": "Mass edit cells in column state_code",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "state_code",
+    "expression": "value",
+    "edits": [
+      {
+        "fromBlank": false,
+        "fromError": false,
+        "from": [
+          "CA"
+        ],
+        "to": "06"
+      }
+    ]
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column County ID",
+    "columnName": "County ID"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Total Medicare reimbursements per enrollee (Parts A and B) (2012) Age, sex & race-adjusted",
+    "columnName": "Total Medicare reimbursements per enrollee (Parts A and B) (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Hospital & skilled nursing facility reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Hospital & skilled nursing facility reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted to Total Medicare reimbursements per enrollee (Parts A and B) (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted",
+    "newColumnName": "Total Medicare reimbursements per enrollee (Parts A and B) (2012)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 2 to Hospital & skilled nursing facility reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 2",
+    "newColumnName": "Hospital & skilled nursing facility reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Physician reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Physician reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 3 to Physician reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 3",
+    "newColumnName": "Physician reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Outpatient facility reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Outpatient facility reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 4 to Outpatient facility reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 4",
+    "newColumnName": "Outpatient facility reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Home health agency reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Home health agency reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 5 to Home health agency reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 5",
+    "newColumnName": "Home health agency reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Hospice reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Hospice reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 6 to Hospice reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 6",
+    "newColumnName": "Hospice reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-removal",
+    "description": "Remove column Durable medical equipment reimbursements per enrollee (2012) Age, sex & race-adjusted",
+    "columnName": "Durable medical equipment reimbursements per enrollee (2012) Age, sex & race-adjusted"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column Price, age, sex & race-adjusted 7 to Durable medical equipment reimbursements per enrollee (2012)",
+    "oldColumnName": "Price, age, sex & race-adjusted 7",
+    "newColumnName": "Durable medical equipment reimbursements per enrollee (2012)"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column County name 2 to county",
+    "oldColumnName": "County name 2",
+    "newColumnName": "county"
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column county_name at index 4 based on column county using expression grel:substring(value, 0, -7)",
+    "engineConfig": {
+      "facets": [
+        {
+          "invert": false,
+          "expression": "value",
+          "selectError": false,
+          "omitError": false,
+          "selectBlank": false,
+          "name": "state_code",
+          "omitBlank": false,
+          "columnName": "state_code",
+          "type": "list",
+          "selection": [
+            {
+              "v": {
+                "v": "06",
+                "l": "06"
+              }
+            }
+          ]
+        },
+        {
+          "query": "06",
+          "name": "state_code",
+          "caseSensitive": false,
+          "columnName": "state_code",
+          "type": "text",
+          "mode": "text"
+        }
+      ],
+      "mode": "row-based"
+    },
+    "newColumnName": "county_name",
+    "columnInsertIndex": 4,
+    "baseColumnName": "county",
+    "expression": "grel:substring(value, 0, -7)",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column state to position 0",
+    "columnName": "state",
+    "index": 0
+  },
+  {
+    "op": "core/column-move",
+    "description": "Move column state_code to position 1",
+    "columnName": "state_code",
+    "index": 1
+  }
+]

@@ -1,0 +1,348 @@
+state,state_code,county_code,county,county_name,type,cost
+CA,06,001,Alameda County,Alameda,Hospital & skilled nursing facility reimbursements per enrollee (2012),4197.21
+CA,06,001,Alameda County,Alameda,Physician reimbursements per enrollee (2012),2526.0
+CA,06,001,Alameda County,Alameda,Outpatient facility reimbursements per enrollee (2012),1022.66
+CA,06,001,Alameda County,Alameda,Home health agency reimbursements per enrollee (2012),374.91
+CA,06,001,Alameda County,Alameda,Hospice reimbursements per enrollee (2012),256.52
+CA,06,001,Alameda County,Alameda,Durable medical equipment reimbursements per enrollee (2012),186.87
+CA,06,003,Alpine County,Alpine,Hospital & skilled nursing facility reimbursements per enrollee (2012),2998.84
+CA,06,003,Alpine County,Alpine,Physician reimbursements per enrollee (2012),1971.22
+CA,06,003,Alpine County,Alpine,Outpatient facility reimbursements per enrollee (2012),1205.32
+CA,06,003,Alpine County,Alpine,Home health agency reimbursements per enrollee (2012),344.69
+CA,06,003,Alpine County,Alpine,Hospice reimbursements per enrollee (2012),160.85
+CA,06,003,Alpine County,Alpine,Durable medical equipment reimbursements per enrollee (2012),226.88
+CA,06,005,Amador County,Amador,Hospital & skilled nursing facility reimbursements per enrollee (2012),3437.2
+CA,06,005,Amador County,Amador,Physician reimbursements per enrollee (2012),2552.34
+CA,06,005,Amador County,Amador,Outpatient facility reimbursements per enrollee (2012),911.07
+CA,06,005,Amador County,Amador,Home health agency reimbursements per enrollee (2012),326.96
+CA,06,005,Amador County,Amador,Hospice reimbursements per enrollee (2012),152.33
+CA,06,005,Amador County,Amador,Durable medical equipment reimbursements per enrollee (2012),179.43
+CA,06,007,Butte County,Butte,Hospital & skilled nursing facility reimbursements per enrollee (2012),4427.03
+CA,06,007,Butte County,Butte,Physician reimbursements per enrollee (2012),2193.29
+CA,06,007,Butte County,Butte,Outpatient facility reimbursements per enrollee (2012),1307.76
+CA,06,007,Butte County,Butte,Home health agency reimbursements per enrollee (2012),324.06
+CA,06,007,Butte County,Butte,Hospice reimbursements per enrollee (2012),186.64
+CA,06,007,Butte County,Butte,Durable medical equipment reimbursements per enrollee (2012),273.94
+CA,06,009,Calaveras County,Calaveras,Hospital & skilled nursing facility reimbursements per enrollee (2012),3739.96
+CA,06,009,Calaveras County,Calaveras,Physician reimbursements per enrollee (2012),2103.28
+CA,06,009,Calaveras County,Calaveras,Outpatient facility reimbursements per enrollee (2012),1106.95
+CA,06,009,Calaveras County,Calaveras,Home health agency reimbursements per enrollee (2012),407.63
+CA,06,009,Calaveras County,Calaveras,Hospice reimbursements per enrollee (2012),254.17
+CA,06,009,Calaveras County,Calaveras,Durable medical equipment reimbursements per enrollee (2012),177.25
+CA,06,011,Colusa County,Colusa,Hospital & skilled nursing facility reimbursements per enrollee (2012),3898.85
+CA,06,011,Colusa County,Colusa,Physician reimbursements per enrollee (2012),1701.83
+CA,06,011,Colusa County,Colusa,Outpatient facility reimbursements per enrollee (2012),1783.65
+CA,06,011,Colusa County,Colusa,Home health agency reimbursements per enrollee (2012),214.23
+CA,06,011,Colusa County,Colusa,Hospice reimbursements per enrollee (2012),132.44
+CA,06,011,Colusa County,Colusa,Durable medical equipment reimbursements per enrollee (2012),225.88
+CA,06,013,Contra Costa County,Contra Costa,Hospital & skilled nursing facility reimbursements per enrollee (2012),4178.29
+CA,06,013,Contra Costa County,Contra Costa,Physician reimbursements per enrollee (2012),2714.4
+CA,06,013,Contra Costa County,Contra Costa,Outpatient facility reimbursements per enrollee (2012),1009.87
+CA,06,013,Contra Costa County,Contra Costa,Home health agency reimbursements per enrollee (2012),358.84
+CA,06,013,Contra Costa County,Contra Costa,Hospice reimbursements per enrollee (2012),301.08
+CA,06,013,Contra Costa County,Contra Costa,Durable medical equipment reimbursements per enrollee (2012),180.52
+CA,06,015,Del Norte County,Del Norte,Hospital & skilled nursing facility reimbursements per enrollee (2012),3603.03
+CA,06,015,Del Norte County,Del Norte,Physician reimbursements per enrollee (2012),2286.34
+CA,06,015,Del Norte County,Del Norte,Outpatient facility reimbursements per enrollee (2012),1170.71
+CA,06,015,Del Norte County,Del Norte,Home health agency reimbursements per enrollee (2012),127.24
+CA,06,015,Del Norte County,Del Norte,Durable medical equipment reimbursements per enrollee (2012),288.54
+CA,06,017,El Dorado County,El Dorado,Hospital & skilled nursing facility reimbursements per enrollee (2012),3771.38
+CA,06,017,El Dorado County,El Dorado,Physician reimbursements per enrollee (2012),2289.87
+CA,06,017,El Dorado County,El Dorado,Outpatient facility reimbursements per enrollee (2012),1244.08
+CA,06,017,El Dorado County,El Dorado,Home health agency reimbursements per enrollee (2012),268.52
+CA,06,017,El Dorado County,El Dorado,Hospice reimbursements per enrollee (2012),225.76
+CA,06,017,El Dorado County,El Dorado,Durable medical equipment reimbursements per enrollee (2012),216.4
+CA,06,019,Fresno County,Fresno,Hospital & skilled nursing facility reimbursements per enrollee (2012),3801.62
+CA,06,019,Fresno County,Fresno,Physician reimbursements per enrollee (2012),3037.47
+CA,06,019,Fresno County,Fresno,Outpatient facility reimbursements per enrollee (2012),985.38
+CA,06,019,Fresno County,Fresno,Home health agency reimbursements per enrollee (2012),251.36
+CA,06,019,Fresno County,Fresno,Hospice reimbursements per enrollee (2012),226.62
+CA,06,019,Fresno County,Fresno,Durable medical equipment reimbursements per enrollee (2012),282.78
+CA,06,021,Glenn County,Glenn,Hospital & skilled nursing facility reimbursements per enrollee (2012),3637.94
+CA,06,021,Glenn County,Glenn,Physician reimbursements per enrollee (2012),1928.44
+CA,06,021,Glenn County,Glenn,Outpatient facility reimbursements per enrollee (2012),1402.91
+CA,06,021,Glenn County,Glenn,Home health agency reimbursements per enrollee (2012),316.92
+CA,06,021,Glenn County,Glenn,Hospice reimbursements per enrollee (2012),175.76
+CA,06,021,Glenn County,Glenn,Durable medical equipment reimbursements per enrollee (2012),256.09
+CA,06,023,Humboldt County,Humboldt,Hospital & skilled nursing facility reimbursements per enrollee (2012),3259.9
+CA,06,023,Humboldt County,Humboldt,Physician reimbursements per enrollee (2012),1939.51
+CA,06,023,Humboldt County,Humboldt,Outpatient facility reimbursements per enrollee (2012),1189.2
+CA,06,023,Humboldt County,Humboldt,Home health agency reimbursements per enrollee (2012),337.4
+CA,06,023,Humboldt County,Humboldt,Hospice reimbursements per enrollee (2012),350.19
+CA,06,023,Humboldt County,Humboldt,Durable medical equipment reimbursements per enrollee (2012),200.33
+CA,06,025,Imperial County,Imperial,Hospital & skilled nursing facility reimbursements per enrollee (2012),3906.85
+CA,06,025,Imperial County,Imperial,Physician reimbursements per enrollee (2012),2531.96
+CA,06,025,Imperial County,Imperial,Outpatient facility reimbursements per enrollee (2012),1335.72
+CA,06,025,Imperial County,Imperial,Home health agency reimbursements per enrollee (2012),345.71
+CA,06,025,Imperial County,Imperial,Hospice reimbursements per enrollee (2012),133.91
+CA,06,025,Imperial County,Imperial,Durable medical equipment reimbursements per enrollee (2012),307.24
+CA,06,027,Inyo County,Inyo,Hospital & skilled nursing facility reimbursements per enrollee (2012),3190.83
+CA,06,027,Inyo County,Inyo,Physician reimbursements per enrollee (2012),1710.18
+CA,06,027,Inyo County,Inyo,Outpatient facility reimbursements per enrollee (2012),2287.2
+CA,06,027,Inyo County,Inyo,Home health agency reimbursements per enrollee (2012),206.29
+CA,06,027,Inyo County,Inyo,Hospice reimbursements per enrollee (2012),47.85
+CA,06,027,Inyo County,Inyo,Durable medical equipment reimbursements per enrollee (2012),201.1
+CA,06,029,Kern County,Kern,Hospital & skilled nursing facility reimbursements per enrollee (2012),4606.23
+CA,06,029,Kern County,Kern,Physician reimbursements per enrollee (2012),3338.89
+CA,06,029,Kern County,Kern,Outpatient facility reimbursements per enrollee (2012),967.05
+CA,06,029,Kern County,Kern,Home health agency reimbursements per enrollee (2012),335.07
+CA,06,029,Kern County,Kern,Hospice reimbursements per enrollee (2012),339.05
+CA,06,029,Kern County,Kern,Durable medical equipment reimbursements per enrollee (2012),340.12
+CA,06,031,Kings County,Kings,Hospital & skilled nursing facility reimbursements per enrollee (2012),4122.53
+CA,06,031,Kings County,Kings,Physician reimbursements per enrollee (2012),2664.61
+CA,06,031,Kings County,Kings,Outpatient facility reimbursements per enrollee (2012),1229.11
+CA,06,031,Kings County,Kings,Home health agency reimbursements per enrollee (2012),235.62
+CA,06,031,Kings County,Kings,Hospice reimbursements per enrollee (2012),95.07
+CA,06,031,Kings County,Kings,Durable medical equipment reimbursements per enrollee (2012),358.57
+CA,06,033,Lake County,Lake,Hospital & skilled nursing facility reimbursements per enrollee (2012),4095.24
+CA,06,033,Lake County,Lake,Physician reimbursements per enrollee (2012),2255.81
+CA,06,033,Lake County,Lake,Outpatient facility reimbursements per enrollee (2012),1320.7
+CA,06,033,Lake County,Lake,Home health agency reimbursements per enrollee (2012),338.18
+CA,06,033,Lake County,Lake,Hospice reimbursements per enrollee (2012),217.64
+CA,06,033,Lake County,Lake,Durable medical equipment reimbursements per enrollee (2012),236.19
+CA,06,035,Lassen County,Lassen,Hospital & skilled nursing facility reimbursements per enrollee (2012),4180.58
+CA,06,035,Lassen County,Lassen,Physician reimbursements per enrollee (2012),2058.11
+CA,06,035,Lassen County,Lassen,Outpatient facility reimbursements per enrollee (2012),1156.34
+CA,06,035,Lassen County,Lassen,Home health agency reimbursements per enrollee (2012),169.31
+CA,06,035,Lassen County,Lassen,Hospice reimbursements per enrollee (2012),108.23
+CA,06,035,Lassen County,Lassen,Durable medical equipment reimbursements per enrollee (2012),260.32
+CA,06,037,Los Angeles County,Los Angeles,Hospital & skilled nursing facility reimbursements per enrollee (2012),5627.16
+CA,06,037,Los Angeles County,Los Angeles,Physician reimbursements per enrollee (2012),3693.83
+CA,06,037,Los Angeles County,Los Angeles,Outpatient facility reimbursements per enrollee (2012),1035.16
+CA,06,037,Los Angeles County,Los Angeles,Home health agency reimbursements per enrollee (2012),747.17
+CA,06,037,Los Angeles County,Los Angeles,Hospice reimbursements per enrollee (2012),291.34
+CA,06,037,Los Angeles County,Los Angeles,Durable medical equipment reimbursements per enrollee (2012),273.87
+CA,06,039,Madera County,Madera,Hospital & skilled nursing facility reimbursements per enrollee (2012),3637.93
+CA,06,039,Madera County,Madera,Physician reimbursements per enrollee (2012),2744.71
+CA,06,039,Madera County,Madera,Outpatient facility reimbursements per enrollee (2012),871.93
+CA,06,039,Madera County,Madera,Home health agency reimbursements per enrollee (2012),166.58
+CA,06,039,Madera County,Madera,Hospice reimbursements per enrollee (2012),170.3
+CA,06,039,Madera County,Madera,Durable medical equipment reimbursements per enrollee (2012),265.21
+CA,06,041,Marin County,Marin,Hospital & skilled nursing facility reimbursements per enrollee (2012),3633.81
+CA,06,041,Marin County,Marin,Physician reimbursements per enrollee (2012),2575.45
+CA,06,041,Marin County,Marin,Outpatient facility reimbursements per enrollee (2012),1042.18
+CA,06,041,Marin County,Marin,Home health agency reimbursements per enrollee (2012),320.97
+CA,06,041,Marin County,Marin,Hospice reimbursements per enrollee (2012),302.47
+CA,06,041,Marin County,Marin,Durable medical equipment reimbursements per enrollee (2012),143.54
+CA,06,043,Mariposa County,Mariposa,Hospital & skilled nursing facility reimbursements per enrollee (2012),3249.0
+CA,06,043,Mariposa County,Mariposa,Physician reimbursements per enrollee (2012),2280.69
+CA,06,043,Mariposa County,Mariposa,Outpatient facility reimbursements per enrollee (2012),1342.26
+CA,06,043,Mariposa County,Mariposa,Home health agency reimbursements per enrollee (2012),160.05
+CA,06,043,Mariposa County,Mariposa,Hospice reimbursements per enrollee (2012),188.25
+CA,06,043,Mariposa County,Mariposa,Durable medical equipment reimbursements per enrollee (2012),209.67
+CA,06,045,Mendocino County,Mendocino,Hospital & skilled nursing facility reimbursements per enrollee (2012),3146.77
+CA,06,045,Mendocino County,Mendocino,Physician reimbursements per enrollee (2012),1651.49
+CA,06,045,Mendocino County,Mendocino,Outpatient facility reimbursements per enrollee (2012),1200.59
+CA,06,045,Mendocino County,Mendocino,Home health agency reimbursements per enrollee (2012),262.08
+CA,06,045,Mendocino County,Mendocino,Hospice reimbursements per enrollee (2012),99.66
+CA,06,045,Mendocino County,Mendocino,Durable medical equipment reimbursements per enrollee (2012),172.89
+CA,06,047,Merced County,Merced,Hospital & skilled nursing facility reimbursements per enrollee (2012),3776.62
+CA,06,047,Merced County,Merced,Physician reimbursements per enrollee (2012),2766.37
+CA,06,047,Merced County,Merced,Outpatient facility reimbursements per enrollee (2012),1078.81
+CA,06,047,Merced County,Merced,Home health agency reimbursements per enrollee (2012),182.81
+CA,06,047,Merced County,Merced,Hospice reimbursements per enrollee (2012),146.83
+CA,06,047,Merced County,Merced,Durable medical equipment reimbursements per enrollee (2012),287.46
+CA,06,049,Modoc County,Modoc,Hospital & skilled nursing facility reimbursements per enrollee (2012),3505.71
+CA,06,049,Modoc County,Modoc,Physician reimbursements per enrollee (2012),1382.75
+CA,06,049,Modoc County,Modoc,Outpatient facility reimbursements per enrollee (2012),1811.36
+CA,06,049,Modoc County,Modoc,Home health agency reimbursements per enrollee (2012),56.11
+CA,06,049,Modoc County,Modoc,Hospice reimbursements per enrollee (2012),84.62
+CA,06,049,Modoc County,Modoc,Durable medical equipment reimbursements per enrollee (2012),374.2
+CA,06,051,Mono County,Mono,Hospital & skilled nursing facility reimbursements per enrollee (2012),2955.38
+CA,06,051,Mono County,Mono,Physician reimbursements per enrollee (2012),1832.75
+CA,06,051,Mono County,Mono,Outpatient facility reimbursements per enrollee (2012),1914.59
+CA,06,051,Mono County,Mono,Home health agency reimbursements per enrollee (2012),146.97
+CA,06,051,Mono County,Mono,Hospice reimbursements per enrollee (2012),164.32
+CA,06,051,Mono County,Mono,Durable medical equipment reimbursements per enrollee (2012),219.79
+CA,06,053,Monterey County,Monterey,Hospital & skilled nursing facility reimbursements per enrollee (2012),3431.83
+CA,06,053,Monterey County,Monterey,Physician reimbursements per enrollee (2012),2409.86
+CA,06,053,Monterey County,Monterey,Outpatient facility reimbursements per enrollee (2012),871.73
+CA,06,053,Monterey County,Monterey,Home health agency reimbursements per enrollee (2012),362.42
+CA,06,053,Monterey County,Monterey,Hospice reimbursements per enrollee (2012),206.57
+CA,06,053,Monterey County,Monterey,Durable medical equipment reimbursements per enrollee (2012),199.45
+CA,06,055,Napa County,Napa,Hospital & skilled nursing facility reimbursements per enrollee (2012),4383.08
+CA,06,055,Napa County,Napa,Physician reimbursements per enrollee (2012),2795.86
+CA,06,055,Napa County,Napa,Outpatient facility reimbursements per enrollee (2012),1304.1
+CA,06,055,Napa County,Napa,Home health agency reimbursements per enrollee (2012),224.64
+CA,06,055,Napa County,Napa,Hospice reimbursements per enrollee (2012),275.24
+CA,06,055,Napa County,Napa,Durable medical equipment reimbursements per enrollee (2012),131.99
+CA,06,057,Nevada County,Nevada,Hospital & skilled nursing facility reimbursements per enrollee (2012),3320.14
+CA,06,057,Nevada County,Nevada,Physician reimbursements per enrollee (2012),2224.79
+CA,06,057,Nevada County,Nevada,Outpatient facility reimbursements per enrollee (2012),1188.65
+CA,06,057,Nevada County,Nevada,Home health agency reimbursements per enrollee (2012),258.15
+CA,06,057,Nevada County,Nevada,Hospice reimbursements per enrollee (2012),270.98
+CA,06,057,Nevada County,Nevada,Durable medical equipment reimbursements per enrollee (2012),177.72
+CA,06,059,Orange County,Orange,Hospital & skilled nursing facility reimbursements per enrollee (2012),4567.64
+CA,06,059,Orange County,Orange,Physician reimbursements per enrollee (2012),3670.59
+CA,06,059,Orange County,Orange,Outpatient facility reimbursements per enrollee (2012),1098.68
+CA,06,059,Orange County,Orange,Home health agency reimbursements per enrollee (2012),518.67
+CA,06,059,Orange County,Orange,Hospice reimbursements per enrollee (2012),360.75
+CA,06,059,Orange County,Orange,Durable medical equipment reimbursements per enrollee (2012),239.95
+CA,06,061,Placer County,Placer,Hospital & skilled nursing facility reimbursements per enrollee (2012),3469.89
+CA,06,061,Placer County,Placer,Physician reimbursements per enrollee (2012),2736.54
+CA,06,061,Placer County,Placer,Outpatient facility reimbursements per enrollee (2012),882.11
+CA,06,061,Placer County,Placer,Home health agency reimbursements per enrollee (2012),327.93
+CA,06,061,Placer County,Placer,Hospice reimbursements per enrollee (2012),285.5
+CA,06,061,Placer County,Placer,Durable medical equipment reimbursements per enrollee (2012),173.32
+CA,06,063,Plumas County,Plumas,Hospital & skilled nursing facility reimbursements per enrollee (2012),3425.54
+CA,06,063,Plumas County,Plumas,Physician reimbursements per enrollee (2012),1858.13
+CA,06,063,Plumas County,Plumas,Outpatient facility reimbursements per enrollee (2012),1731.68
+CA,06,063,Plumas County,Plumas,Home health agency reimbursements per enrollee (2012),216.02
+CA,06,063,Plumas County,Plumas,Hospice reimbursements per enrollee (2012),76.16
+CA,06,063,Plumas County,Plumas,Durable medical equipment reimbursements per enrollee (2012),201.56
+CA,06,065,Riverside County,Riverside,Hospital & skilled nursing facility reimbursements per enrollee (2012),4513.54
+CA,06,065,Riverside County,Riverside,Physician reimbursements per enrollee (2012),3179.99
+CA,06,065,Riverside County,Riverside,Outpatient facility reimbursements per enrollee (2012),1034.29
+CA,06,065,Riverside County,Riverside,Home health agency reimbursements per enrollee (2012),412.1
+CA,06,065,Riverside County,Riverside,Hospice reimbursements per enrollee (2012),458.16
+CA,06,065,Riverside County,Riverside,Durable medical equipment reimbursements per enrollee (2012),217.8
+CA,06,067,Sacramento County,Sacramento,Hospital & skilled nursing facility reimbursements per enrollee (2012),3950.78
+CA,06,067,Sacramento County,Sacramento,Physician reimbursements per enrollee (2012),2325.67
+CA,06,067,Sacramento County,Sacramento,Outpatient facility reimbursements per enrollee (2012),898.02
+CA,06,067,Sacramento County,Sacramento,Home health agency reimbursements per enrollee (2012),323.09
+CA,06,067,Sacramento County,Sacramento,Hospice reimbursements per enrollee (2012),272.49
+CA,06,067,Sacramento County,Sacramento,Durable medical equipment reimbursements per enrollee (2012),201.01
+CA,06,069,San Benito County,San Benito,Hospital & skilled nursing facility reimbursements per enrollee (2012),3581.08
+CA,06,069,San Benito County,San Benito,Physician reimbursements per enrollee (2012),2342.0
+CA,06,069,San Benito County,San Benito,Outpatient facility reimbursements per enrollee (2012),856.85
+CA,06,069,San Benito County,San Benito,Home health agency reimbursements per enrollee (2012),265.12
+CA,06,069,San Benito County,San Benito,Hospice reimbursements per enrollee (2012),151.15
+CA,06,069,San Benito County,San Benito,Durable medical equipment reimbursements per enrollee (2012),193.84
+CA,06,071,San Bernardino County,San Bernardino,Hospital & skilled nursing facility reimbursements per enrollee (2012),5116.89
+CA,06,071,San Bernardino County,San Bernardino,Physician reimbursements per enrollee (2012),2703.93
+CA,06,071,San Bernardino County,San Bernardino,Outpatient facility reimbursements per enrollee (2012),1061.4
+CA,06,071,San Bernardino County,San Bernardino,Home health agency reimbursements per enrollee (2012),466.42
+CA,06,071,San Bernardino County,San Bernardino,Hospice reimbursements per enrollee (2012),553.79
+CA,06,071,San Bernardino County,San Bernardino,Durable medical equipment reimbursements per enrollee (2012),252.07
+CA,06,073,San Diego County,San Diego,Hospital & skilled nursing facility reimbursements per enrollee (2012),4256.23
+CA,06,073,San Diego County,San Diego,Physician reimbursements per enrollee (2012),2832.59
+CA,06,073,San Diego County,San Diego,Outpatient facility reimbursements per enrollee (2012),970.0
+CA,06,073,San Diego County,San Diego,Home health agency reimbursements per enrollee (2012),383.67
+CA,06,073,San Diego County,San Diego,Hospice reimbursements per enrollee (2012),483.23
+CA,06,073,San Diego County,San Diego,Durable medical equipment reimbursements per enrollee (2012),205.24
+CA,06,075,San Francisco County,San Francisco,Hospital & skilled nursing facility reimbursements per enrollee (2012),3560.52
+CA,06,075,San Francisco County,San Francisco,Physician reimbursements per enrollee (2012),1968.88
+CA,06,075,San Francisco County,San Francisco,Outpatient facility reimbursements per enrollee (2012),1263.73
+CA,06,075,San Francisco County,San Francisco,Home health agency reimbursements per enrollee (2012),417.2
+CA,06,075,San Francisco County,San Francisco,Hospice reimbursements per enrollee (2012),229.13
+CA,06,075,San Francisco County,San Francisco,Durable medical equipment reimbursements per enrollee (2012),164.92
+CA,06,077,San Joaquin County,San Joaquin,Hospital & skilled nursing facility reimbursements per enrollee (2012),4443.49
+CA,06,077,San Joaquin County,San Joaquin,Physician reimbursements per enrollee (2012),2489.71
+CA,06,077,San Joaquin County,San Joaquin,Outpatient facility reimbursements per enrollee (2012),1007.34
+CA,06,077,San Joaquin County,San Joaquin,Home health agency reimbursements per enrollee (2012),356.44
+CA,06,077,San Joaquin County,San Joaquin,Hospice reimbursements per enrollee (2012),138.9
+CA,06,077,San Joaquin County,San Joaquin,Durable medical equipment reimbursements per enrollee (2012),223.15
+CA,06,079,San Luis Obispo County,San Luis Obispo,Hospital & skilled nursing facility reimbursements per enrollee (2012),2823.13
+CA,06,079,San Luis Obispo County,San Luis Obispo,Physician reimbursements per enrollee (2012),2944.62
+CA,06,079,San Luis Obispo County,San Luis Obispo,Outpatient facility reimbursements per enrollee (2012),596.79
+CA,06,079,San Luis Obispo County,San Luis Obispo,Home health agency reimbursements per enrollee (2012),432.42
+CA,06,079,San Luis Obispo County,San Luis Obispo,Hospice reimbursements per enrollee (2012),230.7
+CA,06,079,San Luis Obispo County,San Luis Obispo,Durable medical equipment reimbursements per enrollee (2012),210.14
+CA,06,081,San Mateo County,San Mateo,Hospital & skilled nursing facility reimbursements per enrollee (2012),3188.15
+CA,06,081,San Mateo County,San Mateo,Physician reimbursements per enrollee (2012),2297.73
+CA,06,081,San Mateo County,San Mateo,Outpatient facility reimbursements per enrollee (2012),1137.7
+CA,06,081,San Mateo County,San Mateo,Home health agency reimbursements per enrollee (2012),386.13
+CA,06,081,San Mateo County,San Mateo,Hospice reimbursements per enrollee (2012),296.12
+CA,06,081,San Mateo County,San Mateo,Durable medical equipment reimbursements per enrollee (2012),165.6
+CA,06,083,Santa Barbara County,Santa Barbara,Hospital & skilled nursing facility reimbursements per enrollee (2012),2895.72
+CA,06,083,Santa Barbara County,Santa Barbara,Physician reimbursements per enrollee (2012),2911.95
+CA,06,083,Santa Barbara County,Santa Barbara,Outpatient facility reimbursements per enrollee (2012),884.9
+CA,06,083,Santa Barbara County,Santa Barbara,Home health agency reimbursements per enrollee (2012),293.75
+CA,06,083,Santa Barbara County,Santa Barbara,Hospice reimbursements per enrollee (2012),237.31
+CA,06,083,Santa Barbara County,Santa Barbara,Durable medical equipment reimbursements per enrollee (2012),200.28
+CA,06,085,Santa Clara County,Santa Clara,Hospital & skilled nursing facility reimbursements per enrollee (2012),3530.36
+CA,06,085,Santa Clara County,Santa Clara,Physician reimbursements per enrollee (2012),2495.37
+CA,06,085,Santa Clara County,Santa Clara,Outpatient facility reimbursements per enrollee (2012),1025.08
+CA,06,085,Santa Clara County,Santa Clara,Home health agency reimbursements per enrollee (2012),350.09
+CA,06,085,Santa Clara County,Santa Clara,Hospice reimbursements per enrollee (2012),267.04
+CA,06,085,Santa Clara County,Santa Clara,Durable medical equipment reimbursements per enrollee (2012),194.33
+CA,06,087,Santa Cruz County,Santa Cruz,Hospital & skilled nursing facility reimbursements per enrollee (2012),3078.41
+CA,06,087,Santa Cruz County,Santa Cruz,Physician reimbursements per enrollee (2012),2566.63
+CA,06,087,Santa Cruz County,Santa Cruz,Outpatient facility reimbursements per enrollee (2012),733.4
+CA,06,087,Santa Cruz County,Santa Cruz,Home health agency reimbursements per enrollee (2012),356.9
+CA,06,087,Santa Cruz County,Santa Cruz,Hospice reimbursements per enrollee (2012),396.64
+CA,06,087,Santa Cruz County,Santa Cruz,Durable medical equipment reimbursements per enrollee (2012),187.13
+CA,06,089,Shasta County,Shasta,Hospital & skilled nursing facility reimbursements per enrollee (2012),3935.17
+CA,06,089,Shasta County,Shasta,Physician reimbursements per enrollee (2012),2629.22
+CA,06,089,Shasta County,Shasta,Outpatient facility reimbursements per enrollee (2012),912.62
+CA,06,089,Shasta County,Shasta,Home health agency reimbursements per enrollee (2012),305.86
+CA,06,089,Shasta County,Shasta,Hospice reimbursements per enrollee (2012),182.06
+CA,06,089,Shasta County,Shasta,Durable medical equipment reimbursements per enrollee (2012),269.73
+CA,06,091,Sierra County,Sierra,Hospital & skilled nursing facility reimbursements per enrollee (2012),3881.2
+CA,06,091,Sierra County,Sierra,Physician reimbursements per enrollee (2012),2018.02
+CA,06,091,Sierra County,Sierra,Outpatient facility reimbursements per enrollee (2012),1431.99
+CA,06,091,Sierra County,Sierra,Home health agency reimbursements per enrollee (2012),192.72
+CA,06,091,Sierra County,Sierra,Hospice reimbursements per enrollee (2012),135.37
+CA,06,091,Sierra County,Sierra,Durable medical equipment reimbursements per enrollee (2012),207.66
+CA,06,093,Siskiyou County,Siskiyou,Hospital & skilled nursing facility reimbursements per enrollee (2012),2684.53
+CA,06,093,Siskiyou County,Siskiyou,Physician reimbursements per enrollee (2012),1717.98
+CA,06,093,Siskiyou County,Siskiyou,Outpatient facility reimbursements per enrollee (2012),1479.71
+CA,06,093,Siskiyou County,Siskiyou,Home health agency reimbursements per enrollee (2012),178.91
+CA,06,093,Siskiyou County,Siskiyou,Hospice reimbursements per enrollee (2012),295.24
+CA,06,093,Siskiyou County,Siskiyou,Durable medical equipment reimbursements per enrollee (2012),232.12
+CA,06,095,Solano County,Solano,Hospital & skilled nursing facility reimbursements per enrollee (2012),3696.75
+CA,06,095,Solano County,Solano,Physician reimbursements per enrollee (2012),2165.72
+CA,06,095,Solano County,Solano,Outpatient facility reimbursements per enrollee (2012),921.53
+CA,06,095,Solano County,Solano,Home health agency reimbursements per enrollee (2012),290.44
+CA,06,095,Solano County,Solano,Hospice reimbursements per enrollee (2012),271.42
+CA,06,095,Solano County,Solano,Durable medical equipment reimbursements per enrollee (2012),193.3
+CA,06,097,Sonoma County,Sonoma,Hospital & skilled nursing facility reimbursements per enrollee (2012),3350.53
+CA,06,097,Sonoma County,Sonoma,Physician reimbursements per enrollee (2012),2677.81
+CA,06,097,Sonoma County,Sonoma,Outpatient facility reimbursements per enrollee (2012),875.32
+CA,06,097,Sonoma County,Sonoma,Home health agency reimbursements per enrollee (2012),307.37
+CA,06,097,Sonoma County,Sonoma,Hospice reimbursements per enrollee (2012),329.24
+CA,06,097,Sonoma County,Sonoma,Durable medical equipment reimbursements per enrollee (2012),191.11
+CA,06,099,Stanislaus County,Stanislaus,Hospital & skilled nursing facility reimbursements per enrollee (2012),4240.35
+CA,06,099,Stanislaus County,Stanislaus,Physician reimbursements per enrollee (2012),2487.31
+CA,06,099,Stanislaus County,Stanislaus,Outpatient facility reimbursements per enrollee (2012),1106.91
+CA,06,099,Stanislaus County,Stanislaus,Home health agency reimbursements per enrollee (2012),338.46
+CA,06,099,Stanislaus County,Stanislaus,Hospice reimbursements per enrollee (2012),274.8
+CA,06,099,Stanislaus County,Stanislaus,Durable medical equipment reimbursements per enrollee (2012),227.21
+CA,06,101,Sutter County,Sutter,Hospital & skilled nursing facility reimbursements per enrollee (2012),4073.67
+CA,06,101,Sutter County,Sutter,Physician reimbursements per enrollee (2012),2516.17
+CA,06,101,Sutter County,Sutter,Outpatient facility reimbursements per enrollee (2012),1107.56
+CA,06,101,Sutter County,Sutter,Home health agency reimbursements per enrollee (2012),279.13
+CA,06,101,Sutter County,Sutter,Hospice reimbursements per enrollee (2012),323.2
+CA,06,101,Sutter County,Sutter,Durable medical equipment reimbursements per enrollee (2012),231.56
+CA,06,103,Tehama County,Tehama,Hospital & skilled nursing facility reimbursements per enrollee (2012),3610.28
+CA,06,103,Tehama County,Tehama,Physician reimbursements per enrollee (2012),2112.53
+CA,06,103,Tehama County,Tehama,Outpatient facility reimbursements per enrollee (2012),1343.23
+CA,06,103,Tehama County,Tehama,Home health agency reimbursements per enrollee (2012),359.86
+CA,06,103,Tehama County,Tehama,Hospice reimbursements per enrollee (2012),181.35
+CA,06,103,Tehama County,Tehama,Durable medical equipment reimbursements per enrollee (2012),281.11
+CA,06,105,Trinity County,Trinity,Hospital & skilled nursing facility reimbursements per enrollee (2012),3457.4
+CA,06,105,Trinity County,Trinity,Physician reimbursements per enrollee (2012),2149.73
+CA,06,105,Trinity County,Trinity,Outpatient facility reimbursements per enrollee (2012),665.32
+CA,06,105,Trinity County,Trinity,Home health agency reimbursements per enrollee (2012),157.62
+CA,06,105,Trinity County,Trinity,Hospice reimbursements per enrollee (2012),106.29
+CA,06,105,Trinity County,Trinity,Durable medical equipment reimbursements per enrollee (2012),286.02
+CA,06,107,Tulare County,Tulare,Hospital & skilled nursing facility reimbursements per enrollee (2012),3768.74
+CA,06,107,Tulare County,Tulare,Physician reimbursements per enrollee (2012),2774.05
+CA,06,107,Tulare County,Tulare,Outpatient facility reimbursements per enrollee (2012),1158.17
+CA,06,107,Tulare County,Tulare,Home health agency reimbursements per enrollee (2012),185.33
+CA,06,107,Tulare County,Tulare,Hospice reimbursements per enrollee (2012),206.71
+CA,06,107,Tulare County,Tulare,Durable medical equipment reimbursements per enrollee (2012),337.39
+CA,06,109,Tuolumne County,Tuolumne,Hospital & skilled nursing facility reimbursements per enrollee (2012),3146.65
+CA,06,109,Tuolumne County,Tuolumne,Physician reimbursements per enrollee (2012),2012.06
+CA,06,109,Tuolumne County,Tuolumne,Outpatient facility reimbursements per enrollee (2012),1728.35
+CA,06,109,Tuolumne County,Tuolumne,Home health agency reimbursements per enrollee (2012),419.71
+CA,06,109,Tuolumne County,Tuolumne,Hospice reimbursements per enrollee (2012),154.3
+CA,06,109,Tuolumne County,Tuolumne,Durable medical equipment reimbursements per enrollee (2012),196.64
+CA,06,111,Ventura County,Ventura,Hospital & skilled nursing facility reimbursements per enrollee (2012),3895.4
+CA,06,111,Ventura County,Ventura,Physician reimbursements per enrollee (2012),3483.05
+CA,06,111,Ventura County,Ventura,Outpatient facility reimbursements per enrollee (2012),875.99
+CA,06,111,Ventura County,Ventura,Home health agency reimbursements per enrollee (2012),502.04
+CA,06,111,Ventura County,Ventura,Hospice reimbursements per enrollee (2012),332.16
+CA,06,111,Ventura County,Ventura,Durable medical equipment reimbursements per enrollee (2012),226.18
+CA,06,113,Yolo County,Yolo,Hospital & skilled nursing facility reimbursements per enrollee (2012),2926.01
+CA,06,113,Yolo County,Yolo,Physician reimbursements per enrollee (2012),1919.64
+CA,06,113,Yolo County,Yolo,Outpatient facility reimbursements per enrollee (2012),1116.55
+CA,06,113,Yolo County,Yolo,Home health agency reimbursements per enrollee (2012),279.63
+CA,06,113,Yolo County,Yolo,Hospice reimbursements per enrollee (2012),248.04
+CA,06,113,Yolo County,Yolo,Durable medical equipment reimbursements per enrollee (2012),165.44
+CA,06,115,Yuba County,Yuba,Hospital & skilled nursing facility reimbursements per enrollee (2012),4628.7
+CA,06,115,Yuba County,Yuba,Physician reimbursements per enrollee (2012),2327.64
+CA,06,115,Yuba County,Yuba,Outpatient facility reimbursements per enrollee (2012),1179.83
+CA,06,115,Yuba County,Yuba,Home health agency reimbursements per enrollee (2012),312.12
+CA,06,115,Yuba County,Yuba,Hospice reimbursements per enrollee (2012),352.22
+CA,06,115,Yuba County,Yuba,Durable medical equipment reimbursements per enrollee (2012),281.1

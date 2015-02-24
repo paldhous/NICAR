@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset=utf-8 />
+	<title>Seismic hazards in the continental U.S.</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+	<link rel='stylesheet' href='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css' />
+	<script src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js'></script>
+	<script src='data/seismic_risk.js'></script>
+	<script src='src/leaflet.ajax.min.js'></script>
+	<script src='src/date.format.js'></script>
+	<script src='http://code.jquery.com/jquery.min.js'></script>
+
+	<style>
+		body {margin:0; padding:0;}
+		#map {position:absolute; top:0; bottom:0; width:100%;}
+		#legend {
+			background: #ffffff;
+			position: absolute;
+			bottom: 30px;
+			left: 10px;
+			padding: 0px 10px;
+			width: 200px;
+			font-family: arial;
+			font-size: small;
+			-webkit-border-radius:4px 4px 4px 4px;
+			border-radius:4px 4px 4px 4px;
+			-webkit-box-shadow: 0px 1px 5px rgba(153,153,153,1);
+			-moz-box-shadow: 0px 1px 5px rgba(153,153,153,1);
+			box-shadow: 0px 1px 5px rgba(153,153,153,1);
+		}
+		@media (max-width:767px) {
+		#legend-text {display:none;}
+		#legend {width: 140px;}
+		}
+		@media (min-width:768px) {
+		#legend-text-alt {display:none;}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="map">
+
+		<script src="src/maps.js"></script>
+
+	</div>
+
+    <div id='legend'>
+        <p><strong>Seismic risk:</strong></p>
+        <p>Low
+        <span style='color:#fee5d9'>▉</span>
+        <span style='color:#fcae91'>▉</span>
+        <span style='color:#fb6a4A'>▉</span>
+        <span style='color:#de2d26'>▉</span>
+        <span style='color:#a50f15'>▉</span>
+        High</p>
+        <div id='legend-text'>
+            <p>Circles show significant quakes, from 1965 to present, scaled by the amount of ground shaking. Click/tap for details.</p>
+        </div>
+        <div id='legend-text-alt'>
+            <p>Tap quakes for details.</p>
+        </div>
+    </div>
+</body>
+
+</html>

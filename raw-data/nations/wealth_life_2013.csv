@@ -1,0 +1,210 @@
+"iso_a3","country","year","region","income_group","gdp_pc","life_expect","population"
+"ABW","Aruba",2013,"Latin America & Caribbean","High income",,,102911
+"AFG","Afghanistan",2013,"South Asia","Low income",1946.19380603184,,30551674
+"AGO","Angola",2013,"Sub-Saharan Africa","Upper middle income",7736.17468163313,,21471618
+"ALB","Albania",2013,"Europe & Central Asia","Upper middle income",10374.015637354,,2773620
+"AND","Andorra",2013,"Europe & Central Asia","High income",,,79218
+"ARE","United Arab Emirates",2013,"Middle East & North Africa","High income",,,9346129
+"ARG","Argentina",2013,"Latin America & Caribbean","Upper middle income",,,41446246
+"ARM","Armenia",2013,"Europe & Central Asia","Lower middle income",7776.2860430691,,2976566
+"ASM","American Samoa",2013,"East Asia & Pacific","Upper middle income",,,55165
+"ATG","Antigua and Barbuda",2013,"Latin America & Caribbean","High income",21027.8266399337,,89985
+"AUS","Australia",2013,"East Asia & Pacific","High income",43543.8120396093,,23130900
+"AUT","Austria",2013,"Europe & Central Asia","High income",45492.8236393356,,8473786
+"AZE","Azerbaijan",2013,"Europe & Central Asia","Upper middle income",17143.4792308476,,9416598
+"BDI","Burundi",2013,"Sub-Saharan Africa","Low income",771.71542954274,,10162532
+"BEL","Belgium",2013,"Europe & Central Asia","High income",41663.1137428586,,11195138
+"BEN","Benin",2013,"Sub-Saharan Africa","Low income",1790.75363672991,,10323474
+"BFA","Burkina Faso",2013,"Sub-Saharan Africa","Low income",1514.18622141102,,16934839
+"BGD","Bangladesh",2013,"South Asia","Low income",2948.01488976887,,156594962
+"BGR","Bulgaria",2013,"Europe & Central Asia","Upper middle income",15731.6726237737,,7265115
+"BHR","Bahrain",2013,"Middle East & North Africa","High income",43714.9532430169,,1332171
+"BHS","Bahamas, The",2013,"Latin America & Caribbean","High income",23264.2722108642,,377374
+"BIH","Bosnia and Herzegovina",2013,"Europe & Central Asia","Upper middle income",9535.5397905006,,3829307
+"BLR","Belarus",2013,"Europe & Central Asia","Upper middle income",17619.7696564982,,9466000
+"BLZ","Belize",2013,"Latin America & Caribbean","Upper middle income",8486.89853967369,,331900
+"BMU","Bermuda",2013,"North America","High income",,,65024
+"BOL","Bolivia",2013,"Latin America & Caribbean","Lower middle income",6131.06168856137,,10671200
+"BRA","Brazil",2013,"Latin America & Caribbean","Upper middle income",15037.4574693446,,200361925
+"BRB","Barbados",2013,"Latin America & Caribbean","High income",,,284644
+"BRN","Brunei Darussalam",2013,"East Asia & Pacific","High income",71776.6480123078,,417784
+"BTN","Bhutan",2013,"South Asia","Lower middle income",7404.73678431865,,753947
+"BWA","Botswana",2013,"Sub-Saharan Africa","Upper middle income",15751.9022060328,,2021144
+"CAF","Central African Republic",2013,"Sub-Saharan Africa","Low income",603.742959794015,,4616417
+"CAN","Canada",2013,"North America","High income",43247.0443447575,,35158304
+"CHE","Switzerland",2013,"Europe & Central Asia","High income",56564.9359472129,,8081482
+"CHL","Chile",2013,"Latin America & Caribbean","High income",21911.3009745228,,17619708
+"CHN","China",2013,"East Asia & Pacific","Upper middle income",11906.5073908244,,1357380000
+"CIV","Cote d'Ivoire",2013,"Sub-Saharan Africa","Lower middle income",3210.45464438594,,20316086
+"CMR","Cameroon",2013,"Sub-Saharan Africa","Lower middle income",2830.12953902169,,22253959
+"COD","Congo, Dem. Rep.",2013,"Sub-Saharan Africa","Low income",809.217533443526,,67513677
+"COG","Congo, Rep.",2013,"Sub-Saharan Africa","Lower middle income",5868.48055101527,,4447632
+"COL","Colombia",2013,"Latin America & Caribbean","Upper middle income",12423.9230431716,,48321405
+"COM","Comoros",2013,"Sub-Saharan Africa","Low income",1446.17149475964,,734917
+"CPV","Cabo Verde",2013,"Sub-Saharan Africa","Lower middle income",6416.317160988,,498897
+"CRI","Costa Rica",2013,"Latin America & Caribbean","Upper middle income",13875.8563536715,,4872166
+"CUB","Cuba",2013,"Latin America & Caribbean","Upper middle income",,,11265629
+"CUW","Curacao",2013,"Latin America & Caribbean","High income",,,153500
+"CYM","Cayman Islands",2013,"Latin America & Caribbean","High income",,,58435
+"CYP","Cyprus",2013,"Europe & Central Asia","High income",28224.4574448048,,1141166
+"CZE","Czech Republic",2013,"Europe & Central Asia","High income",28769.8577721051,,10521468
+"DEU","Germany",2013,"Europe & Central Asia","High income",44469.4380913625,,80621788
+"DJI","Djibouti",2013,"Middle East & North Africa","Lower middle income",2998.74058570901,,872932
+"DMA","Dominica",2013,"Latin America & Caribbean","Upper middle income",10343.1557312332,,72003
+"DNK","Denmark",2013,"Europe & Central Asia","High income",43444.6297130455,,5613706
+"DOM","Dominican Republic",2013,"Latin America & Caribbean","Upper middle income",12186.388560558,,10403761
+"DZA","Algeria",2013,"Middle East & North Africa","Upper middle income",13320.2321901285,,39208194
+"ECU","Ecuador",2013,"Latin America & Caribbean","Upper middle income",10889.9891270309,,15737878
+"EGY","Egypt, Arab Rep.",2013,"Middle East & North Africa","Lower middle income",11089.2111773151,,82056378
+"ERI","Eritrea",2013,"Sub-Saharan Africa","Low income",1195.67675726337,,6333135
+"ESP","Spain",2013,"Europe & Central Asia","High income",32925.4740029116,,46647421
+"EST","Estonia",2013,"Europe & Central Asia","High income",25461.8507541553,,1324612
+"ETH","Ethiopia",2013,"Sub-Saharan Africa","Low income",1380.00026448913,,94100756
+"FIN","Finland",2013,"Europe & Central Asia","High income",39812.3792223133,,5439407
+"FJI","Fiji",2013,"East Asia & Pacific","Upper middle income",7750.43065903864,,881065
+"FRA","France",2013,"Europe & Central Asia","High income",37871.8556151032,,66028467
+"FRO","Faeroe Islands",2013,"Europe & Central Asia","High income",,,49469
+"FSM","Micronesia, Fed. Sts.",2013,"East Asia & Pacific","Lower middle income",3394.64727547184,,103549
+"GAB","Gabon",2013,"Sub-Saharan Africa","Upper middle income",19264.3359398216,,1671711
+"GBR","United Kingdom",2013,"Europe & Central Asia","High income",38451.6571582051,,64097085
+"GEO","Georgia",2013,"Europe & Central Asia","Lower middle income",7176.44362639204,,4476900
+"GHA","Ghana",2013,"Sub-Saharan Africa","Lower middle income",3992.09003884754,,25904598
+"GIN","Guinea",2013,"Sub-Saharan Africa","Low income",1253.08489968023,,11745189
+"GMB","Gambia, The",2013,"Sub-Saharan Africa","Low income",1661.42355399369,,1849285
+"GNB","Guinea-Bissau",2013,"Sub-Saharan Africa","Low income",1407.02677224558,,1704255
+"GNQ","Equatorial Guinea",2013,"Sub-Saharan Africa","High income",33768.289851408,,757014
+"GRC","Greece",2013,"Europe & Central Asia","High income",25705.0373896157,,11032328
+"GRD","Grenada",2013,"Latin America & Caribbean","Upper middle income",11645.340600932,,105897
+"GRL","Greenland",2013,"Europe & Central Asia","High income",,,56483
+"GTM","Guatemala",2013,"Latin America & Caribbean","Lower middle income",7296.59257319642,,15468203
+"GUM","Guam",2013,"East Asia & Pacific","High income",,,165124
+"GUY","Guyana",2013,"Latin America & Caribbean","Lower middle income",6545.93223037864,,799613
+"HKG","Hong Kong SAR, China",2013,"East Asia & Pacific","High income",53215.9373734741,,7187500
+"HND","Honduras",2013,"Latin America & Caribbean","Lower middle income",4592.59339927457,,8097688
+"HRV","Croatia",2013,"Europe & Central Asia","High income",21365.5824631022,,4252700
+"HTI","Haiti",2013,"Latin America & Caribbean","Low income",1703.02934940234,,10317461
+"HUN","Hungary",2013,"Europe & Central Asia","Upper middle income",23482.1020528711,,9897247
+"IDN","Indonesia",2013,"East Asia & Pacific","Lower middle income",9561.12635183094,,249865631
+"IND","India",2013,"South Asia","Lower middle income",5411.61554629181,,1252139596
+"IRL","Ireland",2013,"Europe & Central Asia","High income",46139.6166017257,,4595281
+"IRN","Iran, Islamic Rep.",2013,"Middle East & North Africa","Upper middle income",15590.1519646088,,77447168
+"IRQ","Iraq",2013,"Middle East & North Africa","Upper middle income",14951.0776794266,,33417476
+"ISL","Iceland",2013,"Europe & Central Asia","High income",41938.9299464785,,323002
+"ISR","Israel",2013,"Middle East & North Africa","High income",32760.4112142528,,8059400
+"ITA","Italy",2013,"Europe & Central Asia","High income",35597.3160550274,,59831093
+"JAM","Jamaica",2013,"Latin America & Caribbean","Upper middle income",8891.89154248426,,2715000
+"JOR","Jordan",2013,"Middle East & North Africa","Upper middle income",11784.5316899264,,6459000
+"JPN","Japan",2013,"East Asia & Pacific","High income",36449.0618262047,,127338621
+"KAZ","Kazakhstan",2013,"Europe & Central Asia","Upper middle income",23211.312265251,,17037508
+"KEN","Kenya",2013,"Sub-Saharan Africa","Low income",2794.98131908266,,44353691
+"KGZ","Kyrgyz Republic",2013,"Europe & Central Asia","Lower middle income",3212.93244119764,,5719500
+"KHM","Cambodia",2013,"East Asia & Pacific","Low income",3041.07709021153,,15135169
+"KIR","Kiribati",2013,"East Asia & Pacific","Lower middle income",1855.82888361975,,102351
+"KNA","St. Kitts and Nevis",2013,"Latin America & Caribbean","High income",21395.6932205761,,54191
+"KOR","Korea, Rep.",2013,"East Asia & Pacific","High income",33139.5820334768,,50219669
+"KWT","Kuwait",2013,"Middle East & North Africa","High income",,,3368572
+"LAO","Lao PDR",2013,"East Asia & Pacific","Lower middle income",4822.02207368924,,6769727
+"LBN","Lebanon",2013,"Middle East & North Africa","Upper middle income",17173.8422362362,,4467390
+"LBR","Liberia",2013,"Sub-Saharan Africa","Low income",877.995480056484,,4294077
+"LBY","Libya",2013,"Middle East & North Africa","Upper middle income",21046.3473378789,,6201521
+"LCA","St. Lucia",2013,"Latin America & Caribbean","Upper middle income",10487.9682765538,,182273
+"LIE","Liechtenstein",2013,"Europe & Central Asia","High income",,,36925
+"LKA","Sri Lanka",2013,"South Asia","Lower middle income",9738.11917417447,,20483000
+"LSO","Lesotho",2013,"Sub-Saharan Africa","Lower middle income",2576.25549405545,,2074465
+"LTU","Lithuania",2013,"Europe & Central Asia","High income",25467.0459415157,,2956121
+"LUX","Luxembourg",2013,"Europe & Central Asia","High income",90410.1436515027,,543202
+"LVA","Latvia",2013,"Europe & Central Asia","High income",22560.2299095174,,2013385
+"MAC","Macao SAR, China",2013,"East Asia & Pacific","High income",142599.240319212,,566375
+"MAF","St. Martin (French part)",2013,"Latin America & Caribbean","High income",,,31264
+"MAR","Morocco",2013,"Middle East & North Africa","Lower middle income",7198.16371916788,,33008150
+"MCO","Monaco",2013,"Europe & Central Asia","High income",,,37831
+"MDA","Moldova",2013,"Europe & Central Asia","Lower middle income",4670.35017000535,,3559000
+"MDG","Madagascar",2013,"Sub-Saharan Africa","Low income",1413.99075673979,,22924851
+"MDV","Maldives",2013,"South Asia","Upper middle income",11656.7428360248,,345023
+"MEX","Mexico",2013,"Latin America & Caribbean","Upper middle income",16463.392673388,,122332399
+"MHL","Marshall Islands",2013,"East Asia & Pacific","Upper middle income",3900.99731010833,,52634
+"MKD","Macedonia, FYR",2013,"Europe & Central Asia","Upper middle income",11611.97490519,,2107158
+"MLI","Mali",2013,"Sub-Saharan Africa","Low income",1641.83452128449,,15301650
+"MLT","Malta",2013,"Middle East & North Africa","High income",29133.1118089873,,423282
+"MMR","Myanmar",2013,"East Asia & Pacific","Low income",,,53259018
+"MNE","Montenegro",2013,"Europe & Central Asia","Upper middle income",14131.6050000068,,621383
+"MNG","Mongolia",2013,"East Asia & Pacific","Lower middle income",9434.9627693653,,2839073
+"MNP","Northern Mariana Islands",2013,"East Asia & Pacific","High income",,,53855
+"MOZ","Mozambique",2013,"Sub-Saharan Africa","Low income",1105.07349763736,,25833752
+"MRT","Mauritania",2013,"Sub-Saharan Africa","Lower middle income",3042.83849410548,,3889880
+"MUS","Mauritius",2013,"Sub-Saharan Africa","Upper middle income",17199.5294237952,,1296303
+"MWI","Malawi",2013,"Sub-Saharan Africa","Low income",780.003107565482,,16362567
+"MYS","Malaysia",2013,"East Asia & Pacific","Upper middle income",23338.0140244332,,29716965
+"NAM","Namibia",2013,"Sub-Saharan Africa","Upper middle income",9583.18475656442,,2303315
+"NCL","New Caledonia",2013,"East Asia & Pacific","High income",,,262000
+"NER","Niger",2013,"Sub-Saharan Africa","Low income",916.199691229844,,17831270
+"NGA","Nigeria",2013,"Sub-Saharan Africa","Lower middle income",5602.40879552442,,173615345
+"NIC","Nicaragua",2013,"Latin America & Caribbean","Lower middle income",4642.69625070461,,6080478
+"NLD","Netherlands",2013,"Europe & Central Asia","High income",46298.4358637241,,16804224
+"NOR","Norway",2013,"Europe & Central Asia","High income",65461.1653874422,,5084190
+"NPL","Nepal",2013,"South Asia","Low income",2244.79962842638,,27797457
+"NZL","New Zealand",2013,"East Asia & Pacific","High income",34825.7083942145,,4470800
+"OMN","Oman",2013,"Middle East & North Africa","High income",,,3632444
+"PAK","Pakistan",2013,"South Asia","Lower middle income",4601.68894303447,,182142594
+"PAN","Panama",2013,"Latin America & Caribbean","Upper middle income",19416.2320170688,,3864170
+"PER","Peru",2013,"Latin America & Caribbean","Upper middle income",11774.1883417434,,30375603
+"PHL","Philippines",2013,"East Asia & Pacific","Lower middle income",6535.87586381471,,98393574
+"PLW","Palau",2013,"East Asia & Pacific","Upper middle income",15095.9881392384,,20918
+"PNG","Papua New Guinea",2013,"East Asia & Pacific","Lower middle income",2539.08170427106,,7321262
+"POL","Poland",2013,"Europe & Central Asia","High income",23649.1101792577,,38530725
+"PRI","Puerto Rico",2013,"Latin America & Caribbean","High income",34752.376062686,,3615086
+"PRK","Korea, Dem. Rep.",2013,"East Asia & Pacific","Low income",,,24895480
+"PRT","Portugal",2013,"Europe & Central Asia","High income",26759.026122355,,10459806
+"PRY","Paraguay",2013,"Latin America & Caribbean","Lower middle income",8092.67275665026,,6802295
+"PYF","French Polynesia",2013,"East Asia & Pacific","High income",,,276831
+"QAT","Qatar",2013,"Middle East & North Africa","High income",136727.253610167,,2168673
+"ROU","Romania",2013,"Europe & Central Asia","Upper middle income",18991.3019526057,,19963581
+"RUS","Russian Federation",2013,"Europe & Central Asia","High income",24114.0880976422,,143499861
+"RWA","Rwanda",2013,"Sub-Saharan Africa","Low income",1473.63801166274,,11776522
+"SAU","Saudi Arabia",2013,"Middle East & North Africa","High income",53644.1269250098,,28828870
+"SDN","Sudan",2013,"Sub-Saharan Africa","Lower middle income",3372.97200690061,,37964306
+"SEN","Senegal",2013,"Sub-Saharan Africa","Lower middle income",2241.99652516017,,14133280
+"SGP","Singapore",2013,"East Asia & Pacific","High income",78763.3849443771,,5399200
+"SLB","Solomon Islands",2013,"East Asia & Pacific","Lower middle income",2068.96106224769,,561231
+"SLE","Sierra Leone",2013,"Sub-Saharan Africa","Low income",1544.18323961817,,6092075
+"SLV","El Salvador",2013,"Latin America & Caribbean","Lower middle income",7764.14274460714,,6340454
+"SMR","San Marino",2013,"Europe & Central Asia","High income",,,31448
+"SOM","Somalia",2013,"Sub-Saharan Africa","Low income",,,10495583
+"SRB","Serbia",2013,"Europe & Central Asia","Upper middle income",13020.1042341046,,7163976
+"SSD","South Sudan",2013,"Sub-Saharan Africa","Lower middle income",2029.74531174235,,11296173
+"STP","Sao Tome and Principe",2013,"Sub-Saharan Africa","Lower middle income",2971.06707976578,,192993
+"SUR","Suriname",2013,"Latin America & Caribbean","Upper middle income",16071.3846314326,,539276
+"SVK","Slovak Republic",2013,"Europe & Central Asia","High income",26642.7084756583,,5414095
+"SVN","Slovenia",2013,"Europe & Central Asia","High income",28995.6434884216,,2060484
+"SWE","Sweden",2013,"Europe & Central Asia","High income",45148.1252596379,,9592552
+"SWZ","Swaziland",2013,"Sub-Saharan Africa","Lower middle income",6685.33811734131,,1249514
+"SXM","Sint Maarten (Dutch part)",2013,"Latin America & Caribbean","High income",,,39689
+"SYC","Seychelles",2013,"Sub-Saharan Africa","Upper middle income",24587.4855947311,,89173
+"SYR","Syrian Arab Republic",2013,"Middle East & North Africa","Lower middle income",,,22845550
+"TCA","Turks and Caicos Islands",2013,"Latin America & Caribbean","High income",,,33098
+"TCD","Chad",2013,"Sub-Saharan Africa","Low income",2088.5918355193,,12825314
+"TGO","Togo",2013,"Sub-Saharan Africa","Low income",1390.51971095318,,6816982
+"THA","Thailand",2013,"East Asia & Pacific","Upper middle income",14393.5307035565,,67010502
+"TJK","Tajikistan",2013,"Europe & Central Asia","Low income",2512.24756635,,8207834
+"TKM","Turkmenistan",2013,"Europe & Central Asia","Upper middle income",14004.160056658,,5240072
+"TON","Tonga",2013,"East Asia & Pacific","Upper middle income",5304.20668898596,,105323
+"TTO","Trinidad and Tobago",2013,"Latin America & Caribbean","High income",30446.0075388524,,1341151
+"TUN","Tunisia",2013,"Middle East & North Africa","Upper middle income",11124.4960087614,,10886500
+"TUR","Turkey",2013,"Europe & Central Asia","Upper middle income",19020.0650632949,,74932641
+"TUV","Tuvalu",2013,"East Asia & Pacific","Upper middle income",3645.1579296558,,9876
+"TZA","Tanzania",2013,"Sub-Saharan Africa","Low income",1775.05858032604,,49253126
+"UGA","Uganda",2013,"Sub-Saharan Africa","Low income",1413.15463013282,,37578876
+"UKR","Ukraine",2013,"Europe & Central Asia","Lower middle income",8789.98200051008,,45489600
+"URY","Uruguay",2013,"Latin America & Caribbean","High income",19594.3695607622,,3407062
+"USA","United States",2013,"North America","High income",53041.9814055623,,316128839
+"UZB","Uzbekistan",2013,"Europe & Central Asia","Lower middle income",5168.28603457276,,30241100
+"VCT","St. Vincent and the Grenadines",2013,"Latin America & Caribbean","Upper middle income",10490.6041669164,,109373
+"VEN","Venezuela, RB",2013,"Latin America & Caribbean","Upper middle income",18198.3700172414,,30405207
+"VIR","Virgin Islands (U.S.)",2013,"Latin America & Caribbean","High income",,,104737
+"VNM","Vietnam",2013,"East Asia & Pacific","Lower middle income",5294.43986933333,,89708900
+"VUT","Vanuatu",2013,"East Asia & Pacific","Lower middle income",2990.91682998287,,252763
+"WSM","Samoa",2013,"East Asia & Pacific","Lower middle income",5768.98576875814,,190372
+"YEM","Yemen, Rep.",2013,"Middle East & North Africa","Lower middle income",3959.29188263281,,24407381
+"ZAF","South Africa",2013,"Sub-Saharan Africa","Upper middle income",12506.7494760135,,52981991
+"ZMB","Zambia",2013,"Sub-Saharan Africa","Lower middle income",3925.46238739217,,14538640
+"ZWE","Zimbabwe",2013,"Sub-Saharan Africa","Low income",1832.08324432316,,14149648

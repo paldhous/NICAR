@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset=utf-8 />
+	<title>Seismic hazards in the continental U.S.</title>
+	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link rel='stylesheet' href='http://libs.cartocdn.com/cartodb.js/v3/themes/css/cartodb.css' />
+    <script src='http://libs.cartocdn.com/cartodb.js/v3/cartodb.js'></script>
+   
+   	<style>
+		body {margin:0; padding:0;}
+		#map {position:absolute; top:0; bottom:0; width:100%;}
+	</style>
+
+</head>
+  
+<body>
+  
+    <div id='map'></div>
+    
+
+    <script>
+        
+        var map = new L.map('map').setView([40, -100], 4);  
+        
+		L.tileLayer('https://{s}.tiles.mapbox.com/v3/mapbox.world-bright/{z}/{x}/{y}.png', {
+    	attribution: '<a href="http://www.mapbox.com/about/maps/" target="_blank">Terms &amp; Feedback</a>'
+		}).addTo(map);
+
+        cartodb.createLayer(map, 'http://aldhouskdmc.cartodb.com/api/v2/viz/e7640620-935f-11e4-a70d-0e4fddd5de28/viz.json')
+         .addTo(map)
+         .on('done', function(layer) {
+
+          layer.setInteraction(true);
+
+          layer.on('featureOver', function(e, pos, latlng, data) {
+            cartodb.log.log(e, pos, latlng, data);
+          });
+
+          layer.on('error', function(err) {
+            cartodb.log.log('error: ' + err);
+          });
+        }).on('error', function() {
+          cartodb.log.log('some error occurred');
+        });
+
+
+    </script>
+
+</body>
+
+</html>
