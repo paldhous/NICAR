@@ -1,23 +1,34 @@
-# Beginning mapping
+# Peter Aldhous: NICAR 2015, Atlanta
 
-In this workshop we will cover basic principles and good practice in mapmaking, and then apply those principles using a number of tools for making data-driven maps.
+###[Critical questions to ask of studies, press releases and scientific reports](http://ire.org/events-and-training/event/1494/1743/)
 
-### Schedule
+####**Friday March 6, 2.10pm**
+#####**Location: International 4-5**
 
- - ####**Day 1, am:** [Principles of mapping](principles.html)
-  - Before we leap into making maps, we will cover basic principles of mapping, including map projections and the various ways in which data can be displayed on maps.
-  - We will also review geodata formats, geocode addresses to latitude and longitude coordinates, and perform some data processing tasks that may be needed before starting mapping.
+Confused by *p* values and effect sizes? Unsure about what peer review really means? Reluctant to challenge Dr. Famous with potentially insulting questions? We'll provide tips for using expert sources, documentary research and common sense to separate the scientific wheat from the chaff.
 
-
- - ####**Day 1, pm:** [Making maps with QGIS](qgis.html)
-  - We will use QGIS, the leading open-source geographic information systems software, to make publication-quality static maps.
-  - We will also perform some simple geodata processing tasks using QGIS.
+##### [Session notes](studies.html)
 
 
- - ####**Day 2, am:** [Mapping and more with Tableau Public](tableau.html)
-  - We will use Tableau Public, a versatile visualization tool, to make a variety of interactive maps and combine them into online dashboards.
+###[Analyzing networks with Gephi](http://ire.org/events-and-training/event/1494/1647/)
+
+####**Friday March 6, 3.20pm**
+#####**Location: M106**
+
+You'll learn how to use Gephi by turning data on voting patterns in the US Senate into an informative graphic revealing the chamber's underlying dynamics -- and highlighting the few senators who broke the partisan mold.
+
+##### [Session notes](gephi.html)
+
+###[Introduction to mapping: Importing and displaying data geographically with QGIS](http://ire.org/events-and-training/event/1494/1668/)
+
+####**Saturday March 7, 2.10pm**
+#####**Location: M102**
+
+You'll learn how to use QGIS to make a simple thematic map, with areas colored according to data, plus a map of points scaled according to values in the data, how to set their map projections, and how to export them as a vector graphic.
+
+##### [Session notes](qgis.html)
 
 
-- ####**Day 2, pm:** [Making online maps with Fusion Tables](fusion.html)
-  - We will make simple interactive maps with this useful tool from Google.
+
+
 
