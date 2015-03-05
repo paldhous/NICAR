@@ -1,5 +1,0 @@
-IF SUM([Cost]) <= 7500 THEN "< $7,500"
-ELSEIF SUM([Cost]) <= 7750 THEN "$7,500 - $7,750"
-ELSEIF SUM([Cost]) <= 8000 THEN "$7,750 - $8,000"
-ELSEIF SUM([Cost]) <= 8500 THEN "$8,000 - $8,500"
-ELSE "> $8,500" END
