@@ -47,7 +47,7 @@ There are also a series of metrics that can quantify aspects of a network. Here 
 
 - **[Degree](http://en.wikipedia.org/wiki/Centrality#Degree_centrality)** is a simple count of the number of connections for each node. For directed networks, it is divided into In-degree, for the number of incoming connections, and Out-degree, for outgoing connections. (In my stem cell citation network, In-Degree was used to set the size of each node.)
 - **[Eigenvector centrality](http://en.wikipedia.org/wiki/Centrality#Eigenvector_centrality)** accounts not only for the node’s own degree, but also the degrees of the nodes to which it connects. As such, it is a measure of each node's wider "influence" within the network. Google's [PageRank](http://en.wikipedia.org/wiki/PageRank) algorithm, which rates the importance of web pages according the the links they recieve, is a variant of this measure.
-- **[Betweenness centrality](http://en.wikipedia.org/wiki/Centrality#Betweenness_centrality)** essentially reveals how important each node is in providing a “bridge” between different parts of the network: It counts the number of times each node appears on the shortest path between two other nodes. It is particularly useful for highlighting the nodes that, if removed, would cause a network to fall apart.
+- **[betweenness centrality](http://en.wikipedia.org/wiki/Centrality#Betweenness_centrality)** essentially reveals how important each node is in providing a “bridge” between different parts of the network: It counts the number of times each node appears on the shortest path between two other nodes. It is particularly useful for highlighting the nodes that, if removed, would cause a network to fall apart.
 - **[Closeness centrality](http://en.wikipedia.org/wiki/Centrality#Closeness_centrality)** is a measure of how close each node is, on average, to all of the other nodes in a network. It highlights the nodes that connect to the others through a lower number of edges. The [Kevin Bacon Game](http://www.thekevinbacongame.com/), in which you have to connect Bacon to other movie actors through the fewest number of movies, based on co-appearances, works because he has a high closeness centrality in this network.
 
 ### Network data formats
@@ -194,7 +194,7 @@ Now is a good time to save the project, if you have not done so already.
 
 Next we will calculate some metrics for our new, filtered network. If we are interested in highlighting the Senators who are most bipartisan, then Betweenness centrality is a good measure -- remember that it highlights "bridging" nodes that prevent the network from breaking apart into isolated clusters.
 
-Select the `Statistics` tab in the main right-hand panel, and then `Edge Overview>Avg. Path Length>Run`. Click `OK` at the next dialog box, close the `Graph Distance Report`, and go to the `Data Laboratory` view. Notice that new columns, including `Betweenness Centrality`, have appeared in the `Edges` table:
+Select the `Statistics` tab in the main right-hand panel, and then `Edge Overview>Avg. Path Length>Run`. Click `OK` at the next dialog box, close the `Graph Distance Report`, and go to the `Data Laboratory` view. Notice that new columns, including `Betweenness Centrality`, have appeared in the `Nodes` table:
 
 ![](./img/gephi_21.jpg)
 
