@@ -37,7 +37,7 @@ Select `Layer>Add vector layer` or click on this icon:
 
 ![](./img/qgis_2.jpg)
 
-At the dialog box, click `Browse` and navigate to the file `seismic_risk_clip.shp`. It is important that you select the file with the `.shp` extension. Then click open, and the following map of California should appear, filled with a random color:
+At the dialog box, click `Browse` and navigate to the file `CA_counties_medicare.shp`. It is important that you select the file with the `.shp` extension. Then click open, and the following map of California should appear, filled with a random color:
 
 ![](./img/qgis_3.jpg)
 
