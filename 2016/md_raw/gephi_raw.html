@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>gephi.html</title>
+  <meta name="generator" content="Haroopad 0.12.2" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF) repeat scroll 0 0 transparent;background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:medium none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:medium none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:medium none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:none no-repeat scroll 5px -27px #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:none repeat scroll 0 0 #FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:none repeat scroll 0 0 #EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:none repeat scroll 0 0 #75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:#1A3C6C solid 1px;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-bottom-width:0;border-left-width:0;border-right-width:0;border-top-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;max-width:none;min-height:0;outline-color:#112644;outline-style:none;outline-width:0;overflow-x:visible;overflow-y:visible;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;border:0 none;color:#ccc;height:3px;padding:0}hr.underscore{border:0 none!important;height:30px;padding:0;-webkit-margin-before:0;-webkit-margin-after:0}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:#fff url(../img/ajax.gif) no-repeat center center}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}.markdown{padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-break:break-all;word-wrap:break-word}.markdown pre{border-radius:3px;word-break:break-all;word-wrap:break-word;overflow:auto}.markdown pre code{display:block}.markdown pre>code{border:1px solid #ccc;white-space:pre;padding:.5em;margin:0}.markdown code{border-radius:3px;word-break:break-all;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown table{padding:0;border-collapse:collapse;border-spacing:0}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}.markdown em.underline{font-style:normal;text-decoration:underline}.markdown strong.highlight{color:#000;padding:0 5px;background-color:#fdffb6;-webkit-box-shadow:#fdffb6 0 0 5px;-moz-box-shadow:#fdffb6 0 0 5px;box-shadow:#fdffb6 0 0 5px}.clearness{padding:20px;color:#737373;font-size:15px;font-family:"Lucida Grande","Lucida Sans Unicode","Lucida Sans",AppleSDGothicNeo-Medium,'Segoe UI','Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;-webkit-font-smoothing:antialiased}.clearness a{color:#1e6ea7}.clearness a:hover{color:#268bd2}.clearness h1,.clearness h2,.clearness h3,.clearness h4,.clearness h5{color:#404040}.clearness h2{border-bottom:1px solid #ccc;line-height:1.7em}.clearness h6{color:#666}.clearness hr{border:1px solid #e6e6e6}.clearness pre>code{font-size:.9em;font-family:Consolas,Inconsolata,Courier,monospace}.clearness blockquote{padding:0 15px;font-style:italic}.clearness blockquote:before{content:"\201C";font-size:40px;margin-left:-20px;color:#aaa}.clearness table{background-color:#fff;border-collapse:separate;border-spacing:2px}.clearness table tr td,.clearness table tr th{border:0;padding:.2em 1em}.clearness table tr th{border-bottom:1px solid #bfbfbf}.clearness table tr td{border-bottom:1px solid #d9d9d9}.clearness table tr:nth-child(2n){background-color:#fff}.hljs{display:block;overflow-x:auto;padding:.5em;background:#f0f0f0;-webkit-text-size-adjust:none}.clojure .hljs-built_in,.hljs,.hljs-subst,.hljs-tag .hljs-title,.lisp .hljs-title,.nginx .hljs-title{color:#000}.apache .hljs-cbracket,.apache .hljs-tag,.asciidoc .hljs-header,.bash .hljs-variable,.coffeescript .hljs-attribute,.django .hljs-variable,.erlang_repl .hljs-function_or_atom,.haml .hljs-symbol,.hljs-addition,.hljs-constant,.hljs-flow,.hljs-parent,.hljs-pragma,.hljs-preprocessor,.hljs-rules .hljs-value,.hljs-stream,.hljs-string,.hljs-tag .hljs-value,.hljs-template_tag,.hljs-title,.markdown .hljs-header,.ruby .hljs-symbol,.ruby .hljs-symbol .hljs-string,.smalltalk .hljs-class,.tex .hljs-command,.tex .hljs-special{color:#800}.asciidoc .hljs-blockquote,.diff .hljs-header,.hljs-annotation,.hljs-chunk,.hljs-comment,.hljs-template_comment,.markdown .hljs-blockquote,.smartquote{color:#888}.asciidoc .hljs-bullet,.asciidoc .hljs-link_url,.go .hljs-constant,.hljs-change,.hljs-date,.hljs-hexcolor,.hljs-literal,.hljs-number,.hljs-regexp,.lasso .hljs-variable,.makefile .hljs-variable,.markdown .hljs-bullet,.markdown .hljs-link_url,.smalltalk .hljs-char,.smalltalk .hljs-symbol{color:#080}.apache .hljs-sqbracket,.asciidoc .hljs-attribute,.asciidoc .hljs-link_label,.clojure .hljs-attribute,.coffeescript .hljs-property,.erlang_repl .hljs-reserved,.haml .hljs-bullet,.hljs-array,.hljs-attr_selector,.hljs-decorator,.hljs-deletion,.hljs-doctype,.hljs-envvar,.hljs-filter .hljs-argument,.hljs-important,.hljs-javadoc,.hljs-label,.hljs-localvars,.hljs-phony,.hljs-pi,.hljs-prompt,.hljs-pseudo,.hljs-shebang,.lasso .hljs-attribute,.markdown .hljs-link_label,.nginx .hljs-built_in,.ruby .hljs-string,.tex .hljs-formula,.vhdl .hljs-attribute{color:#88f}.apache .hljs-tag,.asciidoc .hljs-strong,.bash .hljs-variable,.css .hljs-tag,.hljs-built_in,.hljs-id,.hljs-javadoctag,.hljs-keyword,.hljs-phpdoc,.hljs-request,.hljs-status,.hljs-title,.hljs-type,.hljs-typename,.hljs-winutils,.hljs-yardoctag,.markdown .hljs-strong,.smalltalk .hljs-class,.tex .hljs-command{font-weight:700}.asciidoc .hljs-emphasis,.markdown .hljs-emphasis{font-style:italic}.nginx .hljs-built_in{font-weight:400}.coffeescript .javascript,.javascript .xml,.lasso .markup,.tex .hljs-formula,.xml .css,.xml .hljs-cdata,.xml .javascript,.xml .vbscript{opacity:.5}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown clearness">
+
+  <h1 id="network-analysis-with-gephi"><a name="network-analysis-with-gephi" href="#network-analysis-with-gephi"></a>Network analysis with Gephi</h1><p>Today, network analysis is being used to study a wide variety of subjects, from how networks of genes and proteins influence our health to how connections between multinational companies affect the stability of the global economy. Network graphs can also be used to great effect in journalism to explore and illustrate connections that are crucial to public policy, or directly affect the lives of ordinary people.</p><p>Do any of these phrases have resonance for you?</p><ul>
+<li><p>The problem with this city is that it’s run by X’s cronies.</p>
+</li>
+<li><p>Contracts in this town are all about kickbacks.</p>
+</li>
+<li><p>Follow the money!</p>
+</li>
+<li><p>It’s not what you know, it’s who you know.</p>
+</li>
+</ul><p>If so, and you can gather relevant data, network graphs can provide a means to display the connections involved in a way that your audience (and your editors) can readily understand.</p><h3 id="the-data-we-will-use"><a name="the-data-we-will-use" href="#the-data-we-will-use"></a>The data we will use</h3><p>Download the data from this session from <a href="data/gephi.zip">here</a>, unzip the folder and place it on your desktop. It contains the following folders and files:</p><ul>
+<li><code>friends.csv</code> A simple network documenting relationships among a small group of people.</li>
+<li><code>senate_113-2013.gexf</code> <code>senate-113-2014.gexf</code> Two files with data on voting patterns in the U.S. Senate, detailing the number and percentage of times pairs of Senators voted the same way in each year.</li>
+<li><code>senate_one_session.py</code> Python script that will scrape a single year’s data from <a href="http://govtrack.us/">GovTrack.US</a>; modified from a <a href="https://gist.github.com/rlucioni/8bdb1092579041ce739c">script</a> written by <a href="http://www.renzolucioni.com/">Renzo Lucioni</a>.</li>
+<li><code>senate</code> Folder containing files and code to make an interactive version of the Senate voting network.</li>
+</ul><h3 id="network-analysis:-the-basics"><a name="network-analysis:-the-basics" href="#network-analysis:-the-basics"></a>Network analysis: the basics</h3><p>At its simplest level, network analysis is very straightforward. Network graphs consist of edges (the connections) and nodes (the entities that are connected).</p><p>One important consideration is whether the network is “directed,” “undirected,” or a mixture of the two. This depends upon the nature of the connections involved. If you are documenting whether people are Facebook friends, for instance, and have no information who made the original friend request, the connections have no obvious direction. But when considering following relationships on Twitter, there is a clear directionality to each relationship: A fan might follow Taylor Swift, for example, but she probably doesn’t follow them back.</p><p>The connections in undirected graphs are typically represented by simple lines or curves, while directed relationships are usually represented by arrows.</p><p>Here, for example, I used a directed network graph to illustrate patterns of citation of one another’s work by researchers working on a type of stem cell that later won their discoverer a Nobel prize. Notice that in some cases there are arrows going in both connections, because each had frequently cited the other:</p><p><img src="img/gephi_1.jpg" alt=""></p><p>(Source: <em><a href="http://peteraldhous.com/Articles/The_stem_cell_wars.pdf">New Scientist</a></em>)</p><p>Nodes and edges can each have data associated with them, which can be represented using size, color and shape.</p><h3 id="network-algorithms-and-metrics"><a name="network-algorithms-and-metrics" href="#network-algorithms-and-metrics"></a>Network algorithms and metrics</h3><p>Networks can be drawn manually,  with the nodes placed individually to give the most informative display. However, network theorists have devised layout algorithms to automate the production of network graphs. These can be very useful, especially when visualizing large and complex networks.</p><p>There are also a series of metrics that can quantify aspects of a network. Here are some examples, which measure the importance of nodes within a network in slightly different ways:</p><ul>
+<li><strong><a href="http://en.wikipedia.org/wiki/Centrality#Degree_centrality">Degree</a></strong> is a simple count of the number of connections for each node. For directed networks, it is divided into In-degree, for the number of incoming connections, and Out-degree, for outgoing connections. (In my stem cell citation network, In-Degree was used to set the size of each node.)</li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Centrality#Eigenvector_centrality">Eigenvector centrality</a></strong> accounts not only for the node’s own degree, but also the degrees of the nodes to which it connects. As such, it is a measure of each node’s wider “influence” within the network. Google’s <a href="http://en.wikipedia.org/wiki/PageRank">PageRank</a> algorithm, which rates the importance of web pages according the the links they recieve, is a variant of this measure.</li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Centrality#Betweenness_centrality">betweenness centrality</a></strong> essentially reveals how important each node is in providing a “bridge” between different parts of the network: It counts the number of times each node appears on the shortest path between two other nodes. It is particularly useful for highlighting the nodes that, if removed, would cause a network to fall apart.</li>
+<li><strong><a href="http://en.wikipedia.org/wiki/Centrality#Closeness_centrality">Closeness centrality</a></strong> is a measure of how close each node is, on average, to all of the other nodes in a network. It highlights the nodes that connect to the others through a lower number of edges. The <a href="http://www.thekevinbacongame.com/">Kevin Bacon Game</a>, in which you have to connect Bacon to other movie actors through the fewest number of movies, based on co-appearances, works because he has a high closeness centrality in this network.</li>
+</ul><h3 id="network-data-formats"><a name="network-data-formats" href="#network-data-formats"></a>Network data formats</h3><p>The most basic data needed to draw a network is an “edge list” — a list of pairs of nodes that connect within the network, which can be created in a spreadsheet with two columns, one for each member of each pair of nodes.</p><p>There are also a number of dedicated data formats used to record data about networks, which can store a variety of data about both edges and nodes. Here are two of the most common:</p><p><strong><a href="http://gexf.net/format/">GEXF</a></strong> is a variant of XML, and is the native data format for Gephi, the network visualization software we will use today.</p><p><strong><a href="http://graphml.graphdrawing.org//">GraphML</a></strong> is another, older XML format used for storing and exchanging network graph data.</p><p>For visualizing networks online, it often makes sense to save them as <strong><a href="http://json.org/">JSON</a></strong>, which keeps file size small and works well with JavaScript visualization libraries.</p><h3 id="introducing-gephi"><a name="introducing-gephi" href="#introducing-gephi"></a>Introducing Gephi</h3><p><a href="http://gephi.github.io/">Gephi</a> is a tool designed to draw, analyze, filter and customize the appearance of network graphs according to qualitative and quantitative variables in the data.</p><p>Gephi allows you to deploy layout algorithms, or to place nodes manually. It can calculate network metrics, and lets you use the results of these analyses to customize the appearance of your network graph.</p><p>Finally, Gephi allows you to create publication-quality vector graphics of your network visualizations, and to export your filtered and analyzed networks in data formats that can be displayed interactively online, using JavaScript visualization libraries.</p><p>Launch Gephi, and you will see a screen like this:</p><p><img src="img/gephi_2.jpg" alt=""></p><p>(You may also see an initial welcome window, allowing you to load recently used or sample data. You can close this.)</p><h3 id="install-gephi-plugins"><a name="install-gephi-plugins" href="#install-gephi-plugins"></a>Install Gephi plugins</h3><p>Gephi has a series of plugins that extend its functionality — you can browse the available options <a href="https://marketplace.gephi.org/plugins/">here</a>.</p><p>We will install a plugin that we will later use to export data from Gephi as JSON. Select <code>Tools&gt;Plugins</code> from the top menu, and the Plugins window should open:</p><p><img src="img/gephi_3.jpg" alt=""></p><p>In the <code>Available Plugins</code> tab, look for the <a href="https://marketplace.gephi.org/plugin/json-exporter/">JSONExporter</a> plugin — you can use the <code>Search</code> box to find them, if necessary. Then click <code>Install</code>.</p><p>After installing plugins, you may be prompted to restart Gephi, which you should do.</p><p>If you do not find the plugin you are looking for, close Gephi and browse for the plugin at the <a href="https://marketplace.gephi.org/plugins/">Gephi marketplace</a>, where you can download manually. Then relaunch Gephi, select <code>Tools&gt;Plugins</code> from the top menu and go to the <code>Downloaded</code> tab. Click the <code>Add Plugins ...</code> button, and navigate to where the plugin was saved on your computer — it should be in a zipped folder or have an <code>.nbm</code> file extension. Then click <code>Install</code> and follow the instructions that appear.</p><p>See <a href="https://marketplace.gephi.org/how-to-install-a-plugin/">here</a> for more instructions on installing Gephi plugins.</p><h3 id="make-a-simple-network-graph-illustrating-connections-between-friends"><a name="make-a-simple-network-graph-illustrating-connections-between-friends" href="#make-a-simple-network-graph-illustrating-connections-between-friends"></a>Make a simple network graph illustrating connections between friends</h3><p>Having launched Gephi, click on <code>Data Laboratory</code>. This is where you can view and edit raw network data. From the top menu, select  <code>File&gt;New Project</code>, and the screen should look like this:</p><p><img src="img/gephi_4.jpg" alt=""></p><p>Notice that you can switch between viewing <code>Nodes</code> and <code>Edges</code>, and that there are buttons to <code>Add node</code> and <code>Add edge</code>, which allow you to construct simple networks by manual data entry. Instead, we will import a simple edge list, to show how Gephi will add the nodes and draw the network from this basic data.</p><p>To do this, click the <code>Import Spreadsheet</code> button — which actually imports CSV files, rather than spreadsheets in <code>.xls</code> or <code>.xlsx</code> format. Your CSV file should at a minimum have two columns, headed <code>Source</code> and <code>Target</code>. By default, Gephi will create a directed network from an edge list, with arrows pointing from from Source to Target nodes. If some or all of your connections are undirected, include a third column called <code>Type</code> and fill the rows with <code>Undirected</code> or <code>Directed</code>, as appropriate.</p><p>At the dialog box shown below, navigate to the file <code>friends.csv</code>, and ensure that the data is going to be imported as an <code>Edges table</code>:</p><p><img src="img/gephi_5.jpg" alt=""></p><p>Click <code>Next&gt;</code> and then <code>Finish</code>, and notice that Gephi has automatically created a <code>Nodes</code> table from the information in the <code>Edges</code> table:</p><p><img src="img/gephi_6.jpg" alt=""></p><p>In the <code>Nodes</code> table, click the <code>Copy data to other column</code> button at the bottom of the screen, select <code>Id</code> and click <code>OK</code> to copy to <code>Label</code>. This column can later be used to put labels on the network graph.</p><p>Now click <code>Add column</code>, call it <code>Gender</code> and keep its <code>Type</code> as <code>String</code>, because we are going to enter text values, rather than numbers. This column can later be used to color the friends according to their gender.</p><p>Having created the column, double-click on each row and enter <code>F</code> or <code>M</code>, as appropriate:</p><p><img src="img/gephi_7.jpg" alt=""></p><p>Now switch to the <code>Edges</code> table, and notice that each edge has been classed as <code>Directed</code>:</p><p><img src="img/gephi_8.jpg" alt=""></p><p>This would make sense if, for example, we were looking at dinner invitations made by the source nodes. Notice that in this network, not only has Ann invited Bob to dinner, but Bob has also invited Ann. For each of the other pairs, the invitations have not been reciprocated.</p><p>Now click <code>Overview</code> to go back to the main graph view, where a network graph should now be visible. You can use your mouse/trackpad to pan and zoom. On my trackpad, right-click and hold enables panning, while the double-finger swipe I would normally use to scroll enables zoom. Your settings may vary!</p><p>Note also that the left of the two sliders at bottom controls the size of the edges, and that individual nodes can be clicked and moved to position them manually. Below I have arranged the nodes so that none of the edges cross over one another. The <code>Context</code> panel at top right gives basic information about the network:</p><p><img src="img/gephi_9.jpg" alt=""></p><p>Click on the dark <code>T</code> button at bottom to call up labels for the nodes, and use the right of the two sliders to control their size. The light T button would call up edge labels, if they were set.</p><p>Turn off the labels once more, and we will next color the nodes according to the friends’ gender.</p><p>Notice that the panel at top left contains two tabs, <code>Partition</code> and <code>Ranking</code>. The former is used to style nodes or edges according to qualitative variables, the latter styling by quantitative variables. Select <code>Partition&gt;Nodes</code>, hit the <code>Refresh</code> button with the circling green arrows, select <code>Gender</code> and hit the <code>Run</code> button with the green “play” symbol. The nodes should now be colored by gender, and you may find that the edges also take the color of the source node:</p><p><img src="img/gephi_10.jpg" alt=""></p><p>To turn off this behavior, click this button at the bottom of the screen: <img src="img/gephi_11.jpg" alt=""> (the button to its immediate left allows edge visibility to be turned on and off).</p><p>Select <code>File&gt;New Project</code> and you will be given the option to save your project before closing. You can also save your work at any time by selecting <code>File&gt;Save</code> or by using the usual <code>⌘-S</code> or <code>Ctrl-S</code> shortcut.</p><h3 id="visualize-patterns-of-voting-in-the-u.s.-senate"><a name="visualize-patterns-of-voting-in-the-u.s.-senate" href="#visualize-patterns-of-voting-in-the-u.s.-senate"></a>Visualize patterns of voting in the U.S. Senate</h3><p>Having learned these basics, we will now explore a more interesting network, based on voting patterns in the U.S. Senate in 2014.</p><p>Select <code>File&gt;Open</code> from the top menu and navigate to the file <code>senate-113-2014.gexf</code>. The next dialog box will give you some information about the network being imported, in this case telling you it it is an undirected network containing 101 nodes (two Senators left the chamber in 2013, their places filled first by temporary appointees, then elected replacements), and 5049 edges:</p><p><img src="img/gephi_12.jpg" alt=""></p><p>Once the network has imported, go to the <code>Data Laboratory</code> to view and examine the data for the <code>Nodes</code> and <code>Edges</code>. Notice that each edge has a column called <code>percent_agree</code>, which is the number of times the member of each pair of Senators voted the same way, divided by the total number of votes in the chamber in 2013, giving a number between 0 and 1:</p><p><img src="img/gephi_13.jpg" alt=""></p><p>Click the <code>Configuration</code> button, and ensure that <code>Visible graph only</code> is checked. When we start filtering the data, this will ensure that the data tables show the filtered network, not the original.</p><p>Now return to the <code>Overview</code>, where we will use a layout algorithm to alter the appearance of the network. In the <code>Layout</code> panel at bottom left,  choose the <code>Fruchterman Reingold</code> layout algorithm and click <code>Run</code>. (I know from prior experimentation that this algorithm gives a reasonable appearance for this network, but do experiment with different options if working on your own network graphs in future.) Note also that there are options to change the parameters of the algorithm, such as the “Gravity” with which connected nodes attract one another. We will simply accept the default options, but again you may want to experiment with different values for your own projects.</p><p>When the network settles down, click <code>Stop</code> to stabilize it. The network should look something like this:</p><p><img src="img/gephi_14.jpg" alt=""></p><p>This looks a little neater than the initial view, but is still a hairball that tells us little about the underlying dynamics of voting in the Senate. This is because almost all Senators voted the same way at least once, so each one is connected to almost all of the others.</p><p>So now we need to filter the network, so that edges are not drawn if Senators voted the same way less often. Select the <code>Filters</code> tab in the main panel at right, and select <code>Attributes&gt;Range</code>, which gives the option to filter on <code>percent_agree</code>. Double-click on <code>percent_agree</code>, to see the following under <code>Queries</code>:</p><p><img src="img/gephi_15.jpg" alt=""></p><p>The range can be altered using the sliders, but we will instead double-click on the value for the bottom of the range, and manually edit it to 0.67:</p><p><img src="img/gephi_16.jpg" alt=""></p><p>This will draw edges between Senators only if they voted the same way in at least two-thirds of the votes in 2013. Hit <code>Filter</code>, and watch many of the edges disappear. Switch to the <code>Data Laboratory</code> view, and see how the <code>Edges</code> table has also changed. Now return to the <code>Overview</code>, <code>Run</code> the layout algorithm again, and the graph should change to look something like this:</p><p><img src="img/gephi_17.jpg" alt=""></p><p>Now the network is organized into two clusters, which are linked through only a single Senator. These are presumably Democrats and Republicans, which we can confirm by coloring the nodes by party in the <code>Partition</code> tab at top left:</p><p><img src="img/gephi_18.jpg" alt=""></p><p>To customize the colors, click on each square in the <code>Partition</code> tab, then <code>Shift-Ctrl</code> and click to call up the color selector:</p><p><img src="img/gephi_19.jpg" alt=""></p><p>Make Democrats blue (Hex: <code>0000FF</code>), Republicans red (Hex: <code>FF0000</code>) and the two Independents orange (Hex: <code>FFAA00</code>).</p><p>Let’s also reconfigure the network so that the Democrats are on the left and the Republicans on the right. <code>Run</code> the layout algorithm again, and with it running, click and drag one of the outermost Democrats, until the network looks something like this:</p><p><img src="img/gephi_20.jpg" alt=""></p><p>Now is a good time to save the project, if you have not done so already.</p><p>Next we will calculate some metrics for our new, filtered network. If we are interested in highlighting the Senators who are most bipartisan, then Betweenness centrality is a good measure — remember that it highlights “bridging” nodes that prevent the network from breaking apart into isolated clusters.</p><p>Select the <code>Statistics</code> tab in the main right-hand panel, and then <code>Edge Overview&gt;Avg. Path Length&gt;Run</code>. Click <code>OK</code> at the next dialog box, close the <code>Graph Distance Report</code>, and go to the <code>Data Laboratory</code> view. Notice that new columns, including <code>Betweenness Centrality</code>, have appeared in the <code>Nodes</code> table:</p><p><img src="img/gephi_21.jpg" alt=""></p><p>Switch back to the <code>Overview</code>, and select the <code>Ranking</code> tab on the top left panel. Choose <code>Betweenness Centrality</code> as the ranking parameter for <code>Nodes</code>, select the gem-like icon (<img src="img/gephi_22.jpg" alt="">), which controls the size of nodes, and select a minimum and maximum size for the range.</p><p><img src="img/gephi_23.jpg" alt=""></p><p>Click <code>Apply</code>, and the network should look something like this:</p><p><img src="img/gephi_24.jpg" alt=""></p><p>You may at this point want to switch on the labels, and note that <a href="http://www.collins.senate.gov/">Susan Collins</a>, the Republican from Maine, was the standout bipartisan Senator in 2014.</p><p>Now switch to <code>Preview</code>, which is where the appearance of the network graph can be polished before exporting it as a vector graphic. Click <code>Refresh</code> to see the network graphic drawn with default options:</p><p><img src="img/gephi_25.jpg" alt=""></p><p>You can then customize using the panel on the left, clicking <code>Refresh</code> to review each change. Here I have removed the nodes’ borders, by setting their width to zero, changed the edges from the default curved to straight, and reduced edge thickness to 0.5:</p><p><img src="img/gephi_26.jpg" alt=""></p><h3 id="export-the-finished-network-as-vector-graphics-and-for-online-visualization"><a name="export-the-finished-network-as-vector-graphics-and-for-online-visualization" href="#export-the-finished-network-as-vector-graphics-and-for-online-visualization"></a>Export the finished network as vector graphics and for online visualization</h3><p>Export the network graph in SVG or PDF format using the button at bottom left, or by selecting <code>File&gt;Export&gt;SVG/PDF/PNG file...</code> from the top menu.</p><p>Now select <code>File&gt;Export&gt;Graph file...</code> and save as JSON (this option is available through the JSONExporter plugin we installed earlier). Make sure to select <code>Graph&gt;Visible only</code> at the dialog box, so that only the filtered network is exported:</p><p><img src="img/gephi_27.jpg" alt=""></p><p>Now try to repeat the exercise with the 2013 data!</p><h3 id="introducing-sigma.js"><a name="introducing-sigma.js" href="#introducing-sigma.js"></a>Introducing Sigma.js</h3><p>Network graphs can be visualized using several JavaScript libraries including <a href="http://d3js.org/">D3</a> (see <a href="http://bl.ocks.org/mbostock/4062045">here</a> for an example). However, we will use the <a href="http://sigmajs.org/">Sigma.js</a> JavaScript library, which is specifically designed for the purpose, and can more easily handle large and complex networks.</p><h3 id="make-your-own-sigma.js-interactive-network"><a name="make-your-own-sigma.js-interactive-network" href="#make-your-own-sigma.js-interactive-network"></a>Make your own Sigma.js interactive network</h3><p>I have provided a basic Sigma.js template, prepared with the generous help of <a href="http://www.medialab.sciences-po.fr/people/alexis-jacomy/">Alexis Jacomy</a>, the author of Sigma.js. This is in the <code>senate</code> folder.</p><p>Save the JSON file you exported from Gephi in the <code>data</code> subfolder with the name <code>senate.json</code>, then open the file <code>index.html</code>. The resulting interactive should look like this. Notice that when you hover over each node, its label appears, and its direct connections remain highlighted, while the rest of the network is grayed out:</p><p><img src="img/gephi_28.jpg" alt=""></p><p>Open <code>index.html</code> in your preferred text editor, and you will see this code:</p><pre><code class="html hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;HTML&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+
+&amp;lt;head&amp;gt;
+
+  &amp;lt;meta charset=utf-8 /&amp;gt;
+  &amp;lt;title&amp;gt;U.S. Senate network&amp;lt;/title&amp;gt;
+  &amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&amp;gt;
+  &amp;lt;script src=&quot;src/sigma.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;script src=&quot;src/sigma.parsers.json.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+
+  &amp;lt;style&amp;gt;
+    body {margin:0; padding:0;}
+    #sigma-container {position:absolute; top:0; bottom:0; width:100%;}
+  &amp;lt;/style&amp;gt;
+
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&quot;sigma-container&quot;&amp;gt;&amp;lt;/div&amp;gt;
+
+  &amp;lt;script&amp;gt;
+  function init() {
+
+    // Finds the connections of each node
+    sigma.classes.graph.addMethod(&quot;neighbors&quot;, function(nodeId) {
+      var k,
+          neighbors = {},
+          index = this.allNeighborsIndex[nodeId] || {};
+
+      for (k in index)
+        neighbors[k] = this.nodesIndex[k];
+
+      return neighbors;
+    });
+
+   // Creates an instance of Sigma.js
+    var sigInst = new sigma({
+      renderers: [
+        {
+          container: document.getElementById(&quot;sigma-container&quot;),
+          type: &quot;canvas&quot;
+        }
+      ]
+    });
+
+    // Customizes its settings 
+    sigInst.settings({
+      // Drawing properties :
+      defaultLabelColor: &quot;#000&quot;,
+      defaultLabelSize: 14,
+      defaultLabelHoverColor: &quot;#fff&quot;,
+      labelThreshold: 11,
+      defaultHoverLabelBGColor: &quot;#888&quot;,
+      defaultLabelBGColor: &quot;#ddd&quot;,
+      defaultEdgeType: &quot;straight&quot;,
+
+      // Graph properties :
+      minNodeSize: 3,
+      maxNodeSize: 10,
+      minEdgeSize: 0.1,
+      maxEdgeSize: 0.2,
+
+      // Mouse properties :
+      zoomMax: 20 
+    });
+
+    // Parses JSON file to fill the graph
+    sigma.parsers.json(
+      &quot;data/senate.json&quot;,
+      sigInst,
+      function() {
+        //  Little hack here:
+        //  In the latest Sigma.js version have to delete edges&quot; colors manually
+        sigInst.graph.edges().forEach(function(e) {
+          e.color = null;
+        });
+
+        // Also, to facilitate the update of node colors, store
+        // their original color under the key originalColor:
+        sigInst.graph.nodes().forEach(function(n) {
+          n.originalColor = n.color;
+        });
+
+        sigInst.refresh();
+      }
+    );
+
+
+     // When a node is clicked, check for each node to see if it is connected. If not, set its color as gray
+     // Do the same for the edges
+
+    var grayColor = &quot;#ccc&quot;;
+    sigInst.bind(&quot;overNode&quot;, function(e) {
+      var nodeId = e.data.node.id,
+          toKeep = sigInst.graph.neighbors(nodeId);
+      toKeep[nodeId] = e.data.node;
+
+      sigInst.graph.nodes().forEach(function(n) {
+        if (toKeep[n.id])
+          n.color = n.originalColor;
+        else
+          n.color = grayColor;
+      });
+
+      sigInst.graph.edges().forEach(function(e) {
+        if (e.source === nodeId || e.target === nodeId)
+          e.color = null;
+        else
+          e.color = grayColor;
+      });
+
+    // Since the data has been modified, call the refresh method to make the colors update 
+      sigInst.refresh();
+    });
+
+    // When a node is no longer being hovered over, return to original colors
+    sigInst.bind(&quot;outNode&quot;, function(e) {
+      sigInst.graph.nodes().forEach(function(n) {
+        n.color = n.originalColor;
+      });
+
+      sigInst.graph.edges().forEach(function(e) {
+        e.color = null;
+      });
+
+      sigInst.refresh();
+    });
+  }
+
+  if (document.addEventListener)
+    document.addEventListener(&quot;DOMContentLoaded&quot;, init, false);
+  else
+    window.onload = init;
+  &amp;lt;/script&amp;gt;
+
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">charset</span>=<span class="hljs-value">utf-8</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>U.S. Senate network<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">meta</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">"viewport"</span> <span class="hljs-attribute">content</span>=<span class="hljs-value">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"src/sigma.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"src/sigma.parsers.json.min.js"</span>&gt;</span><span class="javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+    <span class="hljs-tag">body</span> <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">margin</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>; <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>;<span class="hljs-rule">}</span></span>
+    <span class="hljs-id">#sigma-container</span> <span class="hljs-rules">{<span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value">absolute</span></span>; <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>; <span class="hljs-rule"><span class="hljs-attribute">bottom</span>:<span class="hljs-value"><span class="hljs-number">0</span></span></span>; <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"><span class="hljs-number">100%</span></span></span>;<span class="hljs-rule">}</span></span>
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"sigma-container"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>{
+
+    <span class="hljs-comment">// Finds the connections of each node</span>
+    sigma.classes.graph.addMethod(<span class="hljs-string">"neighbors"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(nodeId)</span> </span>{
+      <span class="hljs-keyword">var</span> k,
+          neighbors = {},
+          index = <span class="hljs-keyword">this</span>.allNeighborsIndex[nodeId] || {};
+
+      <span class="hljs-keyword">for</span> (k <span class="hljs-keyword">in</span> index)
+        neighbors[k] = <span class="hljs-keyword">this</span>.nodesIndex[k];
+
+      <span class="hljs-keyword">return</span> neighbors;
+    });
+
+   <span class="hljs-comment">// Creates an instance of Sigma.js</span>
+    <span class="hljs-keyword">var</span> sigInst = <span class="hljs-keyword">new</span> sigma({
+      renderers: [
+        {
+          container: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"sigma-container"</span>),
+          type: <span class="hljs-string">"canvas"</span>
+        }
+      ]
+    });
+
+    <span class="hljs-comment">// Customizes its settings </span>
+    sigInst.settings({
+      <span class="hljs-comment">// Drawing properties :</span>
+      defaultLabelColor: <span class="hljs-string">"#000"</span>,
+      defaultLabelSize: <span class="hljs-number">14</span>,
+      defaultLabelHoverColor: <span class="hljs-string">"#fff"</span>,
+      labelThreshold: <span class="hljs-number">11</span>,
+      defaultHoverLabelBGColor: <span class="hljs-string">"#888"</span>,
+      defaultLabelBGColor: <span class="hljs-string">"#ddd"</span>,
+      defaultEdgeType: <span class="hljs-string">"straight"</span>,
+
+      <span class="hljs-comment">// Graph properties :</span>
+      minNodeSize: <span class="hljs-number">3</span>,
+      maxNodeSize: <span class="hljs-number">10</span>,
+      minEdgeSize: <span class="hljs-number">0.1</span>,
+      maxEdgeSize: <span class="hljs-number">0.2</span>,
+
+      <span class="hljs-comment">// Mouse properties :</span>
+      zoomMax: <span class="hljs-number">20</span> 
+    });
+
+    <span class="hljs-comment">// Parses JSON file to fill the graph</span>
+    sigma.parsers.json(
+      <span class="hljs-string">"data/senate.json"</span>,
+      sigInst,
+      <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">//  Little hack here:</span>
+        <span class="hljs-comment">//  In the latest Sigma.js version have to delete edges" colors manually</span>
+        sigInst.graph.edges().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+          e.color = <span class="hljs-literal">null</span>;
+        });
+
+        <span class="hljs-comment">// Also, to facilitate the update of node colors, store</span>
+        <span class="hljs-comment">// their original color under the key originalColor:</span>
+        sigInst.graph.nodes().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+          n.originalColor = n.color;
+        });
+
+        sigInst.refresh();
+      }
+    );
+
+
+     <span class="hljs-comment">// When a node is clicked, check for each node to see if it is connected. If not, set its color as gray</span>
+     <span class="hljs-comment">// Do the same for the edges</span>
+
+    <span class="hljs-keyword">var</span> grayColor = <span class="hljs-string">"#ccc"</span>;
+    sigInst.bind(<span class="hljs-string">"overNode"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+      <span class="hljs-keyword">var</span> nodeId = e.data.node.id,
+          toKeep = sigInst.graph.neighbors(nodeId);
+      toKeep[nodeId] = e.data.node;
+
+      sigInst.graph.nodes().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+        <span class="hljs-keyword">if</span> (toKeep[n.id])
+          n.color = n.originalColor;
+        <span class="hljs-keyword">else</span>
+          n.color = grayColor;
+      });
+
+      sigInst.graph.edges().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+        <span class="hljs-keyword">if</span> (e.source === nodeId || e.target === nodeId)
+          e.color = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">else</span>
+          e.color = grayColor;
+      });
+
+    <span class="hljs-comment">// Since the data has been modified, call the refresh method to make the colors update </span>
+      sigInst.refresh();
+    });
+
+    <span class="hljs-comment">// When a node is no longer being hovered over, return to original colors</span>
+    sigInst.bind(<span class="hljs-string">"outNode"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+      sigInst.graph.nodes().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(n)</span> </span>{
+        n.color = n.originalColor;
+      });
+
+      sigInst.graph.edges().forEach(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+        e.color = <span class="hljs-literal">null</span>;
+      });
+
+      sigInst.refresh();
+    });
+  }
+
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.addEventListener)
+    <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">"DOMContentLoaded"</span>, init, <span class="hljs-literal">false</span>);
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">window</span>.onload = init;
+  </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
+</code></pre><p>The code has been documented to explain what each part does. Notice that the head of the web page loads the main Sigma.js script, and a second script that reads, or “parses,” the json data. These are in the <code>src</code> subfolder.</p><p>To explore Sigma.js further, download or clone its <a href="https://github.com/jacomyal/sigma.js">Github repository</a> and examine the code for the examples given.</p><h3 id="further-reading/resources"><a name="further-reading/resources" href="#further-reading/resources"></a>Further reading/resources</h3><p><a href="https://gephi.github.io/users/">Gephi tutorials</a></p><p><a href="https://github.com/jacomyal/sigma.js/wiki">Sigma.js wiki</a></p>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>

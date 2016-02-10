@@ -8,8 +8,8 @@ from itertools import combinations, permutations
 
 # choose session and year
 
-congress = 113
-year = 2014
+congress = 114
+year = 2015
 
 # scrapes a single JSON page for a particular Senate vote, given by the vote number
 

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Peter Aldhous | NICAR 2015</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../css/custom.css" rel="stylesheet">
+</head>
+
+<body class="markdown clearness">
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2015</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="qgis.html">Making maps with QGIS</a></li>
+								<li><a href="gephi.html">Network analysis with Gephi</a></li>								
+								<li><a href="studies.html">Critical questions to ask of scientific studies</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="datasets.html">Data</a></li>	
+						<li><a href="mailto:peter@peteraldhous.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+
+	<div class="container all">
+
+  <h1 id="datasets"><a name="datasets" href="#datasets"></a>Datasets</h1><p>Click on the title links to download the data for each session. Unzip the folders and place them on your desktop.</p><h3 id="[qgis](data/qgis.zip)"><a name="[qgis](data/qgis.zip)" href="#[qgis](data/qgis.zip)"></a><a href="data/qgis.zip">QGIS</a></h3><ul>
+<li><code>CA_counties_medicare</code> Shapefile with data on Medicare reimbursement per enrollee by California county in 2012, from the <a href="http://www.dartmouthatlas.org">Dartmouth Atlas of Healthcare</a>. Includes the following fields:<ul>
+<li><code>enrollees</code> Medicare enrollees in 2012.</li>
+<li><code>total</code> Total Medicare reimbursements per enrollee.</li>
+<li><code>hospital</code> Hospital &amp; skilled nursing facility reimbursements per enrollee.</li>
+<li><code>physician</code> Physician reimbursements per enrollee.</li>
+<li><code>outpatient</code> Outpatient facility reimbursements per enrollee.</li>
+<li><code>homehealth</code> Home health agency reimbursements per enrollee.</li>
+<li><code>hospice</code> Hospice reimbursements per enrollee.</li>
+<li><code>medequip</code> Durable medical equipment reimbursements per enrollee.</li>
+</ul>
+</li>
+<li><code>Healthcare_Facility_Locations.csv</code> Locations of hospitals and other healthcare facilities in California, from the <a href="https://cdph.data.ca.gov/Facilities-and-Services/Healthcare-Facility-Locations/tjeb-68c7">California Department of Public Health</a>.</li>
+</ul><h3 id="[gephi](data/gephi.zip)"><a name="[gephi](data/gephi.zip)" href="#[gephi](data/gephi.zip)"></a><a href="data/gephi.zip">Gephi</a></h3><ul>
+<li><code>friends.csv</code> A simple edge list documenting relationships among a small group of people.</li>
+<li><code>senate_113-2013.gexf</code> <code>senate-113-2014.gexf</code> Two files with data on voting patterns in the U.S. Senate, detailing the number and percentage of times pairs of Senators voted the same way.</li>
+<li><code>senate_one_session.py</code> Python script that will scrape a single year’s data from <a href="http://govtrack.us/">GovTrack.US</a>; modified from a <a href="https://gist.github.com/rlucioni/8bdb1092579041ce739c">script</a> written by <a href="http://www.renzolucioni.com/">Renzo Lucioni</a>.</li>
+<li><code>senate</code> Folder containing files and code to make an interactive version of the Senate voting network.</li>
+</ul>
+
+
+	</div> <!-- /.container all -->
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>
