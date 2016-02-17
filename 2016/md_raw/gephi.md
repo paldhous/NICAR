@@ -19,7 +19,7 @@ If so, and you can gather relevant data, network graphs can provide a means to d
 Download the data from this session from [here](data/gephi.zip), unzip the folder and place it on your desktop. It contains the following folders and files:
 
 - `friends.csv` A simple network documenting relationships among a small group of people.
-- `senate_113-2013.gexf` `senate-113-2014.gexf` Two files with data on voting patterns in the U.S. Senate, detailing the number and percentage of times pairs of Senators voted the same way in each year.
+- `senate_113-2013.gexf` `senate-113-2014.gexf` `senate-114-2015.gexf` Three files with data on voting patterns in the U.S. Senate, detailing the number and percentage of times pairs of Senators voted the same way in each year.
 - `senate_one_session.py` Python script that will scrape a single year's data from [GovTrack.US](http://govtrack.us/); modified from a [script](https://gist.github.com/rlucioni/8bdb1092579041ce739c) written by [Renzo Lucioni](http://www.renzolucioni.com/).
 - `senate` Folder containing files and code to make an interactive version of the Senate voting network.
 
@@ -47,7 +47,7 @@ There are also a series of metrics that can quantify aspects of a network. Here 
 
 - **[Degree](http://en.wikipedia.org/wiki/Centrality#Degree_centrality)** is a simple count of the number of connections for each node. For directed networks, it is divided into In-degree, for the number of incoming connections, and Out-degree, for outgoing connections. (In my stem cell citation network, In-Degree was used to set the size of each node.)
 - **[Eigenvector centrality](http://en.wikipedia.org/wiki/Centrality#Eigenvector_centrality)** accounts not only for the node’s own degree, but also the degrees of the nodes to which it connects. As such, it is a measure of each node's wider "influence" within the network. Google's [PageRank](http://en.wikipedia.org/wiki/PageRank) algorithm, which rates the importance of web pages according the the links they recieve, is a variant of this measure.
-- **[betweenness centrality](http://en.wikipedia.org/wiki/Centrality#Betweenness_centrality)** essentially reveals how important each node is in providing a “bridge” between different parts of the network: It counts the number of times each node appears on the shortest path between two other nodes. It is particularly useful for highlighting the nodes that, if removed, would cause a network to fall apart.
+- **[Betweenness centrality](http://en.wikipedia.org/wiki/Centrality#Betweenness_centrality)** essentially reveals how important each node is in providing a “bridge” between different parts of the network: It counts the number of times each node appears on the shortest path between two other nodes. It is particularly useful for highlighting the nodes that, if removed, would cause a network to fall apart.
 - **[Closeness centrality](http://en.wikipedia.org/wiki/Centrality#Closeness_centrality)** is a measure of how close each node is, on average, to all of the other nodes in a network. It highlights the nodes that connect to the others through a lower number of edges. The [Kevin Bacon Game](http://www.thekevinbacongame.com/), in which you have to connect Bacon to other movie actors through the fewest number of movies, based on co-appearances, works because he has a high closeness centrality in this network.
 
 ### Network data formats
@@ -84,7 +84,7 @@ We will install a plugin that we will later use to export data from Gephi as JSO
 
 ![](./img/gephi_3.jpg)
 
-In the `Available Plugins` tab, look for the [JSONExporter](https://marketplace.gephi.org/plugin/json-exporter/) plugin -- you can use the `Search` box to find them, if necessary. Then click `Install`.
+In the `Available Plugins` tab, look for the [JSON Exporter](https://marketplace.gephi.org/plugin/json-exporter/) plugin -- you can use the `Search` box to find them, if necessary. Then click `Install`.
 
 After installing plugins, you may be prompted to restart Gephi, which you should do.
 
@@ -94,7 +94,7 @@ See [here](https://marketplace.gephi.org/how-to-install-a-plugin/) for more inst
 
 ### Make a simple network graph illustrating connections between friends
 
-Having launched Gephi, click on `Data Laboratory`. This is where you can view and edit raw network data. From the top menu, select  `File>New Project`, and the screen should look like this:
+Having launched Gephi, click on `Data Laboratory`. This is where you can view and edit raw network data. From the top menu, select `File>New Project`, and the screen should look like this:
 
 ![](./img/gephi_4.jpg)
 
@@ -130,33 +130,31 @@ Note also that the left of the two sliders at bottom controls the size of the ed
 
 ![](./img/gephi_9.jpg)
 
-Click on the dark `T` button at bottom to call up labels for the nodes, and use the right of the two sliders to control their size. The light T button would call up edge labels, if they were set.
+Click on the dark `T` button at bottom to call up labels for the nodes, and use the right of the two sliders to control their size. The light `T` button would call up edge labels, if they were set.
 
 Turn off the labels once more, and we will next color the nodes according to the friends' gender.
 
-Notice that the panel at top left contains two tabs, `Partition` and `Ranking`. The former is used to style nodes or edges according to qualitative variables, the latter styling by quantitative variables. Select `Partition>Nodes`, hit the `Refresh` button with the circling green arrows, select `Gender` and hit the `Run` button with the green "play" symbol. The nodes should now be colored by gender, and you may find that the edges also take the color of the source node:
+In the `Appearance` panel at top left, select the `Nodes` and `Color` tabs (marked by a palette icon). Then click the `Attribute` tab, select `Gender` from the dropdown menu, hit the `Apply` button with the green "play" symbol. The nodes should now be colored by gender:
 
 ![](./img/gephi_10.jpg)
-
-To turn off this behavior, click this button at the bottom of the screen: ![](./img/gephi_11.jpg) (the button to its immediate left allows edge visibility to be turned on and off).
 
 Select `File>New Project` and you will be given the option to save your project before closing. You can also save your work at any time by selecting `File>Save` or by using the usual `⌘-S` or `Ctrl-S` shortcut.
 
 ### Visualize patterns of voting in the U.S. Senate
 
-Having learned these basics, we will now explore a more interesting network, based on voting patterns in the U.S. Senate in 2014.
+Having learned these basics, we will now explore a more interesting network, based on voting patterns in the U.S. Senate in 2015.
 
-Select `File>Open` from the top menu and navigate to the file `senate-113-2014.gexf`. The next dialog box will give you some information about the network being imported, in this case telling you it it is an undirected network containing 101 nodes (two Senators left the chamber in 2013, their places filled first by temporary appointees, then elected replacements), and 5049 edges:
+Select `File>Open` from the top menu and navigate to the file `senate-114-2015.gexf`. The next dialog box will give you some information about the network being imported, in this case telling you it it is an undirected network containing 100 nodes, and 4950 edges:
 
 ![](./img/gephi_12.jpg)
 
-Once the network has imported, go to the `Data Laboratory` to view and examine the data for the `Nodes` and `Edges`. Notice that each edge has a column called `percent_agree`, which is the number of times the member of each pair of Senators voted the same way, divided by the total number of votes in the chamber in 2013, giving a number between 0 and 1:
+Once the network has imported, go to the `Data Laboratory` to view and examine the data for the `Nodes` and `Edges`. Notice that each edge has a column called `percent_agree`, which is the number of times the member of each pair of Senators voted the same way, divided by the total number of votes in the chamber in 2015, giving a number between 0 and 1:
 
 ![](./img/gephi_13.jpg)
 
 Click the `Configuration` button, and ensure that `Visible graph only` is checked. When we start filtering the data, this will ensure that the data tables show the filtered network, not the original.
 
-Now return to the `Overview`, where we will use a layout algorithm to alter the appearance of the network. In the `Layout` panel at bottom left,  choose the `Fruchterman Reingold` layout algorithm and click `Run`. (I know from prior experimentation that this algorithm gives a reasonable appearance for this network, but do experiment with different options if working on your own network graphs in future.) Note also that there are options to change the parameters of the algorithm, such as the "Gravity" with which connected nodes attract one another. We will simply accept the default options, but again you may want to experiment with different values for your own projects.
+Now return to the `Overview`, where we will use a layout algorithm to alter the appearance of the network. In the `Layout` panel at bottom left,  choose the `Fruchterman Reingold` layout algorithm from the dropdown menu and click `Run`. (I know from prior experimentation that this algorithm gives a reasonable appearance for this network, but do experiment with different options if working on your own network graphs in future.) Note also that there are options to change the parameters of the algorithm, such as the "Gravity" with which connected nodes attract one another. We will simply accept the default options, but again you may want to experiment with different values for your own projects.
 
 When the network settles down, click `Stop` to stabilize it. The network should look something like this:
 
@@ -172,15 +170,15 @@ The range can be altered using the sliders, but we will instead double-click on 
 
 ![](./img/gephi_16.jpg)
 
-This will draw edges between Senators only if they voted the same way in at least two-thirds of the votes in 2013. Hit `Filter`, and watch many of the edges disappear. Switch to the `Data Laboratory` view, and see how the `Edges` table has also changed. Now return to the `Overview`, `Run` the layout algorithm again, and the graph should change to look something like this:
+This will draw edges between Senators only if they voted the same way in at least two-thirds of the votes in 2015. Hit `Filter`, and watch many of the edges disappear. Switch to the `Data Laboratory` view, and see how the `Edges` table has also changed. Now return to the `Overview`, `Run` the layout algorithm again, and the graph should change to look something like this:
 
 ![](./img/gephi_17.jpg)
 
-Now the network is organized into two clusters, which are linked through only a single Senator. These are presumably Democrats and Republicans, which we can confirm by coloring the nodes by party in the `Partition` tab at top left:
+Now the network is organized into two clusters, which are linked through only a single edge. These clusters are presumably Democrats and Republicans, which we can confirm by coloring the nodes by party using the `Appearance` panel at top left:
 
 ![](./img/gephi_18.jpg)
 
-To customize the colors, click on each square in the `Partition` tab, then `Shift-Ctrl` and click to call up the color selector:
+To customize the colors, click on each square in the `Partition` tab, then right-click to call up the color selector:
 
 ![](./img/gephi_19.jpg)
 
@@ -198,7 +196,7 @@ Select the `Statistics` tab in the main right-hand panel, and then `Edge Overvie
 
 ![](./img/gephi_21.jpg)
 
-Switch back to the `Overview`, and select the `Ranking` tab on the top left panel. Choose `Betweenness Centrality` as the ranking parameter for `Nodes`, select the gem-like icon (![](./img/gephi_22.jpg)), which controls the size of nodes, and select a minimum and maximum size for the range.
+Switch back to the `Overview`, and in the `Appearance` panel, select the `Size` tab, marked with an icon showing circles nested within one another, and the `Attribute` tab. Choose `Betweenness Centrality` from the dropdown menu, and chose a minimum and maximum size:
 
 ![](./img/gephi_23.jpg)
 
@@ -206,13 +204,13 @@ Click `Apply`, and the network should look something like this:
 
 ![](./img/gephi_24.jpg)
 
-You may at this point want to switch on the labels, and note that [Susan Collins](http://www.collins.senate.gov/), the Republican from Maine, was the standout bipartisan Senator in 2014.
+You may at this point want to switch on the labels. Note that the single connection between the two partisan clusters goes through [Susan Collins](http://www.collins.senate.gov/), the Republican from Maine, and Joe Donnelly, the Democrat from Indiana. Notice also that the Republican Senators running for President became isolated from their party cluster because they missed so many votes.
 
 Now switch to `Preview`, which is where the appearance of the network graph can be polished before exporting it as a vector graphic. Click `Refresh` to see the network graphic drawn with default options:
 
 ![](./img/gephi_25.jpg)
 
-You can then customize using the panel on the left, clicking `Refresh` to review each change. Here I have removed the nodes' borders, by setting their width to zero, changed the edges from the default curved to straight, and reduced edge thickness to 0.5:
+Now customize using the panel on the left, clicking `Refresh` to review each change. Here I have removed the nodes' borders, by setting their width to zero, changed the edges from the default curved to straight, and reduced edge thickness to 0.5:
 
 ![](./img/gephi_26.jpg)
 
@@ -220,11 +218,11 @@ You can then customize using the panel on the left, clicking `Refresh` to review
 
 Export the network graph in SVG or PDF format using the button at bottom left, or by selecting `File>Export>SVG/PDF/PNG file...` from the top menu.
 
-Now select `File>Export>Graph file...` and save as JSON (this option is available through the JSONExporter plugin we installed earlier). Make sure to select `Graph>Visible only` at the dialog box, so that only the filtered network is exported:
+Now select `File>Export>Graph file...` and save as JSON (this option is available through the JSON Exporter plugin we installed earlier). Make sure to select `Graph>Visible only` at the dialog box, so that only the filtered network is exported:
 
 ![](./img/gephi_27.jpg)
 
-Now try to repeat the exercise with the 2013 data!
+Now try to repeat the exercise with the 2014 and 2013 data!
 
 ### Introducing Sigma.js
 
@@ -240,7 +238,7 @@ Save the JSON file you exported from Gephi in the `data` subfolder with the name
 
 Open `index.html` in your preferred text editor, and you will see this code:
 
-```HTML
+```SQL
 <!DOCTYPE html>
 <html>
 
@@ -382,7 +380,7 @@ Open `index.html` in your preferred text editor, and you will see this code:
 </html>
 ```
 
-The code has been documented to explain what each part does. Notice that the head of the web page loads the main Sigma.js script, and a second script that reads, or "parses," the json data. These are in the `src` subfolder.
+The code has been documented to explain what each part does. Notice that the head of the web page loads the main Sigma.js library, and a second file that reads, or "parses," the json data. These are in the `src` subfolder.
 
 To explore Sigma.js further, download or clone its [Github repository](https://github.com/jacomyal/sigma.js) and examine the code for the examples given.
 

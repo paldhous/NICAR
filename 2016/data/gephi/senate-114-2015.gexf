@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
+<gexf version="1.1" xmlns="http://www.gexf.net/1.1draft" xmlns:viz="http://www.gexf.net/1.1draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/2001/XMLSchema-instance">
   <graph defaultedgetype="undirected" mode="static">
     <attributes class="edge" mode="static">
       <attribute id="2" title="votes_agree" type="integer" />
@@ -383,7 +383,7 @@
       </node>
       <node id="King (I-ME)" label="King (I-ME)">
         <attvalues>
-          <attvalue for="0" value="green" />
+          <attvalue for="0" value="orange" />
           <attvalue for="1" value="I" />
         </attvalues>
       </node>
@@ -509,7 +509,7 @@
       </node>
       <node id="Sanders (I-VT)" label="Sanders (I-VT)">
         <attvalues>
-          <attvalue for="0" value="green" />
+          <attvalue for="0" value="orange" />
           <attvalue for="1" value="I" />
         </attvalues>
       </node>

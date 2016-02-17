@@ -413,7 +413,7 @@
       </node>
       <node id="King (I-ME)" label="King (I-ME)">
         <attvalues>
-          <attvalue for="0" value="green" />
+          <attvalue for="0" value="orange" />
           <attvalue for="1" value="I" />
         </attvalues>
       </node>
@@ -521,7 +521,7 @@
       </node>
       <node id="Sanders (I-VT)" label="Sanders (I-VT)">
         <attvalues>
-          <attvalue for="0" value="green" />
+          <attvalue for="0" value="orange" />
           <attvalue for="1" value="I" />
         </attvalues>
       </node>

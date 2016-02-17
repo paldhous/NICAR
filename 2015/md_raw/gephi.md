@@ -146,11 +146,11 @@ Select `File>New Project` and you will be given the option to save your project 
 
 Having learned these basics, we will now explore a more interesting network, based on voting patterns in the U.S. Senate in 2014.
 
-Select `File>Open` from the top menu and navigate to the file `senate-113-2014.gexf`. The next dialog box will give you some information about the network being imported, in this case telling you it it is an undirected network containing 101 nodes (two Senators left the chamber in 2013, their places filled first by temporary appointees, then elected replacements), and 5049 edges:
+Select `File>Open` from the top menu and navigate to the file `senate-113-2014.gexf`. The next dialog box will give you some information about the network being imported, in this case telling you it it is an undirected network containing 101 nodes, and 5049 edges:
 
 ![](./img/gephi_12.jpg)
 
-Once the network has imported, go to the `Data Laboratory` to view and examine the data for the `Nodes` and `Edges`. Notice that each edge has a column called `percent_agree`, which is the number of times the member of each pair of Senators voted the same way, divided by the total number of votes in the chamber in 2013, giving a number between 0 and 1:
+Once the network has imported, go to the `Data Laboratory` to view and examine the data for the `Nodes` and `Edges`. Notice that each edge has a column called `percent_agree`, which is the number of times the member of each pair of Senators voted the same way, divided by the total number of votes in the chamber in 2014, giving a number between 0 and 1:
 
 ![](./img/gephi_13.jpg)
 
@@ -172,7 +172,7 @@ The range can be altered using the sliders, but we will instead double-click on 
 
 ![](./img/gephi_16.jpg)
 
-This will draw edges between Senators only if they voted the same way in at least two-thirds of the votes in 2013. Hit `Filter`, and watch many of the edges disappear. Switch to the `Data Laboratory` view, and see how the `Edges` table has also changed. Now return to the `Overview`, `Run` the layout algorithm again, and the graph should change to look something like this:
+This will draw edges between Senators only if they voted the same way in at least two-thirds of the votes in 2014. Hit `Filter`, and watch many of the edges disappear. Switch to the `Data Laboratory` view, and see how the `Edges` table has also changed. Now return to the `Overview`, `Run` the layout algorithm again, and the graph should change to look something like this:
 
 ![](./img/gephi_17.jpg)
 

@@ -123,7 +123,7 @@ def vote_graph(data):
         elif party == 'R':
             graph.add_node(senator, color='red', party='R')
         else:
-            graph.add_node(senator, color='green', party='I')
+            graph.add_node(senator, color='orange', party='I')
             
     for pair, votes in common_votes.iteritems():
         # don't draw an edge for senators with 0 votes in common
