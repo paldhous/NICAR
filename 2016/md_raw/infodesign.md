@@ -1,6 +1,6 @@
 # Which, chart should I use, and why? Information design for the human brain
 
-Visualizating data is a good way to communicate complex information, because we are highly visual animals, evolved to spot patterns and make visual comparisons. To visualize effectively, however, it helps to understand a little about how our brains process visual information. The mantra for the this panel is: Design for the human brain!
+Visualizing data is a good way to communicate complex information, because we are highly visual animals, evolved to spot patterns and make visual comparisons. To visualize effectively, however, it helps to understand a little about how our brains process visual information. The mantra for this panel is: Design for the human brain!
 
 ### Visualization: encoding data using visual cues
 
@@ -8,7 +8,7 @@ Whenever we visualize, we are encoding data using visual cues, or "mapping" data
 
 ![](./img/infodes_1.jpg)
 
-These cues are not created equal, however. In the mid-1980s, statisticians William Cleveland and Robert McGill [ran some experiments](http://courses.ischool.berkeley.edu/i247/f05/readings/Cleveland_GraphicalPerception_Science85.pdf) with human volunteers, measuring how accurately they were able to esimate the numbers encoded by different visual cues. This is what they found:
+These cues are not created equal, however. In the mid-1980s, statisticians William Cleveland and Robert McGill [ran some experiments](http://courses.ischool.berkeley.edu/i247/f05/readings/Cleveland_GraphicalPerception_Science85.pdf) with human volunteers, measuring how accurately they were able to estimate the numbers encoded by different visual cues. This is what they found:
 
 ![](./img/infodes_2.jpg)
 
@@ -16,7 +16,7 @@ The position of points on an aligned scale is perceived with similar accuracy to
 
 This perceptual hierarchy of visual cues is very important. When making comparisons with continuous variables (numbers on a sliding scale), aim to use cues near the top of the scale wherever possible.
 
-Look at the following visual encodings of the same simple dataset. Do the bars, or the circles, make it easiest to "read" the numerical values that are encoded?
+Look at the following visual encodings of the same simple dataset. Do the bars or the circles make it easiest to "read" the numerical values that are encoded?
 
 ![](./img/infodes_3.jpg)
 
@@ -24,7 +24,7 @@ Look at the following visual encodings of the same simple dataset. Do the bars, 
 
 Length on an aligned scale may be the best option to allow people to compare numbers accurately, but that doesn't mean the other possibilities are always to be avoided in visualization. Indeed, color hue is a good way of encoding categorical data (labels that assign data records to different groups). The human brain is particularly good at recognizing patterns and differences. This means that variations in color, shape and orientation, while poor for accurately encoding the precise value of continuous variables, can be good choices for representing categorical data.
 
-You can also combine different visual cues into the same graphic to encode different variables. But always think about the main messages you are trying to impart, and where you can use visual cues near the top of the visual heirarchy to communicate that message most effectively.
+You can also combine different visual cues into the same graphic to encode different variables. But always think about the main messages you are trying to impart, and where you can use visual cues near the top of the visual hierarchy to communicate that message most effectively.
 
 ### Visualizing change over time
 
@@ -50,9 +50,9 @@ When looking at change over time at the state level, the perceptual hierarchy ma
 
 ![](./img/infodes_5.png)
 
-Notive that I've focused on the percentage of children with *incomplete* vaccination, rather than the percentage complete, for two reasons: 
+Notice that I've focused on the percentage of children with *incomplete* vaccination, rather than the percentage complete, for two reasons: 
 - The differences between the lengths of the bars are greater, and so is easier to read. 
-- More imporantly, incomplete vaccination is what increases the risk of infectious disease, which is why we care as journalists about this data.
+- More importantly, incomplete vaccination is what increases the risk of infectious disease, which is why we care as journalists about this data.
 
 But as for the food stamps data, a bar chart is not the only choice:
 
@@ -60,7 +60,7 @@ Here's the same information presented as a line chart:
 
 ![](./img/infodes_6.png)
 
-Notice that here, I haven't started the Y axis at zero. This would be unforgiveable for a bar chart, where the length of the bar is the visual encoding, and so starting at an arbitrary value would distort the comparison between the bars. Here, however, I'm emphasizing the relative slope, to show change over time, so starting at zero is less crucial.
+Notice that here, I haven't started the Y axis at zero. This would be unforgivable for a bar chart, where the length of the bar is the visual encoding, and so starting at an arbitrary value would distort the comparison between the bars. Here, however, I'm emphasizing the relative slope, to show change over time, so starting at zero is less crucial.
 
 And here's the data as a dot-and-line chart:
 
@@ -76,7 +76,7 @@ But there are 58 counties in California, and trying to compare them all using a 
 
 ![](./img/infodes_9.png)
 
-In this case, it makes sense to drop down the perceptual hierarchy, and use the intensity of color to repesent the percentage of incomplete immunization:
+In this case, it makes sense to drop down the perceptual hierarchy, and use the intensity of color to represent the percentage of incomplete immunization:
 
 ![](./img/infodes_10.png)
 
@@ -88,7 +88,7 @@ Here's my best attempt at this:
 
 ![](./img/infodes_11.png)
 
-Here I've drawn a circle for every school, and used their position on an aligened scale, along the Y axis, to encode the percentage of incomplete immunization. I've also used the area of the circles to encode the enrollment at each kindergarten -- but this is secondary to the chart's main message, which is about the variation of immunization rates across schools.
+Here I've drawn a circle for every school, and used their position on an aligned scale, along the Y axis, to encode the percentage of incomplete immunization. I've also used the area of the circles to encode the enrollment at each kindergarten -- but this is secondary to the chart's main message, which is about the variation of immunization rates across schools.
 
 ### Which type of chart should I use?
 
@@ -110,7 +110,7 @@ Here the network graph highlights the Senators who at least two-thirds of the ti
 
 Color falls low on the perceptual hierarchy of visual cues, but as we have already seen, it can be a very useful encoding.
 
-It helps to think about colors in terms of the color wheel, which places colors that harmonize well together side by side, and arranges those that have strong visual contrast -- blue and orange, for instance -- at opposite sides of the circle:
+It helps to think about colors in terms of the color wheel, which places colors that harmonize well together side by side, and arranges those that have strong visual contrast -- blue and orange, for instance -- on opposite sides of the circle:
 
 ![](./img/infodes_13.jpg)
 
@@ -126,7 +126,7 @@ Here are some examples of qualitative, sequential and diverging color schemes:
 
 ![](./img/infodes_14.jpg)
 
-Choosing color schemes is a complex science and art, but there is no need to "roll your own" for every graphic you make. Many visualization tools include suggested color palettes, and I often make use of the [ColorBrewer](http://colorbrewer2.org/) website. Orginally designed for maps, but useful for charts in general, these color schemes have been sibjected to rigorous perceptual tests to be maximally informative. Again, they have been designed for the human brain!
+Choosing color schemes is a complex science and art, but there is no need to "roll your own" for every graphic you make. Many visualization tools include suggested color palettes, and I often make use of the [ColorBrewer](http://colorbrewer2.org/) website. Originally designed for maps, but useful for charts in general, these color schemes have been subjected to rigorous perceptual tests to be maximally informative. Again, they have been designed for the human brain!
 
 I'd urge against doing so, but if you need to roll your own color scheme, try experimenting with [I want hue](http://tools.medialab.sciences-po.fr/iwanthue) for qualitative color schemes, the [Chroma.js Color Scale Helper](https://vis4.net/labs/multihue/) for sequential schemes, and this [color ramp generator](http://www.zonums.com/online/color_ramp/), in combination with [Colorizer](http://colorizer.org/) or another online color picker, for diverging schemes.
 
