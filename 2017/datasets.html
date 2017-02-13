@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Peter Aldhous | NICAR 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../css/custom.css" rel="stylesheet">
+</head>
+
+<body class="markdown github">
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2017</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="r-analysis.html">Data analysis in R</a></li>
+								<li><a href="r-to-javascript.html">Javascript charts and maps, straight from R</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="datasets.html">Data</a></li>	
+						<li><a href="mailto:peter@peteraldhous.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+	
+	<div class="container all">
+
+<h1 id="datasets"><a name="datasets" href="#datasets"></a>Datasets</h1><p>Click on the title links to download the data. Unzip the folder and place it on your desktop.</p><h3 id="[download:-data-analysis-in-r](data/r-analysis.zip)"><a name="[download:-data-analysis-in-r](data/r-analysis.zip)" href="#[download:-data-analysis-in-r](data/r-analysis.zip)"></a><a href="data/r-analysis.zip">Download: Data analysis in R</a></h3><h4 id="health-and-wealth-of-nations"><a name="health-and-wealth-of-nations" href="#health-and-wealth-of-nations"></a>Health and wealth of nations</h4><ul>
+<li><p><code>nations_1.csv</code> Data from the <a href="http://data.worldbank.org/indicator/?tab=all">World Bank Indicators</a> portal. Contains the following fields:</p>
+<ul>
+<li><code>iso2c</code> <code>iso3c</code> Two- and Three-letter <a href="http://www.nationsonline.org/oneworld/country_code_list.htm">codes</a> for each country, assigned by the <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545">International Organization for Standardization</a>.</li><li><code>country</code> Country name.</li><li><code>year</code> From 1990 to 2015.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>life_expect</code> <a href="http://data.worldbank.org/indicator/SP.DYN.LE00.IN">Life expectancy at birth</a>, in years.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>birth_rate</code> <a href="http://data.worldbank.org/indicator/SP.DYN.CBRT.IN">Live births during the year per 1,000 people</a>, based on mid-year population estimate.</li><li><code>neonat_mortal_rate</code> <a href="http://data.worldbank.org/indicator/SH.DYN.NMRT">Neonatal mortality rate</a>: babies dying before reaching 28 days of age, per 1,000 live births in a given year.</li><li><code>region</code> <code>income</code> World Bank <a href="http://siteresources.worldbank.org/DATASTATISTICS/Resources/CLASS.XLS">regions and income groups</a>, explained <a href="http://data.worldbank.org/about/country-and-lending-groups">here</a>.</li></ul>
+</li><li><p><code>nations_2.csv</code> Again from the World Bank Indicators portal. Contains the following fields:</p>
+<ul>
+<li><code>iso3c</code> <code>year</code> As above.</li><li><code>gdp_percap</code> <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD">Gross Domestic Product per capita</a> in current international dollars, corrected for purchasing power in different territories.</li></ul>
+</li></ul><h5 id="immunization-in-california-kindergartens"><a name="immunization-in-california-kindergartens" href="#immunization-in-california-kindergartens"></a>Immunization in California kindergartens</h5><ul>
+<li><p><code>kindergarten.csv</code> Data from the <a href="https://www.cdph.ca.gov/programs/immunize/Pages/ImmunizationLevels.aspx">California Department of Public Health</a>, documenting enrollment and the number of children with complete immunizations at entry into kindergartens in California from 2001 to 2014. Contains the following variables:</p>
+<ul>
+<li><code>district</code> School district.</li><li><code>sch_code</code> Unique identifying code for each school.</li><li><code>pub_priv</code> Whether school is public or private.</li><li><code>school</code> School name.</li><li><code>enrollment</code> Number of children enrolled.</li><li><code>complete</code> Number of children with complete immunizations.</li><li><code>start_year</code> Year of entry (for the 2014-2015 school year, for example, this would be 2014).</li></ul>
+</li><li><p><code>kindergarten_2015.csv</code> As above, but data from 2015 only.</p>
+</li></ul><h3 id="[download:-from-r-to-interactive-charts-and-maps](data/r-analysis.zip)"><a name="[download:-from-r-to-interactive-charts-and-maps](data/r-analysis.zip)" href="#[download:-from-r-to-interactive-charts-and-maps](data/r-analysis.zip)"></a><a href="data/r-analysis.zip">Download: From R to interactive charts and maps</a></h3><h5 id="health-and-wealth-of-nations"><a name="health-and-wealth-of-nations" href="#health-and-wealth-of-nations"></a>Health and wealth of nations</h5><ul>
+<li><code>nations_1.csv</code> Data from the <a href="http://data.worldbank.org/indicator/?tab=all">World Bank Indicators</a> portal. Contains the following fields:<ul>
+<li><code>iso2c</code> <code>iso3c</code> Two- and Three-letter <a href="http://www.nationsonline.org/oneworld/country_code_list.htm">codes</a> for each country, assigned by the <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545">International Organization for Standardization</a>.</li><li><code>country</code> Country name.</li><li><code>year</code> From 1990 to 2015.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>life_expect</code> <a href="http://data.worldbank.org/indicator/SP.DYN.LE00.IN">Life expectancy at birth</a>, in years.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>birth_rate</code> <a href="http://data.worldbank.org/indicator/SP.DYN.CBRT.IN">Live births during the year per 1,000 people</a>, based on mid-year population estimate.</li><li><code>neonat_mortal_rate</code> <a href="http://data.worldbank.org/indicator/SH.DYN.NMRT">Neonatal mortality rate</a>: babies dying before reaching 28 days of age, per 1,000 live births in a given year.</li><li><code>region</code> <code>income</code> World Bank <a href="http://siteresources.worldbank.org/DATASTATISTICS/Resources/CLASS.XLS">regions and income groups</a>, explained <a href="http://data.worldbank.org/about/country-and-lending-groups">here</a>.</li><li><code>gdp_percap</code> <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD">Gross Domestic Product per capita</a> in current international dollars, corrected for purchasing power in different territories.</li></ul>
+</li></ul><h5 id="us-seismic-risk"><a name="us-seismic-risk" href="#us-seismic-risk"></a>US seismic risk</h5><ul>
+<li><code>seismic_risk_clip</code> Folder containing this <a href="http://earthquake.usgs.gov/hazards/products/conterminous/index.php#2014">U.S. Geological Survey shapefile</a>, detailing the risk of experiencing a major earthquake, clipped to the boundaries of the continental United States.</li></ul>
+
+
+	</div> <!-- /.container all -->
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

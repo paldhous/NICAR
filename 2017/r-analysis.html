@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Peter Aldhous | NICAR 2017</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../css/custom.css" rel="stylesheet">
+</head>
+
+<body class="markdown github">
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2017</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="r-analysis.html">Data analysis in R</a></li>
+								<li><a href="r-to-javascript.html">Javascript charts and maps, straight from R</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="datasets.html">Data</a></li>	
+						<li><a href="mailto:peter@peteraldhous.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+
+	<div class="container all">
+
+<h1 id="data-analysis-in-r"><a name="data-analysis-in-r" href="#data-analysis-in-r"></a>Data analysis in R</h1><p>In today’s class we will analyze data using <strong><a href="http://www.r-project.org/">R</a></strong>, which is a very powerful tool, designed by statisticians for data analysis. Described on its website as “free software environment for statistical computing and graphics,” R is a programming language that opens a world of possibilities for making graphics and analyzing and processing data. Indeed, just about anything you may want to do with data can be done with R, from web scraping to making interactive graphics.</p><p>Our focus today will be learning how to run <strong><a href="https://en.wikipedia.org/wiki/SQL">SQL</a></strong>-like analysis in R using the <strong><a href="https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr</a></strong> package, and making some simple charts using <strong><a href="http://docs.ggplot2.org/current/">ggplot2</a></strong>.</p><h3 id="the-data-we-will-use-today"><a name="the-data-we-will-use-today" href="#the-data-we-will-use-today"></a>The data we will use today</h3><p>Download the data for this session from <a href="data/r-analysis.zip">here</a>, and unzip the folder. This data should already be loaded on the machines at the NICAR meeting:</p><h5 id="health-and-wealth-of-nations"><a name="health-and-wealth-of-nations" href="#health-and-wealth-of-nations"></a>Health and wealth of nations</h5><ul>
+<li><p><code>nations_1.csv</code> Data from the <a href="http://data.worldbank.org/indicator/?tab=all">World Bank Indicators</a> portal. Contains the following fields:</p>
+<ul>
+<li><code>iso2c</code> <code>iso3c</code> Two- and Three-letter <a href="http://www.nationsonline.org/oneworld/country_code_list.htm">codes</a> for each country, assigned by the <a href="http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545">International Organization for Standardization</a>.</li><li><code>country</code> Country name.</li><li><code>year</code> From 1990 to 2015.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>life_expect</code> <a href="http://data.worldbank.org/indicator/SP.DYN.LE00.IN">Life expectancy at birth</a>, in years.</li><li><code>population</code> Estimated <a href="http://data.worldbank.org/indicator/SP.POP.TOTL">total population</a> at mid-year, including all residents apart from refugees.</li><li><code>birth_rate</code> <a href="http://data.worldbank.org/indicator/SP.DYN.CBRT.IN">Live births during the year per 1,000 people</a>, based on mid-year population estimate.</li><li><code>neonat_mortal_rate</code> <a href="http://data.worldbank.org/indicator/SH.DYN.NMRT">Neonatal mortality rate</a>: babies dying before reaching 28 days of age, per 1,000 live births in a given year.</li><li><code>region</code> <code>income</code> World Bank <a href="http://siteresources.worldbank.org/DATASTATISTICS/Resources/CLASS.XLS">regions and income groups</a>, explained <a href="http://data.worldbank.org/about/country-and-lending-groups">here</a>.</li></ul>
+</li><li><p><code>nations_2.csv</code> Again from the World Bank Indicators portal. Contains the following fields:</p>
+<ul>
+<li><code>iso3c</code> <code>year</code> As above.</li><li><code>gdp_percap</code> <a href="http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD">Gross Domestic Product per capita</a> in current international dollars, corrected for purchasing power in different territories.</li></ul>
+</li></ul><h5 id="immunization-in-california-kindergartens"><a name="immunization-in-california-kindergartens" href="#immunization-in-california-kindergartens"></a>Immunization in California kindergartens</h5><ul>
+<li><code>kindergarten.csv</code> Data from the <a href="https://www.cdph.ca.gov/programs/immunize/Pages/ImmunizationLevels.aspx">California Department of Public Health</a>, documenting enrollment and the number of children with complete immunizations at entry into kindergartens in California from 2001 to 2014. Contains the following variables:<ul>
+<li><code>district</code> School district.</li><li><code>sch_code</code> Unique identifying code for each school.</li><li><code>pub_priv</code> Whether school is public or private.</li><li><code>school</code> School name.</li><li><code>enrollment</code> Number of children enrolled.</li><li><code>complete</code> Number of children with complete immunizations.</li><li><code>start_year</code> Year of entry (for the 2014-2015 school year, for example, this would be 2014).</li></ul>
+</li></ul><ul>
+<li><code>kindergarten_2015.csv</code> As above, but data from 2015 only.</li></ul><h3 id="reproducibility:-save-your-scripts"><a name="reproducibility:-save-your-scripts" href="#reproducibility:-save-your-scripts"></a>Reproducibility: Save your scripts</h3><p>Data journalism should ideally be fully documented and reproducible. R makes this easy, as every operation performed can be saved in a script, and repeated by running that script. Click on the <img src="img/r_1.jpg" alt=""> icon at top left and select <code>R Script</code>. A new panel should now open:</p><p><img src="img/r_2.jpg" alt=""></p><p>Any code we type in here can be run in the console. Hitting <code>Run</code> will run the line of code on which the cursor is sitting. To run multiple lines of code, highlight them and click <code>Run</code>.</p><p>Click on the save/disk icon in the script panel and save the blank script to the folder on your desktop continaing the data for this class, calling it <code>r-analysis.R</code>.</p><h3 id="set-your-working-directory"><a name="set-your-working-directory" href="#set-your-working-directory"></a>Set your working directory</h3><p>Now we can set the working directory to this folder by selecting from the top menu <code>Session&gt;Set Working Directory&gt;To Source File Location</code>. (Doing so means we can load the files in this directory without having to refer to the full path for their location, and anything we save will be written to this folder.)</p><h3 id="save-your-data"><a name="save-your-data" href="#save-your-data"></a>Save your data</h3><p>The panel at top right has two tabs, the first showing the <code>Environment</code>, or all of the “objects” loaded into memory for this R session. We can save this as well, so we don’t have to load and process data again if we return to return to a project later.</p><p>(The second tab shows the <code>History</code> of the operations you have performed in RStudio.)</p><p>Click on the save/disk icon in the <code>Environment</code> panel to save and call the file <code>r-analysis.RData</code>.</p><h3 id="comment-your-code"><a name="comment-your-code" href="#comment-your-code"></a>Comment your code</h3><p>Anything that appears on a line after <code>#</code> will be treated as a comment, and will be ignored when the code is run. Get into the habit of commenting your code: Don’t trust yourself to remember what it does!</p><h3 id="some-r-code-basics"><a name="some-r-code-basics" href="#some-r-code-basics"></a>Some R code basics</h3><ul>
+<li><code>&lt;-</code> is known as an “assignment operator.” It means: “Make the object named to the left equal to the output of the code to the right.”</li><li><code>&amp;</code> means AND, in Boolean logic.</li><li><code>|</code> means OR, in Boolean logic.</li><li><code>!</code> means NOT, in Boolean logic.</li><li>When referring to values entered as text, or to dates, put them in quote marks, like this: <code>"United States"</code>, or <code>"2016-07-26"</code>. Numbers are not quoted.</li><li>When entering two or more values as a list, combine them using the function <code>c</code>, with the values separated by commas, for example: <code>c("2016-07-26","2016-08-04")</code></li><li>As in a spreadsheet, you can specify a range of values with a colon, for example: <code>c(1:10)</code> creates a list of integers (whole numbers) from one to ten.</li><li><p>Some common operators:</p>
+<ul>
+<li><code>+</code> <code>-</code> add, subtract.</li><li><code>*</code> <code>/</code> multiply, divide.</li><li><code>&gt;</code> <code>&lt;</code> greater than, less than.</li><li><code>&gt;=</code> <code>&lt;=</code> greater than or equal to, less than or equal to.</li><li><code>!=</code> not equal to.</li><li><code>head(n)</code> and <code>tail(n)</code> extract the <code>n</code> first or last records from a data frame, respectively.</li></ul>
+</li><li><p>Handling null values:</p>
+<ul>
+<li>Nulls are designated as <code>NA</code>.</li><li><code>is.na(x)</code> looks for nulls within variable <code>x</code>.</li><li><code>!is.na(x)</code> looks for non-null values within variable <code>x</code>.</li></ul>
+</li><li><p>Equals signs:</p>
+<ul>
+<li><code>==</code> test whether an object is equal to a value. This is often used when filtering data, as we will see.</li><li><code>=</code> make an object equal to a value; works like <code>&lt;-</code>, but used within the brackets of a function.</li></ul>
+</li></ul><p><strong>Important:</strong> Object and variable names in R should not contain spaces.</p><h3 id="load-r-packages"><a name="load-r-packages" href="#load-r-packages"></a>Load R packages</h3><p>Much of the power of R comes from the thousands of “packages” written by its community of open source contributors. These are optimized for specific statistical, graphical or data-processing tasks. To see what packages are available in the basic distribution of R, select the <code>Packages</code> tab in the panel at bottom right. To find packages for particular tasks, try searching Google using appropriate keywords and the phrase “R package.”</p><p>In this class, we will work with three incredibly useful packages developed by <a href="http://hadley.nz/">Hadley Wickham</a>, chief scientist at RStudio:</p><ul>
+<li><strong><a href="https://cran.r-project.org/web/packages/readr/readr.pdf">readr</a></strong> For reading and writing CSV and other text files.</li><li><strong><a href="https://cran.r-project.org/web/packages/dplyr/dplyr.pdf">dplyr</a></strong> For processing and manipulating data.</li><li><strong><a href="http://docs.ggplot2.org/current/">ggplot2</a></strong> Charting library, which builds graphics in layers according to a standard <a href="http://vita.had.co.nz/papers/layered-grammar.pdf">grammar</a>.</li></ul><p>These and several other useful packages have been combined into a super-package called <strong><a href="https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/">tidyverse</a></strong>.</p><p>To install a package, click on the <code>Install</code> icon in the <code>Packages</code> tab, type its name into the dialog box, and make sure that <code>Install dependencies</code> is checked, as some packages will only run correctly if other packages are also installed. Click <code>Install</code> and all of the required packages should install.</p><p>Each time you start R, it’s a good idea to click on <code>Update</code> in the <code>Packages</code> panel to update all your installed packages to the latest versions.</p><p>Installing a package makes it available to you, but to use it in any R session you need to load it. You can do this by checking its box in the <code>Packages</code> tab. However, we will enter the following code into our script, then highlight these lines of code and run them:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># load required packages
+library(readr)
+library(dplyr)
+library(ggplot2)
+</code></pre>"><span class="hljs-comment"># load required packages</span>
+<span class="hljs-keyword">library</span>(readr)
+<span class="hljs-keyword">library</span>(dplyr)
+<span class="hljs-keyword">library</span>(ggplot2)
+</code></pre><p>At this point, and at regular intervals, save your script, by clicking the save/disk icon in the script panel, or using the <code>⌘-S/Ctrl-S</code> keyboard shortcut.</p><h3 id="load-and-view-data"><a name="load-and-view-data" href="#load-and-view-data"></a>Load and view data</h3><h4 id="load-data"><a name="load-data" href="#load-data"></a>Load data</h4><p>You can load data into the current R session by selecting <code>Import Dataset&gt;From Text File...</code> in the <code>Environment</code> tab.</p><p>However, we will use the <code>read_csv</code> function from the <strong>readr</strong> package. Copy the following code into your script and <code>Run</code>:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># load health and wealth of nations data
+nations1 &amp;lt;- read_csv(&quot;nations_1.csv&quot;)
+nations2 &amp;lt;- read_csv(&quot;nations_2.csv&quot;)
+</code></pre>"><span class="hljs-comment"># load health and wealth of nations data</span>
+nations1 &lt;- read_csv(<span class="hljs-string">"nations_1.csv"</span>)
+nations2 &lt;- read_csv(<span class="hljs-string">"nations_2.csv"</span>)
+</code></pre><p>Notice that the <code>Environment</code> now contains two objects, of the type <code>tbl_df</code>, a variety of the standard R object for holding tables of data, known as a <strong>data frame</strong>:</p><p><img src="img/r_3.jpg" alt=""></p><p>The <code>Value</code> for each data frame details the number of columns, and the number of rows, or observations, in the data.</p><p>You can remove any object from your environment by checking it in the <code>Grid</code> view and clicking the broom icon.</p><h4 id="examine-the-data"><a name="examine-the-data" href="#examine-the-data"></a>Examine the data</h4><p>We can <code>View</code> data at any time by clicking on its table icon in the <code>Environment</code> tab in the <code>Grid</code> view.</p><p>The <code>str</code> function will tell you more about the columns in your data, including their data type. Copy this code into your script and <code>Run</code>:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># view structure of data
+str(nations1)
+</code></pre>"><span class="hljs-comment"># view structure of data</span>
+str(nations1)
+</code></pre><p>This should give the following output in the R Console:</p><pre class="json hljs"><code class="JSON" data-origin="<pre><code class=&quot;JSON&quot;>Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    5486 obs. of  10 variables:
+ $ iso2c             : chr  &quot;AD&quot; &quot;AD&quot; &quot;AD&quot; &quot;AD&quot; ...
+ $ iso3c             : chr  &quot;AND&quot; &quot;AND&quot; &quot;AND&quot; &quot;AND&quot; ...
+ $ country           : chr  &quot;Andorra&quot; &quot;Andorra&quot; &quot;Andorra&quot; &quot;Andorra&quot; ...
+ $ year              : num  1994 1995 2006 2007 1996 ...
+ $ life_expect       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ population        : num  62707 63854 83373 84878 64291 ...
+ $ birth_rate        : num  10.9 11 10.6 10.1 10.9 11.4 11.2 11.9 10.4 9.9 ...
+ $ neonat_mortal_rate: num  3.2 3 1.9 1.8 2.8 3.4 2.6 2.4 1.8 1.7 ...
+ $ region            : chr  &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; ...
+ $ income            : chr  &quot;High income&quot; &quot;High income&quot; &quot;High income&quot; &quot;High income&quot; ...
+</code></pre>">Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    5486 obs. of  10 variables:
+ $ iso2c             : chr  "AD" "AD" "AD" "AD" ...
+ $ iso3c             : chr  "AND" "AND" "AND" "AND" ...
+ $ country           : chr  "Andorra" "Andorra" "Andorra" "Andorra" ...
+ $ year              : num  1994 1995 2006 2007 1996 ...
+ $ life_expect       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ population        : num  62707 63854 83373 84878 64291 ...
+ $ birth_rate        : num  10.9 11 10.6 10.1 10.9 11.4 11.2 11.9 10.4 9.9 ...
+ $ neonat_mortal_rate: num  3.2 3 1.9 1.8 2.8 3.4 2.6 2.4 1.8 1.7 ...
+ $ region            : chr  "Europe &amp; Central Asia" "Europe &amp; Central Asia" "Europe &amp; Central Asia" "Europe &amp; Central Asia" ...
+ $ income            : chr  "High income" "High income" "High income" "High income" ...
+</code></pre><p><code>chr</code> means “character,” or a string of text (which can be treated as a categorical variable); <code>num</code> means a number.</p><p>If you run into any trouble importing data with <strong>readr</strong>, you may need to specify the data types for some columns — in particular for date and time. <a href="https://github.com/hadley/readr/blob/master/vignettes/column-types.Rmd">This link</a> explains how to set data types for individual variables when importing data with <strong>readr</strong>.</p><p>To specify an individual column use the name of the data frame and the column name, separated by <code>$</code>. Type this into your script and run:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># print values for population in the nations1 data
+nations1$population
+</code></pre>"><span class="hljs-comment"># print values for population in the nations1 data</span>
+nations1$population
+</code></pre><p>The output will be the first 10,000 values for that column.</p><p>If you need to change the data type for any column, use the following functions:</p><ul>
+<li><code>as.character</code> converts to a text string.</li><li><code>as.numeric</code> converts to a number.</li><li><code>as.factor</code> converts to a categorical variable.</li><li><code>as.integer</code> converts to an integer</li><li><code>as.Date</code> converts to a date</li><li><code>as.POSIXct</code> converts to a full date and timestamp.</li></ul><p>So this code will convert the population numbers to integers:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># convert population to integers
+nations1$population &amp;lt;- as.integer(nations1$population)
+str(nations1)
+</code></pre>"><span class="hljs-comment"># convert population to integers</span>
+nations1$population &lt;- as.integer(nations1$population)
+str(nations1)
+</code></pre><p>Notice that the data type for <code>population</code> has now changed:</p><pre class="json hljs"><code class="JSON" data-origin="<pre><code class=&quot;JSON&quot;>Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    5486 obs. of  10 variables:
+ $ iso2c             : chr  &quot;AD&quot; &quot;AD&quot; &quot;AD&quot; &quot;AD&quot; ...
+ $ iso3c             : chr  &quot;AND&quot; &quot;AND&quot; &quot;AND&quot; &quot;AND&quot; ...
+ $ country           : chr  &quot;Andorra&quot; &quot;Andorra&quot; &quot;Andorra&quot; &quot;Andorra&quot; ...
+ $ year              : num  1994 1995 2006 2007 1996 ...
+ $ life_expect       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ population        : int  62707 63854 83373 84878 64291 61003 64147 63888 85616 85474 ...
+ $ birth_rate        : num  10.9 11 10.6 10.1 10.9 11.4 11.2 11.9 10.4 9.9 ...
+ $ neonat_mortal_rate: num  3.2 3 1.9 1.8 2.8 3.4 2.6 2.4 1.8 1.7 ...
+ $ region            : chr  &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; &quot;Europe &amp;amp; Central Asia&quot; ...
+ $ income            : chr  &quot;High income&quot; &quot;High income&quot; &quot;High income&quot; &quot;High income&quot; ...
+ - attr(*, &quot;spec&quot;)=List of 2
+</code></pre>">Classes ‘tbl_df’, ‘tbl’ and 'data.frame':    5486 obs. of  10 variables:
+ $ iso2c             : chr  "AD" "AD" "AD" "AD" ...
+ $ iso3c             : chr  "AND" "AND" "AND" "AND" ...
+ $ country           : chr  "Andorra" "Andorra" "Andorra" "Andorra" ...
+ $ year              : num  1994 1995 2006 2007 1996 ...
+ $ life_expect       : num  NA NA NA NA NA NA NA NA NA NA ...
+ $ population        : int  62707 63854 83373 84878 64291 61003 64147 63888 85616 85474 ...
+ $ birth_rate        : num  10.9 11 10.6 10.1 10.9 11.4 11.2 11.9 10.4 9.9 ...
+ $ neonat_mortal_rate: num  3.2 3 1.9 1.8 2.8 3.4 2.6 2.4 1.8 1.7 ...
+ $ region            : chr  "Europe &amp; Central Asia" "Europe &amp; Central Asia" "Europe &amp; Central Asia" "Europe &amp; Central Asia" ...
+ $ income            : chr  "High income" "High income" "High income" "High income" ...
+ - attr(*, "spec")=List of 2
+</code></pre><p>The <code>summary</code> function will run a quick statistical summary of a data frame, calculating mean, median and quartile values for continuous variables:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># summary of nations1 data
+summary(nations1)
+</code></pre>"><span class="hljs-comment"># summary of nations1 data</span>
+summary(nations1)
+</code></pre><p>Here is the last part of the console output:</p><pre class="json hljs"><code class="JSON" data-origin="<pre><code class=&quot;JSON&quot;>    iso2c              iso3c             country               year     
+ Length:5486        Length:5486        Length:5486        Min.   :1990  
+ Class :character   Class :character   Class :character   1st Qu.:1996  
+ Mode  :character   Mode  :character   Mode  :character   Median :2002  
+                                                          Mean   :2002  
+                                                          3rd Qu.:2009  
+                                                          Max.   :2015  
+
+  life_expect      population          birth_rate    neonat_mortal_rate
+ Min.   :27.08   Min.   :9.004e+03   Min.   : 6.90   Min.   : 0.70     
+ 1st Qu.:61.24   1st Qu.:7.203e+05   1st Qu.:13.40   1st Qu.: 6.60     
+ Median :70.46   Median :5.322e+06   Median :21.60   Median :14.70     
+ Mean   :67.78   Mean   :2.978e+07   Mean   :24.16   Mean   :19.18     
+ 3rd Qu.:75.17   3rd Qu.:1.775e+07   3rd Qu.:33.88   3rd Qu.:29.10     
+ Max.   :83.98   Max.   :1.371e+09   Max.   :55.12   Max.   :73.10     
+ NA's   :604     NA's   :15          NA's   :506     NA's   :546       
+    region             income         
+ Length:5486        Length:5486       
+ Class :character   Class :character  
+ Mode  :character   Mode  :character
+</code></pre>">    iso2c              iso3c             country               year     
+ Length:5486        Length:5486        Length:5486        Min.   :1990  
+ Class :character   Class :character   Class :character   1st Qu.:1996  
+ Mode  :character   Mode  :character   Mode  :character   Median :2002  
+                                                          Mean   :2002  
+                                                          3rd Qu.:2009  
+                                                          Max.   :2015  
+
+  life_expect      population          birth_rate    neonat_mortal_rate
+ Min.   :27.08   Min.   :9.004e+03   Min.   : 6.90   Min.   : 0.70     
+ 1st Qu.:61.24   1st Qu.:7.203e+05   1st Qu.:13.40   1st Qu.: 6.60     
+ Median :70.46   Median :5.322e+06   Median :21.60   Median :14.70     
+ Mean   :67.78   Mean   :2.978e+07   Mean   :24.16   Mean   :19.18     
+ 3rd Qu.:75.17   3rd Qu.:1.775e+07   3rd Qu.:33.88   3rd Qu.:29.10     
+ Max.   :83.98   Max.   :1.371e+09   Max.   :55.12   Max.   :73.10     
+ NA's   :604     NA's   :15          NA's   :506     NA's   :546       
+    region             income         
+ Length:5486        Length:5486       
+ Class :character   Class :character  
+ Mode  :character   Mode  :character
+</code></pre><h3 id="manipulate-and-analyze-data-with-dplyr"><a name="manipulate-and-analyze-data-with-dplyr" href="#manipulate-and-analyze-data-with-dplyr"></a>Manipulate and analyze data with dplyr</h3><p>Now we will use <strong>dplyr</strong> to manipulate the data, using the following basic operations. If you’ve worked with SQL before, these operations will be very familiar:</p><ul>
+<li><p><strong>Sort:</strong> Largest to smallest, oldest to newest, alphabetical etc.</p>
+</li><li><p><strong>Filter:</strong> Select a defined subset of the data.</p>
+</li><li><p><strong>Summarize/Aggregate:</strong> Deriving one value from a series of other values to produce a summary statistic. Examples include: count, sum, mean, median, maximum, minimum etc. Often you’ll <strong>group</strong> data into categories first, and then aggregate by group.</p>
+</li><li><p><strong>Join:</strong> Merging entries from two or more datasets based on common field(s), e.g. unique ID number, last name and first name.</p>
+</li></ul><p>Here are some of the most useful functions in <strong>dplyr</strong>:</p><ul>
+<li><code>select</code> Choose which columns to include.</li><li><code>filter</code> <strong>Filter</strong> the data according to defined.</li><li><code>arrange</code> <strong>Sort</strong> the data, by size for continuous variables, by date, or alphabetically.</li><li><code>group_by</code> <strong>Group</strong> the data by a categorical variable.</li><li><code>summarize</code> <strong>Summarize</strong>, or aggregate (for each group if following <code>group_by</code>). Often used in conjunction with functions including:<ul>
+<li><code>mean(x)</code> Calculate the mean, or average, for variable <code>x</code>.</li><li><code>median(x)</code> Calculate the median.</li><li><code>max(x)</code> Find the maximum value.</li><li><code>min(x)</code> Find the minimum value.</li><li><code>sum(x)</code> Add all the values together.</li><li><code>n()</code> Count the number of records. Here there isn’t a variable in the brackets of the function, because the number of records applies to all variables.</li><li><code>n_distinct(x</code>) Count the number of unique values in variable <code>x</code>.</li></ul>
+</li><li><code>mutate</code> Create new column(s) in the data, or change existing column(s).</li><li><code>rename</code> Rename column(s).</li><li><code>bind_rows</code> Merge two data frames into one, combining data from columns with the same name.</li></ul><p>There are also various functions to <strong>join</strong> data, which we will explore below.</p><p>These functions can be chained together using the “pipe” operator <code>%&gt;%</code>, which makes the output of one line of code the input for the next. This allows you to run through a series of operations in a logical order. I find it helpful to think of <code>%&gt;%</code> as meaning “then.”</p><h4 id="filter-and-sort-data"><a name="filter-and-sort-data" href="#filter-and-sort-data"></a>Filter and sort data</h4><p>Now we will <strong>filter</strong> and <strong>sort</strong> the data in specific ways. For each of the following examples, copy the code that follows into your script, and view the results. Notice how we create a new objects to hold the processed data.</p><h5 id="filter-the-data-for-2014-only"><a name="filter-the-data-for-2014-only" href="#filter-the-data-for-2014-only"></a>Filter the data for 2014 only</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># filter data for 2014 only
+longevity &amp;lt;- nations1 %&amp;gt;%
+  filter(year == 2014 &amp;amp; !is.na(life_expect)) %&amp;gt;%
+  select(country, life_expect, income, region)
+</code></pre>"><span class="hljs-comment"># filter data for 2014 only</span>
+longevity &lt;- nations1 %&gt;%
+  filter(year == <span class="hljs-number">2014</span> &amp; !is.na(life_expect)) %&gt;%
+  select(country, life_expect, income, region)
+</code></pre><p>In this code, we create a new object called <code>longevity</code> from <code>nations</code> and then (<code>%&gt;%</code>) filter it for just the data for 2015 and to include only non-null values. Then we select just four variables from the ten in the original data frame. There should be data returned for 195 countries.</p><p>Here are the first few records in the new object:</p><p><img src="img/r_4.jpg" alt=""></p><p>See what happens when you filter for <code>2015</code>. There should be no data returned, because <code>life_expect</code> data for 2015 hasn’t yet been added to the World Bank’s data portal.</p><p>If you are familiar with SQL, you will already have noticed that dplyr code, while similar, has an important difference. Rather than requiring clauses to be written in a certain order, starting with <code>SELECT</code>, the code is written in the order in which you perform operations. In that sense, it is much more logical than SQL. You simply decide what you want to do with the data, and proceed step-by-step.</p><h5 id="find-the-ten-high-income-countries-with-the-lowest-life-expectancy-in-2014"><a name="find-the-ten-high-income-countries-with-the-lowest-life-expectancy-in-2014" href="#find-the-ten-high-income-countries-with-the-lowest-life-expectancy-in-2014"></a>Find the ten high-income countries with the lowest life expectancy in 2014</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># find the ten high-income countries with the lowest life expectancy
+high_income_short_life &amp;lt;- longevity %&amp;gt;%
+  filter(income == &quot;High income&quot;) %&amp;gt;%
+  arrange(life_expect) %&amp;gt;%
+  head(10)
+</code></pre>"><span class="hljs-comment"># find the ten high-income countries with the lowest life expectancy</span>
+high_income_short_life &lt;- longevity %&gt;%
+  filter(income == <span class="hljs-string">"High income"</span>) %&gt;%
+  arrange(life_expect) %&gt;%
+  head(<span class="hljs-number">10</span>)
+</code></pre><p>This code takes the previous filtered <code>longevity</code> object, filters it for countries in the high income group only, then sorts the data, using <code>arrange</code> (the default is ascending order). Finally it uses <code>head(10)</code> to return the first ten countries in the sorted data.</p><p>This should be the result:</p><p><img src="img/r_5.jpg" alt=""></p><h5 id="find-the-20-countries-with-the-longest-life-expectancy-in-2014,-plus-the-united-states-with-its-rank,-if-it-lies-outside-the-top-20"><a name="find-the-20-countries-with-the-longest-life-expectancy-in-2014,-plus-the-united-states-with-its-rank,-if-it-lies-outside-the-top-20" href="#find-the-20-countries-with-the-longest-life-expectancy-in-2014,-plus-the-united-states-with-its-rank,-if-it-lies-outside-the-top-20"></a>Find the 20 countries with the longest life expectancy in 2014, plus the United States with its rank, if it lies outside the top 20</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># find the 20 countries with the longest life expectancies, 
+# plus the United States with its rank, if it lies outside the top 20
+long_life &amp;lt;- longevity %&amp;gt;%
+  arrange(desc(life_expect)) %&amp;gt;%
+  mutate(rank = c(1:195)) %&amp;gt;%
+  filter(rank &amp;lt;= 20 | country == &quot;United States&quot;)
+</code></pre>"><span class="hljs-comment"># find the 20 countries with the longest life expectancies, </span>
+<span class="hljs-comment"># plus the United States with its rank, if it lies outside the top 20</span>
+long_life &lt;- longevity %&gt;%
+  arrange(desc(life_expect)) %&gt;%
+  mutate(rank = c(<span class="hljs-number">1</span>:<span class="hljs-number">195</span>)) %&gt;%
+  filter(rank &lt;= <span class="hljs-number">20</span> | country == <span class="hljs-string">"United States"</span>)
+</code></pre><p>This should be the result, showing the United States to rank a lowly 42nd out of 195 countries:</p><p><img src="img/r_6.jpg" alt=""></p><p>Hopefully the logic and flexibility of <strong>dplyr</strong> code is now becoming clear. Here we start by sorting the <code>longevity</code> data frame in descending order of life expantancy, then we create a new variable in the data called <code>rank</code>, using the <code>mutate</code> function. By feeding this a list of numbers from 1 to 195, we rank the countries according to their life expectancy. Finally we filter the data for the top 20 countries, plus the United States.</p><p>Whereas in the initial filter of the data to create <code>longevity</code> data frame we used <code>&amp;</code> to return data meeting both criteria, this time we used <code>|</code> to include data meeting either criteria. <code>&amp;</code> and <code>|</code> are equivalent to <code>AND</code> and <code>OR</code> in SQL. When combining <code>&amp;</code> and <code>|</code> in more complex filters, use parentheses to determine which parts of the evaluation should be carried out first.</p><p>Notice also in this code that a single <code>=</code> is used to change or create values, while <code>==</code> is used to test whether a value is equal to something.</p><h5 id="now-let's-find-out-where-russia-ranks,-too"><a name="now-let's-find-out-where-russia-ranks,-too" href="#now-let's-find-out-where-russia-ranks,-too"></a>Now let’s find out where Russia ranks, too</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># find the 20 countries with the longest life expectancies,
+# plus the United States and Russia with their ranks
+long_life &amp;lt;- longevity %&amp;gt;%
+  arrange(desc(life_expect)) %&amp;gt;%
+  mutate(rank = c(1:195)) %&amp;gt;%
+  filter(rank &amp;lt;= 20 | grepl(&quot;United States|Russia&quot;, country))
+</code></pre>"><span class="hljs-comment"># find the 20 countries with the longest life expectancies,</span>
+<span class="hljs-comment"># plus the United States and Russia with their ranks</span>
+long_life &lt;- longevity %&gt;%
+  arrange(desc(life_expect)) %&gt;%
+  mutate(rank = c(<span class="hljs-number">1</span>:<span class="hljs-number">195</span>)) %&gt;%
+  filter(rank &lt;= <span class="hljs-number">20</span> | grepl(<span class="hljs-string">"United States|Russia"</span>, country))
+</code></pre><p>This should be the result:</p><p><img src="img/r_7.jpg" alt=""></p><p>This codes demonstrates some simple pattern matching on text, using the function <code>grepl("pattern_a|pattern_b", x)</code>, which searches variable <code>x</code> for values containing any of a list of text values. This is useful for fuzzy text matching. Notice how searching for <code>Russia</code> returns <code>Russian Federation</code>, which is the country’s full name.</p><h4 id="write-data-to-a-csv-file"><a name="write-data-to-a-csv-file" href="#write-data-to-a-csv-file"></a>Write data to a CSV file</h4><p><strong>readr</strong> can write data to CSV and other text files. This code will save the result above to a CSV file in your working directory:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># write data to a csv file
+write_csv(long_life, &quot;long_life.csv&quot; na=&quot;&quot;)
+</code></pre>"><span class="hljs-comment"># write data to a csv file</span>
+write_csv(long_life, <span class="hljs-string">"long_life.csv"</span> na=<span class="hljs-string">""</span>)
+</code></pre><p>Although we have no null values here, including <code>na=""</code> is good practice, because it ensures that any empty cells in the data frame are saved as blanks, not <code>NA</code>.</p><h4 id="group-and-summarize-data"><a name="group-and-summarize-data" href="#group-and-summarize-data"></a>Group and summarize data</h4><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># summarize the data by year, finding the maximum and minimum country-level life expectancies, and then calculate the range of values
+longevity_summary &amp;lt;- nations1 %&amp;gt;%
+  filter(!is.na(life_expect)) %&amp;gt;%
+  group_by(year) %&amp;gt;%
+  summarize(countries = n(),
+            max_life_expect = max(life_expect),
+            min_life_expect = min(life_expect)) %&amp;gt;%
+  mutate(range_life_expect = max_life_expect - min_life_expect) %&amp;gt;%
+  arrange(desc(year))
+</code></pre>"><span class="hljs-comment"># summarize the data by year, finding the maximum and minimum country-level life expectancies, and then calculate the range of values</span>
+longevity_summary &lt;- nations1 %&gt;%
+  filter(!is.na(life_expect)) %&gt;%
+  group_by(year) %&gt;%
+  summarize(countries = n(),
+            max_life_expect = max(life_expect),
+            min_life_expect = min(life_expect)) %&gt;%
+  mutate(range_life_expect = max_life_expect - min_life_expect) %&gt;%
+  arrange(desc(year))
+</code></pre><p>This should be the result:</p><p><img src="img/r_8.jpg" alt=""></p><p>This code introduces the functions <code>group_by()</code> and <code>summarize()</code>. The former works like <code>GROUP BY</code> in SQL, but the separate <code>summarize()</code> function makes it much easier to think about how to summarize the data. In SQL, you would have to work on the initial <code>SELECT</code> clause to do this.</p><p>The entire <code>summarize()</code> function could be written on one line, but I have started a new line after each summaru statistic for clarity.</p><p>In this example, we calculate the number of countries for which we have data in each year, then the maximum and minimum country-level life expectancies. Having done that, we use <code>mutate</code> function to calculate the range of values by subtracting the minimum from the maximum.</p><h4 id="join-data-from-two-data-frames"><a name="join-data-from-two-data-frames" href="#join-data-from-two-data-frames"></a>Join data from two data frames</h4><p>There are also a number of <strong>join</strong> functions in <strong>dplyr</strong> to combine data from two data frames. Here are the most useful:</p><ul>
+<li><code>inner_join()</code> returns values from both tables only where there is a match.</li><li><code>left_join()</code> returns all the values from the first-mentioned table, plus those from the second table that match.</li><li><code>semi_join()</code> filters the first-mentioned table to include only values that have matches in the second table.</li><li><code>anti_join()</code> filters the first-mentioned table to include only values that have no matches in the second table.</li></ul><p><a href="http://stat545-ubc.github.io/bit001_dplyr-cheatsheet.html">Here is a useful reference</a> for managing joins with <strong>dplyr</strong>.</p><p>This code will join <code>nations2</code> to <code>nations1</code></p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>nations &amp;lt;- inner_join(nations1, nations2)
+</code></pre>">nations &lt;- inner_join(nations1, nations2)
+</code></pre><p>In this case, <code>left_join</code> and <code>right_join</code> would also produce the same result, as both data frames have records for every country and year.</p><p>By default, <strong>dplyr</strong> looks for variables with matching names, here <code>iso3c</code> and <code>year</code>, and joins on those. But you can also specify exactly how a join should be made, like this:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>nations &amp;lt;- inner_join(nations1, nations2, by = c(&quot;iso3c&quot; = &quot;iso3c&quot;, &quot;year&quot; = &quot;year&quot;))
+</code></pre>">nations &lt;- inner_join(nations1, nations2, by = c(<span class="hljs-string">"iso3c"</span> = <span class="hljs-string">"iso3c"</span>, <span class="hljs-string">"year"</span> = <span class="hljs-string">"year"</span>))
+</code></pre><h5 id="calculate-total-gdp-by-region-and-year"><a name="calculate-total-gdp-by-region-and-year" href="#calculate-total-gdp-by-region-and-year"></a>Calculate total GDP by region and year</h5><p>In the joined data frame, we can now calculate the total GDP for each country and each year, in trillions of dollars, and then add up the totals by region over the years:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># total GDP, in trillions of dollars, by region, over time
+gdp_regions &amp;lt;- nations %&amp;gt;%
+  mutate(gdp = gdp_percap * population,
+         gdp_tn = gdp/1000000000000) %&amp;gt;%
+  group_by(region, year) %&amp;gt;%
+  summarize(total_gdp_tn = sum(gdp_tn, na.rm = TRUE))
+</code></pre>"><span class="hljs-comment"># total GDP, in trillions of dollars, by region, over time</span>
+gdp_regions &lt;- nations %&gt;%
+  mutate(gdp = gdp_percap * population,
+         gdp_tn = gdp/<span class="hljs-number">1000000000000</span>) %&gt;%
+  group_by(region, year) %&gt;%
+  summarize(total_gdp_tn = sum(gdp_tn, na.rm = <span class="hljs-literal">TRUE</span>))
+</code></pre><p>Here are the first few rows in the data that is returned:</p><p><img src="img/r_9.jpg" alt=""></p><p>Notice that variables created within a <code>mutate</code> function can be immediately used within the same function.</p><p>Here the <code>group_by()</code> function groups on two variables, <code>region</code> and     <code>year</code>.</p><p>Notice that the <code>sum</code> function used to add up the GDP values across countries within each region and year includes the argument <code>na.rm = TRUE</code>, to remove the <code>NA</code> values before running the calculation. See what happens if you don’t include this. Previously this wasn’t necessary because I had started by filtering out the <code>NA</code>s. </p><p>Get into the habit of including <code>na.rm = TRUE</code> in your summary functions, to avoid problems cuased by null values!</p><h3 id="now-make-some-simple-charts"><a name="now-make-some-simple-charts" href="#now-make-some-simple-charts"></a>Now make some simple charts</h3><h4 id="introducing-ggplot2-and-the-grammar-of-graphics"><a name="introducing-ggplot2-and-the-grammar-of-graphics" href="#introducing-ggplot2-and-the-grammar-of-graphics"></a>Introducing ggplot2 and the grammar of graphics</h4><p>The “gg” in <strong>ggplot2</strong> stands for “<a href="http://www.amazon.com/The-Grammar-Graphics-Statistics-Computing/dp/0387245448">grammar of graphics</a>,” an approach to drawing charts devised by the statistician Leland Wilkinson. Rather than thinking in terms of finished charts like a scatter plot or a column chart, it starts by defining the coordinate system (usually the X and Y axes), maps data onto those coordinates, and then adds layers such as points, bars and so on. This is the logic behind ggplot2 code.</p><h4 id="**ggplot2**-code-basics:"><a name="**ggplot2**-code-basics:" href="#**ggplot2**-code-basics:"></a><strong>ggplot2</strong> code basics:</h4><ul>
+<li><code>ggplot</code> This is the master function that creates a <strong>ggplot2</strong> chart.</li><li><code>aes</code> This function, named for “aesthetic mapping,” is used whenever data values are mapped onto a chart. So it is used when you define which variables are plotted onto the X and Y axes, and also if you want to change the size or color of parts of the chart according to values for a variable.</li><li><code>geom</code> All of the functions that add layers to a chart start with <code>geom</code>, followed by an underscore, for example <code>geom_point()</code> or <code>geom_bar()</code>. The code in the brackets for any <code>geom</code> layer styles the items in that layer, and can include <code>aes</code> mappings of values from data.</li><li><code>theme</code> This function modifies the appearance of elements of a plot. It is used, for example, to set size and font face for text, the position of a legend, and so on.</li><li><code>scale</code> Functions that begin with <code>scale</code>, followed by an underscore, are used to modify the way an <code>aes</code> mapping of data appears on a chart. They can change the axis range, for example, or specify a color palette to be used to encode values in the data.</li><li><code>+</code> is used each time you add a layer, a scale, a theme, or elements like axis labels and a title After a <code>+</code> you can continue on the same line of code or move the next line. I usually write a new line after each <code>+</code>, which makes the code easier to follow.</li></ul><h5 id="draw-a-line-chart-showing-total-gdp,-by-region,-over-time."><a name="draw-a-line-chart-showing-total-gdp,-by-region,-over-time." href="#draw-a-line-chart-showing-total-gdp,-by-region,-over-time."></a>Draw a line chart showing total GDP, by region, over time.</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># Draw a line chart showing total GDP, by region, over time.
+ggplot(gdp_regions, aes(x=year, y=total_gdp_tn, color=region)) +
+  geom_line(size=1) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Total GDP ($ trillions)&quot;) +
+  theme_minimal(base_size = 12)
+</code></pre>"><span class="hljs-comment"># Draw a line chart showing total GDP, by region, over time.</span>
+ggplot(gdp_regions, aes(x=year, y=total_gdp_tn, color=region)) +
+  geom_line(size=<span class="hljs-number">1</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"Total GDP ($ trillions)"</span>) +
+  theme_minimal(base_size = <span class="hljs-number">12</span>)
+</code></pre><p><img src="img/r_10.jpg" alt=""></p><p>This simple code draws a chart from the <code>gdp_regions</code> data, putting <code>year</code> on the X axis, and <code>total_gdp_tn</code> on the Y. It codes the regions by color, and then adds a line for each region to the chart using <code>geom_line()</code>. <code>xlab()</code> and <code>ylab</code> control the axis labels, which would otherwise by the variable names, and <code>theme_minimal</code> replaces the default gray grid of a <strong>ggplot2</strong> chart with a white background. <code>base_size</code> sets the default font size.</p><h5 id="draw-a-bar-chart-showing-the-ten-high-income-countries-with-the-lowest-life-expectancies-in-2014."><a name="draw-a-bar-chart-showing-the-ten-high-income-countries-with-the-lowest-life-expectancies-in-2014." href="#draw-a-bar-chart-showing-the-ten-high-income-countries-with-the-lowest-life-expectancies-in-2014."></a>Draw a bar chart showing the ten high-income countries with the lowest life expectancies in 2014.</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>ggplot(high_income_short_life, aes(x=reorder(country,-life_expect), y=life_expect)) +
+  geom_bar(stat=&quot;identity&quot;, fill = &quot;red&quot;, alpha = 0.7) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Life expectancy at birth (2014)&quot;) + 
+  ggtitle(&quot;Rich countries with low life expectancies&quot;) +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  coord_flip()
+</code></pre>">ggplot(high_income_short_life, aes(x=reorder(country,-life_expect), y=life_expect)) +
+  geom_bar(stat=<span class="hljs-string">"identity"</span>, fill = <span class="hljs-string">"red"</span>, alpha = <span class="hljs-number">0.7</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"Life expectancy at birth (2014)"</span>) + 
+  ggtitle(<span class="hljs-string">"Rich countries with low life expectancies"</span>) +
+  theme_minimal(base_size = <span class="hljs-number">12</span>) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  coord_flip()
+</code></pre><p><img src="img/r_11.jpg" alt=""></p><p>Not terribly interesting, but it shows how a different <code>geom</code> creates a different type of chart. In <code>geom_bar</code>, <code>stat="identity"</code> ensures that the bars are drawn from the data mapped to the Y axis, rather than a count of the number of records. For solid objects like bars, <code>fill</code> sets the color of the object, which <code>color</code> controls the colour of their outline, if desired. <code>alpha</code> controls transparency; <code>ggtitle</code> adds a title, and the <code>theme()</code> function here removes grid lines on the axis with the coutries. Finally, <code>coord_flip</code> swaps the X and Y axes, turning a vertical column chart into a horizontal bar chart.</p><p>Notice also how <code>reorder()</code> is used to sort the bars by <code>life_expect</code>.</p><p>In this simpler code, the bars are not sorted by life expectancy:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>ggplot(high_income_short_life, aes(x=country, y=life_expect)) +
+  geom_bar(stat=&quot;identity&quot;, fill = &quot;red&quot;, alpha = 0.7) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Life expectancy at birth (2014)&quot;) + 
+  ggtitle(&quot;Rich countries with low life expectancies&quot;) +
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  coord_flip()
+</code></pre>">ggplot(high_income_short_life, aes(x=country, y=life_expect)) +
+  geom_bar(stat=<span class="hljs-string">"identity"</span>, fill = <span class="hljs-string">"red"</span>, alpha = <span class="hljs-number">0.7</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"Life expectancy at birth (2014)"</span>) + 
+  ggtitle(<span class="hljs-string">"Rich countries with low life expectancies"</span>) +
+  theme_minimal(base_size = <span class="hljs-number">12</span>) +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank()) +
+  coord_flip()
+</code></pre><p><img src="img/r_12.jpg" alt=""></p><p>Save each chart using the <code>Export</code> menu in the <code>Plots</code> panel at bottom right, setting the dimensions and file type as desired.</p><h3 id="load-california-kindergarten-immunization-data"><a name="load-california-kindergarten-immunization-data" href="#load-california-kindergarten-immunization-data"></a>Load California kindergarten immunization data</h3><p>Now we’ll work with the California</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># load data
+immun &amp;lt;- read_csv(&quot;kindergarten.csv&quot;,  col_types = list(
+  county = col_character(),
+  district = col_character(),
+  sch_code = col_character(),
+  pub_priv = col_character(),
+  school = col_character(),
+  enrollment = col_integer(),
+  complete  = col_integer(),
+  start_year = col_integer()))
+
+immun_2015 &amp;lt;- read_csv(&quot;kindergarten_2015.csv&quot;,  col_types = list(
+  county = col_character(),
+  district = col_character(),
+  sch_code = col_character(),
+  pub_priv = col_character(),
+  school = col_character(),
+  enrollment = col_integer(),
+  complete  = col_integer(),
+  start_year = col_integer()))
+</code></pre>"><span class="hljs-comment"># load data</span>
+immun &lt;- read_csv(<span class="hljs-string">"kindergarten.csv"</span>,  col_types = list(
+  county = col_character(),
+  district = col_character(),
+  sch_code = col_character(),
+  pub_priv = col_character(),
+  school = col_character(),
+  enrollment = col_integer(),
+  complete  = col_integer(),
+  start_year = col_integer()))
+
+immun_2015 &lt;- read_csv(<span class="hljs-string">"kindergarten_2015.csv"</span>,  col_types = list(
+  county = col_character(),
+  district = col_character(),
+  sch_code = col_character(),
+  pub_priv = col_character(),
+  school = col_character(),
+  enrollment = col_integer(),
+  complete  = col_integer(),
+  start_year = col_integer()))
+</code></pre><p>We need to appead the data for 2015 to the older data. So this code specifies the data type for each variable, to be sure that there won’t be any mismatches in data type that would cause an error in the next step.</p><h4 id="append-the-2015-data-to-the-older-data"><a name="append-the-2015-data-to-the-older-data" href="#append-the-2015-data-to-the-older-data"></a>Append the 2015 data to the older data</h4><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># append the 2015 data to the older data
+immun &amp;lt;- bind_rows(immun, immun_2015)
+</code></pre>"><span class="hljs-comment"># append the 2015 data to the older data</span>
+immun &lt;- bind_rows(immun, immun_2015)
+</code></pre><p>This code introduces<code>bind_rows()</code>, which appends one data frame to another, based on matching column names and data types. (If a column exists in one data frame but not in the other, <code>NA</code>s will be added where necessary.)</p><h4 id="calculate-the-percentage-of-children-with-incomplete-immunizations,-for-the-entire-state,-and-by-county"><a name="calculate-the-percentage-of-children-with-incomplete-immunizations,-for-the-entire-state,-and-by-county" href="#calculate-the-percentage-of-children-with-incomplete-immunizations,-for-the-entire-state,-and-by-county"></a>Calculate the percentage of children with incomplete immunizations, for the entire state, and by county</h4><p>The data contains the number of children enrolled in each kindergarten across the state, and the number who has the complete recommended immunizations at the start of the year.</p><p>From this, we can calculate the percentage of children who did not have the complete achedule of immunizations. The following code runs these calculations for each year, first for the entire state, summing across all kindergartens grouped by year, and then the each of California’s 58 counties, by changing the <code>group_by</code> function.</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># percentage incomplete, entire state, by year
+immun_year &amp;lt;- immun %&amp;gt;%
+  group_by(start_year) %&amp;gt;%
+  summarize(enrolled = sum(enrollment, na.rm=TRUE),
+            completed = sum(complete, na.rm=TRUE)) %&amp;gt;%
+  mutate(pc_incomplete = round(((enrolled-completed)/enrolled*100),2))
+
+# percentage incomplete, by county, by year
+immun_counties_year &amp;lt;- immun %&amp;gt;%
+  group_by(county,start_year) %&amp;gt;%
+  summarize(enrolled = sum(enrollment, na.rm = TRUE),
+            completed = sum(complete, na.rm = TRUE)) %&amp;gt;%
+  mutate(pc_incomplete = round(((enrolled-completed)/enrolled*100),2))
+</code></pre>"><span class="hljs-comment"># percentage incomplete, entire state, by year</span>
+immun_year &lt;- immun %&gt;%
+  group_by(start_year) %&gt;%
+  summarize(enrolled = sum(enrollment, na.rm=<span class="hljs-literal">TRUE</span>),
+            completed = sum(complete, na.rm=<span class="hljs-literal">TRUE</span>)) %&gt;%
+  mutate(pc_incomplete = round(((enrolled-completed)/enrolled*<span class="hljs-number">100</span>),<span class="hljs-number">2</span>))
+
+<span class="hljs-comment"># percentage incomplete, by county, by year</span>
+immun_counties_year &lt;- immun %&gt;%
+  group_by(county,start_year) %&gt;%
+  summarize(enrolled = sum(enrollment, na.rm = <span class="hljs-literal">TRUE</span>),
+            completed = sum(complete, na.rm = <span class="hljs-literal">TRUE</span>)) %&gt;%
+  mutate(pc_incomplete = round(((enrolled-completed)/enrolled*<span class="hljs-number">100</span>),<span class="hljs-number">2</span>))
+</code></pre><p>Notice how the <code>round(x),n</code> function is used to round values for <code>x</code>, here the percentage incomplete calculation, to <code>n</code> decimal places, here 2. Using negative numbers for <code>n</code> will round to tens, hundreds, and so on.</p><p>Now we can identify the five largest counties with the largest enrollment over the years, and use a join to filter the data by counties for just these five:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># identify five counties with the largest enrollment over all years
+top5 &amp;lt;- immun %&amp;gt;%
+  group_by(county) %&amp;gt;%
+  summarize(enrolled = sum(enrollment, na.rm = TRUE)) %&amp;gt;%
+  arrange(desc(enrolled)) %&amp;gt;%
+  head(5) %&amp;gt;%
+  select(county)
+
+# proportion incomplete, top 5 counties by enrollment, by year
+immun_top5_year &amp;lt;- semi_join(immun_counties_year, top5)
+</code></pre>"><span class="hljs-comment"># identify five counties with the largest enrollment over all years</span>
+top5 &lt;- immun %&gt;%
+  group_by(county) %&gt;%
+  summarize(enrolled = sum(enrollment, na.rm = <span class="hljs-literal">TRUE</span>)) %&gt;%
+  arrange(desc(enrolled)) %&gt;%
+  head(<span class="hljs-number">5</span>) %&gt;%
+  select(county)
+
+<span class="hljs-comment"># proportion incomplete, top 5 counties by enrollment, by year</span>
+immun_top5_year &lt;- semi_join(immun_counties_year, top5)
+</code></pre><p>Notice the use of <code>semi_join()</code> to filter the data.</p><h4 id="make-a-series-of-charts-to-analyze-this-summarized-data"><a name="make-a-series-of-charts-to-analyze-this-summarized-data" href="#make-a-series-of-charts-to-analyze-this-summarized-data"></a>Make a series of charts to analyze this summarized data</h4><h5 id="column-chart-by-year,-entire-state"><a name="column-chart-by-year,-entire-state" href="#column-chart-by-year,-entire-state"></a>Column chart by year, entire state</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># column chart by year, entire state
+ggplot(immun_year, aes(x = start_year, y = pc_incomplete)) + 
+  geom_bar(stat = &quot;identity&quot;, fill = &quot;red&quot;, alpha = 0.7) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Percent incomplete&quot;) +
+  ggtitle(&quot;Immunization in California kindergartens, entire state&quot;) + 
+  theme_minimal(base_size = 12) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+</code></pre>"><span class="hljs-comment"># column chart by year, entire state</span>
+ggplot(immun_year, aes(x = start_year, y = pc_incomplete)) + 
+  geom_bar(stat = <span class="hljs-string">"identity"</span>, fill = <span class="hljs-string">"red"</span>, alpha = <span class="hljs-number">0.7</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"Percent incomplete"</span>) +
+  ggtitle(<span class="hljs-string">"Immunization in California kindergartens, entire state"</span>) + 
+  theme_minimal(base_size = <span class="hljs-number">12</span>) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank())
+</code></pre><p><img src="img/r_13.jpg" alt=""></p><h5 id="dot-and-line-chart-by-year,-top-5-counties"><a name="dot-and-line-chart-by-year,-top-5-counties" href="#dot-and-line-chart-by-year,-top-5-counties"></a>Dot-and-line chart by year, top 5 counties</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># dot and line chart by year, top5 counties
+ggplot(immun_top5_year, aes(x = start_year, y = pc_incomplete, color = county)) + 
+  geom_line(size = 1) +
+  geom_point(size = 3) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;Percent incomplete&quot;) +
+  ggtitle(&quot;Immunization in California kindergartens\n(five largest counties)&quot;) +
+  theme_minimal(base_size = 12)
+</code></pre>"><span class="hljs-comment"># dot and line chart by year, top5 counties</span>
+ggplot(immun_top5_year, aes(x = start_year, y = pc_incomplete, color = county)) + 
+  geom_line(size = <span class="hljs-number">1</span>) +
+  geom_point(size = <span class="hljs-number">3</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"Percent incomplete"</span>) +
+  ggtitle(<span class="hljs-string">"Immunization in California kindergartens\n(five largest counties)"</span>) +
+  theme_minimal(base_size = <span class="hljs-number">12</span>)
+</code></pre><p><img src="img/r_14.jpg" alt=""></p><p>Notice that this chart has two data layers, <code>geom_point()</code> and <code>geom_line</code>. Notice also how <code>\n</code> can be used in text, here in the chart title, to insert a line break.</p><h5 id="heat-map-by-year,-all-counties"><a name="heat-map-by-year,-all-counties" href="#heat-map-by-year,-all-counties"></a>Heat map by year, all counties</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># heat map, all counties, by year
+ggplot(immun_counties_year, aes(x = start_year, y = county)) +
+  geom_tile(aes(fill = pc_incomplete), color = &quot;white&quot;) +
+  scale_fill_gradient(low = &quot;white&quot;,
+                      high = &quot;red&quot;, 
+                      name=&quot;&quot;) +
+  xlab(&quot;&quot;) +
+  ylab(&quot;County&quot;) +
+  ggtitle(&quot;Immunization in California kindergartens, by county&quot;) +
+  theme_minimal(base_size = 10) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position=&quot;bottom&quot;,
+        legend.key.height = unit(0.4, &quot;cm&quot;))
+</code></pre>"><span class="hljs-comment"># heat map, all counties, by year</span>
+ggplot(immun_counties_year, aes(x = start_year, y = county)) +
+  geom_tile(aes(fill = pc_incomplete), color = <span class="hljs-string">"white"</span>) +
+  scale_fill_gradient(low = <span class="hljs-string">"white"</span>,
+                      high = <span class="hljs-string">"red"</span>, 
+                      name=<span class="hljs-string">""</span>) +
+  xlab(<span class="hljs-string">""</span>) +
+  ylab(<span class="hljs-string">"County"</span>) +
+  ggtitle(<span class="hljs-string">"Immunization in California kindergartens, by county"</span>) +
+  theme_minimal(base_size = <span class="hljs-number">10</span>) +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        legend.position=<span class="hljs-string">"bottom"</span>,
+        legend.key.height = unit(<span class="hljs-number">0.4</span>, <span class="hljs-string">"cm"</span>))
+</code></pre><p><img src="img/r_14.jpg" alt=""></p><p>This code uses <code>geom_tile()</code> to create a heat map, and <code>scale_fill_gradient</code> to fill the tiles with color on a gradient from white to bright red, depending on the values in the data.</p><h3 id="next-steps"><a name="next-steps" href="#next-steps"></a>Next steps</h3><p>There is plently more that can be done with this data to practice with <strong>dplyr</strong> and <strong>ggplot2</strong>.</p><p>Some suggestions:</p><ul>
+<li><p>Calculate the total number of births and the total number of neonatal deaths from the rates in the <code>nations1</code> data, then analyze trends in total neonatal deaths by country and region over time.</p>
+</li><li><p>Recreate a version of the late Hans Rosling’s famous “health and wealth of nations” chart, by filtering the joined <code>nations</code> data for 2014 and drawing a bubble chart of GDP per capita against life expantancy, sizing the bubble for each country by population and coloring them by region.</p>
+</li><li><p>Analyze the California immunization data within a single county by school district.</p>
+</li></ul><h3 id="further-reading"><a name="further-reading" href="#further-reading"></a>Further reading</h3><p><strong><a href="https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">Introduction to dplyr</a></strong><br>From its creator, Hadley Wickham.</p><p><strong><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">RStudio Data Wrangling Cheat Sheet</a></strong><br>Also introduces the <strong><a href="https://blog.rstudio.org/2014/07/22/introducing-tidyr/">tidyr</a></strong> package, which can manage wide-to-long and long-to-wide transformations, among other data manipulations.</p><p><strong><a href="https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf">RStudio ggplot2 Cheat Sheet</a></strong><br>Another useful cheat sheet from RStudio.</p><p><strong><a href="http://stackoverflow.com/">Stack Overflow</a></strong><br>For any work involving code, this question-and-answer site is a great resource for when you get stuck, to see how others have solved similar problems. Search the site, or <a href="http://stackoverflow.com/questions/tagged/r">browse R questions</a></p><p><strong>Winston Chang: <a href="http://www.amazon.com/R-Graphics-Cookbook-Winston-Chang/dp/1449316956"><em>R Graphics Cookbook</em></a></strong><br>(Chang also has <a href="http://www.cookbook-r.com/">a helpful website</a> with much of the same information, available for free.)</p>
+
+	</div> <!-- /.container all -->
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

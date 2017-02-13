@@ -1,0 +1,12 @@
+# load required packages
+library(readr)
+library(dplyr)
+library(htmlwidgets)
+library(highcharter)
+library(RColorBrewer)
+library(leaflet)
+library(rgdal)
+library(dygraphs)
+library(quantmod)
+library(DT)
+library(RColorBrewer)
