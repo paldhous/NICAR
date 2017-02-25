@@ -84,7 +84,7 @@ Anything that appears on a line after `#` will be treated as a comment, and will
  -  `>` `<` greater than, less than.
  -  `>=` `<=` greater than or equal to, less than or equal to.
  -  `!=` not equal to.
- -  `head(n)` and `tail(n)` extract the `n` first or last records from a data frame, respectively.
+ -  `head(n)` and `tail(n)` extract the `n` first or last records from a object, respectively.
 
 - Handling null values:
  - Nulls are designated as `NA`.
@@ -266,7 +266,7 @@ Now we will use **dplyr** to manipulate the data, using the following basic oper
 Here are some of the most useful functions in **dplyr**:
 
 - `select` Choose which columns to include.
-- `filter` **Filter** the data according to defined.
+- `filter` **Filter** the data.
 - `arrange` **Sort** the data, by size for continuous variables, by date, or alphabetically.
 - `group_by` **Group** the data by a categorical variable.
 - `summarize` **Summarize**, or aggregate (for each group if following `group_by`). Often used in conjunction with functions including:
@@ -287,7 +287,7 @@ These functions can be chained together using the "pipe" operator `%>%`, which m
 
 #### Filter and sort data
 
-Now we will **filter** and **sort** the data in specific ways. For each of the following examples, copy the code that follows into your script, and view the results. Notice how we create a new objects to hold the processed data.
+Now we will **filter** and **sort** the data in specific ways. For each of the following examples, copy the code that follows into your script, and view the results. Notice how we create new objects to hold the processed data.
 
 ##### Filter the data for 2014 only
 
@@ -305,7 +305,7 @@ Here are the first few records in the new object:
 
 See what happens when you filter for `2015`. There should be no data returned, because `life_expect` data for 2015 hasn't yet been added to the World Bank's data portal.
 
-If you are familiar with SQL, you will already have noticed that dplyr code, while similar, has an important difference. Rather than requiring clauses to be written in a certain order, starting with `SELECT`, the code is written in the order in which you perform operations. In that sense, it is much more logical than SQL. You simply decide what you want to do with the data, and proceed step-by-step.
+If you are familiar with SQL, you will already have noticed that **dplyr** code, while similar, has an important difference. Rather than requiring clauses to be written in a certain order, starting with `SELECT`, the code is written in the order in which you perform operations. In that sense, it is much more logical than SQL. You simply decide what you want to do with the data, and proceed step-by-step.
 
 ##### Find the ten high-income countries with the lowest life expectancy in 2014
 
@@ -389,7 +389,7 @@ This should be the result:
 
 This code introduces the functions `group_by()` and `summarize()`. The former works like `GROUP BY` in SQL, but the separate `summarize()` function makes it much easier to think about how to summarize the data. In SQL, you would have to work on the initial `SELECT` clause to do this.
 
-The entire `summarize()` function could be written on one line, but I have started a new line after each summaru statistic for clarity.
+The entire `summarize()` function could be written on one line, but I have started a new line after each summary statistic for clarity.
 
 In this example, we calculate the number of countries for which we have data in each year, then the maximum and minimum country-level life expectancies. Having done that, we use `mutate` function to calculate the range of values by subtracting the minimum from the maximum.
 
@@ -486,7 +486,7 @@ ggplot(high_income_short_life, aes(x=reorder(country,-life_expect), y=life_expec
 ```
 ![](./img/r_11.jpg)
 
-Not terribly interesting, but it shows how a different `geom` creates a different type of chart. In `geom_bar`, `stat="identity"` ensures that the bars are drawn from the data mapped to the Y axis, rather than a count of the number of records. For solid objects like bars, `fill` sets the color of the object, which `color` controls the colour of their outline, if desired. `alpha` controls transparency; `ggtitle` adds a title, and the `theme()` function here removes grid lines on the axis with the coutries. Finally, `coord_flip` swaps the X and Y axes, turning a vertical column chart into a horizontal bar chart.
+This is not terribly interesting, but it shows how a different `geom` creates a different type of chart. In `geom_bar`, `stat="identity"` ensures that the bars are drawn from the data mapped to the Y axis, rather than a count of the number of records. For solid objects like bars, `fill` sets the color of the object, which `color` controls the colour of their outline, if desired. `alpha` controls transparency; `ggtitle` adds a title, and the `theme()` function here removes grid lines on the axis with the coutries. Finally, `coord_flip` swaps the X and Y axes, turning a vertical column chart into a horizontal bar chart.
 
 Notice also how `reorder()` is used to sort the bars by `life_expect`.
 
@@ -509,7 +509,7 @@ Save each chart using the `Export` menu in the `Plots` panel at bottom right, se
 
 ### Load California kindergarten immunization data
 
-Now we'll work with the California
+Now we'll work with the California immunization data.
 
 ```r
 # load data
@@ -534,7 +534,7 @@ immun_2015 <- read_csv("kindergarten_2015.csv",  col_types = list(
   start_year = col_integer()))
 ```
 
-We need to appead the data for 2015 to the older data. So this code specifies the data type for each variable, to be sure that there won't be any mismatches in data type that would cause an error in the next step.
+We need to append the data for 2015 to the older data. So this code specifies the data type for each variable, to be sure that there won't be any mismatches in data type that would cause an error in the next step.
 
 #### Append the 2015 data to the older data
 
@@ -549,7 +549,7 @@ This code introduces`bind_rows()`, which appends one data frame to another, base
 
 The data contains the number of children enrolled in each kindergarten across the state, and the number who has the complete recommended immunizations at the start of the year.
 
-From this, we can calculate the percentage of children who did not have the complete achedule of immunizations. The following code runs these calculations for each year, first for the entire state, summing across all kindergartens grouped by year, and then the each of California's 58 counties, by changing the `group_by` function.
+From this, we can calculate the percentage of children who did not have the complete achedule of immunizations. The following code runs these calculations for each year, first for the entire state, summing across all kindergartens grouped by year, and then for each of California's 58 counties, by changing the `group_by` function.
 
 ```r
 # percentage incomplete, entire state, by year
@@ -582,7 +582,7 @@ top5 <- immun %>%
 # proportion incomplete, top 5 counties by enrollment, by year
 immun_top5_year <- semi_join(immun_counties_year, top5)
 ```
-Notice the use of `semi_join()` to filter the data.
+Notice the use of `semi_join()` to filter the data for just the five counties with the largest kindergarten enrollment.
 
 #### Make a series of charts to analyze this summarized data
 

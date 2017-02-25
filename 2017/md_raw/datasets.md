@@ -39,7 +39,7 @@ Click on the title links to download the data. Unzip the folder and place it on 
 
 ##### Health and wealth of nations
 
-- `nations_1.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
+- `nations.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
  -  `iso2c` `iso3c` Two- and Three-letter [codes](http://www.nationsonline.org/oneworld/country_code_list.htm) for each country, assigned by the [International Organization for Standardization](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545).
  - `country` Country name.
  - `year` From 1990 to 2015.

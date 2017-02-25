@@ -2,7 +2,7 @@
 
 It is possible to make JavaScript visualizations directly from R/RStudio, thanks to a group of packages collectively known as [**htmlwidgets**](http://www.htmlwidgets.org/).
 
-These packages take instructions in R code, and write the JavaScript and HTML necessary to draw charts using JavaScript visualization libraries. They allow you to easily export the charts you create in R as responsively designed web pages, which can be embedded in other projects through simple [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
+These packages take instructions in R code, and write the JavaScript and HTML necessary to draw charts using JavaScript visualization libraries. They allow you to easily export the charts you create in R as web pages, which can be embedded in other projects through simple [iframes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe).
 
 This means that you can work in a single environment to both process data and make online charts. Maintaining a simple, streamlined workflow makes it easier to produce graphics quickly on news deadlines.
 
@@ -12,7 +12,7 @@ Download the data for this session from [here](data/r-to-javascript.zip) and unz
 
 ##### Health and wealth of nations
 
-- `nations_1.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
+- `nations.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
  -  `iso2c` `iso3c` Two- and Three-letter [codes](http://www.nationsonline.org/oneworld/country_code_list.htm) for each country, assigned by the [International Organization for Standardization](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545).
  - `country` Country name.
  - `year` From 1990 to 2015.
@@ -60,7 +60,7 @@ In this class, we will work with the following packages:
 - **[RColorBrewer](https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf)** To use [ColorBrewer](http://colorbrewer2.org/) palettes.
 - **[leaflet](http://rstudio.github.io/leaflet/)** An htmlwidget that connects R to the [Leaflet](http://leafletjs.com/) JavaScript mapping library.
 - **[rgdal](https://cran.r-project.org/web/packages/rgdal/rgdal.pdf)**, To load shapefiles and other geodata into R.
-- **[dygraphs](http://rstudio.github.io/dygraphs/)** An htmlwidget that connects R to the [dypgraphs](http://dygraphs.com/) JavaScript charting library, optimized for drawing time series charts.
+- **[dygraphs](http://rstudio.github.io/dygraphs/)** An htmlwidget that connects R to the [dygraphs](http://dygraphs.com/) JavaScript charting library, optimized for drawing time series charts.
 - **[quantmod](https://cran.r-project.org/web/packages/quantmod/quantmod.pdf)** To download stock market data.
 - **[DT](http://rstudio.github.io/DT/)** An htmlwidget that connects R to [DataTables](https://datatables.net/), a plugin for [jQuery](https://jquery.com/) that makes interactive HTML tables.
 
@@ -68,7 +68,7 @@ To install a package, click on the `Install` icon in the `Packages` tab, type it
 
 Each time you start R, it's a good idea to click on `Update` in the `Packages` panel to update all your installed packages to the latest versions.
 
-Installing a package makes it available to you, but to use it in any R session you need to load it. You can do this by checking its box in the `Packages` tab. However, we will enter the following code into our script, then highlight these lines of code and run them:
+Installing a package makes it available to you, but to use it in any R session you need to load it. You can do this by checking its box in the `Packages` tab. However, we will load packages with the following code. Copy the code into your script, highlight, and `Run`:
 
 ```r
 # load required packages
@@ -91,7 +91,7 @@ The goal of today's class is to briefly introduce a range of htmlwidgets. To exp
 
 #### Load and process nations data to calculate the total GDP per world bank region, by year
 
-This code duplicates one of the examples from [yesterday's NICAR class](r-analysis.html) on data analysis in R. It reads in the World Bank data, calculates the GDP for each country in each year, and then sums the values across World Bank regions.
+This code duplicates one of the examples from [yesterday's NICAR class](r-analysis.html) on data analysis in R. It reads in the World Bank data, calculates the GDP for each country in each year, and then sums the values across World Bank regions for each year.
 
 ```R
 # load data
@@ -125,15 +125,15 @@ The following chart should appear in the `Viewer` panel at bottom right:
 
 In the code above, the function `highchart()` creates a chart.
 
-Clicking on the legend items allows you to remove or add series from the chart.
+Highcharts works by adding data "series" to a chart, and from R you can add the variables from a data frame all in one go using the `hc_add_series_df()` function. Inside this function we define the data frame to be used, with `data`, the `type` of chart, the variables to be mapped to the `x` and `y` axes, and the variable to `group` the data: Here this draws a separate line for each `region` in the `data`.
 
-Highcharts works by adding data "series" to a chart, and from R you can add the variables from a data frame all in one go using the `hc_add_series_df` function. Inside this function we define the data frame to be used, with `data`, the `type` of chart, the variables to be mapped to the `x` and `y` axes, and the variable to `group` the data: Here this draws a separate line for each `region` in the `data`.
+Clicking on the legend items allows you to remove or add series from the finished chart.
 
 See [here](http://www.highcharts.com/docs/chart-and-series-types/chart-types) for the chart types available in Highcharts.
 
 Notice how **highcharter** uses the `%>%` or pipe operator, also used with **dplyr**.
 
-Now customize the basic chart.
+Now we'll customize the basic chart.
 
 ```R
 # define color palette
@@ -155,7 +155,7 @@ The following chart should appear:
 
 <iframe src="raw_data/gdp_regions_b.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
-The first line of code sets a palette with seven colors, one for each region, using the "Set1" palette from ColorBrewer. This is then fed to the function `hc_colors()` to use those colors on the chart.
+The first line of code sets a palette with seven colors, one for each region, using the "Set1" palette from ColorBrewer. This is fed to the function `hc_colors()` to use those colors on the chart.
 
 The code then adds axis labels, and finally uses the `hc_plotOptions()` function to override the default of using a different symbol for reach series, switching to use circles for every line.
 
@@ -181,11 +181,12 @@ As object of type `highchart` should now have appeared in your 	`Environment`.
 
 ##### Export the saved chart as a web page
 
-The following code uses the **htmlwidgets** package to export the saves chart as a standalone web page.
+The following code uses the **htmlwidgets** package to export the chart as a standalone web page, with supporting assets (JavaScript libraries and CSS files) saved in a folder called `src`.
 
 ```R
-saveWidget(gdp_regions_chart, "gdp_regions.html", selfcontained = TRUE, libdir = NULL, background = "white")
+saveWidget(gdp_regions_chart, "gdp_regions.html", selfcontained = FALSE, libdir = "src", background = "white")
 ```
+
 Open the saved webpage in a web browser, and see what happens when you change the window size. The chart should be completely responsive, expanding or contracting to fill the available space.
 
 This means that is can be dropped into another webpage in the same folder using a simple iframe:
@@ -195,9 +196,6 @@ This means that is can be dropped into another webpage in the same folder using 
 ```
 Here the iframe is given a constant height of 500px and a width of 100%, allowing for responsive design.
 
-
-The **quantmod** package returns R objects called extensible time series or xts. Their contents can be viewed just like data frames in R Studio, but must be added to a Highcharts or Highstocks chart using the function `hc_add_series_xts()`
-
 ### Leaflet
 
 We are going to recreate a version of [this map](http://paldhous.github.io/earthquakes/), which I originally coded using Leaflet from scratch.
@@ -206,7 +204,7 @@ First let's see how to make a basic Leaflet map, centered on Jacksonville:
 
 ```R
 # make leaflet map centered on Jacksonville
-leaflet() %>% 
+leaflet() %>%
   setView(lng = -81.65, lat = 30.3, zoom = 11) %>%
   addTiles()
 ```
@@ -219,13 +217,12 @@ We aren't limited to using OpenStreetMap tiles:
 
 ```R
 # make leaflet map centered on Jacksonville with Carto tiles
-leaflet() %>% 
+leaflet() %>%
   setView(lng = -81.65, lat = 30.3, zoom = 11) %>%
-  addProviderTiles("CartoDB.Positron") 
+  addProviderTiles("CartoDB.Positron")
 ```
 
 <iframe src="raw_data/jacksonville_b.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-
 
 The function `addProviderTiles()` uses the [Leaflet Providers](https://github.com/leaflet-extras/leaflet-providers) plugin to add various tiles to a map. You can see the available options [here](http://leaflet-extras.github.io/leaflet-providers/preview/).
 
@@ -312,7 +309,7 @@ The function `addPolygons()` adds polygons to the map: `stroke = FALSE` gives th
 
 `smoothFactor` controls the extent to which the polygons are simplified. See what happens to the map if you replace `0.1` with `10`. Simplified polygons will load more quickly, but there's a tradeoff with the appearance of the map. Choose an appropriate value for your maps through trial and error.
 
-We can add circles for the quakes as a second data layer, and a legend, by extending the code as follows:
+We can add circles for the quakes as a second data layer by extending the code as follows:
 
 ```R
 # make choropleth map of seismic risk
@@ -346,7 +343,7 @@ The size if the circles is set by `radius = sqrt(quakes$mag^10)*50`. Here `50` i
 
 When scaling circles, use the values from the data, and then take their square roots, using the `sqrt()` function. This is important, to ensure that the circles are scaled correctly, by area, rather than by radius.
 
-`popup` is used to define the HTML code the appears in the popup that appears when any quake is clicked or tapped. here were are using the R function `paste0()` to paste together a series of elements, separated by commas, that will write the HTML. They include the `mag` and `time` values from the quakes data, the latter being formatted as an easy-to-read date using R's `format()` function for dates. See [here](http://www.statmethods.net/input/dates.html) for more on formatting dates in R.
+`popup` is used to define the HTML code the appears in the popup that appears when any quake is clicked or tapped. Here we used the R function `paste0()` to paste together a series of elements, separated by commas, that will write the HTML. They include the `mag` and `time` values from the quakes data, the latter being formatted as an easy-to-read date using R's `format()` function for dates. See [here](http://www.statmethods.net/input/dates.html) for more on formatting dates in R.
 
 Having completed our map, we can again save it as an R object, and then save as a webpage.
 
@@ -374,14 +371,20 @@ seismic <- leaflet() %>%
   )
 
 # save as a web page
-saveWidget(seismic, "seismic.html", selfcontained = TRUE, libdir = NULL, background = "white")
+saveWidget(seismic, "seismic.html", selfcontained = FALSE, libdir = "src", background = "white")
+```
+
+One issue with the **leaflet** package is that there is no function to disable scrollwheel zoom, which leads to maps zooming out when scrolling using a touchpad or screen. To prevent this happening, include [this file](./raw_data/src/Leaflet.Sleep.js) ([here](http://cliffcloud.github.io/Leaflet.Sleep/) is some background from its author) in the `src` folder, which sleeps the map until hovered or clicked. You will also need to add this line of code between the `<head> </head>` tags of the web page:
+
+```CSS
+<script src="src/Leaflet.Sleep.js"></script>
 ```
 
 ### Dygraphs
 
 Dygraphs is designed for drawing time series charts, including stock charts. First we will grab historical stock data for three large technology companies using the **quantmod** packahe
 
-Quantmod returns R `xts` objects, for "extensible time series." We'll combine the adjusted closing prices for each company into a single `xts` object, and then draw a chart.
+Quantmod returns R `xts` objects, for "extensible time series." We'll combine the adjusted daily closing prices for each company into a single `xts` object, and then draw a chart.
 
 #### Load and process the data
 
@@ -411,7 +414,7 @@ dygraph(companies)
 
 ```R
 # customize the chart
-dygraph(companies, ylab = "Adjusted close") %>% 
+dygraph(companies, ylab = "Adjusted close") %>%
   dyOptions(colors = brewer.pal(3, "Set1")) %>%
   dyRangeSelector() %>%
   dyAxis("x", drawGrid = FALSE)
@@ -420,7 +423,7 @@ dygraph(companies, ylab = "Adjusted close") %>%
 <iframe src="raw_data/companies_b.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
 
-Colors can be set, here using RColorBrewer, in the `dyOptions()` function. The `dyRangeSelector()` function adds the date selector slider control at the bottom of the chart. The `dyAxis()` function is here configured to turn off vertical grid lines on the chart. the Y axis label is added using `ylab` in the initial `dygraph()` function.
+Colors can be set, here using RColorBrewer, in the `dyOptions()` function. The `dyRangeSelector()` function adds the date selector slider control at the bottom of the chart. The `dyAxis()` function is here configured to turn off vertical grid lines on the chart. The Y axis label is added using `ylab` in the initial `dygraph()` function.
 
 The chart can be saved as an R object and exported as a web page as for the earlier examples.
 
@@ -452,7 +455,7 @@ This is as simple as running the function `datatable()` on the `longevity` data.
 datatable(longevity)
 ```
 
-<iframe src="raw_data/longevity_a.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+<iframe src="raw_data/longevity_a.html" width="100%" height="580" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
 The table can be sorted by clicking on the column headers, and searched using the search box.
 
@@ -467,7 +470,7 @@ datatable(longevity,
                       color = "red",
                       fontWeight = "bold")
 ```
-<iframe src="raw_data/longevity_b.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+<iframe src="raw_data/longevity_b.html" width="100%" height="580" frameborder="0" marginheight="0" marginwidth="0"></iframe>
 
 Setting `rownames` to false in the `datatables()` function removes the numbering of the rows in the table. The `formatStyle` here sets the font color and weight for the `Life Expectancy` column.
 
