@@ -12,7 +12,7 @@ Download the data for this session from [here](data/r-analysis.zip), and unzip t
 
 ##### Health and wealth of nations
 
-- `nations_1.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
+- `nations1.csv` Data from the [World Bank Indicators](http://data.worldbank.org/indicator/?tab=all) portal. Contains the following fields:
  -  `iso2c` `iso3c` Two- and Three-letter [codes](http://www.nationsonline.org/oneworld/country_code_list.htm) for each country, assigned by the [International Organization for Standardization](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=63545).
  - `country` Country name.
  - `year` From 1990 to 2015.
@@ -23,7 +23,7 @@ Download the data for this session from [here](data/r-analysis.zip), and unzip t
  - `neonat_mortal_rate` [Neonatal mortality rate](http://data.worldbank.org/indicator/SH.DYN.NMRT): babies dying before reaching 28 days of age, per 1,000 live births in a given year.
  - `region` `income` World Bank [regions and income groups](http://siteresources.worldbank.org/DATASTATISTICS/Resources/CLASS.XLS), explained [here](http://data.worldbank.org/about/country-and-lending-groups).
 
-- `nations_2.csv` Again from the World Bank Indicators portal. Contains the following fields:
+- `nations2.csv` Again from the World Bank Indicators portal. Contains the following fields:
  -  `iso3c` `year` As above.
  - `gdp_percap` [Gross Domestic Product per capita](http://data.worldbank.org/indicator/NY.GDP.PCAP.PP.CD) in current international dollars, corrected for purchasing power in different territories.
 
@@ -136,8 +136,8 @@ However, we will use the `read_csv` function from the **readr** package. Copy th
 
 ```r
 # load health and wealth of nations data
-nations1 <- read_csv("nations_1.csv")
-nations2 <- read_csv("nations_2.csv")
+nations1 <- read_csv("nations1.csv")
+nations2 <- read_csv("nations2.csv")
 
 ```
 Notice that the `Environment` now contains two objects, of the type `tbl_df`, a variety of the standard R object for holding tables of data, known as a **data frame**:

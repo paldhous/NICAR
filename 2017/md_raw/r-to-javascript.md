@@ -82,7 +82,6 @@ library(rgdal)
 library(dygraphs)
 library(quantmod)
 library(DT)
-library(RColorBrewer)
 ```
 The goal of today's class is to briefly introduce a range of htmlwidgets. To explore all of their options, you will need to study the detailed documentation for each.
 

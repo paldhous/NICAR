@@ -73,7 +73,6 @@ library(DT)
 <span class="hljs-keyword">library</span>(dygraphs)
 <span class="hljs-keyword">library</span>(quantmod)
 <span class="hljs-keyword">library</span>(DT)
-<span class="hljs-keyword">library</span>(RColorBrewer)
 </code></pre><p>The goal of today’s class is to briefly introduce a range of htmlwidgets. To explore all of their options, you will need to study the detailed documentation for each.</p><h3 id="highcharter"><a name="highcharter" href="#highcharter"></a>Highcharter</h3><h4 id="load-and-process-nations-data-to-calculate-the-total-gdp-per-world-bank-region,-by-year"><a name="load-and-process-nations-data-to-calculate-the-total-gdp-per-world-bank-region,-by-year" href="#load-and-process-nations-data-to-calculate-the-total-gdp-per-world-bank-region,-by-year"></a>Load and process nations data to calculate the total GDP per world bank region, by year</h4><p>This code duplicates one of the examples from <a href="r-analysis.html">yesterday’s NICAR class</a> on data analysis in R. It reads in the World Bank data, calculates the GDP for each country in each year, and then sums the values across World Bank regions for each year.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># load data
 nations &amp;lt;- read_csv(&quot;nations.csv&quot;) 
 
