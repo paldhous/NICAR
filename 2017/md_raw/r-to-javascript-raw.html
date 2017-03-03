@@ -56,18 +56,18 @@ gdp_regions &lt;- nations %&gt;%
   summarize(total_gdp_tn = sum(gdp_tn, na.rm = <span class="hljs-literal">TRUE</span>))
 </code></pre><h4 id="make-a-chart-from-this-data"><a name="make-a-chart-from-this-data" href="#make-a-chart-from-this-data"></a>Make a chart from this data</h4><p>Draw a basic symbol-and-line chart with default settings:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># basic symbol-and-line chart, default settings
 highchart() %&amp;gt;%
-  hc_add_series_df(data = big4,
+  hc_add_series_df(data = gdp_regions,
                    type = &quot;line&quot;,
                    x = year,
-                   y = gdp_tn, 
-                   group = country)
+                   y = total_gdp_tn, 
+                   group = region)
 </code></pre>"><span class="hljs-comment"># basic symbol-and-line chart, default settings</span>
 highchart() %&gt;%
-  hc_add_series_df(data = big4,
+  hc_add_series_df(data = gdp_regions,
                    type = <span class="hljs-string">"line"</span>,
                    x = year,
-                   y = gdp_tn, 
-                   group = country)
+                   y = total_gdp_tn, 
+                   group = region)
 </code></pre><p>The following chart should appear in the <code>Viewer</code> panel at bottom right:</p><iframe src="raw_data/gdp_regions_a.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe><p>In the code above, the function <code>highchart()</code> creates a chart.</p><p>Highcharts works by adding data “series” to a chart, and from R you can add the variables from a data frame all in one go using the <code>hc_add_series_df()</code> function. Inside this function we define the data frame to be used, with <code>data</code>, the <code>type</code> of chart, the variables to be mapped to the <code>x</code> and <code>y</code> axes, and the variable to <code>group</code> the data: Here this draws a separate line for each <code>region</code> in the <code>data</code>.</p><p>Clicking on the legend items allows you to remove or add series from the finished chart.</p><p>See <a href="http://www.highcharts.com/docs/chart-and-series-types/chart-types">here</a> for the chart types available in Highcharts.</p><p>Notice how <strong>highcharter</strong> uses the <code>%&gt;%</code> or pipe operator, also used with <strong>dplyr</strong>.</p><p>Now we’ll customize the basic chart.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># define color palette
 cols &amp;lt;- brewer.pal(7, &quot;Set1&quot;)
 
@@ -187,7 +187,7 @@ binpal &amp;lt;- colorBin(&quot;Reds&quot;, seismic_risk$ACC_VAL, breaks)
 </code></pre>"><span class="hljs-comment"># set palette</span>
 binpal &lt;- colorBin(<span class="hljs-string">"Reds"</span>, seismic_risk$ACC_VAL, breaks)
 </code></pre><p>Now we are ready to make a choropleth map, using the following code:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># make choropleth map of seismic risk
-leaflet() %&amp;gt;%
+leaflet(seismic_risk) %&amp;gt;%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %&amp;gt;%
   addProviderTiles(&quot;CartoDB.Positron&quot;) %&amp;gt;% 
   addPolygons(
@@ -197,7 +197,7 @@ leaflet() %&amp;gt;%
     color = ~binpal(ACC_VAL)
   )
 </code></pre>"><span class="hljs-comment"># make choropleth map of seismic risk</span>
-leaflet() %&gt;%
+leaflet(seismic_risk) %&gt;%
   setView(lng = -<span class="hljs-number">98.5795</span>, lat = <span class="hljs-number">39.828175</span>, zoom = <span class="hljs-number">4</span>) %&gt;%
   addProviderTiles(<span class="hljs-string">"CartoDB.Positron"</span>) %&gt;% 
   addPolygons(
@@ -207,7 +207,7 @@ leaflet() %&gt;%
     color = ~binpal(ACC_VAL)
   )
 </code></pre><iframe src="raw_data/seismic_a.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe><p>The function <code>addPolygons()</code> adds polygons to the map: <code>stroke = FALSE</code> gives them no outline; <code>fillOpacity = 0.7</code> makes them slightly transparent; <code>color = ~binpal(ACC_VAL)</code> uses the color palette and breaks we set up earlier to color the polygons according to values in the <code>ACC_VAL</code> data.</p><p><code>smoothFactor</code> controls the extent to which the polygons are simplified. See what happens to the map if you replace <code>0.1</code> with <code>10</code>. Simplified polygons will load more quickly, but there’s a tradeoff with the appearance of the map. Choose an appropriate value for your maps through trial and error.</p><p>We can add circles for the quakes as a second data layer by extending the code as follows:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># make choropleth map of seismic risk
-leaflet() %&amp;gt;%
+leaflet(seismic_risk) %&amp;gt;%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %&amp;gt;%
   addProviderTiles(&quot;CartoDB.Positron&quot;) %&amp;gt;% 
   addPolygons(
@@ -228,7 +228,7 @@ leaflet() %&amp;gt;%
                    &quot;&amp;lt;strong&amp;gt;Date: &amp;lt;/strong&amp;gt;&quot;, format(as.Date(quakes$time), &quot;%b %d, %Y&quot;))
   )
 </code></pre>"><span class="hljs-comment"># make choropleth map of seismic risk</span>
-leaflet() %&gt;%
+leaflet(seismic_risk) %&gt;%
   setView(lng = -<span class="hljs-number">98.5795</span>, lat = <span class="hljs-number">39.828175</span>, zoom = <span class="hljs-number">4</span>) %&gt;%
   addProviderTiles(<span class="hljs-string">"CartoDB.Positron"</span>) %&gt;% 
   addPolygons(
@@ -249,7 +249,7 @@ leaflet() %&gt;%
                    <span class="hljs-string">"&lt;strong&gt;Date: &lt;/strong&gt;"</span>, format(as.Date(quakes$time), <span class="hljs-string">"%b %d, %Y"</span>))
   )
 </code></pre><iframe src="raw_data/seismic_b.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0"></iframe><p>The <code>addCircles()</code> function adds circles to the map, drawn from the <code>quakes</code> data; <code>color</code> sets the color for their outlines, while <code>weight</code> sets the thickness of these lines; <code>fillColor</code> and <code>fillOpacity</code> style the circles’ interiors.</p><p>The size if the circles is set by <code>radius = sqrt(quakes$mag^10)*50</code>. Here <code>50</code> is simply a scaling factor for all of the circles, set by trial and error to give a reasonable appearance on the map. The size of the circles is set from the variable <code>mag</code> in the quakes data, which is their magnitude. We have raised 10 to the power of these magnitude values: This is a quirk of working with earthquake magnitudes, which are on a logarithmic scale, so that a magnitude difference of 1 corresponds to a 10-fold difference in earth movement, as recorded on a seismogram.</p><p>When scaling circles, use the values from the data, and then take their square roots, using the <code>sqrt()</code> function. This is important, to ensure that the circles are scaled correctly, by area, rather than by radius.</p><p><code>popup</code> is used to define the HTML code the appears in the popup that appears when any quake is clicked or tapped. Here we used the R function <code>paste0()</code> to paste together a series of elements, separated by commas, that will write the HTML. They include the <code>mag</code> and <code>time</code> values from the quakes data, the latter being formatted as an easy-to-read date using R’s <code>format()</code> function for dates. See <a href="http://www.statmethods.net/input/dates.html">here</a> for more on formatting dates in R.</p><p>Having completed our map, we can again save it as an R object, and then save as a webpage.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># make choropleth map of seismic risk
-seismic &amp;lt;- leaflet() %&amp;gt;%
+seismic &amp;lt;- leaflet(seismic_risk) %&amp;gt;%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %&amp;gt;%
   addProviderTiles(&quot;CartoDB.Positron&quot;) %&amp;gt;% 
   addPolygons(
@@ -273,7 +273,7 @@ seismic &amp;lt;- leaflet() %&amp;gt;%
 # save as a web page
 saveWidget(seismic, &quot;seismic.html&quot;, selfcontained = FALSE, libdir = &quot;src&quot;, background = &quot;white&quot;)
 </code></pre>"><span class="hljs-comment"># make choropleth map of seismic risk</span>
-seismic &lt;- leaflet() %&gt;%
+seismic &lt;- leaflet(seismic_risk) %&gt;%
   setView(lng = -<span class="hljs-number">98.5795</span>, lat = <span class="hljs-number">39.828175</span>, zoom = <span class="hljs-number">4</span>) %&gt;%
   addProviderTiles(<span class="hljs-string">"CartoDB.Positron"</span>) %&gt;% 
   addPolygons(

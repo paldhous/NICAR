@@ -111,11 +111,11 @@ Draw a basic symbol-and-line chart with default settings:
 ```R
 # basic symbol-and-line chart, default settings
 highchart() %>%
-  hc_add_series_df(data = big4,
+  hc_add_series_df(data = gdp_regions,
                    type = "line",
                    x = year,
-                   y = gdp_tn, 
-                   group = country)
+                   y = total_gdp_tn, 
+                   group = region)
 ```
 
 The following chart should appear in the `Viewer` panel at bottom right:
@@ -291,12 +291,12 @@ Now we are ready to make a choropleth map, using the following code:
 
 ```R
 # make choropleth map of seismic risk
-leaflet() %>%
+leaflet(seismic_risk) %>%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %>%
   addProviderTiles("CartoDB.Positron") %>% 
   addPolygons(
     stroke = FALSE,
-	fillOpacity = 0.7,
+    fillOpacity = 0.7,
     smoothFactor = 0.1,
     color = ~binpal(ACC_VAL)
   )
@@ -312,7 +312,7 @@ We can add circles for the quakes as a second data layer by extending the code a
 
 ```R
 # make choropleth map of seismic risk
-leaflet() %>%
+leaflet(seismic_risk) %>%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %>%
   addProviderTiles("CartoDB.Positron") %>% 
   addPolygons(
@@ -348,7 +348,7 @@ Having completed our map, we can again save it as an R object, and then save as 
 
 ```R
 # make choropleth map of seismic risk
-seismic <- leaflet() %>%
+seismic <- leaflet(seismic_risk) %>%
   setView(lng = -98.5795, lat = 39.828175, zoom = 4) %>%
   addProviderTiles("CartoDB.Positron") %>% 
   addPolygons(
