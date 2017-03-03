@@ -623,10 +623,11 @@ Notice that this chart has two data layers, `geom_point()` and `geom_line`. Noti
 ```r
 # heat map, all counties, by year
 ggplot(immun_counties_year, aes(x = start_year, y = county)) +
-  geom_tile(aes(fill = pc_incomplete), color = "white") +
+  geom_tile(aes(fill = pc_incomplete), colour = "white") +
   scale_fill_gradient(low = "white",
                       high = "red", 
-                      name="") +
+                      name="",
+                      limits = c(0,35)) +
   xlab("") +
   ylab("County") +
   ggtitle("Immunization in California kindergartens, by county") +

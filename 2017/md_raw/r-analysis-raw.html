@@ -414,10 +414,11 @@ ggplot(immun_top5_year, aes(x = start_year, y = pc_incomplete, color = county)) 
   theme_minimal(base_size = <span class="hljs-number">12</span>)
 </code></pre><p><img src="img/r_14.jpg" alt=""></p><p>Notice that this chart has two data layers, <code>geom_point()</code> and <code>geom_line</code>. Notice also how <code>\n</code> can be used in text, here in the chart title, to insert a line break.</p><h5 id="heat-map-by-year,-all-counties"><a name="heat-map-by-year,-all-counties" href="#heat-map-by-year,-all-counties"></a>Heat map by year, all counties</h5><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># heat map, all counties, by year
 ggplot(immun_counties_year, aes(x = start_year, y = county)) +
-  geom_tile(aes(fill = pc_incomplete), color = &quot;white&quot;) +
+  geom_tile(aes(fill = pc_incomplete), colour = &quot;white&quot;) +
   scale_fill_gradient(low = &quot;white&quot;,
                       high = &quot;red&quot;, 
-                      name=&quot;&quot;) +
+                      name=&quot;&quot;,
+                      limits = c(0,35)) +
   xlab(&quot;&quot;) +
   ylab(&quot;County&quot;) +
   ggtitle(&quot;Immunization in California kindergartens, by county&quot;) +
@@ -428,10 +429,11 @@ ggplot(immun_counties_year, aes(x = start_year, y = county)) +
         legend.key.height = unit(0.4, &quot;cm&quot;))
 </code></pre>"><span class="hljs-comment"># heat map, all counties, by year</span>
 ggplot(immun_counties_year, aes(x = start_year, y = county)) +
-  geom_tile(aes(fill = pc_incomplete), color = <span class="hljs-string">"white"</span>) +
+  geom_tile(aes(fill = pc_incomplete), colour = <span class="hljs-string">"white"</span>) +
   scale_fill_gradient(low = <span class="hljs-string">"white"</span>,
                       high = <span class="hljs-string">"red"</span>, 
-                      name=<span class="hljs-string">""</span>) +
+                      name=<span class="hljs-string">""</span>,
+                      limits = c(<span class="hljs-number">0</span>,<span class="hljs-number">35</span>)) +
   xlab(<span class="hljs-string">""</span>) +
   ylab(<span class="hljs-string">"County"</span>) +
   ggtitle(<span class="hljs-string">"Immunization in California kindergartens, by county"</span>) +
