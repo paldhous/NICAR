@@ -142,7 +142,7 @@ nations2 <- read_csv("nations2.csv")
 ```
 Notice that the `Environment` now contains two objects, of the type `tbl_df`, a variety of the standard R object for holding tables of data, known as a **data frame**:
 
-![](./img/r_3.jpg)
+![](img/r_3.jpg)
 
 The `Value` for each data frame details the number of columns, and the number of rows, or observations, in the data.
 

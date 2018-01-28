@@ -1,7 +1,6 @@
 # load required packages
 library(readr)
 library(dplyr)
-library(ggplot2)
 
 # load health and wealth of nations data
 nations1 <- read_csv("nations_1.csv")
