@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Peter Aldhous | NICAR 2018</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../css/custom.css" rel="stylesheet">
+</head>
+
+<body class="markdown github">
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2018</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="machine-learning.html">Machine learning for reporting</a></li>
+								<li><a href="r-analysis.html">Data analysis and plotting in R</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="datasets.html">Data</a></li>	
+						<li><a href="mailto:p.aldhous@gmail.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+	
+	<div class="container all">
+
+<h1 id="datasets"><a name="datasets" href="#datasets"></a>Datasets</h1><p>Click on the title links to download the data. Unzip the folder and place it on your desktop.</p><h3 id="[download:-data-analysis-in-r](data/r-analysis.zip)"><a name="[download:-data-analysis-in-r](data/r-analysis.zip)" href="#[download:-data-analysis-in-r](data/r-analysis.zip)"></a><a href="data/r-analysis.zip">Download: Data analysis in R</a></h3><p>Contains the following files:</p><ul>
+<li><p><code>ca_discipline.csv</code> Disciplinary alerts and actions issued by the Medical Board of California from 2008 to 2017. Processed from downloads available <a href="http://www.mbc.ca.gov/Publications/Disciplinary_Actions/">here</a>. Contains the following variables:</p>
+<ul>
+<li><code>alert_date</code> Date alert issued.</li><li><code>last_name</code> Last name of doctor/health care provider.</li><li><code>first_name</code> First name of doctor/health care provider.</li><li><code>middle_name</code> Middle/other names.</li><li><code>name_suffix</code> Name suffix (Jr., II etc)</li><li><code>city</code> City of practive location.</li><li><code>state</code> State of practice location.</li><li><code>license</code> California medical license number.</li><li><code>action_type</code> Type of action.</li><li><code>action_date</code> Date of action.</li></ul>
+</li></ul><ul>
+<li><p><code>ca_medicare_opioids.csv</code> Data on prescriptions of opioid drugs under the Medicare Part D Prescription Drug Program by doctors in California, from 2013 to 2015. Filtered from the national data downloads available <a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Part-D-Prescriber.html">here</a>. It contains many variables, including:</p>
+<ul>
+<li><code>npi</code> <a href="https://npiregistry.cms.hhs.gov/">National Provider Identifier</a> (NPI) for the doctor/organization making the claim. This is a unique code for each health care provider.</li><li><code>nppes_provider_last_org_name</code> For individual doctors, their last name. For organizations, the organziation name.</li><li><code>nppes_provider_first_name</code> First name for individual doctors, blank for organizations.</li><li><code>nppes_provider_city</code> City where the provider is located.</li><li><code>nppes_provider_state</code> State where the provider is located; “CA” for all of these records.</li><li><code>specialty_description</code> Provider’s medical speciality, reported on their medicare claims. For providers that have more than one Medicare specialty code reported on their claims, the code associated with the largest number of services.</li><li><code>drug_name</code> Includes both brand names (drugs that have a trademarked name) and generic names (drugs that do not have a trademarked name).</li><li><code>generic_name</code> The chemical ingredient of a drug rather than the trademarked brand name under which the drug is sold.</li><li><code>bene_count</code> Total number of unique Medicare Part D beneficiaries (i.e. patients) with at least one claim for the drug. Counts fewer than 11 are suppressed and are indicated by a blank.</li><li><code>total_claim_count</code> Number of Medicare Part D claims; includes original prescriptions and refills. If less than 11, counts are not included in the data file.</li><li><code>total_drug_cost</code> Total cost paid for all associated claims; includes ingredient cost, dispensing fee, sales tax, and any applicable fees.</li><li><code>year</code> 2013, 2014, or 2015.</li></ul>
+</li><li><p><code>npi_license.csv</code> Crosswalk file to join NPI identifiers to state license numbers, processed from the download available <a href="http://www.nber.org/data/npi-state-license-crosswalk.html">here</a> to include license numbers potentially matching California doctors. This will provide one way of joining the precription data to the medical board disciplinary data. As we shall see, problems with the data mean that it is not infallible. Contains the following variables:</p>
+<ul>
+<li><code>npi</code> National Provider Identifier, as described above.</li><li><code>plicnum</code> State license number, from the original file.</li><li><code>license</code> Processed from <code>pclicnum</code> to conform to the format of California medical license numbers.</li></ul>
+</li></ul>
+
+	</div> <!-- /.container all -->
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

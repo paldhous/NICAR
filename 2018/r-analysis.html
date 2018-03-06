@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Peter Aldhous | NICAR 2018</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/bootstrap.min.css" rel="stylesheet"> 
+  <link href="../css/custom.css" rel="stylesheet">
+</head>
+
+<body class="markdown github">
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2018</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="machine-learning.html">Machine learning for reporting</a></li>
+								<li><a href="r-analysis.html">Data analysis and plotting in R</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="software.html">Software</a></li>
+						<li><a href="datasets.html">Data</a></li>	
+						<li><a href="mailto:p.aldhous@gmail.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+	
+	<div class="container all">
+
+<h1 id="r,-rstudio,-and-the-tidyverse-for-data-analysis"><a name="r,-rstudio,-and-the-tidyverse-for-data-analysis" href="#r,-rstudio,-and-the-tidyverse-for-data-analysis"></a>R, RStudio, and the tidyverse for data analysis</h1><h3 id="introducing-r-and-rstudio"><a name="introducing-r-and-rstudio" href="#introducing-r-and-rstudio"></a>Introducing R and RStudio</h3><p>In today’s class we will work with <strong><a href="http://www.r-project.org/">R</a></strong>, which is a very powerful tool, designed by statisticians for data analysis. Described on its website as “free software environment for statistical computing and graphics,” R is a programming language that opens a world of possibilities for analyzing data. Indeed, just about anything you may want to do with data can be done with R, from web scraping, through statistical analysis and machine learning, to making interactive graphics.</p><p>There is much more material here than we will be able to cover in a short class, but these notes will remain available for you to work through later.</p><p><strong><a href="https://www.rstudio.com/">RStudio</a></strong> is an “integrated development environment,” or IDE, for R that provides a user-friendly interface.</p><p>Launch RStudio, and the screen should look like this:</p><p><img src="img/r-analysis_1.jpg" alt=""></p><p>The main panel to the left is the R Console. Type valid R code into here, hit <code>return</code>, and it will be run.</p><h3 id="the-data-we-will-use"><a name="the-data-we-will-use" href="#the-data-we-will-use"></a>The data we will use</h3><p>The data for this session should be loaded on the computers at NICAR. If you’re following along remotely or on your own computer at the meeting, download from <a href="data/r-analysis.zip">here</a>, unzip the folder and place it on your desktop. It contains the following files:</p><ul>
+<li><p><code>ca_discipline.csv</code> Disciplinary alerts and actions issued by the Medical Board of California from 2008 to 2017. Processed from downloads available <a href="http://www.mbc.ca.gov/Publications/Disciplinary_Actions/">here</a>. Contains the following variables:</p>
+<ul>
+<li><code>alert_date</code> Date alert issued.</li><li><code>last_name</code> Last name of doctor/health care provider.</li><li><code>first_name</code> First name of doctor/health care provider.</li><li><code>middle_name</code> Middle/other names.</li><li><code>name_suffix</code> Name suffix (Jr., II etc)</li><li><code>city</code> City of practive location.</li><li><code>state</code> State of practice location.</li><li><code>license</code> California medical license number.</li><li><code>action_type</code> Type of action.</li><li><code>action_date</code> Date of action.</li></ul>
+</li></ul><ul>
+<li><p><code>ca_medicare_opioids.csv</code> Data on prescriptions of opioid drugs under the Medicare Part D Prescription Drug Program by doctors in California, from 2013 to 2015. Filtered from the national data downloads available <a href="https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Part-D-Prescriber.html">here</a>. It contains many variables, including:</p>
+<ul>
+<li><code>npi</code> <a href="https://npiregistry.cms.hhs.gov/">National Provider Identifier</a> (NPI) for the doctor/organization making the claim. This is a unique code for each health care provider.</li><li><code>nppes_provider_last_org_name</code> For individual doctors, their last name. For organizations, the organziation name.</li><li><code>nppes_provider_first_name</code> First name for individual doctors, blank for organizations.</li><li><code>nppes_provider_city</code> City where the provider is located.</li><li><code>nppes_provider_state</code> State where the provider is located; “CA” for all of these records.</li><li><code>specialty_description</code> Provider’s medical speciality, reported on their medicare claims. For providers that have more than one Medicare specialty code reported on their claims, the code associated with the largest number of services.</li><li><code>drug_name</code> Includes both brand names (drugs that have a trademarked name) and generic names (drugs that do not have a trademarked name).</li><li><code>generic_name</code> The chemical ingredient of a drug rather than the trademarked brand name under which the drug is sold.</li><li><code>bene_count</code> Total number of unique Medicare Part D beneficiaries (i.e. patients) with at least one claim for the drug. Counts fewer than 11 are suppressed and are indicated by a blank.</li><li><code>total_claim_count</code> Number of Medicare Part D claims; includes original prescriptions and refills. If less than 11, counts are not included in the data file.</li><li><code>total_drug_cost</code> Total cost paid for all associated claims; includes ingredient cost, dispensing fee, sales tax, and any applicable fees.</li><li><code>year</code> 2013, 2014, or 2015.</li></ul>
+</li><li><p><code>npi_license.csv</code> Crosswalk file to join NPI identifiers to state license numbers, processed from the download available <a href="http://www.nber.org/data/npi-state-license-crosswalk.html">here</a> to include license numbers potentially matching California doctors. This will provide one way of joining the precription data to the medical board disciplinary data. As we shall see, problems with the data mean that it is not infallible. Contains the following variables:</p>
+<ul>
+<li><code>npi</code> National Provider Identifier, as described above.</li><li><code>plicnum</code> State license number, from the original file.</li><li><code>license</code> Processed from <code>pclicnum</code> to conform to the format of California medical license numbers.</li></ul>
+</li></ul><h3 id="some-words-of-caution,-before-we-start"><a name="some-words-of-caution,-before-we-start" href="#some-words-of-caution,-before-we-start"></a>Some words of caution, before we start</h3><p>The US is currently in the grip of an epidemic of opioid abuse and addiction. Although <a href="https://www.buzzfeed.com/danvergano/2-old-painkiller-papers">widespread medical prescription</a> of opioids <a href="https://www.buzzfeed.com/danvergano/whats-causing-the-opioid-crisis">helped drive addiction</a>, a <a href="https://www.buzzfeed.com/danvergano/life-expectancy-opioid-overdoses">majority of overdoses</a> now occur through the consumption of drugs purchased illegally.</p><p>Opioids have important medical uses, and just because a doctor prescribes large amounts of the drugs doesn’t necessarily mean they are practising irresponsibly.</p><p>As ProPublica explained, in <a href="https://www.propublica.org/article/how-we-analyzed-medicares-drug-data-long-methodology">the methods</a> for its stories based on Medicare Part D prescription data:</p><blockquote>
+<p>The data could not tell us everything. We interviewed many high-volume prescribers to better understand their patients and their practices. Some told us their numbers were high because they were credited with prescriptions by others working in the same practice. In addition, providers who primarily work in long-term care facilities or busy clinics with many patients naturally may write more prescriptions.</p>
+</blockquote><h3 id="reproducibility:-save-your-scripts"><a name="reproducibility:-save-your-scripts" href="#reproducibility:-save-your-scripts"></a>Reproducibility: Save your scripts</h3><p>Data journalism should ideally be fully documented and reproducible. R makes this easy, as every operation performed can be saved in a script, and repeated by running that script. Click on the <img src="img/r-analysis_2.jpg" alt=""> icon at top left and select <code>R Script</code>. A new panel should now open:</p><p><img src="img/r-analysis_3.jpg" alt=""></p><p>Any code we type in here can be run in the console. Hitting <code>Run</code> will run the line of code on which the cursor is sitting. To run multiple lines of code, highlight them and click <code>Run</code>.</p><p>Click on the save/disk icon in the script panel and save the blank script to the file on your desktop with the data for this week, calling it <code>r-analysis.R</code>.</p><h3 id="set-your-working-directory"><a name="set-your-working-directory" href="#set-your-working-directory"></a>Set your working directory</h3><p>Now we can set the working directory to this folder by selecting from the top menu <code>Session&gt;Set Working Directory&gt;To Source File Location</code>. (Doing so means we can load the files in this directory without having to refer to the full path for their location, and anything we save will be written to this folder.)</p><p>Notice how this code appears in the console (the exact code will depend upon the location of the script and data on your computer:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;>setwd(&quot;~/Desktop/r-analysis&quot;)
+</code></pre>">setwd(<span class="hljs-string">"~/Desktop/r-analysis"</span>)
+</code></pre><h3 id="save-your-data"><a name="save-your-data" href="#save-your-data"></a>Save your data</h3><p>The panel at top right has three tabs, the first showing the <code>Environment</code>, or all of the “objects” loaded into memory for this R session. Save this as well, and you won’t have to load and process all of the data again if you return to return to a project later.</p><p>Click on the save/disk icon in the <code>Environment</code> panel to save the file as <code>week5.RData</code>. The following code should appear in the Console:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>save.image(&quot;~/Desktop/r-analysis/r-analysis.RData&quot;)
+</code></pre>">save.image(<span class="hljs-string">"~/Desktop/r-analysis/r-analysis.RData"</span>)
+</code></pre><p>Copy this code into your script, placing it at the end, with a comment, explaining what it does:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># save session data
+save.image(&quot;~/Desktop/r-analysis/r-analysis.RData&quot;)
+</code></pre>"><span class="hljs-comment"># save session data</span>
+save.image(<span class="hljs-string">"~/Desktop/r-analysis/r-analysis.RData"</span>)
+</code></pre><p>Now if you run your entire script, the last action will always be to save the data in your environment.</p><h3 id="comment-your-code"><a name="comment-your-code" href="#comment-your-code"></a>Comment your code</h3><p>Anything that appears on a line after <code>#</code> will be treated as a comment, and will be ignored when the code is run. You can use this to explain what the code does. Get into the habit of commenting your code: Don’t trust yourself to remember!</p><h3 id="some-r-code-basics"><a name="some-r-code-basics" href="#some-r-code-basics"></a>Some R code basics</h3><ul>
+<li><code>&lt;-</code> is known as an “assignment operator.” It means: “Make the object named to the left equal to the output of the code to the right.”</li><li><code>&amp;</code> means AND, in Boolean logic.</li><li><code>|</code> means OR, in Boolean logic.</li><li><code>!</code> means NOT, in Boolean logic.</li><li>When referring to values entered as text, or to dates, put them in quote marks, like this: <code>"United States"</code>, or <code>"2016-07-26"</code>. Numbers are not quoted.</li><li>When entering two or more values as a list, combine them using the function <code>c</code>, for combine, with the values separated by commas, for example: <code>c("2017-07-26","2017-08-04")</code></li><li>As in a spreadsheet, you can specify a range of values with a colon, for example: <code>c(1:10)</code> creates a list of integers (whole numbers) from one to ten.</li><li><p>Some common operators:</p>
+<ul>
+<li><code>+</code> <code>-</code> add, subtract.</li><li><code>*</code> <code>/</code> multiply, divide.</li><li><code>&gt;</code> <code>&lt;</code> greater than, less than.</li><li><code>&gt;=</code> <code>&lt;=</code> greater than or equal to, less than or equal to.</li><li><code>!=</code> not equal to.</li></ul>
+</li><li><p>Equals signs can be a little confusing, but see how they are used in the code we use today:</p>
+<ul>
+<li><code>==</code> test whether an object is equal to a value. This is often used when filtering data, as we will see.</li><li><code>=</code> make an object equal to a value; similar to <code>&lt;-</code>, but used within a function (see below).</li></ul>
+</li><li><p>Handling null values:</p>
+<ul>
+<li>Nulls are designated as <code>NA</code>.</li><li><code>is.na(x)</code> looks for nulls within variable <code>x</code>.</li><li><code>!is.na(x)</code> looks for non-null values within variable <code>x</code>.</li></ul>
+</li></ul><p>Here, <code>is.na</code> is a <strong>function</strong>. Functions are followed by parentheses, and act on the data/code in the parentheses.</p><p><strong>Important:</strong> Object and variable names in R should not contain spaces.</p><h3 id="introducing-r-packages-and-the-tidyverse"><a name="introducing-r-packages-and-the-tidyverse" href="#introducing-r-packages-and-the-tidyverse"></a>Introducing R packages and the tidyverse</h3><p>Much of the power of R comes from the thousands of “packages” written by its community of open source contributors. These are optimized for specific statistical, graphical or data-processing tasks. To see what packages are available in the basic distribution of R, select the <code>Packages</code> tab in the panel at bottom right. To find packages for particular tasks, try searching Google using appropriate keywords and the phrase “R package.”</p><p>Our goal for today’s class is to get used to processing and analyzing data using a powerful series of R packages known as the  <strong><a href="https://blog.rstudio.org/2016/09/15/tidyverse-1-0-0/">tidyverse</a></strong>.</p><p>The tidyverse was pioneered by <a href="http://hadley.nz/">Hadley Wickham</a>, chief scientist at RStudio, but now has many contributors.</p><p>Today, we will use the following tidyverse packages:</p><ul>
+<li><strong><a href="http://readr.tidyverse.org/">readr</a></strong> Reads and writes CSV and other text files.</li><li><strong><a href="http://dplyr.tidyverse.org/">dplyr</a></strong> Processes and analyzes data, using the operations we discussed in the first class.</li><li><strong><a href="http://lubridate.tidyverse.org/">lubridate</a></strong> Makes working with dates and times much easier.</li><li><strong><a href="http://ggplot2.tidyverse.org/">ggplot2</a></strong> For making charts.</li></ul><p>The tidyverse packages should already be installed on the computers at NICAR.</p><p>To install a package, click on the <code>Install</code> icon in the <code>Packages</code> tab, type its name into the dialog box, and make sure that <code>Install dependencies</code> is checked, as some packages will only run correctly if other packages are also installed.  The tidyverse packages can be installed in one go. Click <code>Install</code> and all of the required packages should install:</p><p><img src="img/r-analyisis_4.jpg" alt=""></p><p>Notice that the following code appears in the console:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>install.packages(&quot;tidyverse&quot;)
+</code></pre>">install.packages(<span class="hljs-string">"tidyverse"</span>)
+</code></pre><p>So you can also install packages with code in this format, without using the point-and-click interface.</p><p>Each time you start R, it’s a good idea to click on <code>Update</code> in the <code>Packages</code> panel to update all your installed packages to the latest versions.</p><p>Installing a package makes it available to you, but to use it in any R session you need to load it. You can do this by checking its box in the <code>Packages</code> panel. However, we will enter the following code into our script, then highlight these lines of code and run them:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># load packages to read and write csv files, process data, and work with dates
+library(readr)
+library(dplyr)
+library(lubridate)
+</code></pre>"><span class="hljs-comment"># load packages to read and write csv files, process data, and work with dates</span>
+<span class="hljs-keyword">library</span>(readr)
+<span class="hljs-keyword">library</span>(dplyr)
+<span class="hljs-keyword">library</span>(lubridate)
+</code></pre><p>At this point, and at regular intervals, save your script, by clicking the save/disk icon in the script panel, or using the <code>⌘-S</code>/<code>Ctrl-S</code> keyboard shortcut.</p><h3 id="load-and-view-data"><a name="load-and-view-data" href="#load-and-view-data"></a>Load and view data</h3><h4 id="load-data"><a name="load-data" href="#load-data"></a>Load data</h4><p>You can load data into the current R session by selecting <code>Import Dataset&gt;From Text File...</code> in the <code>Environment</code> tab.</p><p>However, we will use the <code>read_csv</code> function from the <strong>readr</strong> package. Copy the following code into your script and <code>Run</code>:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># load ca medical board disciplinary actions data
+ca_discipline &amp;lt;- read_csv(&quot;ca_discipline.csv&quot;)
+</code></pre>"><span class="hljs-comment"># load ca medical board disciplinary actions data</span>
+ca_discipline &lt;- read_csv(<span class="hljs-string">"ca_discipline.csv"</span>)
+</code></pre><p>Notice that the <code>Environment</code> now contains an objects of the type <code>tbl_df</code>, a variety of the standard R object for holding tables of data, known as a <strong>data frame</strong>:</p><p><img src="img/r-analysis_5.jpg" alt=""></p><h4 id="examine-the-data"><a name="examine-the-data" href="#examine-the-data"></a>Examine the data</h4><p>We can <code>View</code> data at any time by clicking on its table icon in the <code>Environment</code> tab in the <code>Grid</code> view. The following code has the same effect:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;>View(ca_discipline)
+</code></pre>">View(ca_discipline)
+</code></pre><p>The <code>glimpse</code> function from <strong>dplyr</strong> will tell you more about the variables in your data, including their data type. Copy this code into your script and <code>Run</code>:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># view structure of data
+glimpse(ca_discipline)
+</code></pre>"><span class="hljs-comment"># view structure of data</span>
+glimpse(ca_discipline)
+</code></pre><p>This should give the following output in the R Console:</p><pre class="json hljs"><code class="JSON" data-origin="<pre><code class=&quot;JSON&quot;>Variables: 10
+$ alert_date  &amp;lt;date&amp;gt; 2008-04-18, 2008-04-21, 2008-04-23, 2008-04-28, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+$ last_name   &amp;lt;chr&amp;gt; &quot;Boyajian&quot;, &quot;Cragen&quot;, &quot;Chow&quot;, &quot;Gravich&quot;, &quot;Kabacy&quot;, &quot;Aboulhosn&quot;, &quot;Harron&quot;, &quot;Fitzpatrick&quot;, &quot;Adrian&quot;, &quot;M...
+$ first_name  &amp;lt;chr&amp;gt; &quot;John&quot;, &quot;Richard&quot;, &quot;Hubert&quot;, &quot;Anna&quot;, &quot;George&quot;, &quot;Kamal&quot;, &quot;Raymond&quot;, &quot;Christian&quot;, &quot;Adrian&quot;, &quot;Pamela&quot;, &quot;...
+$ middle_name &amp;lt;chr&amp;gt; &quot;Arthur&quot;, &quot;Darin&quot;, &quot;Wing&quot;, NA, &quot;E.&quot;, &quot;Fouad&quot;, &quot;A.&quot;, &quot;John&quot;, NA, &quot;J.&quot;, &quot;Quoc&quot;, &quot;M.&quot;, &quot;Elisabet&quot;, NA, &quot;...
+$ name_suffix &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+$ city        &amp;lt;chr&amp;gt; &quot;Boise&quot;, &quot;Temecula&quot;, &quot;San Gabriel&quot;, &quot;Los Angeles&quot;, &quot;Lacey&quot;, &quot;Yakima&quot;, &quot;Bridgeport&quot;, &quot;Las Vegas&quot;, &quot;Las...
+$ state       &amp;lt;chr&amp;gt; &quot;ID&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;WA&quot;, &quot;WA&quot;, &quot;WV&quot;, &quot;NM&quot;, &quot;NV&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;TN&quot;, &quot;CA&quot;,...
+$ license     &amp;lt;chr&amp;gt; &quot;A25855&quot;, &quot;A54872&quot;, &quot;G45435&quot;, &quot;A40805&quot;, &quot;G13766&quot;, &quot;CFE40080&quot;, &quot;G8415&quot;, &quot;G47520&quot;, &quot;AFE56237&quot;, &quot;G85601&quot;...
+$ action_type &amp;lt;chr&amp;gt; &quot;Surrendered&quot;, &quot;Surrendered&quot;, &quot;Superior Court Order/Restrictions&quot;, &quot;Superior Court Order/Restrictions...
+$ action_date &amp;lt;date&amp;gt; 2008-04-18, 2008-04-21, 2008-03-10, 2008-04-25, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+</code></pre>">Variables: 10
+$ alert_date  &lt;date&gt; 2008-04-18, 2008-04-21, 2008-04-23, 2008-04-28, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+$ last_name   &lt;chr&gt; "Boyajian", "Cragen", "Chow", "Gravich", "Kabacy", "Aboulhosn", "Harron", "Fitzpatrick", "Adrian", "M...
+$ first_name  &lt;chr&gt; "John", "Richard", "Hubert", "Anna", "George", "Kamal", "Raymond", "Christian", "Adrian", "Pamela", "...
+$ middle_name &lt;chr&gt; "Arthur", "Darin", "Wing", NA, "E.", "Fouad", "A.", "John", NA, "J.", "Quoc", "M.", "Elisabet", NA, "...
+$ name_suffix &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+$ city        &lt;chr&gt; "Boise", "Temecula", "San Gabriel", "Los Angeles", "Lacey", "Yakima", "Bridgeport", "Las Vegas", "Las...
+$ state       &lt;chr&gt; "ID", "CA", "CA", "CA", "WA", "WA", "WV", "NM", "NV", "CA", "CA", "CA", "CA", "CA", "CA", "TN", "CA",...
+$ license     &lt;chr&gt; "A25855", "A54872", "G45435", "A40805", "G13766", "CFE40080", "G8415", "G47520", "AFE56237", "G85601"...
+$ action_type &lt;chr&gt; "Surrendered", "Surrendered", "Superior Court Order/Restrictions", "Superior Court Order/Restrictions...
+$ action_date &lt;date&gt; 2008-04-18, 2008-04-21, 2008-03-10, 2008-04-25, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+</code></pre><p><code>chr</code> means “character,” or a string of text (which can also be treated as a categorical variable); <code>date</code> means a date. While we don’t have these data types here, <code>int</code> means an integer, or whole number; <code>dbl</code> means a number that may include decimal fractions; and <code>POSIXct</code> means a full date and timestamp.</p><p>If you run into any trouble importing data with <strong>readr</strong>, you may need to specify the data types for some columns — in particular for date and time. <a href="https://github.com/hadley/readr/blob/master/vignettes/column-types.Rmd">This link</a> explains how to set data types for individual variables when importing data with <strong>readr</strong>.</p><p>To specify an individual column use the name of the data frame and the column name, separated by <code>$</code>. Type this into your script and run:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># print values for alert_date in the ca_discipline data
+print(ca_discipline$alert_date)
+</code></pre>"><span class="hljs-comment"># print values for alert_date in the ca_discipline data</span>
+print(ca_discipline$alert_date)
+</code></pre><p>The output will be the first 1,000 values for that variable.</p><p>If you need to change the data type for any variable, use the following functions:</p><ul>
+<li><code>as.character</code> converts to a text string.</li><li><code>as.numeric</code> converts to a number that may include decimal fractions (<code>dbl</code>).</li><li><code>as.factor</code> converts to a categorical variable.</li><li><code>as.integer</code> converts to an integer</li><li><code>as.Date</code> converts to a date</li><li><code>as.POSIXct</code> converts to a full date and timestamp.</li></ul><p>So this code will convert <code>alert_date</code> codes to text:</p><pre class="r hljs"><code class="r" data-origin="<pre><code class=&quot;r&quot;># convert alert_date to text
+ca_discipline$alert_date &amp;lt;- as.character(ca_discipline$alert_date)
+glimpse(ca_discipline)
+</code></pre>"><span class="hljs-comment"># convert alert_date to text</span>
+ca_discipline$alert_date &lt;- as.character(ca_discipline$alert_date)
+glimpse(ca_discipline)
+</code></pre><p>Notice that the data type for <code>alert_date</code> has now changed:</p><pre class="json hljs"><code class="JSON" data-origin="<pre><code class=&quot;JSON&quot;>Observations: 7,561
+Variables: 10
+$ alert_date  &amp;lt;chr&amp;gt; &quot;2008-04-18&quot;, &quot;2008-04-21&quot;, &quot;2008-04-23&quot;, &quot;2008-04-28&quot;, &quot;2008-05-15&quot;, &quot;2008-05-15&quot;, &quot;2008-06-18&quot;, &quot;20...
+$ last_name   &amp;lt;chr&amp;gt; &quot;Boyajian&quot;, &quot;Cragen&quot;, &quot;Chow&quot;, &quot;Gravich&quot;, &quot;Kabacy&quot;, &quot;Aboulhosn&quot;, &quot;Harron&quot;, &quot;Fitzpatrick&quot;, &quot;Adrian&quot;, &quot;M...
+$ first_name  &amp;lt;chr&amp;gt; &quot;John&quot;, &quot;Richard&quot;, &quot;Hubert&quot;, &quot;Anna&quot;, &quot;George&quot;, &quot;Kamal&quot;, &quot;Raymond&quot;, &quot;Christian&quot;, &quot;Adrian&quot;, &quot;Pamela&quot;, &quot;...
+$ middle_name &amp;lt;chr&amp;gt; &quot;Arthur&quot;, &quot;Darin&quot;, &quot;Wing&quot;, NA, &quot;E.&quot;, &quot;Fouad&quot;, &quot;A.&quot;, &quot;John&quot;, NA, &quot;J.&quot;, &quot;Quoc&quot;, &quot;M.&quot;, &quot;Elisabet&quot;, NA, &quot;...
+$ name_suffix &amp;lt;chr&amp;gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+$ city        &amp;lt;chr&amp;gt; &quot;Boise&quot;, &quot;Temecula&quot;, &quot;San Gabriel&quot;, &quot;Los Angeles&quot;, &quot;Lacey&quot;, &quot;Yakima&quot;, &quot;Bridgeport&quot;, &quot;Las Vegas&quot;, &quot;Las...
+$ state       &amp;lt;chr&amp;gt; &quot;ID&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;WA&quot;, &quot;WA&quot;, &quot;WV&quot;, &quot;NM&quot;, &quot;NV&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;CA&quot;, &quot;TN&quot;, &quot;CA&quot;,...
+$ license     &amp;lt;chr&amp;gt; &quot;A25855&quot;, &quot;A54872&quot;, &quot;G45435&quot;, &quot;A40805&quot;, &quot;G13766&quot;, &quot;CFE40080&quot;, &quot;G8415&quot;, &quot;G47520&quot;, &quot;AFE56237&quot;, &quot;G85601&quot;...
+$ action_type &amp;lt;chr&amp;gt; &quot;Surrendered&quot;, &quot;Surrendered&quot;, &quot;Superior Court Order/Restrictions&quot;, &quot;Superior Court Order/Restrictions...
+$ action_date &amp;lt;date&amp;gt; 2008-04-18, 2008-04-21, 2008-03-10, 2008-04-25, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+</code></pre>">Observations: 7,561
+Variables: 10
+$ alert_date  &lt;chr&gt; "2008-04-18", "2008-04-21", "2008-04-23", "2008-04-28", "2008-05-15", "2008-05-15", "2008-06-18", "20...
+$ last_name   &lt;chr&gt; "Boyajian", "Cragen", "Chow", "Gravich", "Kabacy", "Aboulhosn", "Harron", "Fitzpatrick", "Adrian", "M...
+$ first_name  &lt;chr&gt; "John", "Richard", "Hubert", "Anna", "George", "Kamal", "Raymond", "Christian", "Adrian", "Pamela", "...
+$ middle_name &lt;chr&gt; "Arthur", "Darin", "Wing", NA, "E.", "Fouad", "A.", "John", NA, "J.", "Quoc", "M.", "Elisabet", NA, "...
+$ name_suffix &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N...
+$ city        &lt;chr&gt; "Boise", "Temecula", "San Gabriel", "Los Angeles", "Lacey", "Yakima", "Bridgeport", "Las Vegas", "Las...
+$ state       &lt;chr&gt; "ID", "CA", "CA", "CA", "WA", "WA", "WV", "NM", "NV", "CA", "CA", "CA", "CA", "CA", "CA", "TN", "CA",...
+$ license     &lt;chr&gt; "A25855", "A54872", "G45435", "A40805", "G13766", "CFE40080", "G8415", "G47520", "AFE56237", "G85601"...
+$ action_type &lt;chr&gt; "Surrendered", "Surrendered", "Superior Court Order/Restrictions", "Superior Court Order/Restrictions...
+$ action_date &lt;date&gt; 2008-04-18, 2008-04-21, 2008-03-10, 2008-04-25, 2008-05-15, 2008-05-15, 2008-06-18, 2008-06-27, 2008...
+</code></pre><h3 id="process-and-analyze-data-with-dplyr"><a name="process-and-analyze-data-with-dplyr" href="#process-and-analyze-data-with-dplyr"></a>Process and analyze data with dplyr</h3><p>We can use <strong>dplyr</strong> to process the data, using these basic operations with data:</p><ul>
+<li><p><strong>Sort:</strong> Largest to smallest, oldest to newest, alphabetical etc.</p>
+</li><li><p><strong>Filter:</strong> Select a defined subset of the data.</p>
+</li><li><p><strong>Summarize/Aggregate:</strong> Deriving one value from a series of other values to produce a summary statistic. Examples include: count, sum, mean, median, maximum, minimum etc. Often you’ll <strong>group</strong> data into categories first, and then aggregate by group.</p>
+</li><li><p><strong>Join:</strong> Merging entries from two or more datasets based on common field(s), e.g. unique ID number, last name and first name.</p>
+</li></ul><p>Here are some of the most useful functions in <strong>dplyr</strong>:</p><ul>
+<li><code>select</code> Choose which columns to include.</li><li><code>filter</code> <strong>Filter</strong> the data.</li><li><code>arrange</code> <strong>Sort</strong> the data, by size for continuous variables, by date, or alphabetically.</li><li><code>group_by</code> <strong>Group</strong> the data by a categorical variable.</li><li><code>summarize</code> <strong>Summarize</strong>, or aggregate (for each group if following <code>group_by</code>). Often used in conjunction with functions including:<ul>
+<li><code>mean(x)</code> Calculate the mean, or average, for variable <code>x</code>.</li><li><code>median(x)</code> Calculate the median.</li><li><code>max(x)</code> Find the maximum value.</li><li><code>min(x)</code> Find the minimum value.</li><li><code>sum(x)</code> Add all the values together.</li><li><code>n()</code> Count the number of records. Here there isn’t a variable in the brackets of the function, because the number of records applies to all variables.</li><li><code>n_distinct(x</code>) Count the number of unique values in variable <code>x</code>.</li></ul>
+</li><li><code>mutate</code> Create new column(s) in the data, or change existing column(s).</li><li><code>rename</code> Rename column(s).</li><li><code>bind_rows</code> Merge two data frames into one, combining data from columns with the same name.</li></ul><p>There are also various functions to <strong>join</strong> data, which we will explore later.</p><p>These functions can be chained together using the “pipe” operator <code>%&gt;%</code>, which makes the output of one line of code the input for the next. This allows you to run through a series of operations in a logical order. I find it helpful to think of <code>%&gt;%</code> as meaning “then.”</p><p>Now we will use <strong>dplyr</strong> to turn the <code>alert_date</code> variable back to dates:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># convert alert_date to date using dplyr
+ca_discipline &amp;lt;- ca_discipline %&amp;gt;%
+  mutate(alert_date = as.Date(alert_date))
+</code></pre>"><span class="hljs-comment"># convert alert_date to date using dplyr</span>
+ca_discipline &lt;- ca_discipline %&gt;%
+  mutate(alert_date = as.Date(alert_date))
+</code></pre><p>This code copies the <code>ca_discipline</code> data frame, and then (<code>%&gt;%</code>) uses <strong>dplyr</strong>‘s <code>mutate</code> function to change the data type for the <code>alert_date</code> variable. Because the copied data frame has the same name, it overwrites the original version.</p><h4 id="filter-and-sort-data"><a name="filter-and-sort-data" href="#filter-and-sort-data"></a>Filter and sort data</h4><p>To get used to working with <strong>dplyr</strong>, we will now start filtering and sorting the data according to the doctors’ locations, and the types of disciplinary actions they faced.</p><p>First, let’s look at the types of disciplinary actions in the data:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># look at types of disciplinary actions
+types &amp;lt;- ca_discipline %&amp;gt;%
+  select(action_type) %&amp;gt;%
+  unique()
+</code></pre>"><span class="hljs-comment"># look at types of disciplinary actions</span>
+types &lt;- ca_discipline %&gt;%
+  select(action_type) %&gt;%
+  unique()
+</code></pre><p>This code first copies the <code>ca_disciplinary</code> data frame into a new object called <code>types</code>. Then (<code>%&gt;%</code>) it <code>select</code>s the <code>action_type</code> variable only. Finally, it uses a function called <code>unique</code> to display the unique values in that variable, with no duplicates.</p><p>The new data frame has one column and 75 rows. If you <code>View</code>, the first few rows should look like this:</p><p><img src="img/r-analysis_6.jpg" alt=""></p><p>Many of the values for <code>action_types</code> seem to be subtle variations of the same thing. If we were going to all analyze the types in detail, we may need to group some of these together, after speaking to an expert to understand what they all mean. But some of the action types are clear and unambiguous: <code>Revoked</code> is the medical board’s most severe sanction, which cancels a doctor’s license to practise. So let’s first <strong>filter</strong> the data to look at those actions:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># filter for license revocations only
+revoked &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot;)
+</code></pre>"><span class="hljs-comment"># filter for license revocations only</span>
+revoked &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span>)
+</code></pre><p>This code copies the <code>ca_discipline</code> data into a new data frame called <code>revoked</code> and then (<code>%&gt;%</code>) uses the <code>filter</code> function to include only actions in which a doctor’s license was revoked. Notice the use of <code>==</code> to test whether <code>action_type</code> is <code>Revoked</code>.</p><p>There should be 446 rows in the filtered data, and the first few should look like this:</p><p><img src="img/r-analysis_7.jpg" alt=""></p><p>Some of the doctors are not actually based in California. Doctors can be licensed to practise in more than one state, and the Medical Board of California typically issues its own sanction if a doctor is disciplined in their home state. So let’s now <strong>filter</strong> the data to look only at doctors with revoked licenses who were based in California, and <strong>sort</strong> them by city.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># filter for license revocations by doctors based in California, and sort by city
+revoked_ca &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot;
+         &amp;amp; state == &quot;CA&quot;) %&amp;gt;%
+  arrange(city)
+</code></pre>"><span class="hljs-comment"># filter for license revocations by doctors based in California, and sort by city</span>
+revoked_ca &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span>
+         &amp; state == <span class="hljs-string">"CA"</span>) %&gt;%
+  arrange(city)
+</code></pre><p>Here, the <code>filter</code> combines two conditions with <code>&amp;</code>. That means that both have to be met for the data to be included. Then <code>arrange</code> <strong>sorts</strong> the data, which for a text variable will be in alphabetical order. If you wanted to sort in reverse alphabetical order, the code would be: <code>(arrange(desc(city))</code>.</p><p>There should be 274 rows in the filtered data, and the first few should look like this:</p><p><img src="img/r-analysis_8.jpg" alt=""></p><p>Now let’s <strong>filter</strong> for doctors based in Berkeley or Oakland who have had their licenses revoked:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># doctors in Berkeley or Oakland who have had their licenses revoked 
+revoked_oak_berk &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot;
+       &amp;amp; (city == &quot;Oakland&quot; | city == &quot;Berkeley&quot;))
+</code></pre>"><span class="hljs-comment"># doctors in Berkeley or Oakland who have had their licenses revoked </span>
+revoked_oak_berk &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span>
+       &amp; (city == <span class="hljs-string">"Oakland"</span> | city == <span class="hljs-string">"Berkeley"</span>))
+</code></pre><p>There should be just two doctors:</p><p><img src="img/r-analysis_9.jpg" alt=""></p><p>This code uses <code>|</code> to look for doctors in either Oakland <strong>or</strong> Berkeley. That part of the <code>filter</code> function is wrapped in parantheses to ensure that it is carried out first.</p><p>See what happens if you remove those parentheses, and work out why the result has changed. We will discuss this in class.</p><h4 id="append-data-using-`bind_rows`"><a name="append-data-using-`bind_rows`" href="#append-data-using-`bind_rows`"></a>Append data using <code>bind_rows</code></h4><p>To demonstrate the <code>bind_rows</code> function, we will <strong>filter</strong> for doctors with revoked licenses in each of the two cities separately, and then append one data frame to the other.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># doctors in Berkeley who had their licenses revoked
+revoked_berk &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot;
+       &amp;amp; city == &quot;Berkeley&quot;)
+
+# doctors in Oakland who had their licenses revoked
+revoked_oak &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot;
+       &amp;amp; city == &quot;Oakland&quot;)
+
+# doctors in Berkeley or Oakland who have had their licenses revoked
+revoked_oak_berk &amp;lt;- bind_rows(revoked_oak, revoked_berk)
+</code></pre>"><span class="hljs-comment"># doctors in Berkeley who had their licenses revoked</span>
+revoked_berk &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span>
+       &amp; city == <span class="hljs-string">"Berkeley"</span>)
+
+<span class="hljs-comment"># doctors in Oakland who had their licenses revoked</span>
+revoked_oak &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span>
+       &amp; city == <span class="hljs-string">"Oakland"</span>)
+
+<span class="hljs-comment"># doctors in Berkeley or Oakland who have had their licenses revoked</span>
+revoked_oak_berk &lt;- bind_rows(revoked_oak, revoked_berk)
+</code></pre><h4 id="write-data-to-a-csv-file"><a name="write-data-to-a-csv-file" href="#write-data-to-a-csv-file"></a>Write data to a CSV file</h4><p>The <strong>readr</strong> package can also be used to write data from your environment into a CSV file:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># write data to CSV file
+write_csv(revoked_oak_berk, &quot;revoked_oak_berk.csv&quot;, na = &quot;&quot;)
+</code></pre>"><span class="hljs-comment"># write data to CSV file</span>
+write_csv(revoked_oak_berk, <span class="hljs-string">"revoked_oak_berk.csv"</span>, na = <span class="hljs-string">""</span>)
+</code></pre><p>The code <code>na = ""</code> ensures that null values in the data are written as blank cells; otherwise they would contain the letters <code>NA</code>.</p><h4 id="group-and-summarize-data"><a name="group-and-summarize-data" href="#group-and-summarize-data"></a>Group and summarize data</h4><p>Next we will <strong>group</strong> and <strong>summarize</strong> data by counting disciplinary actions by year and by month. But before doing that, we need to use the <strong>lubridate</strong> package to extract the year and month from <code>action_date</code>.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># extract year and month from action_date
+ca_discipline &amp;lt;- ca_discipline %&amp;gt;%
+  mutate(year = year(action_date),
+         month = month(action_date))
+</code></pre>"><span class="hljs-comment"># extract year and month from action_date</span>
+ca_discipline &lt;- ca_discipline %&gt;%
+  mutate(year = year(action_date),
+         month = month(action_date))
+</code></pre><p>Now we have two extra columns in the data, giving the year and the month as a number:</p><p><img src="img/r-analysis_10.jpg" alt=""></p><p>The <code>year</code> and <code>month</code> functions are from the <strong>lubridate</strong> package. </p><p>Previously we used the <strong>dplyr</strong> <code>mutate</code> function to modify an existing variable. Here we used it to create new variables. You can create or modify multiple variables in the same <code>mutate</code> function, separating each one by commas. Notice the use of <code>=</code> to make a variable equal to the output of code, within the <code>mutate</code> function.</p><p>Now we can calculate the number of license revocations for doctors based in California by year:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># license revokations for doctors based in California, by year
+revoked_ca_year &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot; 
+         &amp;amp; state == &quot;CA&quot;) %&amp;gt;%
+  group_by(year) %&amp;gt;%
+  summarize(revocations = n())
+</code></pre>"><span class="hljs-comment"># license revokations for doctors based in California, by year</span>
+revoked_ca_year &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span> 
+         &amp; state == <span class="hljs-string">"CA"</span>) %&gt;%
+  group_by(year) %&gt;%
+  summarize(revocations = n())
+</code></pre><p>This should be the result:</p><p><img src="img/r-analysis_11.jpg" alt=""></p><p>The code first <strong>filters</strong> the data, as before, then <strong>groups</strong> by the new variable <code>year</code> using <code>group_by</code>, then <strong>summarizes</strong> by counting the number of records for each year using <code>summarize</code>. The last function creates a new variable called <code>revocations</code> from <code>n()</code>, which is a count of the rows in the data for each year.</p><p>Looking at this result and the raw <code>ca_discipline</code> data, we only have partial data for 2008. So if we want to count the number of license revocations by month over all the years, we should first <strong>filter</strong> out the data for 2008, which will otherwise skew the result.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># license revokations for doctors based in California, by month
+revoked_ca_month &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot; 
+         &amp;amp; state == &quot;CA&quot;
+         &amp;amp; year &amp;gt;= 2009) %&amp;gt;%
+  group_by(month) %&amp;gt;%
+  summarize(revocations = n())
+</code></pre>"><span class="hljs-comment"># license revokations for doctors based in California, by month</span>
+revoked_ca_month &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span> 
+         &amp; state == <span class="hljs-string">"CA"</span>
+         &amp; year &gt;= <span class="hljs-number">2009</span>) %&gt;%
+  group_by(month) %&gt;%
+  summarize(revocations = n())
+</code></pre><p>This should be the result:</p><p><img src="img/r-analysis_12.jpg" alt=""></p><p>Notice how we used <code>&gt;=</code> to filter for data where the year was 2009 or greater. The following code will achieve the same result:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># license revokations for doctors based in California, by month
+revoked_ca_month &amp;lt;- ca_discipline %&amp;gt;%
+  filter(action_type == &quot;Revoked&quot; 
+         &amp;amp; state == &quot;CA&quot;
+         &amp;amp; year != 2008) %&amp;gt;%
+  group_by(month) %&amp;gt;%
+  summarize(revocations = n())
+</code></pre>"><span class="hljs-comment"># license revokations for doctors based in California, by month</span>
+revoked_ca_month &lt;- ca_discipline %&gt;%
+  filter(action_type == <span class="hljs-string">"Revoked"</span> 
+         &amp; state == <span class="hljs-string">"CA"</span>
+         &amp; year != <span class="hljs-number">2008</span>) %&gt;%
+  group_by(month) %&gt;%
+  summarize(revocations = n())
+</code></pre><p>We can <strong>group</strong> and <strong>summarize</strong> by more than one variable at a time. The following code counts the number of actions of all types, by month and year. Again, we will first <strong>filter</strong> out the incomplete data for 2008.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># disciplinary actions for doctors in California by year and month, from 2009 to 2017
+actions_year_month &amp;lt;- ca_discipline %&amp;gt;%
+  filter(state == &quot;CA&quot;
+         &amp;amp; year &amp;gt;= 2009) %&amp;gt;%
+  group_by(year, month) %&amp;gt;%
+  summarize(actions = n()) %&amp;gt;%
+  arrange(year, month)
+</code></pre>"><span class="hljs-comment"># disciplinary actions for doctors in California by year and month, from 2009 to 2017</span>
+actions_year_month &lt;- ca_discipline %&gt;%
+  filter(state == <span class="hljs-string">"CA"</span>
+         &amp; year &gt;= <span class="hljs-number">2009</span>) %&gt;%
+  group_by(year, month) %&gt;%
+  summarize(actions = n()) %&gt;%
+  arrange(year, month)
+</code></pre><p>The first few rows should look like this:</p><p><img src="img/r-analysis_13.jpg" alt=""></p><p>Notice that both the <code>group_by</code> and <code>arrange</code> functions <strong>group</strong> and <strong>sort</strong> the data, respectively, by two variables, separated by commas.</p><p>Now we will work with the larger data on doctors in California prescribing opioids under Medicare Part D, learn how to <strong>join</strong> data in different data frames, and see how to make some simple charts to help make sense of your data.</p><p>Load and view the data:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># load opioid prescription data
+ca_opioids &amp;lt;- read_csv(&quot;ca_medicare_opioids.csv&quot;)
+
+# look at the data
+View(ca_opioids)
+</code></pre>"><span class="hljs-comment"># load opioid prescription data</span>
+ca_opioids &lt;- read_csv(<span class="hljs-string">"ca_medicare_opioids.csv"</span>)
+
+<span class="hljs-comment"># look at the data</span>
+View(ca_opioids)
+</code></pre><h4 id="create-a-summary,-showing-the-number-of-opioid-prescriptions-written-by-each-doctor,-the-total-cost-of-the-opioids-prescribed,-and-the-cost-per-claim"><a name="create-a-summary,-showing-the-number-of-opioid-prescriptions-written-by-each-doctor,-the-total-cost-of-the-opioids-prescribed,-and-the-cost-per-claim" href="#create-a-summary,-showing-the-number-of-opioid-prescriptions-written-by-each-doctor,-the-total-cost-of-the-opioids-prescribed,-and-the-cost-per-claim"></a>Create a summary, showing the number of opioid prescriptions written by each doctor, the total cost of the opioids prescribed, and the cost per claim</h4><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># Create a summary, showing the number of opioid prescriptions written by each provider, the total cost of the opioids prescribed, and the cost per claim
+provider_summary &amp;lt;- ca_opioids %&amp;gt;% 
+  group_by(npi,
+           nppes_provider_last_org_name,
+           nppes_provider_first_name,
+           nppes_provider_city,
+           specialty_description) %&amp;gt;%
+  summarize(prescriptions = sum(total_claim_count),
+            cost = sum(total_drug_cost)) %&amp;gt;%
+  mutate(cost_per_prescription = cost/prescriptions) %&amp;gt;%
+  arrange(desc(prescriptions))
+</code></pre>"><span class="hljs-comment"># Create a summary, showing the number of opioid prescriptions written by each provider, the total cost of the opioids prescribed, and the cost per claim</span>
+provider_summary &lt;- ca_opioids %&gt;% 
+  group_by(npi,
+           nppes_provider_last_org_name,
+           nppes_provider_first_name,
+           nppes_provider_city,
+           specialty_description) %&gt;%
+  summarize(prescriptions = sum(total_claim_count),
+            cost = sum(total_drug_cost)) %&gt;%
+  mutate(cost_per_prescription = cost/prescriptions) %&gt;%
+  arrange(desc(prescriptions))
+</code></pre><p>There should be 58,736 rows in the data, and the top few should look like this:</p><p><img src="img/r-analysis_14.jpg" alt=""></p><p>When summarizing data, any <code>NA</code> values will cause the summary to be calculated as <code>NA</code>, unless you specify that nulls should be removed. If any of the cost or prescription values had been missing, for example, the summarize function would have to be written like this:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;> summarize(prescriptions = sum(total_claim_count, na.rm = TRUE),
+            cost = sum(total_drug_cost, na.rm = TRUE))
+</code></pre>"> summarize(prescriptions = sum(total_claim_count, na.rm = <span class="hljs-literal">TRUE</span>),
+            cost = sum(total_drug_cost, na.rm = <span class="hljs-literal">TRUE</span>))
+</code></pre><h3 id="draw-some-charts-from-this-summary-data"><a name="draw-some-charts-from-this-summary-data" href="#draw-some-charts-from-this-summary-data"></a>Draw some charts from this summary data</h3><p>While running data analyses, it’s often useful to create charts to look at summaries of the data. Particularly useful are histograms, to examine a distribution, and scatterplots, to see how one variable varies with another.</p><p>To make simple charts, we will use <strong>ggplot2</strong>.</p><h4 id="introducing-ggplot2-and-the-grammar-of-graphics"><a name="introducing-ggplot2-and-the-grammar-of-graphics" href="#introducing-ggplot2-and-the-grammar-of-graphics"></a>Introducing ggplot2 and the grammar of graphics</h4><p>The “gg” in <strong>ggplot2</strong> stands for “<a href="http://www.amazon.com/The-Grammar-Graphics-Statistics-Computing/dp/0387245448">grammar of graphics</a>,” an approach to drawing charts devised by the statistician Leland Wilkinson. Rather than thinking in terms of finished charts like a scatter plot or a column chart, it starts by defining the coordinate system (usually the X and Y axes), maps data onto those coordinates, and then adds layers such as points, bars and so on. This is the logic behind ggplot2 code.</p><p>Some key things to understand about <strong>ggplot2</strong>:</p><ul>
+<li><code>ggplot</code> This is the master function that creates a <strong>ggplot2</strong> chart.</li><li><code>aes</code> This function, named for “aesthetic mapping,” is used whenever data values are mapped onto a chart. So it is used when you define which variables are plotted onto the X and Y axes, and also if you want to change the size or color of parts of the chart according to values for a variable.</li><li><code>geom</code> All of the functions that add layers to a chart start with <code>geom</code>, followed by an underscore, for example <code>geom_point</code> or <code>geom_bar</code>. The code in the parentheses for any <code>geom</code> layer styles the items in that layer, and can include <code>aes</code> mappings of values from data.</li><li><code>theme</code> This function modifies the appearance of elements of a plot, used, for example, to set size and font face for text, the position of a legend, and so on.</li><li><code>scale</code> Functions that begin with <code>scale</code>, followed by an underscore, are used to modify the way an <code>aes</code> mapping of data appears on a chart. They can change the axis range, for example, or specify a color palette to be used to encode values in the data.</li><li><code>+</code> is used each time you add a layer, a scale, a theme, or elements like axis labels and a title. After a <code>+</code> you can continue on the same line of code or move the next line. I usually write a new line after each <code>+</code>, which makes the code easier to follow.</li></ul><h4 id="make-a-histogram-of-the-prescriptions-data"><a name="make-a-histogram-of-the-prescriptions-data" href="#make-a-histogram-of-the-prescriptions-data"></a>Make a histogram of the prescriptions data</h4><p>First load <strong>ggplot2</strong> and the <strong><a href="https://cran.r-project.org/web/packages/scales/scales.pdf">scales</a></strong> package, which allows numbers to be displayed as currency, with thousands separated by commas, and so on.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;>library(ggplot2)
+library(scales)
+</code></pre>"><span class="hljs-keyword">library</span>(ggplot2)
+<span class="hljs-keyword">library</span>(scales)
+</code></pre><p>It’s always a good idea to look at the distribution of any quantitative variable.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># histogram of the costs data
+ggplot(provider_summary, aes(x = prescriptions)) +
+  geom_histogram()
+</code></pre>"><span class="hljs-comment"># histogram of the costs data</span>
+ggplot(provider_summary, aes(x = prescriptions)) +
+  geom_histogram()
+</code></pre><p>This code first stated that the <code>doctor_summary</code> data would be used for the chart in the <code>ggplot</code> function, then specificied that values for the number of prescriptions should be mapped to the X, or horizontal axis. We didn’t need to specify a variable for the Y axis for a histogram, because that is automatically a count of the number of records (here the number of doctors) in each bin.</p><p>This should be the result:</p><p><img src="img/r-analysis_15.png" alt=""></p><p>The following code customizes the width of the bins, to 50 prescriptions, changes the X axis range between 0 and 3,000, and uses <code>labels</code> from the <strong>scales</strong> package to plot numbers with comma separators for thousands. <code>theme_minimal</code> is one of the built-in themes in <strong>ggplot2</strong>, which gives a basic chart with grid lines on a white background.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;>ggplot(provider_summary, aes(x = prescriptions)) +
+  geom_histogram(binwidth = 50) +
+  theme_minimal() +
+  scale_x_continuous(limits = c(0,3000),
+                     labels = comma) +
+  scale_y_continuous(labels = comma)
+</code></pre>">ggplot(provider_summary, aes(x = prescriptions)) +
+  geom_histogram(binwidth = <span class="hljs-number">50</span>) +
+  theme_minimal() +
+  scale_x_continuous(limits = c(<span class="hljs-number">0</span>,<span class="hljs-number">3000</span>),
+                     labels = comma) +
+  scale_y_continuous(labels = comma)
+</code></pre><p><img src="img/r-analysis_16.png" alt=""></p><p>This is a very skewed distribution. Viewing this, we would conclude that the mean would not be a good summary statistic for this data; if we want to compare any doctor’s prescriptions of opioids to that for a “typical” doctor, it would be better to compare to the median number of prescriptions.</p><h4 id="make-a-scatterplot-of-prescriptions-and-costs-data"><a name="make-a-scatterplot-of-prescriptions-and-costs-data" href="#make-a-scatterplot-of-prescriptions-and-costs-data"></a>Make a scatterplot of prescriptions and costs data</h4><p>Scatterplots are good for seeing how one variable relates to one another, and also for spotting outliers in data. Here we would expect the total cost of the drugs prescribed to increase with the total number of prescriptions. A scatterplot allows us to see whether all the doctors are closely clustered around the trend line, or whether there are some interesting outliers.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;>#### Make a scatterplot of prescriptions and costs data
+ggplot(provider_summary, aes(x = prescriptions, y = cost)) +
+  geom_point(alpha = 0.3) +
+  geom_smooth(method = lm) +
+  theme_minimal() +
+  scale_x_continuous(labels = comma) +
+  scale_y_continuous(labels = dollar)
+</code></pre>"><span class="hljs-comment">#### Make a scatterplot of prescriptions and costs data</span>
+ggplot(provider_summary, aes(x = prescriptions, y = cost)) +
+  geom_point(alpha = <span class="hljs-number">0.3</span>) +
+  geom_smooth(method = lm) +
+  theme_minimal() +
+  scale_x_continuous(labels = comma) +
+  scale_y_continuous(labels = dollar)
+</code></pre><p>In this code, we mapped the number of <code>prescriptions</code> to the X axis and their total <code>cost</code> to the Y or vertical axis. We then used <code>geom_point</code> to add the points, and made them partially transparent using <code>alpha = 0.3</code> (0 would be completely transparent; 1 would be completely opaque). <code>geom_smooth</code> added a trend line through the data; <code>method = lm</code> ensured that this is fitted with a “linear model,” giving a straight line. <code>labels = dollar</code> formatted the Y axis so the numbers were shown in dollars.</p><p>This should be the result:</p><p><img src="img/r-analysis_17.png" alt=""></p><p>We can look sort the data in <code>View</code> to take a look at the doctors with unusually large costs per prescriptions:</p><p><img src="img/r-analysis_18.jpg" alt=""></p><p>Remember the words of caution: There may be some story leads here, but we would have to find out more about each doctor’s practise and patients to determine whether their high costs per prescription are justified.</p><h3 id="join-data-to-find-doctors-who-prescribed-opioids-who-have-also-been-subject-to-disciplinary-actions."><a name="join-data-to-find-doctors-who-prescribed-opioids-who-have-also-been-subject-to-disciplinary-actions." href="#join-data-to-find-doctors-who-prescribed-opioids-who-have-also-been-subject-to-disciplinary-actions."></a>Join data to find doctors who prescribed opioids who have also been subject to disciplinary actions.</h3><p>There are a number of <strong>join</strong> functions in <strong>dplyr</strong> to combine data from two data frames. Here are the most useful:</p><ul>
+<li><code>inner_join</code> returns values from both tables only where there is a match.</li><li><code>left_join</code> returns all the values from the first-mentioned table, plus those from the second table that match.</li><li><code>semi_join</code> filters the first-mentioned table to include only values that have matches in the second table.</li><li><code>anti_join</code> filters the first-mentioned table to include only values that have no matches in the second table.</li></ul><p><a href="http://stat545-ubc.github.io/bit001_dplyr-cheatsheet.html">Here is a useful reference</a> for managing joins with <strong>dplyr</strong>.</p><p>We will join the <code>provider_summary</code> data to the disciplinary actions data to see which of the doctors prescribing opioids have been in trouble with the Medical Board of California. The unique identifier in the prescriber data is their National Provider Identifier, whereas the unique identifier in the disciplinary data are the doctors’ California medical license numbers. So we also need to load the file <code>npi_license.csv</code>, which relates these two identifiers to one another.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># load data
+npi_license &amp;lt;- read_csv(&quot;npi_license.csv&quot;)
+</code></pre>"><span class="hljs-comment"># load data</span>
+npi_license &lt;- read_csv(<span class="hljs-string">"npi_license.csv"</span>)
+</code></pre><p>First we will join these two files to one another:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># join those two data frames
+ca_discipline_npi &amp;lt;- left_join(ca_discipline, npi_license)
+</code></pre>"><span class="hljs-comment"># join those two data frames</span>
+ca_discipline_npi &lt;- left_join(ca_discipline, npi_license)
+</code></pre><p>By default, <strong>dplyr</strong> will join by any variables with matching names, but you can also specify the variables on which to join. So this will achieve the same result:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># join those two data frames
+ca_discipline_npi &amp;lt;- left_join(ca_discipline, npi_license, by = &quot;license&quot;)
+</code></pre>"><span class="hljs-comment"># join those two data frames</span>
+ca_discipline_npi &lt;- left_join(ca_discipline, npi_license, by = <span class="hljs-string">"license"</span>)
+</code></pre><p>If we <code>View</code> the result, the first few rows reveal some of the limitations of the <code>npi_license</code> data. Some of the doctors have not been joined to an <code>npi</code> code, while others appear to have more than one <code>npi</code> code (this is why there are 9,680 rows in the joined data, and only 7,651 in the <code>ca_discipline</code> data).</p><p><img src="img/r-analysis_19.jpg" alt=""></p><p>Having made this join, we can now join to the <code>provider_summary</code> data:</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># join disciplinary action data to the opioid prescription data
+provider_summary_actions &amp;lt;- inner_join(provider_summary, ca_discipline_npi, by = &quot;npi&quot;) %&amp;gt;%
+  arrange(desc(prescriptions))
+</code></pre>"><span class="hljs-comment"># join disciplinary action data to the opioid prescription data</span>
+provider_summary_actions &lt;- inner_join(provider_summary, ca_discipline_npi, by = <span class="hljs-string">"npi"</span>) %&gt;%
+  arrange(desc(prescriptions))
+</code></pre><p>Here are the first few rows in the data:</p><p><img src="img/r-analysis_20.jpg" alt=""></p><p>Individual doctors may appear multiple times in the data if they have more than one disciplinary action on their file, because a join will be made to each individual action.</p><p>We can search for the disciplinary records and look at public documents at <a href="https://www.breeze.ca.gov/">this site</a>.</p><p>The second doctor on our list, Naga Thota, surrendered his California medical license on March 22, 2017. <a href="http://www2.mbc.ca.gov/BreezePDL/document.aspx?path=%5cDIDOCS%5c20170315%5cDMRAAAFC8%5c&amp;did=AAAFC170315180454982.DID">This public document</a> reveals that he was charged with prescribing excessive quantities of opioids to an addicted patient with whom he also engaged in a sexual relationship. In addition to disciplinary action from the Medical Board of California, he faced a criminal investigation by the federal Drug Enforcement Adminstration. In March 2017 <a href="http://www.sandiegouniontribune.com/news/courts/sd-me-thota-sentencing-20170306-story.html">sentenced to two years</a>, he was sentenced to two years in a federal prison.</p><p>The prescriptions data reveal that, prior to his conviction and the loss of his medical license, Thota was also one of the largest prescribers of opioids in the state of California.</p><p>There are likely to be other story leads from this join, which you could follow up through public records and other reporting.</p><p>We’ve already seen that the <code>npi_license</code> data has some limitations. Another (less reliable) way to join the data would be by using the doctors’ first names, last names, and cities. First, however, we need to convert those variables in the <code>ca_discipline_npi</code> data to upper case, so they match the format of the <code>ca_opioids</code> data.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># change case of variables to be used in the join
+ca_discipline_npi &amp;lt;- ca_discipline_npi %&amp;gt;%
+  mutate(last_name = toupper(last_name),
+         first_name = toupper(first_name),
+         city = toupper(city))
+
+# join disciplinary action data to the opioid prescription data
+provider_summary_actions_2 &amp;lt;- inner_join(provider_summary, ca_discipline_npi, by = c(&quot;nppes_provider_last_org_name&quot; = &quot;last_name&quot;, 
+                                                                                 &quot;nppes_provider_first_name&quot; = &quot;first_name&quot;,
+                                                                                 &quot;nppes_provider_city&quot; = &quot;city&quot;)) %&amp;gt;%
+  arrange(desc(prescriptions))
+</code></pre>"><span class="hljs-comment"># change case of variables to be used in the join</span>
+ca_discipline_npi &lt;- ca_discipline_npi %&gt;%
+  mutate(last_name = toupper(last_name),
+         first_name = toupper(first_name),
+         city = toupper(city))
+
+<span class="hljs-comment"># join disciplinary action data to the opioid prescription data</span>
+provider_summary_actions_2 &lt;- inner_join(provider_summary, ca_discipline_npi, by = c(<span class="hljs-string">"nppes_provider_last_org_name"</span> = <span class="hljs-string">"last_name"</span>, 
+                                                                                 <span class="hljs-string">"nppes_provider_first_name"</span> = <span class="hljs-string">"first_name"</span>,
+                                                                                 <span class="hljs-string">"nppes_provider_city"</span> = <span class="hljs-string">"city"</span>)) %&gt;%
+  arrange(desc(prescriptions))
+</code></pre><p>Notice how the code is written to define the variables to be used for a custom join.</p><p>Now we can use an <code>anti_join</code> to see if this join picked up any doctors who were missing from the first.</p><pre class="r hljs"><code class="R" data-origin="<pre><code class=&quot;R&quot;># join disciplinary action data to the opioid prescription data
+provider_summary_actions_extra &amp;lt;- anti_join(provider_summary_actions_2, provider_summary_actions)
+</code></pre>"><span class="hljs-comment"># join disciplinary action data to the opioid prescription data</span>
+provider_summary_actions_extra &lt;- anti_join(provider_summary_actions_2, provider_summary_actions)
+</code></pre><p>Here are the first few rows in that data:</p><p><img src="img/r-analysis_21.jpg" alt=""></p><p>Whenever making an join in this way, it crucial to verify through further reporting that the individuals matched are the same person. For example, there are several doctors called Peter Lee in Los Angeles. The one with the disciplinary record is <a href="https://search.dca.ca.gov/details/8002/G/84673/aebacf63f2746d6ce6ac729ebbbe54f5">Peter Geon Lee</a>, a plastic surgeon. This is not <a href="https://search.dca.ca.gov/details/8002/A/47846/e516806f7ff2db771d5b14b7d175c755">Peter Chong Lee</a>, the physical medicine and rehabilitation specialist, with the NPI of <code>1063508786</code>, listed in the <code>ca_opioids</code> data. There may well be other false matches in the data.</p><h3 id="further-reading"><a name="further-reading" href="#further-reading"></a>Further reading</h3><p><strong><a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">Introduction to dplyr</a></strong></p><p><strong><a href="https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf">RStudio Data Wrangling Cheet Sheet</a></strong><br>Also introduces the <a href="https://blog.rstudio.org/2014/07/22/introducing-tidyr/"><strong>tidyr</strong></a> package, which can manage wide-to-long transformations, and text-to-columns splits, among other data manipulations.</p><p><strong><a href="http://stackoverflow.com/">Stack Overflow</a></strong><br>For any work involving code, this question-and-answer site is a great resource for when you get stuck, to see how others have solved similar problems. Search the site, or <a href="http://stackoverflow.com/questions/tagged/r">browse R questions</a></p><p><a href="http://www.amazon.com/R-Graphics-Cookbook-Winston-Chang/dp/1449316956"><strong><em>R Graphics Cookbook</em></strong></a> by Winston Chang<br>(Chang also has <a href="http://www.cookbook-r.com/">a helpful website</a> with much of the same information, available for free.)</p><p><a href="https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf"><strong>RStudio ggplot2 Cheat Sheet</strong></a></p><p><a href="http://ggplot2.tidyverse.org/reference/"><strong>ggplot2 documentation</strong></a></p>
+
+	</div> <!-- /.container all -->
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>
