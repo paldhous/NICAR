@@ -18,7 +18,7 @@ I'm not a data scientist, I'm a reporter. What's in it for me? What type of stor
 
 ##### [Meeting link](https://www.ire.org/events-and-training/event/3189/3551/)
 
-###[Data analysis and plotting in R](r-analysist.html)
+###[Data analysis and plotting in R](r-analysis.html)
 
 ####**Friday March 9, 10.15am**
 #####**Location: Northwestern/Ohio St**
