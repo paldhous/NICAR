@@ -381,7 +381,7 @@ names(longevity) &amp;lt;- c(&quot;Country&quot;,&quot;Income group&quot;,&quot;
 longevity &lt;- nations %&gt;%
   filter(year == <span class="hljs-number">2014</span> &amp; !is.na(life_expect)) %&gt;%
   select(country, life_expect, income, region) %&gt;%
-  arrange(desc(life_expectancy))
+  arrange(desc(life_expect))
 
 <span class="hljs-comment"># rename the variables for display in the table</span>
 names(longevity) &lt;- c(<span class="hljs-string">"Country"</span>,<span class="hljs-string">"Income group"</span>,<span class="hljs-string">"Region"</span>,<span class="hljs-string">"Life expectancy"</span>)
