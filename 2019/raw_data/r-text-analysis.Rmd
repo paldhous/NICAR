@@ -106,11 +106,11 @@ When David Robinson ran his analysis, he found that Trump's characteristically a
 ```{r, message=FALSE}
 tweets <- tweets %>%
   mutate(source2 = case_when(grepl("Ads|Media",source) ~ "aides",
-                            !grepl("Ads|Media",source) ~ "trump"))
+                            TRUE ~ "trump"))
 ```
 
 
-### Split the text into words, and word pairs
+### Split the text into words and word pairs
 
 The key to **tidytext** is the function `unnest_tokens`, which splits up text in a defined manner according to the `token` used, creating a new row in the data for each of the split sections. Run the code below and examine the result:
 
@@ -124,7 +124,7 @@ words <- tweets %>%
 
 This code first filters out all retweets, so that we are only looking at original text written by the @realDonaldTrump account. The `mutate` section then removes URLs and other unwanted characters using our regular expression, before `unnest_tokens` does its magic. It splits the `text` of each tweet into individual words. Usually, when splitting text into words, you would use  `token = "words"`. Here, we used `token = "tweets"`, which is a variant that retains hashtag `#` and `@` symbols. (By default, `unnest_tokens` also converts text to lower case.)
 
-But notice that the words include common words like `the` and `this`. To analyze someone's distinctive word use, you want to remove these words. That can be done with an `anti_join` to **tidytext**'s list of `stop_words`. (See the [Twitter chapter](https://www.tidytextmining.com/twitter.html) from the  *Tidy Text Mining With R* book, recommended below, for a more sophisticated way to filter out stop words that will also remove stop words preceded by a hashtag.)
+But notice that the words include common words like `the` and `this`. To analyze someone's distinctive word use, you want to remove these words. That can be done with an `anti_join` to **tidytext**'s list of `stop_words`. (See the [Twitter chapter](https://www.tidytextmining.com/twitter.html) from the *Tidy Text Mining With R* book, recommended below, for a more sophisticated way to filter out stop words that will also remove stop words preceded by a hashtag.)
 
 To understand why this works, we'll first view the `stop_words` object to see that it contains a variable called `word`, listing stop words from a number of different lexicons. So we can `anti_join` to our data frame on this column to filter out any rows that match these words.
 
@@ -256,7 +256,7 @@ sentiments <- words %>%
   anti_join(custom_stop_words, by = "word")
 ```
 
-If we want to compare the emotional content of Trump's tweets with that of his aides, we need to look at the percentage of negative words from the total of negative plus positive words. The code below achieves that. It's a little more complex than the simple counts used about, but uses common **dplyr** functions:
+If we want to compare the emotional content of Trump's tweets with that of his aides, we need to look at the percentage of negative words from the total of negative plus positive words. The code below achieves that. It's a little more complex than simple counts, but uses common **dplyr** functions:
 
 ```{r, message=FALSE}
 sentiments_counts <- sentiments %>%
@@ -301,11 +301,11 @@ datatable(handles)
 
 <br>
 
-I guess from this we should conclude that Trump likes Fox News more than he hates the New York Times and CNN. (Only my own employer BuzzFeed, however, has earned the moniker "[Failing Pile Of Garbage](https://www.cnbc.com/2017/01/11/buzzfeed-selling-failing-pile-of-garbage-products-after-trump-speech.html).")
+I guess from this we should conclude that Trump likes Fox News more than he hates the New York Times and CNN. (Only my own employer BuzzFeed, however, has earned the insult "[Failing Pile Of Garbage](https://www.cnbc.com/2017/01/11/buzzfeed-selling-failing-pile-of-garbage-products-after-trump-speech.html).")
 
 ## Analyzing State of the Union addresses
 
-Sometimes when running a text analysis you may need to count words, sentences, and syllables. the **quanteda** package is good for this. We'll see it in action on the text of State of the Union addresses. So let's load that data, together with **quanteda** and **ggplot2**, so we can draw a chart from our quantitaive analysis of the text.
+Sometimes when running a text analysis you may need to count words, sentences, and syllables. the **quanteda** package is good for this. We'll see it in action on the text of State of the Union addresses. So let's load that data, together with **quanteda** and **ggplot2**, so we can draw a chart from our quantitative analysis of the text.
 
 ### Setting up
 
