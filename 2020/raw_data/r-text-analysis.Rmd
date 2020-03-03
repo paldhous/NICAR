@@ -1,0 +1,359 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(out.width="900px", dpi=300)
+library(DT)
+```
+
+<br>
+<br>
+
+# Text mining in R with tidytext
+
+## Introducing tidytext
+
+This class assumes you're familiar with using **[R](https://www.r-project.org/)**, **[RStudio](https://www.rstudio.com/)** and the **[tidyverse](https://www.tidyverse.org/)**, a coordinated series of packages for data science. If you'd like a refresher on basic data analysis in tidyverse, try [this class](https://paldhous.github.io/NICAR/2018/r-analysis.html) from the 2018 NICAR meeting.
+
+**[tidytext](https://cran.r-project.org/web/packages/tidytext/tidytext.pdf)** is an R package that applies the principles of the tidyverse to analyzing text.
+
+(We will also touch upon the **[quanteda](https://quanteda.io/)** package, which is good for quantitative tasks like counting the number of words and syllables in a body of text.)
+
+If working on your own computer, you will need to install **tidyverse**, **tidytext**, and **quanteda**.
+
+## The data we will use
+
+The data for this session should be loaded on the computers at NICAR. If you're working through this class remotely or on your own computer at the meeting, download the data from [here](data/r-text-analysis.zip), unzip the folder and place it on your desktop. It contains the following files:
+
+`trump_tweets.json` Tweets from Donald Trump's [personal Twitter account](https://twitter.com/realDonaldTrump) from his inauguration on Jan. 20, 2017 to the end of 2019; downloaded from the [Trump Twitter Archive](http://www.trumptwitterarchive.com/). Contains the following variables:
+
+ - `source` Platform/device used to tweet.
+ - `text` The text of the tweet.
+ - `created_at` When the tweet was sent.
+ - `retweet_count` Number of times the tweet was retweeted.
+ - `favorite_count` Number of times the tweet was favorited.
+ - `is_retweet` Was it a retweet? `TRUE` or `FALSE`
+ - `id_str` unique tweet ID.
+
+`sou.csv` Text of annual presidential State of the Union addresses from 1790 to 2020, from the [American Presidency Project](https://www.presidency.ucsb.edu/documents/presidential-documents-archive-guidebook/annual-messages-congress-the-state-the-union). Contains the following variables:
+
+  - `link` URL for the address at the time the data was obtained.
+  - `president` Name of President.
+  - `message` Title of address.
+  - `date` Date of delivery.
+  - `text` Text of the address.
+  - `party` President's party.
+
+Some of the addresses were written, some spoken. Where there was both a spoken address and a written message, the text is from the speech. In 1973, Richard Nixon sent an overview, plus multiple reports to Congress on various areas of policy; here the text is from his overview message.
+
+## Analyzing Trump's tweets
+
+To understand how **tidytext** works, we'll look at tweets from Trump's [personal Twitter](https://twitter.com/realDonaldTrump) account. As we'll see, most but not all of these tweets seem to be from Trump himself, and they're rather different from those apparently tweeted by his aides. The analysis below is inspired by an [earlier exploration](http://varianceexplained.org/r/trump-tweets/) of Trump's tweets, run during the 2016 presidential campaign by David Robinson, one of the authors of **tidytext**. 
+
+### Setting up
+
+The code below loads the packages we'll be using for this analysis; their role is explained in the code comments. It also loads the data, and includes a regular expression to help parse the tweets, which we'll use to filter out URLs, `RT`, and other extraneous characters that we don't want to include in the text analysis. 
+
+At the end of this chunk, I've also included some code to parse the `created_at` variable into a standard timestamp, to convert that from UTC to US Eastern Time, and to extract the year and month from US Eastern timestamp. While we won't be analyzing tweets over time in this class, this should set you up to perform some month-by-month analyses of Trump's most frequently used words or phrases and the sentiment of his tweets.
+
+```{r, message=FALSE}
+# load required packages
+library(readr) # reading and writing delimited text files
+library(dplyr) # SQL-style data processing
+library(tidytext) # text analysis in R
+library(stringr) # working with text strings
+library(lubridate) # working with times and dates
+library(jsonlite) # reading and writing JSON
+library(tidyr) # data reshaping
+
+# load data
+tweets <- fromJSON("trump_tweets.json")
+
+# regex for parsing tweets
+replace_reg <- "https?://[^\\s]+|&amp;|&lt;|&gt;|\bRT\\b"
+
+# create date elements
+tweets <- tweets %>%
+  mutate(created_at = paste(substr(created_at,27,30),
+                      substr(created_at,5,7),
+                      substr(created_at,9,10),
+                      substr(created_at,12,20)),
+         utc_timestamp = ymd_hms(created_at),
+         est_timestamp = with_tz(utc_timestamp, tz = "US/Eastern"),
+         year = year(est_timestamp),
+         month = month(est_timestamp))
+```
+
+### What devices/platforms has @realDonaldTrump tweeted on?
+
+The `source` variable allows us to make a quick tally of the devices and platforms used to tweet from this account.
+
+```{r, message=FALSE}
+sources <- tweets %>%
+  group_by(source) %>%
+  count() %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(sources)
+```
+
+<br>
+
+When David Robinson ran his analysis, he found that Trump's characteristically angry tweets came from his Android phone. Since assuming the presidency, Trump has mostly [used an iPhone](https://www.nytimes.com/2018/10/24/us/politics/trump-phone-security.html). In the class, we'll briefly examine the tweets from different devices and platforms. The ones that obviously stand out from the rest are those tweeted using Twitter's [Media Studio](https://media.twitter.com/content/media-twitter/en_us/articles/products/2018/media-studio.html) or [Twitter Ads](https://business.twitter.com/en/solutions/twitter-ads.html), which are professional tools used for Twitter campaigns. These, I assume, are tweets sent by Trump's communications staff, so let's create a new variable in the data making that distinction, calling it `source2`.
+
+```{r, message=FALSE}
+tweets <- tweets %>%
+  mutate(source2 = case_when(grepl("Ads|Media",source) ~ "aides",
+                            TRUE ~ "trump"))
+```
+
+
+### Split the text into words and word pairs
+
+The key to **tidytext** is the function `unnest_tokens`, which splits up text in a defined manner according to the `token` used, creating a new row in the data for each of the split sections. Run the code below and examine the result:
+
+```{r, message=FALSE}
+# split into words
+words <- tweets %>%
+  filter(is_retweet == FALSE & substring(text,1,2) != "RT" & substring(text,1,4) != "http") %>%
+  mutate(text = str_replace_all(text, replace_reg, "")) %>%
+  unnest_tokens(word, text, token = "tweets")
+```
+
+This code first filters out all retweets, so that we are only looking at original text written by the @realDonaldTrump account, and tweets in which the account tweeted only a link. The `mutate` section then removes URLs and other unwanted characters using our regular expression, before `unnest_tokens` does its magic. It splits the `text` of each tweet into individual words. Usually, when splitting text into words, you would use  `token = "words"`. Here, we used `token = "tweets"`, which is a variant that retains hashtag `#` and `@` symbols. (By default, `unnest_tokens` also converts text to lower case.)
+
+But notice that the words include common words like `the` and `this`. To analyze someone's distinctive word use, you want to remove these words. That can be done with an `anti_join` to **tidytext**'s list of `stop_words`. (See the [Twitter chapter](https://www.tidytextmining.com/twitter.html) from the *Tidy Text Mining With R* book, recommended below, for a more sophisticated way to filter out stop words that will also remove stop words preceded by a hashtag.)
+
+To understand why this works, we'll first view the `stop_words` object to see that it contains a variable called `word`, listing stop words from a number of different lexicons. So we can `anti_join` to our data frame on this column to filter out any rows that match these words.
+
+```{r, message=FALSE}
+View(stop_words)
+
+# remove stop words
+words <- words %>%
+  anti_join(stop_words, by = "word")
+```
+
+I have found that analyzing word pairs, or bigrams, can often be more revealing than looking at individual words. So let's also create a data frame of bigrams.
+
+Here, `unnest_tokens` uses `token = "ngrams", n = 2)` to split the text into word pairs. 
+
+```{r, message=FALSE}
+# split into word pairs
+bigrams <- tweets %>% 
+  filter(is_retweet == FALSE & substring(text,1,4) != "http" & substring(text,1,2) != "RT") %>%
+  mutate(text = str_replace_all(text, replace_reg, "")) %>%
+  unnest_tokens(bigram, text, token = "ngrams", n = 2)
+```
+
+Removing word pairs that contain stop words is a little more involved in this case. First, we split each bigram into its individual components using the `separate` function from the **tidyr** package. Having done that, we need two `anti_join`s, specifying how each join should be made, to remove any bigrams that contain a stop word.
+
+The last part of the code below filters the data to remove any bigrams containing "words" without any alphabetic characters.
+
+```{r, message=FALSE}
+# remove stop words
+bigrams <- bigrams %>%
+  separate(bigram, into = c("first","second"), sep = " ", remove = FALSE) %>%
+  anti_join(stop_words, by = c("first" = "word")) %>%
+  anti_join(stop_words, by = c("second" = "word")) %>%
+  filter(str_detect(first, "[a-z]") &
+         str_detect(second, "[a-z]"))
+```
+
+### What words were used most often by Trump and by his aides?
+
+Having created tidy data frames with one row for each mention of a word or bigram, it's easy to analyze the frequency of word use with **dplyr**:
+
+```{r, message=FALSE}
+words_count <- words %>%
+  group_by(source2, word) %>%
+  count()
+
+trump_words <- words_count %>%
+  filter(source2 == "trump") %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(trump_words)
+```
+
+<br>
+
+```{r, message=FALSE}
+aides_words <- words_count %>%
+  filter(source2 == "aides") %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(aides_words)
+```
+
+<br>
+
+### Now let's look at the most common word pairs
+
+```{r, message = FALSE}
+bigrams_count <- bigrams %>%
+  group_by(source2,bigram) %>%
+  count()
+
+trump_bigrams <- bigrams_count %>%
+  filter(source2 == "trump") %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning = FALSE}
+datatable(trump_bigrams)
+```
+
+<br>
+
+
+```{r, message=FALSE}
+aides_bigrams <- bigrams_count %>%
+  filter(source2 == "aides") %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(aides_bigrams)
+```
+
+<br>
+
+There's an obvious difference in the tweets from Trump himself and his aides.
+
+### How do the sentiments of tweets by Trump and his aides differ?
+
+As well as allowing you to analyze word usage, **tidytext** supports sentiment analysis. Using the function `get_sentiments` you can create a data frame with a lexicon of words associated with particular sentiments. In his earlier analysis of Trump's tweets, David Robinson used a lexicon with several distinct emotions. Here, for simplicity, we'll use [this lexicon](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html), which simply rates words as positive or negative. (See the [sentiment analysis chapter](https://www.tidytextmining.com/sentiment.html) of the *Tidy Text Mining With R* book for more on the available lexicons.)
+
+Associating words in the tweets with sentiments can then be done with an `inner_join`. In the code below, I've also created a data frame of custom stop words, to remove words that are associated with sentiments in the lexicon, but which have a different meaning in the context of Trump and politics. They can then be removed with an `anti_join`.
+
+
+```{r, message=FALSE}
+# load lexicon from https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
+bing <- get_sentiments("bing")
+View(bing)
+
+# custom stop words, to be removed from analysis
+custom_stop_words <- tibble(word = c("trump","critical","issues","issue"))
+
+# join sentiments
+sentiments <- words %>%
+  inner_join(bing, by = "word") %>%
+  anti_join(custom_stop_words, by = "word")
+```
+
+If we want to compare the emotional content of Trump's tweets with that of his aides, we need to look at the percentage of negative words from the total of negative plus positive words. The code below achieves that. It's a little more complex than simple counts, but uses common **dplyr** functions:
+
+```{r, message=FALSE}
+sentiments_counts <- sentiments %>%
+  group_by(source2) %>%
+  count(sentiment) %>%
+  arrange(-n)
+
+negative_freqs <- sentiments_counts %>%
+  left_join(sentiments_counts %>% 
+              group_by(source2) %>% 
+              summarise(total = sum(n))) %>%
+  mutate(percent = round(n/total*100,2)) %>%
+  filter(sentiment == "negative")
+```
+
+<br>
+
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
+datatable(negative_freqs)
+```
+
+
+### Which Twitter accounts has Trump mentioned most often?
+
+Before we leave Trump's tweets, we'll look at which Twitter handles he has mentioned most often. The code below filters his tweets the data for words containing `@`, removes any isolated `@` symbols, removes the `'s`" from any possessives, and then counts the mentions of each handle.
+
+```{r, message=FALSE}
+handles <- words %>%
+  filter(grepl("@",word) & word != "@" & source2 == "trump") %>% 
+  # clean possessives
+  mutate(word = gsub("'s","", word)) %>%
+  count(word) %>%
+  arrange(-n)
+```
+
+<br>
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+datatable(handles)
+```
+
+<br>
+
+I guess from this we should conclude that Trump likes Fox News more than he hates the New York Times and CNN. (Only my own employer BuzzFeed, however, has earned the insult "[Failing Pile Of Garbage](https://www.cnbc.com/2017/01/11/buzzfeed-selling-failing-pile-of-garbage-products-after-trump-speech.html).")
+
+## Analyzing State of the Union addresses
+
+Sometimes when running a text analysis you may need to count words, sentences, and syllables. the **quanteda** package is good for this. We'll see it in action on the text of State of the Union addresses. So let's load that data, together with **quanteda** and **ggplot2**, so we can draw a chart from our quantitative analysis of the text.
+
+### Setting up
+
+```{r, message = FALSE, warning=FALSE}
+# load required packages
+library(quanteda)
+library(ggplot2)
+
+# load data
+sou <- read_csv("sou.csv")
+```
+
+The code below uses the **quanteda** functions `ntoken`, `nsentence` and `nsyllable` to count the words, sentences, and syllables in each addresss. Then it uses those values to calculate the [Flesch-Kincaid reading grade level](https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests), a widely used measure of linguistic complexity.
+
+```{r, message = FALSE}
+# word, sentence, and syllable counts, plus reading scores
+sou <- sou %>%
+  mutate(syllables = nsyllable(text),
+         sentences = nsentence(text),
+         words = ntoken(text, remove_punct = TRUE),
+         fk_grade = 0.39*(words/sentences) + 11.8*(syllables/words) - 15.59) %>%
+  arrange(date)
+```
+
+The following chart shows how the reading grade level of State of the Union addresses has declined over the years. The points on the chart are colored by party, and scaled by the length of the address in words.
+
+```{r, message = FALSE}
+# color palette for parties
+party_pal <- c("#1482EE","#228B22","#E9967A","#686868","#FF3300","#EEC900")
+
+# reading score chart
+ggplot(sou, aes(x = date, y = fk_grade, color = party, size = words)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(se = FALSE, color = "black", method = "lm", size = 0.5, linetype = "dotted") +
+  scale_size_area(max_size = 10, guide = FALSE) +
+  scale_color_manual(values = party_pal, name = "", breaks = c("Democratic","Republican","Whig","Democratic-Republican","Federalist","None")) +
+  scale_y_continuous(limits = c(4,27), breaks = c(5,10,15,20,25)) +
+  theme_minimal(base_size = 18) +
+  xlab("") +
+  ylab("Reading level") +
+  guides(col = guide_legend(ncol = 2, override.aes = list(size = 4))) +
+  theme(legend.position = c(0.4,0.22),
+        legend.text = element_text(color="#909090", size = 16),
+        panel.grid.minor = element_blank())
+```
+
+## Further reading
+
+**[Text Mining With R](https://www.tidytextmining.com/)**
+Excellent, free e-book from Julia Silge and David Robinson, authors of the tidytext package.
+
+
