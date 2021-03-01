@@ -66,101 +66,102 @@ immun_counties_year <- immun %>%
 immun_top5_year <- inner_join(immun_counties_year,top5)
 
 # bar chart by year, entire state
-ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) %>%
-  + geom_bar(stat="identity", fill="red", alpha=0.7) %>%
-  + theme_minimal() %>%
-  + scale_y_continuous(labels = scales::percent) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + xlab("") %>%
-  + ylab("Incomplete") %>%
-  + ggtitle("Immunization in California kindergartens, entire state") %>%
-  + theme(panel.grid.major.x = element_blank(),
+ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) +
+  geom_bar(stat="identity", fill="red", alpha=0.7) +
+  geom_hline(yintercept = 0, size = 0.3) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  xlab("") +
+  ylab("Incomplete") +
+  ggtitle("Immunization in California kindergartens, entire state") +
+  theme(panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
-          text=element_text(size=16))
+          text=element_text(size=14))
 
 # dot and line chart by year
-ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) %>%
-  + geom_line(size=1, color="red") %>%
-  + geom_point(size=3, color="red") %>%
-  + theme_minimal() %>%
-  + scale_y_continuous(labels = scales::percent, limits=c(0,0.1)) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + xlab("") %>%
-  + ylab("Incomplete") %>%
-  + ggtitle("Immunization in California kindergartens, entire state") %>%
-  + theme(text=element_text(size=16))
+ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) +
+  geom_line(size=1, color="red") +
+  geom_point(size=3, color="red") +
+  geom_hline(yintercept = 0, size = 0.3) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  scale_y_continuous(labels = scales::percent, limits=c(0,0.1)) +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  xlab("") +
+  ylab("Incomplete") +
+  ggtitle("Immunization in California kindergartens, entire state")
 
 # line chart by year
-ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) %>%
-  + geom_line(size=1.5, color="red") %>%
-  + theme_minimal() %>%
-  + scale_y_continuous(labels = scales::percent, limits=c(0.06,0.1)) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + xlab("") %>%
-  + ylab("Incomplete") %>%
-  + ggtitle("Immunization in California kindergartens, entire state") %>%
-  + theme(text=element_text(size=16))
+ggplot(immun_year, aes(x=start_year, y=pc_incomplete)) +
+  geom_line(size=1.5, color="red") +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  scale_y_continuous(labels = scales::percent, limits=c(0.06,0.1)) +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  xlab("") +
+  ylab("Incomplete") +
+  ggtitle("Immunization in California kindergartens, entire state") 
 
 # dot and line chart, top5 counties, by year
-ggplot(immun_top5_year, aes(x=start_year, y=pc_incomplete, color=county)) %>%
-  + scale_color_brewer(palette = "Set1", name = "") %>%
-  + geom_line(size=1) %>%
-  + geom_point(size=3) %>%
-  + theme_minimal() %>%
-  + scale_y_continuous(labels = scales::percent, limits = c(0,0.15)) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + xlab("") %>% 
-  + ylab("Incomplete") %>%
-  + theme(legend.position="bottom") %>%
-  + ggtitle("Immunization in California kindergartens\n(five largest counties)") %>%
-  + theme(text=element_text(size=16))
+ggplot(immun_top5_year, aes(x=start_year, y=pc_incomplete, color=county)) +
+  scale_color_brewer(palette = "Set1", name = "") +
+  geom_hline(yintercept = 0, size = 0.3) +
+  geom_line(size=1) +
+  geom_point(size=3) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  scale_y_continuous(labels = scales::percent, limits = c(0,0.15)) +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  xlab("") +
+  ylab("Incomplete") +
+  theme(legend.position="bottom") +
+  ggtitle("Immunization in California kindergartens\n(five largest counties)") 
 
 
 # dot and line chart, all counties, by year
-ggplot(immun_counties_year, aes(x=start_year, y=pc_incomplete, color=county)) %>%
-  + geom_line(size=1) %>%
-  + geom_point(size=3) %>%
-  + theme_minimal() %>%
-  + theme(legend.position="none") %>%
-  + scale_y_continuous(labels = scales::percent) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + xlab("") %>%
-  + ylab("Incomplete") %>%
-  + ggtitle("Immunization in California kindergartens, by county") %>%
-  + theme(text=element_text(size=16))
+ggplot(immun_counties_year, aes(x=start_year, y=pc_incomplete, color=county)) +
+  geom_hline(yintercept = 0, size = 0.3) +
+  geom_line(size=1) +
+  geom_point(size=3) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  theme(legend.position="none") +
+  scale_y_continuous(labels = scales::percent) +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  xlab("") +
+  ylab("Incomplete") +
+  ggtitle("Immunization in California kindergartens, by county")
   
 # heat map, all counties, by year
-ggplot(immun_counties_year, aes(x=start_year, y=county)) %>%
-  + geom_tile(aes(fill = pc_incomplete), colour = "white") %>%
-  + scale_fill_gradient(low = "white", 
+ggplot(immun_counties_year, aes(x=start_year, y=reorder(county,desc(county)))) +
+  geom_tile(aes(fill = pc_incomplete), colour = "white") +
+  scale_fill_gradient(low = "white", 
                         high = "red", name="", 
-                        labels = scales::percent) %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + theme_minimal() %>%
-  + xlab("") %>%
-  + ylab("County") %>%
-  + theme(panel.grid.major = element_blank(),
+                        labels = scales::percent,
+                        na.value = "#cccccc") +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  xlab("") +
+  ylab("") +
+  theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           legend.position="bottom",
           legend.key.height = unit(0.4, "cm"),
-          text=element_text(size=14)) %>%
-  + ggtitle("Immunization in California kindergartens, by county")
+          text=element_text(size=14)) +
+  ggtitle("Immunization in California kindergartens, by county")
 
 # show all schools, by year
-ggplot(immun, aes(x=start_year, y=incomplete_pc/100)) %>%
-  + geom_point(position="jitter", 
+ggplot(immun, aes(x=start_year, y=incomplete_pc/100)) +
+  geom_point(position="jitter", 
                color="red", 
                alpha=0.1, 
-               aes(size=enrollment)) %>%
-  + scale_color_gradient(low = "white", high = "red") %>%
-  + scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) %>%
-  + scale_y_continuous(labels = scales::percent) %>%
-  + theme_minimal() %>%
-  + xlab("") %>%
-  + ylab("Incomplete") %>%
-  + guides(size=guide_legend(title="Enrollment")) %>%
-  + ggtitle("Immunization in California kindergartens") %>%
-  + theme(panel.grid.major.x = element_blank(),
+               aes(size=enrollment)) +
+  # geom_hline(yintercept = 0, size = 0.3) +
+  scale_color_gradient(low = "white", high = "red") +
+  scale_x_continuous(breaks = c(2002,2004,2006,2008,2010,2012,2014)) +
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal(base_family = "Arial Bold", base_size = 14) +
+  xlab("") +
+  ylab("Incomplete") +
+  guides(size=guide_legend(title="Enrollment")) +
+  ggtitle("Immunization in California kindergartens") +
+  theme(panel.grid.major.x = element_blank(),
           panel.grid.minor.x = element_blank(),
-          legend.position="bottom",
-          text=element_text(size=16))
+          legend.position="bottom")
