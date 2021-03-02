@@ -51,7 +51,7 @@ data like this.
 
 If you are willing to learn some simple code, the R [**raster**](https://rspatial.org/raster/pkg/index.html) package
 is very powerful, allowing you to work with gridded data in flexible
-ways. Below are some code examples to give you a flavor of the possibilities.
+ways. Below are some code examples to give you a flavor of the possibilities. You can download the data used from the link in the navigation bar.
 
 ### Processing NASA's GISTEMP global temperature analysis
 
@@ -59,10 +59,7 @@ NASA's [GISTEMP](https://data.giss.nasa.gov/gistemp/) surface
 temperature analysis contains monthly temperature records from 1880 onward for a
 global grid with cells of 2 degrees latitude by 2 degrees longitude. The values in each cell are the difference between average temperature for that time period compared to the average for a reference period from 1951 to 1980.
 
-The code below processes this data, available
-for download from
-[here](https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz)
-as a netCDF file, to the data files used to make this interactive:
+The code below processes [this netCDF data](https://data.giss.nasa.gov/pub/gistemp/gistemp1200_GHCNv4_ERSSTv5.nc.gz) to the data files used to make this interactive:
 
 <iframe src="https://data.buzzfeed.com/projects/climate-files/temperature.html" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">
 
