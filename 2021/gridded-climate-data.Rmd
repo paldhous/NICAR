@@ -1,6 +1,9 @@
 ---
-title: "NICAR 2021: Using data to report on climate change"
-author: Peter Aldhous
+title: 'NICAR 2021: Using data to report on climate change'
+author: "Peter Aldhous"
+output:
+  word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include = FALSE}

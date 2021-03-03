@@ -3,7 +3,7 @@
 
 ###[Using data to report on climate change: Learning to love gridded climate data](gridded-climate-data.html)
 
-####**Weds March 3, 9.00am**
+####**Weds March 3, 9.00am Pacific, 12 noon Eastern**
 
 ##### [Slides, notes, and code](gridded-climate-data.html)
 
