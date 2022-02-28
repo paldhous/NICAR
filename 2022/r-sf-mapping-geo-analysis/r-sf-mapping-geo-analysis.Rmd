@@ -53,16 +53,16 @@ Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocod
 
 ```{r}
 # load addresses data
-sf_addresses <- read_tsv("sf_test_addresses.tsv")
+addresses <- read_tsv("sf_test_addresses.tsv")
 
 # geocode
-sf_addresses <- geocode(sf_addresses,
+addresses <- geocode(sf_addresses,
                         address = address,
                         method = "arcgis",
                         full_results = TRUE)
 
 # look at the geocoded data
-view(sf_addresses)
+view(addresses)
 ```
 
 Including `full_results = TRUE` in this code provides some information about the estimated accuracy of the geocoding.
