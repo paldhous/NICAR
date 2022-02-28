@@ -8,7 +8,7 @@ The simple features or [**sf**](https://r-spatial.github.io/sf/) R package allow
 
 If you are working in the computers provided at the NICAR meeting, the packages listed in the code chunk below should already be installed. If you are working on your own computer, you will first need to install these packages. For **sf** to work correctly, you must also have the [Geospatial Data Abstraction Library](https://gdal.org/), or GDAL, installed on your computer. If you routinely work with [QGIS](https://www.qgis.org/en/site/), this should already be installed. If it is not, follow the instructions to install GDAL for your operating system given on the **sf** package [home page](https://r-spatial.github.io/sf/).
 
-Also if working on your own computer, click on the Materials link in the top navigation bar to download a zipped folder containing the data, notes, and code for this class, which is in the file `r-sf-mapping-geo-analysis.Rmd`. Open that file in RStudio, and switch to the [Visual Markdown Editing](https://rstudio.github.io/visual-markdown-editing/) view.
+Also if working on your own computer, click on the Materials link in the top navigation bar to download a zipped folder containing the data, notes, and code for this class, which is in the file `r-sf-mapping-geo-analysis.Rmd`. Open that file in RStudio, and switch to the [Visual Markdown Editing](https://rstudio.github.io/visual-markdown-editing/) view by clicking the ![visual editing button](https://rstudio.github.io/visual-markdown-editing/images/visual_mode_2x.png) button at the top-right of the document toolbar.
 
 With the required packages all installed, run the code below to load them for use in the current session:
 
