@@ -49,7 +49,7 @@ Including `delete_dsn = TRUE` in the `st_write` function allows any previously s
 
 ### Geocode addresses
 
-Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocoder/) package to geocode the list of San Francisco addresses using the [ArcGIS geocoder](https://www.esri.com/en-us/arcgis/products/arcgis-platform/services/geocoding-search). The data is in the file `sf_addresses.tsv`, which contains a single column with the header `address`.
+Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocoder/) package to geocode the list of San Francisco addresses using the [ArcGIS geocoder](https://www.esri.com/en-us/arcgis/products/arcgis-platform/services/geocoding-search). The data are in the file `sf_addresses.tsv`, which contains a single column with the header `address`.
 
 ```{r}
 # load addresses data
