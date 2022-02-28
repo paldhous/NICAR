@@ -40,8 +40,9 @@ view(seismic)
 # save as kml
 st_write(seismic, "seismic.kml", delete_dsn = TRUE)
 
-# save as shapefile
+# create a directory to store the shapefile, since it is multiple files we'd like to group together
 dir.create("seismic")
+# save as shapefile in the new directory
 st_write(seismic, "seismic/seismic.shp", delete_dsn = TRUE)
 ```
 
