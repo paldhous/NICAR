@@ -83,7 +83,7 @@ view(sf_addresses)
 
 The function `st_as_sf` converts a regular data frame with latitude and longitude coordinates into an **sf** object. In this code `"long"` and `"lat"` are the names of the variables containing longitude and latitude coordinates. The **sf** object now has a `geometry` column containing the point coordinates.
 
-Notice also that the `st_as_sf` function includes `crs = st_crs(4326)`. This sets the projection, or coordinate reference system, for the geometry.
+Notice also that the `st_as_sf` function includes `crs = st_crs(4326)`. This sets the projection, or [coordinate reference system](https://en.wikipedia.org/wiki/Spatial_reference_system), for the geometry.
 
 Because the Earth is roughly spherical, any map other than a globe is a distortion of reality. Just as you can't peel an orange and arrange the skin as a perfect rectangle, circle, or ellipse, it is impossible to plot the Earth's surface in two dimensions and accurately represent distances, areas, shapes and directions. So maps rely on a projection or coordinate reference system to convert locations on a sphere to two-dimensional maps. Some projections are optimized to minimize the distortion of area; others aim to preserve shape or distance; yet others keep directions constant.
 
