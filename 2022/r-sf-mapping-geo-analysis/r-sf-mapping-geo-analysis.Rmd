@@ -73,7 +73,7 @@ We can now convert the geocoded data frame of San Francisco addresses to an **sf
 
 ```{r}
 # convert to sf object with equirectangular projection (EPSG:4326)
-sf_addresses <- sf_addresses %>%
+sf_addresses <- addresses %>%
   st_as_sf(coords = c("long","lat"),
            crs = st_crs("EPSG:4326"))
 
