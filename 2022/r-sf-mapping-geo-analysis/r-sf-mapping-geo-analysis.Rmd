@@ -8,7 +8,7 @@ The simple features or [**sf**](https://r-spatial.github.io/sf/) R package allow
 
 If you are working in the computers provided at the NICAR meeting, the packages listed in the code chunk below should already be installed. If you are working on your own computer, you will first need to install these packages. For **sf** to work correctly, you must also have the [Geospatial Data Abstraction Library](https://gdal.org/), or GDAL, installed on your computer. If you routinely work with [QGIS](https://www.qgis.org/en/site/), this should already be installed. If it is not, follow the instructions to install GDAL for your operating system given on the **sf** package [home page](https://r-spatial.github.io/sf/).
 
-Also if working on your own computer, click on the Materials link in the top navigation bar to download a zipped folder containing the data, notes, and code for this class, which is in the file `r-sf-mapping-geo-analysis.Rmd`. Open that file in RStudio, and switch to the [Visual Markdown Editing](https://rstudio.github.io/visual-markdown-editing/) view.
+Also if working on your own computer, click on the Materials link in the top navigation bar to download a zipped folder containing the data, notes, and code for this class, which is in the file `r-sf-mapping-geo-analysis.Rmd`. Open that file in RStudio, and switch to the [Visual Markdown Editing](https://rstudio.github.io/visual-markdown-editing/) view, by clicking the `Visual` button at top left above.
 
 With the required packages all installed, run the code below to load them for use in the current session:
 
@@ -45,24 +45,24 @@ dir.create("seismic")
 st_write(seismic, "seismic/seismic.shp", delete_dsn = TRUE)
 ```
 
-Including `delete_dsn = TRUE` in the `st_write` function allows any previously saved version to be overwritten, so exclude this from the code if you do not wish to allow this behavior. Shapefiles consist of multiple files, so the code above first creates a folder for those files, and then writes the files into that folder.
+Including `delete_dsn = TRUE` in the `st_write` function allows any previously saved version to be overwritten, so exclude this from the code if you do not wish to allow this behavior. Shapefiles consist of multiple files, so the code to save as a shapefile first creates a folder to hold those files, and then writes the files into that folder.
 
 ### Geocode addresses
 
-Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocoder/) package to geocode the list of San Francisco addresses using the [ArcGIS geocoder](https://www.esri.com/en-us/arcgis/products/arcgis-platform/services/geocoding-search). The data is in the file `sf_addresses.tsv`, which contains a single column with the header `address`.
+Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocoder/) package to geocode the list of San Francisco addresses using the [ArcGIS geocoder](https://www.esri.com/en-us/arcgis/products/arcgis-platform/services/geocoding-search). The data is in the file `addresses.tsv`, which contains a single column with the header `address`.
 
 ```{r}
 # load addresses data
-sf_addresses <- read_tsv("sf_test_addresses.tsv")
+addresses <- read_tsv("addresses.tsv")
 
 # geocode
-sf_addresses <- geocode(sf_addresses,
+addresses <- geocode(addresses,
                         address = address,
                         method = "arcgis",
                         full_results = TRUE)
 
 # look at the geocoded data
-view(sf_addresses)
+view(addresses)
 ```
 
 Including `full_results = TRUE` in this code provides some information about the estimated accuracy of the geocoding.
@@ -73,17 +73,17 @@ We can now convert the geocoded data frame of San Francisco addresses to an **sf
 
 ```{r}
 # convert to sf object with equirectangular projection (EPSG:4326)
-sf_addresses <- sf_addresses %>%
+addresses <- addresses %>%
   st_as_sf(coords = c("long","lat"),
            crs = st_crs("EPSG:4326"))
 
 # examine data
-view(sf_addresses)
+view(addresses)
 ```
 
 The function `st_as_sf` converts a regular data frame with latitude and longitude coordinates into an **sf** object. In this code `"long"` and `"lat"` are the names of the variables containing longitude and latitude coordinates. The **sf** object now has a `geometry` column containing the point coordinates.
 
-Notice also that the `st_as_sf` function includes `crs = st_crs(4326)`. This sets the projection, or [coordinate reference system](https://en.wikipedia.org/wiki/Spatial_reference_system), for the geometry.
+Notice also that the `st_as_sf` function includes `st_crs("EPSG:4326")`. This sets the projection, or coordinate reference system, for the geometry.
 
 Because the Earth is roughly spherical, any map other than a globe is a distortion of reality. Just as you can't peel an orange and arrange the skin as a perfect rectangle, circle, or ellipse, it is impossible to plot the Earth's surface in two dimensions and accurately represent distances, areas, shapes and directions. So maps rely on a projection or coordinate reference system to convert locations on a sphere to two-dimensional maps. Some projections are optimized to minimize the distortion of area; others aim to preserve shape or distance; yet others keep directions constant.
 
@@ -109,20 +109,20 @@ You can change the projection of an **sf** object with the function `st_transfor
 
 ```{r}
 # change projection to Web Mercator
-sf_addresses <- sf_addresses %>%
+addresses <- addresses %>%
   st_transform("EPSG:3857")
 
 # what is the projection?
-st_crs(sf_addresses)
+st_crs(addresses)
 ```
 
 ```{r}
 # change projection back to equirectangular
-sf_addresses <- sf_addresses %>%
+addresses <- addresses %>%
   st_transform("EPSG:4326")
 
 # what is the projection?
-st_crs(sf_addresses)
+st_crs(addresses)
 ```
 
 ### Make a map showing the annual risk of damaging quakes in the continental US
@@ -276,27 +276,27 @@ For working with distances, we will first convert to a projection that uses mete
 
 ```{r}
 # change projection to Web Mercator
-sf_addresses <- sf_addresses %>%
+addresses <- addresses %>%
   st_transform("EPSG:3857")
 
 # check units for that projection
-st_crs(sf_addresses)
+st_crs(addresses)
 ```
 
 Now we can create a buffer around each address using the **sf** function `st_buffer` and see the results by drawing a quick map with **ggplot2**. This operation would be useful for stories such as investigating the impact of exclusion zones for sex offenders around schools.
 
 ```{r}
 # create a buffer of half a mile (804.672 meters) around each address
-sf_addresses_buffer <- sf_addresses %>%
+addresses_buffer <- addresses %>%
   st_buffer(dist = 804.672)
 
 # look at data types
-glimpse(sf_addresses_buffer)
+glimpse(addresses_buffer)
 
 # draw a quick map
 ggplot() +
-  geom_sf(data = sf_addresses_buffer) +
-  geom_sf(data = sf_addresses)
+  geom_sf(data = addresses_buffer) +
+  geom_sf(data = addresses)
 ```
 
 Notice that the `geometry` column now contains the coordinates for polygons rather than points.
@@ -306,16 +306,16 @@ Notice that the `geometry` column now contains the coordinates for polygons rath
 You may wish to combine multiple polygons into one. This can be done for **sf** objects with the function `summarize` from the **dplyr** package.
 
 ```{r}
-sf_addresses_buffer <- sf_addresses_buffer %>%
+addresses_buffer <- addresses_buffer %>%
   summarize()
 
 # look at data types
-glimpse(sf_addresses_buffer)
+glimpse(addresses_buffer)
 
 # draw a quick map
 ggplot() +
-  geom_sf(data = sf_addresses_buffer) +
-  geom_sf(data = sf_addresses)
+  geom_sf(data = addresses_buffer) +
+  geom_sf(data = addresses)
 ```
 
 #### Calculate the proportion of the area of the continental US in each seismic risk category
