@@ -747,9 +747,9 @@ examples working with the data we used above.</p>
 <h4>Create buffers of half a mile around each San Francisco address</h4>
 <p>For working with distances, we will first convert to a projection
 that uses meters as its units of distance, rather than the degrees of
-latitude and longitude used by <code>EPSG:3426</code>. (For functions
+latitude and longitude used by <code>EPSG:4326</code>. (For functions
 that calculate distance and area, <strong>sf</strong> will work with the
-units of the projection; for <code>EPSG:3426</code> it should fall back
+units of the projection; for <code>EPSG:4326</code> it should fall back
 to meters and square meters as a default.)</p>
 <pre class="r"><code># change projection to Web Mercator
 addresses &lt;- addresses %&gt;%

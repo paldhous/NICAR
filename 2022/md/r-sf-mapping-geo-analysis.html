@@ -8,6 +8,52 @@
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
+<meta name="author" content="Peter Aldhous" />
+
+	<header class="navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<nav role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="index.html" class="navbar-brand">NICAR 2022</a>
+				</div> <!-- /.navbar-header -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Session notes<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="r-sf-mapping-geo-analysis.html">Mapping and geographic data analysis with the simple features package in R</a></li>
+							</ul>
+						</li>
+						<li>
+						<li>
+						<li><a href="r-sf-mapping-geo-analysis.zip">Materials</a></li>	
+						<li><a href="mailto:p.aldhous@gmail.com">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</nav>
+		</div> <!-- /.navbar-header -->
+	</header>
+
+<br>
+<br>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
 
 
 
@@ -701,9 +747,9 @@ examples working with the data we used above.</p>
 <h4>Create buffers of half a mile around each San Francisco address</h4>
 <p>For working with distances, we will first convert to a projection
 that uses meters as its units of distance, rather than the degrees of
-latitude and longitude used by <code>EPSG:3426</code>. (For functions
+latitude and longitude used by <code>EPSG:4326</code>. (For functions
 that calculate distance and area, <strong>sf</strong> will work with the
-units of the projection; for <code>EPSG:3426</code> it should fall back
+units of the projection; for <code>EPSG:4326</code> it should fall back
 to meters and square meters as a default.)</p>
 <pre class="r"><code># change projection to Web Mercator
 addresses &lt;- addresses %&gt;%

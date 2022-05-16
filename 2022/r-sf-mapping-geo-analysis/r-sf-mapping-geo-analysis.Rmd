@@ -272,7 +272,7 @@ To provide a taste of the possibilities, here are a couple of examples working w
 
 #### Create buffers of half a mile around each San Francisco address
 
-For working with distances, we will first convert to a projection that uses meters as its units of distance, rather than the degrees of latitude and longitude used by `EPSG:3426`. (For functions that calculate distance and area, **sf** will work with the units of the projection; for `EPSG:3426` it should fall back to meters and square meters as a default.)
+For working with distances, we will first convert to a projection that uses meters as its units of distance, rather than the degrees of latitude and longitude used by `EPSG:4326`. (For functions that calculate distance and area, **sf** will work with the units of the projection; for `EPSG:4326` it should fall back to meters and square meters as a default.)
 
 ```{r}
 # change projection to Web Mercator
