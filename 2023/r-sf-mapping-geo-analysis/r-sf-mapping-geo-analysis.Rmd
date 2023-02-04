@@ -1,0 +1,362 @@
+---
+
+---
+
+# Mapping and geographic data analysis with the simple features package in R
+
+### Introducing sf and simple features in R
+
+The simple features or [**sf**](https://r-spatial.github.io/sf/) R package allows geodata to be imported as objects with the type **sf**, which are essentially R data frames with the map geometry stored as coordinates in a variable called `geometry`. This allows you to work with geodata as you would with regular data frames or tibbles, using functions from the [**dplyr**](https://dplyr.tidyverse.org/) package and the rest of the [**tidyverse**](https://www.tidyverse.org/)**,** including the charting package [**ggplot2**](https://ggplot2.tidyverse.org/) for making maps.
+
+### Load the packages we will use today
+
+If you are working in the computers provided at the NICAR meeting, the packages listed in the code chunk below should already be installed. If you are working on your own computer, you will first need to install these packages. For **sf** to work correctly, you must also have the [Geospatial Data Abstraction Library](https://gdal.org/), or GDAL, installed on your computer. If you routinely work with [QGIS](https://www.qgis.org/en/site/), this should already be installed. If it is not, follow the instructions to install GDAL for your operating system given on the **sf** package [home page](https://r-spatial.github.io/sf/).
+
+Also if working on your own computer, click on the Materials link in the top navigation bar to download a zipped folder containing the data, notes, and code for this class, which is in the file `r-sf-mapping-geo-analysis.Rmd`. Open that file in RStudio, and switch to the [Visual Markdown Editing](https://rstudio.github.io/visual-markdown-editing/) view, by clicking the `Visual` button at top left above.
+
+With the required packages all installed, run the code below to load them for use in the current session:
+
+```{r}
+# load required packages
+library(sf)
+library(tidyverse)
+library(tidygeocoder)
+```
+
+### Import and examine geodata
+
+First we will import the file `seismic.geojson` using the function `st_read`. The data contains a single variable `ValueRange` giving ranges for the annual percentage chance of experiencing a damaging earthquake across the continental US, as calculated by the [US Geological Survey](https://www.usgs.gov/programs/earthquake-hazards/science/short-term-induced-seismicity-models), plus the `geometry` for a map. The coordinates define polygons, or two-dimensional shapes.
+
+```{r}
+# load geojson file
+seismic <- st_read("seismic.geojson")
+
+# examine the data
+glimpse(seismic)
+view(seismic)
+```
+
+### Convert between geodata formats
+
+**sf** objects can be exported to other common geodata formats using the `st_write` function, as shown in the following code chunk:
+
+```{r}
+# save as kml
+st_write(seismic, "seismic.kml", delete_dsn = TRUE)
+
+# save as shapefile
+dir.create("seismic")
+st_write(seismic, "seismic/seismic.shp", delete_dsn = TRUE)
+```
+
+Including `delete_dsn = TRUE` in the `st_write` function allows any previously saved version to be overwritten, so exclude this from the code if you do not wish to allow this behavior. Shapefiles consist of multiple files, so the code to save as a shapefile first creates a folder to hold those files, and then writes the files into that folder.
+
+### Geocode addresses
+
+Next we will use the [**tidygeocoder**](https://jessecambon.github.io/tidygeocoder/) package to geocode the list of San Francisco addresses using the [ArcGIS geocoder](https://www.esri.com/en-us/arcgis/products/arcgis-platform/services/geocoding-search). The data is in the file `addresses.tsv`, which contains a single column with the header `address`.
+
+```{r}
+# load addresses data
+addresses <- read_tsv("addresses.tsv")
+
+# geocode
+addresses <- geocode(addresses,
+                     address = address,
+                     method = "arcgis",
+                     full_results = TRUE)
+
+# look at the geocoded data
+view(addresses)
+```
+
+Including `full_results = TRUE` in this code provides some information about the estimated accuracy of the geocoding.
+
+### Convert a data frame with latitude and longitude coordinates into an sf object
+
+We can now convert the geocoded data frame of San Francisco addresses to an **sf** object with the following code:
+
+```{r}
+# convert to sf object with equirectangular projection (EPSG:4326)
+addresses <- addresses %>%
+  st_as_sf(coords = c("long","lat"),
+           crs = st_crs("EPSG:4326"))
+
+# examine data
+view(addresses)
+```
+
+The function `st_as_sf` converts a regular data frame with latitude and longitude coordinates into an **sf** object. In this code `"long"` and `"lat"` are the names of the variables containing longitude and latitude coordinates. The **sf** object now has a `geometry` column containing the point coordinates.
+
+Notice also that the `st_as_sf` function includes `st_crs("EPSG:4326")`. This sets the projection, or coordinate reference system, for the geometry.
+
+Because the Earth is roughly spherical, any map other than a globe is a distortion of reality. Just as you can't peel an orange and arrange the skin as a perfect rectangle, circle, or ellipse, it is impossible to plot the Earth's surface in two dimensions and accurately represent distances, areas, shapes and directions. So maps rely on a projection or coordinate reference system to convert locations on a sphere to two-dimensional maps. Some projections are optimized to minimize the distortion of area; others aim to preserve shape or distance; yet others keep directions constant.
+
+Projections have numeric codes, defined originally by the [European Petroleum Survey Group](http://wiki.gis.com/wiki/index.php/European_Petroleum_Survey_Group).
+
+Here are the codes for some common projections:
+
+-   **Equirectangular**: `EPSG:4326` Plots degrees of latitude against degrees of longitude. Used in the code above.
+
+-   **Web Mercator**: `EPSG:3857` Used for OpenStreetMap and other web maps. Mercator was originally designed for navigation and keeps direction/compass bearing constant.
+
+-   **Albers Equal Area Conic**, centered on continental US: `EPSG:5070` Keeps areas constant, widely used for maps of the entire US.
+
+-   **Mollweide**: `ESRI:54009` Equal area projection suitable for mapping the entire world.
+
+-   **Robinson**: `ESRI:54030` A "compromise" projection for showing the entire world, minimizes distortion across each of area, shape, distance, and compass bearing but represents none of them perfectly.
+
+[Search here](https://epsg.io/) for projection codes.
+
+### Change the projection of an sf object
+
+You can change the projection of an **sf** object with the function `st_transform` and check the projection of an **sf** object with the function `st_crs`:
+
+```{r}
+# change projection to Web Mercator
+addresses <- addresses %>%
+  st_transform("EPSG:3857")
+
+# what is the projection?
+st_crs(addresses)
+```
+
+```{r}
+# change projection back to equirectangular
+addresses <- addresses %>%
+  st_transform("EPSG:4326")
+
+# what is the projection?
+st_crs(addresses)
+```
+
+### Make a map showing the annual risk of damaging quakes in the continental US
+
+Before making a map from the `seismic` data, we will convert the `ValueRange` variable from text to a categorical variable, or **factor**, with the values arranged in increasing order of risk. This will ensure that the colors get applied to the values in the ascending order of risk.
+
+This is achieved with the following code:
+
+```{r}
+# convert to ordered factor/categorical variable
+seismic <- seismic %>%
+  mutate(ValueRange = factor(ValueRange,
+                             levels = c("< 1","1 - 2","2 - 5","5 - 10","10 - 14")))
+```
+
+Let's also check the projection of the data:
+
+```{r}
+# what is the projection of the seismic risk data?
+st_crs(seismic)
+```
+
+This reveals that the data is in `EPSG:4326`.
+
+The following code creates a map of the annual risk of experiencing a damaging quake with **ggplot2**:
+
+```{r}
+# make a map of the annual risk of experiencing a damaging quake in the continental US
+ggplot() +
+  geom_sf(data = seismic,
+          aes(fill = ValueRange), 
+          linewidth = 0,
+          color = NA) +
+  scale_fill_brewer(palette = "Reds",
+                    name = "% chance") +
+  coord_sf(crs = "EPSG:5070",
+           default_crs = "EPSG:4326") +
+  theme_void()
+```
+
+`geom_sf` will add a layer to a **ggplot2** map from an sf object, plotting points, lines, or polygons (i.e. two-dimensional shapes that can be filled with color) depending on the coordinates stored in the geometry variable.
+
+In the code above, the seismic risk data is added inside the `geom_sf` function and then the color to fill the polygons with is set to the values in `ValueRange` using an `aes` function. `linewidth = 0` sets the size of boundary lines between the different seismic risk zones to zero, so they do not appear; `color = NA` should be redundant, but ensures that any line has no color.
+
+The `scale_fill_brewer` function is then used to apply a [ColorBrewer](https://colorbrewer2.org/) palette to the data.
+
+`coord_sf` applies a custom projection to the map. `crs = "EPSG:5070"` applies an Albers Equal Area Conic projection, centered on the continental US; `default_crs = "EPSG:4326"` defines the pre-existing projection of the data, so that the conversion is handled correctly.
+
+`theme_void` is a **ggplot2** [theme](https://ggplot2.tidyverse.org/reference/ggtheme.html) that is good for maps because it omits grid lines, axes, and so on.
+
+### Add data on historical earthquakes to the map
+
+Now we will add data on earthquakes to the map. The code below loads GeoJSON returned from the US Geological Survey [earthquakes search](https://earthquake.usgs.gov/earthquakes/search/) API for quakes larger than magnitude 5.5 since the beginning of 1960 within 3,000 kilometers of the geographic center of the continental US:
+
+```{r}
+# load quakes data from USGS earthquakes API
+quakes <- st_read("https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=1960-01-01T00:00:00&minmagnitude=5.5&format=geojson&latitude=39.828175&longitude=-98.5795&maxradiuskm=3000&orderby=magnitude") 
+
+# examine the data
+view(quakes)
+```
+
+Looking at the data, the `geometry` column contains three coordinates. The first two give latitude and longitude in degrees. The third is depth of the quake in kilometers and may create a problem when we try to map the points. This can be solved by removing that dimension from the coordinates with the function `st_zm`.
+
+```{r}
+# remove the depth dimension from the coordinates
+quakes <- quakes %>%
+  st_zm()
+```
+
+We should also check the projection:
+
+```{r}
+# what is the projection of the quakes data?
+st_crs(quakes)
+```
+
+Again, the projection is `EPSG:4326`. Before making a map in **ggplot2** with multiple **sf** layers, make sure they are all in the same projection so that they can all be handled in the same way by the `coord_sf` function. I would recommend `EPSG:4326`.
+
+Now we can add the quakes to the map:
+
+```{r}
+# add the historical quakes to the map
+ggplot() +
+  geom_sf(data = seismic,
+          aes(fill = ValueRange), 
+          linewidth = 0,
+          color = NA) +
+  geom_sf(data = quakes,
+          alpha = 0.1,
+          aes(size = 10^mag)) +
+  scale_fill_brewer(palette = "Reds",
+                    name = "% chance" ) +
+  scale_size_area(max_size = 20, guide = "none") +
+  coord_sf(crs = "EPSG:5070",
+           default_crs = "EPSG:4326") +
+  theme_void()
+```
+
+The code above adds the quakes using another `geom_sf` layer, making them 90% transparent by setting their opacity with `alpha = 0.1`. The points are sized using an `aes` function according to the values of 10 raised to the power of `mag`, or the magnitude of each quake. Using this formula is a quirk of working with earthquakes, where magnitude is measured on a logarithmic scale, so that a difference of 1 corresponds to a 10-fold difference in earth movement, as recorded on a seismograph. Raising 10 to the power of the earthquake magnitude correctly scales the circles according to the amount of shaking they caused.
+
+When scaling circles on a map for most forms of data you would simply set `size` to correspond to the values of a variable in the data.
+
+The maximum size for the resulting circles is then set using the `scale_size_area` function; `guide = "none"` prevents a legend for size being drawn for the size of the circles. Using `scale_size_area` also ensures that the circles scale correctly by area right down to a value of zero; without this there will be a minimum size below which the points will not scale with the data values.
+
+### Add a basemap showing neighboring countries, and zoom into the continental US
+
+The map as it currently stands has no wider context for the positions of nearby quakes that occurred outside of the boundaries of the continental US, and is now zoomed out to the 3,000km-radius circle containing all of the quakes we pulled from the USGS API. So now we will add data for the world's nations and change the zoom of the map.
+
+The data used is from [Natural Earth](https://www.naturalearthdata.com/), a widely used repository of geodata, converted to a local GeoJSON file. It can also be accessed from R directly using the [**rnaturalearth**](https://cran.r-project.org/web/packages/rnaturalearth/vignettes/rnaturalearth.html) package.
+
+```{r}
+# load a world map of country boundaries
+countries <- st_read("countries.geojson")
+```
+
+Now we can add this layer to the map beneath the seismic risk and quakes layers with a third `geom_sf` function, setting the fill to a light gray defined by the hex code `#cccccc` and the country borders to white. Altering `size` for this `geom_sf` layer will change the thickness of the border lines.
+
+```{r}
+# add the countries layer and zoom into the continental US
+ggplot() +
+  geom_sf(data = countries,
+          fill = "#cccccc",
+          color = "white",
+          linewidth = 0.3) +
+  geom_sf(data = seismic,
+          aes(fill = ValueRange), 
+          linewidth = 0,
+          color = NA) +
+  geom_sf(data = quakes,
+          alpha = 0.1,
+          aes(size = 10^mag)) +
+  scale_fill_brewer(palette = "Reds",
+                    name = "% chance") +
+  scale_size_area(max_size = 20, guide = "none") +
+  coord_sf(crs = "EPSG:5070",
+           default_crs = "EPSG:4326",
+           xlim = c(-135,-65),
+           ylim = c(20,55)) +
+  theme_void()
+```
+
+Adding limits to the longitude coordinates with `xlim` and latitude coordinates with `ylim` to the `coord_sf` function zoomed the map further in.
+
+### Further geographic data processing and analysis
+
+The **sf** package includes many functions for working with geodata that allow you to calculate distances and areas, or to perform geometric operations such finding the intersections between two geometries, drawing a bounding box around features, and so on. [Here](https://r-spatial.github.io/sf/reference/index.html) is a full reference guide. (If you are used to working with [PostGIS](https://postgis.net/), many of these functions will seem familiar.)
+
+To provide a taste of the possibilities, here are a couple of examples working with the data we used above.
+
+#### Create buffers of half a mile around each San Francisco address
+
+For working with distances, we will first convert to a projection that uses meters as its units of distance, rather than the degrees of latitude and longitude used by `EPSG:4326`. (For functions that calculate distance and area, **sf** will work with the units of the projection; for `EPSG:4326` it should fall back to meters and square meters as a default.)
+
+```{r}
+# change projection to Web Mercator
+addresses <- addresses %>%
+  st_transform("EPSG:3857")
+
+# check units for that projection
+st_crs(addresses)
+```
+
+Now we can create a buffer around each address using the **sf** function `st_buffer` and see the results by drawing a quick map with **ggplot2**. This operation would be useful for stories such as investigating the impact of exclusion zones for sex offenders around schools.
+
+```{r}
+# create a buffer of half a mile (804.672 meters) around each address
+addresses_buffer <- addresses %>%
+  st_buffer(dist = 804.672)
+
+# look at data types
+glimpse(addresses_buffer)
+
+# draw a quick map
+ggplot() +
+  geom_sf(data = addresses_buffer) +
+  geom_sf(data = addresses)
+```
+
+Notice that the `geometry` column now contains the coordinates for polygons rather than points.
+
+#### Combine the buffer zones
+
+You may wish to combine multiple polygons into one. This can be done for **sf** objects with the function `summarize` from the **dplyr** package.
+
+```{r}
+addresses_buffer <- addresses_buffer %>%
+  summarize()
+
+# look at data types
+glimpse(addresses_buffer)
+
+# draw a quick map
+ggplot() +
+  geom_sf(data = addresses_buffer) +
+  geom_sf(data = addresses)
+```
+
+#### Calculate the proportion of the area of the continental US in each seismic risk category
+
+To do this, we will again first convert the projection of the `seismic` data to an Albers Equal Area projection, or `EPSG:5070`. Then we will combine the multiple polygons for each risk category into one polygon per category. This can be done using `summarize` after first grouping by `ValueRange` with the **dplyr** function `group_by`.
+
+```{r}
+# change projection to Albers Equal Area for continental US
+seismic <- seismic %>%
+  st_transform("EPSG:5070")
+
+# collapse the seismic data into one polygon per risk category
+seismic <- seismic %>%
+  group_by(ValueRange) %>%
+  summarize() 
+```
+
+Having prepared the data, we can now use the **sf** function `st_area` to calculate the area covered by each risk category. That creates a vector of numbers with the units `m^2`. We can then make a data frame, or tibble, with columns for `ValueRange` from the `seismic` data and the areas converted to simple numbers using the function `as.numeric`, and finally calculate the percentages in a **dplyr** `mutate` function.
+
+```{r}
+# calculate the area for each category in square meters
+areas <- st_area(seismic)
+view(areas)
+
+# create a data frame with risk categories and and calculate % area in each category
+pc_area_by_risk <- tibble(risk = seismic$ValueRange, area = as.numeric(areas)) %>%
+  mutate(percent = area/sum(area)*100)
+view(pc_area_by_risk)
+```
+
+### Next steps
+
+We have only scratched the surface of what you can do with **sf**. Read the full **sf** documentation, articles, and download the [cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/sf.pdf) to learn more.
+
+**sf** also works very well with the [**tidycensus**](https://walker-data.com/tidycensus/) package, which makes it easy to import data from key US Census Bureau APIs. See the vignette on [Spatial data in tidycensus](https://walker-data.com/tidycensus/articles/spatial-data.html) for more details. To use **tidycensus**, you will need to obtain a [Census API key](https://api.census.gov/data/key_signup.html).
+
+<br><br><br>
